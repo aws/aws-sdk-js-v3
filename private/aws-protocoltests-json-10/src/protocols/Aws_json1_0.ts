@@ -5,6 +5,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -16,7 +17,8 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -52,17 +54,14 @@ import {
   ComplexError,
   ComplexNestedErrorData,
   EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput,
   EndpointWithHostLabelOperationInput,
   FooError,
   GreetingStruct,
   GreetingWithErrorsInput,
-  GreetingWithErrorsOutput,
   InvalidGreeting,
   JsonUnionsInput,
   JsonUnionsOutput,
   MyUnion,
-  NoInputAndOutputOutput,
   SimpleScalarPropertiesInput,
   SimpleScalarPropertiesOutput,
 } from "../models/models_0";
@@ -76,7 +75,7 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EmptyInputAndEmptyOutput");
   let body: any;
-  body = JSON.stringify(se_EmptyInputAndEmptyOutputInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -108,7 +107,7 @@ export const se_EndpointWithHostLabelOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation");
   let body: any;
-  body = JSON.stringify(se_EndpointWithHostLabelOperationInput(input, context));
+  body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
@@ -132,7 +131,7 @@ export const se_GreetingWithErrorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GreetingWithErrors");
   let body: any;
-  body = JSON.stringify(se_GreetingWithErrorsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -210,12 +209,12 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_EmptyInputAndEmptyOutputOutput(data, context);
+  contents = _json(data);
   const response: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -231,10 +230,9 @@ const de_EmptyInputAndEmptyOutputCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -253,7 +251,7 @@ export const de_EndpointOperationCommand = async (
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -269,10 +267,9 @@ const de_EndpointOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -291,7 +288,7 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -307,10 +304,9 @@ const de_EndpointWithHostLabelOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -327,12 +323,12 @@ export const de_GreetingWithErrorsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_GreetingWithErrorsOutput(data, context);
+  contents = _json(data);
   const response: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -359,10 +355,9 @@ const de_GreetingWithErrorsCommandError = async (
       throw await de_InvalidGreetingRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -382,7 +377,7 @@ export const de_HostWithPathOperationCommand = async (
   const response: HostWithPathOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -398,10 +393,9 @@ const de_HostWithPathOperationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -423,7 +417,7 @@ export const de_JsonUnionsCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -439,10 +433,9 @@ const de_JsonUnionsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -461,7 +454,7 @@ export const de_NoInputAndNoOutputCommand = async (
   const response: NoInputAndNoOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -477,10 +470,9 @@ const de_NoInputAndNoOutputCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -497,12 +489,12 @@ export const de_NoInputAndOutputCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NoInputAndOutputOutput(data, context);
+  contents = _json(data);
   const response: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -518,10 +510,9 @@ const de_NoInputAndOutputCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -543,7 +534,7 @@ export const de_SimpleScalarPropertiesCommand = async (
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
 /**
@@ -559,10 +550,9 @@ const de_SimpleScalarPropertiesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
@@ -585,7 +575,7 @@ const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): P
  */
 const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<FooError> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_FooError(body, context);
+  const deserialized: any = _json(body);
   const exception = new FooError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -598,7 +588,7 @@ const de_FooErrorRes = async (parsedOutput: any, context: __SerdeContext): Promi
  */
 const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
   const body = parsedOutput.body;
-  const deserialized: any = de_InvalidGreeting(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -606,41 +596,19 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, body);
 };
 
-/**
- * serializeAws_json1_0EmptyInputAndEmptyOutputInput
- */
-const se_EmptyInputAndEmptyOutputInput = (input: EmptyInputAndEmptyOutputInput, context: __SerdeContext): any => {
-  return {};
-};
+// se_EmptyInputAndEmptyOutputInput omitted.
 
-/**
- * serializeAws_json1_0EndpointWithHostLabelOperationInput
- */
-const se_EndpointWithHostLabelOperationInput = (
-  input: EndpointWithHostLabelOperationInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.label != null && { label: input.label }),
-  };
-};
+// se_EndpointWithHostLabelOperationInput omitted.
 
-/**
- * serializeAws_json1_0GreetingWithErrorsInput
- */
-const se_GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.greeting != null && { greeting: input.greeting }),
-  };
-};
+// se_GreetingWithErrorsInput omitted.
 
 /**
  * serializeAws_json1_0JsonUnionsInput
  */
 const se_JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.contents != null && { contents: se_MyUnion(input.contents, context) }),
-  };
+  return take(input, {
+    contents: (_) => se_MyUnion(_, context),
+  });
 };
 
 /**
@@ -652,11 +620,11 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     booleanValue: (value) => ({ booleanValue: value }),
     enumValue: (value) => ({ enumValue: value }),
     intEnumValue: (value) => ({ intEnumValue: value }),
-    listValue: (value) => ({ listValue: se_StringList(value, context) }),
-    mapValue: (value) => ({ mapValue: se_StringMap(value, context) }),
+    listValue: (value) => ({ listValue: _json(value) }),
+    mapValue: (value) => ({ mapValue: _json(value) }),
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
-    structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
+    structureValue: (value) => ({ structureValue: _json(value) }),
     timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -666,103 +634,52 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
  * serializeAws_json1_0SimpleScalarPropertiesInput
  */
 const se_SimpleScalarPropertiesInput = (input: SimpleScalarPropertiesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-  };
+  return take(input, {
+    doubleValue: (_) => __serializeFloat(_),
+    floatValue: (_) => __serializeFloat(_),
+  });
 };
 
-/**
- * serializeAws_json1_0GreetingStruct
- */
-const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.hi != null && { hi: input.hi }),
-  };
-};
+// se_GreetingStruct omitted.
 
-/**
- * serializeAws_json1_0StringList
- */
-const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StringList omitted.
 
-/**
- * serializeAws_json1_0StringMap
- */
-const se_StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_StringMap omitted.
 
 /**
  * deserializeAws_json1_0ComplexError
  */
 const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  return {
-    Nested: output.Nested != null ? de_ComplexNestedErrorData(output.Nested, context) : undefined,
-    TopLevel: __expectString(output.TopLevel),
-  } as any;
+  return take(output, {
+    Nested: (_) => de_ComplexNestedErrorData(_, context),
+    TopLevel: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_json1_0ComplexNestedErrorData
  */
 const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  return {
-    Foo: __expectString(output.Foo),
-  } as any;
+  return take(output, {
+    Foo: [, __expectString, `Foo`],
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0EmptyInputAndEmptyOutputOutput
- */
-const de_EmptyInputAndEmptyOutputOutput = (output: any, context: __SerdeContext): EmptyInputAndEmptyOutputOutput => {
-  return {} as any;
-};
+// de_EmptyInputAndEmptyOutputOutput omitted.
 
-/**
- * deserializeAws_json1_0FooError
- */
-const de_FooError = (output: any, context: __SerdeContext): FooError => {
-  return {} as any;
-};
+// de_FooError omitted.
 
-/**
- * deserializeAws_json1_0GreetingWithErrorsOutput
- */
-const de_GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
-  return {
-    greeting: __expectString(output.greeting),
-  } as any;
-};
+// de_GreetingWithErrorsOutput omitted.
 
-/**
- * deserializeAws_json1_0InvalidGreeting
- */
-const de_InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
+// de_InvalidGreeting omitted.
 
 /**
  * deserializeAws_json1_0JsonUnionsOutput
  */
 const de_JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
-  return {
-    contents: output.contents != null ? de_MyUnion(__expectUnion(output.contents), context) : undefined,
-  } as any;
+  return take(output, {
+    contents: (_) => de_MyUnion(__expectUnion(_), context),
+  }) as any;
 };
 
 /**
@@ -785,12 +702,12 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   }
   if (output.listValue != null) {
     return {
-      listValue: de_StringList(output.listValue, context),
+      listValue: _json(output.listValue),
     };
   }
   if (output.mapValue != null) {
     return {
-      mapValue: de_StringMap(output.mapValue, context),
+      mapValue: _json(output.mapValue),
     };
   }
   if (__expectInt32(output.numberValue) !== undefined) {
@@ -801,7 +718,7 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   }
   if (output.structureValue != null) {
     return {
-      structureValue: de_GreetingStruct(output.structureValue, context),
+      structureValue: _json(output.structureValue),
     };
   }
   if (output.timestampValue != null) {
@@ -812,59 +729,23 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_json1_0NoInputAndOutputOutput
- */
-const de_NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
-  return {} as any;
-};
+// de_NoInputAndOutputOutput omitted.
 
 /**
  * deserializeAws_json1_0SimpleScalarPropertiesOutput
  */
 const de_SimpleScalarPropertiesOutput = (output: any, context: __SerdeContext): SimpleScalarPropertiesOutput => {
-  return {
-    doubleValue: __limitedParseDouble(output.doubleValue),
-    floatValue: __limitedParseFloat32(output.floatValue),
-  } as any;
+  return take(output, {
+    doubleValue: __limitedParseDouble,
+    floatValue: __limitedParseFloat32,
+  }) as any;
 };
 
-/**
- * deserializeAws_json1_0GreetingStruct
- */
-const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
-};
+// de_GreetingStruct omitted.
 
-/**
- * deserializeAws_json1_0StringList
- */
-const de_StringList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_StringList omitted.
 
-/**
- * deserializeAws_json1_0StringMap
- */
-const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
+// de_StringMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -886,6 +767,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,

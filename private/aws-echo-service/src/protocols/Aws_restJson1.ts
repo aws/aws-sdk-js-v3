@@ -10,9 +10,11 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  _json,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,9 +33,11 @@ export const se_EchoCommand = async (input: EchoCommandInput, context: __SerdeCo
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/echo";
   let body: any;
-  body = JSON.stringify({
-    ...(input.string != null && { string: input.string }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      string: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,9 +80,10 @@ export const de_EchoCommand = async (output: __HttpResponse, context: __SerdeCon
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -97,10 +102,9 @@ const de_EchoCommandError = async (output: __HttpResponse, context: __SerdeConte
       throw await de_PalindromeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
@@ -120,9 +124,10 @@ export const de_LengthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.length != null) {
-    contents.length = __expectInt32(data.length);
-  }
+  const doc = take(data, {
+    length: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -141,25 +146,25 @@ const de_LengthCommandError = async (output: __HttpResponse, context: __SerdeCon
       throw await de_PalindromeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
+const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1PalindromeExceptionRes
  */
 const de_PalindromeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<PalindromeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PalindromeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   dateToUtcString as __dateToUtcString,
   expectBoolean as __expectBoolean,
   expectByte as __expectByte,
@@ -15,7 +16,7 @@ import {
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
@@ -28,6 +29,7 @@ import {
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
+  take,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -673,12 +675,11 @@ export const deserializeDocumentTypeRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.documentValue != null) {
-    contents.documentValue = de_Document(data.documentValue, context);
-  }
-  if (data.stringValue != null) {
-    contents.stringValue = __expectString(data.stringValue);
-  }
+  const doc = take(data, {
+    documentValue: (_) => de_Document(_, context),
+    stringValue: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -786,9 +787,10 @@ export const deserializeEndpointWithHostLabelOperationRequest = async (
     contents.label = parsedHost.groups.label;
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.label != null) {
-    contents.label = __expectString(data.label);
-  }
+  const doc = take(data, {
+    label: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -889,9 +891,10 @@ export const deserializeHttpChecksumRequiredRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.foo != null) {
-    contents.foo = __expectString(data.foo);
-  }
+  const doc = take(data, {
+    foo: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1410,9 +1413,10 @@ export const deserializeJsonBlobsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.data != null) {
-    contents.data = context.base64Decoder(data.data);
-  }
+  const doc = take(data, {
+    data: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1438,24 +1442,15 @@ export const deserializeJsonEnumsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fooEnum1 != null) {
-    contents.fooEnum1 = __expectString(data.fooEnum1);
-  }
-  if (data.fooEnum2 != null) {
-    contents.fooEnum2 = __expectString(data.fooEnum2);
-  }
-  if (data.fooEnum3 != null) {
-    contents.fooEnum3 = __expectString(data.fooEnum3);
-  }
-  if (data.fooEnumList != null) {
-    contents.fooEnumList = de_FooEnumList(data.fooEnumList, context);
-  }
-  if (data.fooEnumMap != null) {
-    contents.fooEnumMap = de_FooEnumMap(data.fooEnumMap, context);
-  }
-  if (data.fooEnumSet != null) {
-    contents.fooEnumSet = de_FooEnumSet(data.fooEnumSet, context);
-  }
+  const doc = take(data, {
+    fooEnum1: __expectString,
+    fooEnum2: __expectString,
+    fooEnum3: __expectString,
+    fooEnumList: (_) => de_FooEnumList(_, context),
+    fooEnumMap: (_) => de_FooEnumMap(_, context),
+    fooEnumSet: (_) => de_FooEnumSet(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1481,24 +1476,15 @@ export const deserializeJsonIntEnumsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.integerEnum1 != null) {
-    contents.integerEnum1 = __expectInt32(data.integerEnum1);
-  }
-  if (data.integerEnum2 != null) {
-    contents.integerEnum2 = __expectInt32(data.integerEnum2);
-  }
-  if (data.integerEnum3 != null) {
-    contents.integerEnum3 = __expectInt32(data.integerEnum3);
-  }
-  if (data.integerEnumList != null) {
-    contents.integerEnumList = de_IntegerEnumList(data.integerEnumList, context);
-  }
-  if (data.integerEnumMap != null) {
-    contents.integerEnumMap = de_IntegerEnumMap(data.integerEnumMap, context);
-  }
-  if (data.integerEnumSet != null) {
-    contents.integerEnumSet = de_IntegerEnumSet(data.integerEnumSet, context);
-  }
+  const doc = take(data, {
+    integerEnum1: __expectInt32,
+    integerEnum2: __expectInt32,
+    integerEnum3: __expectInt32,
+    integerEnumList: (_) => de_IntegerEnumList(_, context),
+    integerEnumMap: (_) => de_IntegerEnumMap(_, context),
+    integerEnumSet: (_) => de_IntegerEnumSet(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1524,36 +1510,19 @@ export const deserializeJsonListsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanList != null) {
-    contents.booleanList = de_BooleanList(data.booleanList, context);
-  }
-  if (data.enumList != null) {
-    contents.enumList = de_FooEnumList(data.enumList, context);
-  }
-  if (data.intEnumList != null) {
-    contents.intEnumList = de_IntegerEnumList(data.intEnumList, context);
-  }
-  if (data.integerList != null) {
-    contents.integerList = de_IntegerList(data.integerList, context);
-  }
-  if (data.nestedStringList != null) {
-    contents.nestedStringList = de_NestedStringList(data.nestedStringList, context);
-  }
-  if (data.sparseStringList != null) {
-    contents.sparseStringList = de_SparseStringList(data.sparseStringList, context);
-  }
-  if (data.stringList != null) {
-    contents.stringList = de_StringList(data.stringList, context);
-  }
-  if (data.stringSet != null) {
-    contents.stringSet = de_StringSet(data.stringSet, context);
-  }
-  if (data.myStructureList != null) {
-    contents.structureList = de_StructureList(data.myStructureList, context);
-  }
-  if (data.timestampList != null) {
-    contents.timestampList = de_TimestampList(data.timestampList, context);
-  }
+  const doc = take(data, {
+    booleanList: (_) => de_BooleanList(_, context),
+    enumList: (_) => de_FooEnumList(_, context),
+    intEnumList: (_) => de_IntegerEnumList(_, context),
+    integerList: (_) => de_IntegerList(_, context),
+    nestedStringList: (_) => de_NestedStringList(_, context),
+    sparseStringList: (_) => de_SparseStringList(_, context),
+    stringList: (_) => de_StringList(_, context),
+    stringSet: (_) => de_StringSet(_, context),
+    structureList: [, (_) => de_StructureList(_, context), `myStructureList`],
+    timestampList: (_) => de_TimestampList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1579,36 +1548,19 @@ export const deserializeJsonMapsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.denseBooleanMap != null) {
-    contents.denseBooleanMap = de_DenseBooleanMap(data.denseBooleanMap, context);
-  }
-  if (data.denseNumberMap != null) {
-    contents.denseNumberMap = de_DenseNumberMap(data.denseNumberMap, context);
-  }
-  if (data.denseSetMap != null) {
-    contents.denseSetMap = de_DenseSetMap(data.denseSetMap, context);
-  }
-  if (data.denseStringMap != null) {
-    contents.denseStringMap = de_DenseStringMap(data.denseStringMap, context);
-  }
-  if (data.denseStructMap != null) {
-    contents.denseStructMap = de_DenseStructMap(data.denseStructMap, context);
-  }
-  if (data.sparseBooleanMap != null) {
-    contents.sparseBooleanMap = de_SparseBooleanMap(data.sparseBooleanMap, context);
-  }
-  if (data.sparseNumberMap != null) {
-    contents.sparseNumberMap = de_SparseNumberMap(data.sparseNumberMap, context);
-  }
-  if (data.sparseSetMap != null) {
-    contents.sparseSetMap = de_SparseSetMap(data.sparseSetMap, context);
-  }
-  if (data.sparseStringMap != null) {
-    contents.sparseStringMap = de_SparseStringMap(data.sparseStringMap, context);
-  }
-  if (data.sparseStructMap != null) {
-    contents.sparseStructMap = de_SparseStructMap(data.sparseStructMap, context);
-  }
+  const doc = take(data, {
+    denseBooleanMap: (_) => de_DenseBooleanMap(_, context),
+    denseNumberMap: (_) => de_DenseNumberMap(_, context),
+    denseSetMap: (_) => de_DenseSetMap(_, context),
+    denseStringMap: (_) => de_DenseStringMap(_, context),
+    denseStructMap: (_) => de_DenseStructMap(_, context),
+    sparseBooleanMap: (_) => de_SparseBooleanMap(_, context),
+    sparseNumberMap: (_) => de_SparseNumberMap(_, context),
+    sparseSetMap: (_) => de_SparseSetMap(_, context),
+    sparseStringMap: (_) => de_SparseStringMap(_, context),
+    sparseStructMap: (_) => de_SparseStructMap(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1634,27 +1586,16 @@ export const deserializeJsonTimestampsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dateTime != null) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
-  }
-  if (data.dateTimeOnTarget != null) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTime(data.dateTimeOnTarget));
-  }
-  if (data.epochSeconds != null) {
-    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
-  }
-  if (data.epochSecondsOnTarget != null) {
-    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSecondsOnTarget)));
-  }
-  if (data.httpDate != null) {
-    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data.httpDate));
-  }
-  if (data.httpDateOnTarget != null) {
-    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data.httpDateOnTarget));
-  }
-  if (data.normal != null) {
-    contents.normal = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.normal)));
-  }
+  const doc = take(data, {
+    dateTime: (_) => __expectNonNull(__parseRfc3339DateTime(_)),
+    dateTimeOnTarget: (_) => __expectNonNull(__parseRfc3339DateTime(_)),
+    epochSeconds: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    epochSecondsOnTarget: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    httpDate: (_) => __expectNonNull(__parseRfc7231DateTime(_)),
+    httpDateOnTarget: (_) => __expectNonNull(__parseRfc7231DateTime(_)),
+    normal: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1680,9 +1621,10 @@ export const deserializeJsonUnionsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contents != null) {
-    contents.contents = de_MyUnion(__expectUnion(data.contents), context);
-  }
+  const doc = take(data, {
+    contents: (_) => de_MyUnion(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1783,9 +1725,10 @@ export const deserializeMalformedBlobRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.blob != null) {
-    contents.blob = context.base64Decoder(data.blob);
-  }
+  const doc = take(data, {
+    blob: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1837,9 +1780,10 @@ export const deserializeMalformedBooleanRequest = async (
     contents.booleanInPath = __parseBoolean(decodeURIComponent(parsedPath.groups.booleanInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanInBody != null) {
-    contents.booleanInBody = __expectBoolean(data.booleanInBody);
-  }
+  const doc = take(data, {
+    booleanInBody: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1891,9 +1835,10 @@ export const deserializeMalformedByteRequest = async (
     contents.byteInPath = __strictParseByte(decodeURIComponent(parsedPath.groups.byteInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byteInBody != null) {
-    contents.byteInBody = __expectByte(data.byteInBody);
-  }
+  const doc = take(data, {
+    byteInBody: __expectByte,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1919,9 +1864,10 @@ export const deserializeMalformedContentTypeWithBodyRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.hi != null) {
-    contents.hi = __expectString(data.hi);
-  }
+  const doc = take(data, {
+    hi: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2050,9 +1996,10 @@ export const deserializeMalformedDoubleRequest = async (
     contents.doubleInPath = __strictParseDouble(decodeURIComponent(parsedPath.groups.doubleInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.doubleInBody != null) {
-    contents.doubleInBody = __limitedParseDouble(data.doubleInBody);
-  }
+  const doc = take(data, {
+    doubleInBody: __limitedParseDouble,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2104,9 +2051,10 @@ export const deserializeMalformedFloatRequest = async (
     contents.floatInPath = __strictParseFloat(decodeURIComponent(parsedPath.groups.floatInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.floatInBody != null) {
-    contents.floatInBody = __limitedParseFloat32(data.floatInBody);
-  }
+  const doc = take(data, {
+    floatInBody: __limitedParseFloat32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2158,9 +2106,10 @@ export const deserializeMalformedIntegerRequest = async (
     contents.integerInPath = __strictParseInt32(decodeURIComponent(parsedPath.groups.integerInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.integerInBody != null) {
-    contents.integerInBody = __expectInt32(data.integerInBody);
-  }
+  const doc = take(data, {
+    integerInBody: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2186,9 +2135,10 @@ export const deserializeMalformedListRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bodyList != null) {
-    contents.bodyList = de_SimpleList(data.bodyList, context);
-  }
+  const doc = take(data, {
+    bodyList: (_) => de_SimpleList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2240,9 +2190,10 @@ export const deserializeMalformedLongRequest = async (
     contents.longInPath = __strictParseLong(decodeURIComponent(parsedPath.groups.longInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.longInBody != null) {
-    contents.longInBody = __expectLong(data.longInBody);
-  }
+  const doc = take(data, {
+    longInBody: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2268,9 +2219,10 @@ export const deserializeMalformedMapRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bodyMap != null) {
-    contents.bodyMap = de_SimpleMap(data.bodyMap, context);
-  }
+  const doc = take(data, {
+    bodyMap: (_) => de_SimpleMap(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2296,12 +2248,11 @@ export const deserializeMalformedRequestBodyRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.float != null) {
-    contents.float = __limitedParseFloat32(data.float);
-  }
-  if (data.int != null) {
-    contents.int = __expectInt32(data.int);
-  }
+  const doc = take(data, {
+    float: __limitedParseFloat32,
+    int: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2353,9 +2304,10 @@ export const deserializeMalformedShortRequest = async (
     contents.shortInPath = __strictParseShort(decodeURIComponent(parsedPath.groups.shortInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.shortInBody != null) {
-    contents.shortInBody = __expectShort(data.shortInBody);
-  }
+  const doc = take(data, {
+    shortInBody: __expectShort,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2414,9 +2366,10 @@ export const deserializeMalformedTimestampBodyDateTimeRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseRfc3339DateTime(data.timestamp));
-  }
+  const doc = take(data, {
+    timestamp: (_) => __expectNonNull(__parseRfc3339DateTime(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2442,9 +2395,10 @@ export const deserializeMalformedTimestampBodyDefaultRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.timestamp)));
-  }
+  const doc = take(data, {
+    timestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2470,9 +2424,10 @@ export const deserializeMalformedTimestampBodyHttpDateRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseRfc7231DateTime(data.timestamp));
-  }
+  const doc = take(data, {
+    timestamp: (_) => __expectNonNull(__parseRfc7231DateTime(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2801,9 +2756,10 @@ export const deserializeMalformedUnionRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.union != null) {
-    contents.union = de_SimpleUnion(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    union: (_) => de_SimpleUnion(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3099,9 +3055,10 @@ export const deserializePostPlayerActionRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.action != null) {
-    contents.action = de_PlayerAction(__expectUnion(data.action), context);
-  }
+  const doc = take(data, {
+    action: (_) => de_PlayerAction(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3127,9 +3084,10 @@ export const deserializePostUnionWithJsonNameRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.value != null) {
-    contents.value = de_UnionWithJsonName(__expectUnion(data.value), context);
-  }
+  const doc = take(data, {
+    value: (_) => de_UnionWithJsonName(__expectUnion(_), context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3300,9 +3258,10 @@ export const deserializeRecursiveShapesRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nested != null) {
-    contents.nested = de_RecursiveShapesInputOutputNested1(data.nested, context);
-  }
+  const doc = take(data, {
+    nested: (_) => de_RecursiveShapesInputOutputNested1(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3330,33 +3289,18 @@ export const deserializeSimpleScalarPropertiesRequest = async (
     foo: [, output.headers["x-foo"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byteValue != null) {
-    contents.byteValue = __expectByte(data.byteValue);
-  }
-  if (data.DoubleDribble != null) {
-    contents.doubleValue = __limitedParseDouble(data.DoubleDribble);
-  }
-  if (data.falseBooleanValue != null) {
-    contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
-  }
-  if (data.floatValue != null) {
-    contents.floatValue = __limitedParseFloat32(data.floatValue);
-  }
-  if (data.integerValue != null) {
-    contents.integerValue = __expectInt32(data.integerValue);
-  }
-  if (data.longValue != null) {
-    contents.longValue = __expectLong(data.longValue);
-  }
-  if (data.shortValue != null) {
-    contents.shortValue = __expectShort(data.shortValue);
-  }
-  if (data.stringValue != null) {
-    contents.stringValue = __expectString(data.stringValue);
-  }
-  if (data.trueBooleanValue != null) {
-    contents.trueBooleanValue = __expectBoolean(data.trueBooleanValue);
-  }
+  const doc = take(data, {
+    byteValue: __expectByte,
+    doubleValue: [, __limitedParseDouble, `DoubleDribble`],
+    falseBooleanValue: __expectBoolean,
+    floatValue: __limitedParseFloat32,
+    integerValue: __expectInt32,
+    longValue: __expectLong,
+    shortValue: __expectShort,
+    stringValue: __expectString,
+    trueBooleanValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3443,9 +3387,10 @@ export const deserializeTestBodyStructureRequest = async (
     testId: [, output.headers["x-amz-test-id"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.testConfig != null) {
-    contents.testConfig = de_TestConfig(data.testConfig, context);
-  }
+  const doc = take(data, {
+    testConfig: (_) => de_TestConfig(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3715,9 +3660,11 @@ export const serializeDatetimeOffsetsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datetime: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -3754,10 +3701,12 @@ export const serializeDocumentTypeResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.documentValue != null && { documentValue: se_Document(input.documentValue, context) }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      documentValue: (_) => se_Document(_, context),
+      stringValue: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -3943,10 +3892,12 @@ export const serializeFractionalSecondsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
-    ...(input.httpdate != null && { httpdate: __dateToUtcString(input.httpdate) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datetime: (_) => _.toISOString().split(".")[0] + "Z",
+      httpdate: (_) => __dateToUtcString(_),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4055,9 +4006,11 @@ export const serializeHttpChecksumRequiredResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.foo != null && { foo: input.foo }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      foo: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4590,9 +4543,11 @@ export const serializeIgnoreQueryParamsInResponseResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.baz != null && { baz: input.baz }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      baz: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4714,9 +4669,11 @@ export const serializeJsonBlobsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      data: (_) => context.base64Encoder(_),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4753,14 +4710,16 @@ export const serializeJsonEnumsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.fooEnum1 != null && { fooEnum1: input.fooEnum1 }),
-    ...(input.fooEnum2 != null && { fooEnum2: input.fooEnum2 }),
-    ...(input.fooEnum3 != null && { fooEnum3: input.fooEnum3 }),
-    ...(input.fooEnumList != null && { fooEnumList: se_FooEnumList(input.fooEnumList, context) }),
-    ...(input.fooEnumMap != null && { fooEnumMap: se_FooEnumMap(input.fooEnumMap, context) }),
-    ...(input.fooEnumSet != null && { fooEnumSet: se_FooEnumSet(input.fooEnumSet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fooEnum1: [],
+      fooEnum2: [],
+      fooEnum3: [],
+      fooEnumList: (_) => se_FooEnumList(_, context),
+      fooEnumMap: (_) => se_FooEnumMap(_, context),
+      fooEnumSet: (_) => se_FooEnumSet(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4797,14 +4756,16 @@ export const serializeJsonIntEnumsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.integerEnum1 != null && { integerEnum1: input.integerEnum1 }),
-    ...(input.integerEnum2 != null && { integerEnum2: input.integerEnum2 }),
-    ...(input.integerEnum3 != null && { integerEnum3: input.integerEnum3 }),
-    ...(input.integerEnumList != null && { integerEnumList: se_IntegerEnumList(input.integerEnumList, context) }),
-    ...(input.integerEnumMap != null && { integerEnumMap: se_IntegerEnumMap(input.integerEnumMap, context) }),
-    ...(input.integerEnumSet != null && { integerEnumSet: se_IntegerEnumSet(input.integerEnumSet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      integerEnum1: [],
+      integerEnum2: [],
+      integerEnum3: [],
+      integerEnumList: (_) => se_IntegerEnumList(_, context),
+      integerEnumMap: (_) => se_IntegerEnumMap(_, context),
+      integerEnumSet: (_) => se_IntegerEnumSet(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4841,18 +4802,20 @@ export const serializeJsonListsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.booleanList != null && { booleanList: se_BooleanList(input.booleanList, context) }),
-    ...(input.enumList != null && { enumList: se_FooEnumList(input.enumList, context) }),
-    ...(input.intEnumList != null && { intEnumList: se_IntegerEnumList(input.intEnumList, context) }),
-    ...(input.integerList != null && { integerList: se_IntegerList(input.integerList, context) }),
-    ...(input.nestedStringList != null && { nestedStringList: se_NestedStringList(input.nestedStringList, context) }),
-    ...(input.sparseStringList != null && { sparseStringList: se_SparseStringList(input.sparseStringList, context) }),
-    ...(input.stringList != null && { stringList: se_StringList(input.stringList, context) }),
-    ...(input.stringSet != null && { stringSet: se_StringSet(input.stringSet, context) }),
-    ...(input.structureList != null && { myStructureList: se_StructureList(input.structureList, context) }),
-    ...(input.timestampList != null && { timestampList: se_TimestampList(input.timestampList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      booleanList: (_) => se_BooleanList(_, context),
+      enumList: (_) => se_FooEnumList(_, context),
+      intEnumList: (_) => se_IntegerEnumList(_, context),
+      integerList: (_) => se_IntegerList(_, context),
+      nestedStringList: (_) => se_NestedStringList(_, context),
+      sparseStringList: (_) => se_SparseStringList(_, context),
+      stringList: (_) => se_StringList(_, context),
+      stringSet: (_) => se_StringSet(_, context),
+      myStructureList: [, (_) => se_StructureList(_, context), `structureList`],
+      timestampList: (_) => se_TimestampList(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4889,18 +4852,20 @@ export const serializeJsonMapsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.denseBooleanMap != null && { denseBooleanMap: se_DenseBooleanMap(input.denseBooleanMap, context) }),
-    ...(input.denseNumberMap != null && { denseNumberMap: se_DenseNumberMap(input.denseNumberMap, context) }),
-    ...(input.denseSetMap != null && { denseSetMap: se_DenseSetMap(input.denseSetMap, context) }),
-    ...(input.denseStringMap != null && { denseStringMap: se_DenseStringMap(input.denseStringMap, context) }),
-    ...(input.denseStructMap != null && { denseStructMap: se_DenseStructMap(input.denseStructMap, context) }),
-    ...(input.sparseBooleanMap != null && { sparseBooleanMap: se_SparseBooleanMap(input.sparseBooleanMap, context) }),
-    ...(input.sparseNumberMap != null && { sparseNumberMap: se_SparseNumberMap(input.sparseNumberMap, context) }),
-    ...(input.sparseSetMap != null && { sparseSetMap: se_SparseSetMap(input.sparseSetMap, context) }),
-    ...(input.sparseStringMap != null && { sparseStringMap: se_SparseStringMap(input.sparseStringMap, context) }),
-    ...(input.sparseStructMap != null && { sparseStructMap: se_SparseStructMap(input.sparseStructMap, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      denseBooleanMap: (_) => se_DenseBooleanMap(_, context),
+      denseNumberMap: (_) => se_DenseNumberMap(_, context),
+      denseSetMap: (_) => se_DenseSetMap(_, context),
+      denseStringMap: (_) => se_DenseStringMap(_, context),
+      denseStructMap: (_) => se_DenseStructMap(_, context),
+      sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
+      sparseNumberMap: (_) => se_SparseNumberMap(_, context),
+      sparseSetMap: (_) => se_SparseSetMap(_, context),
+      sparseStringMap: (_) => se_SparseStringMap(_, context),
+      sparseStructMap: (_) => se_SparseStructMap(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4937,19 +4902,17 @@ export const serializeJsonTimestampsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.dateTimeOnTarget != null && {
-      dateTimeOnTarget: input.dateTimeOnTarget.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
-    ...(input.epochSecondsOnTarget != null && {
-      epochSecondsOnTarget: Math.round(input.epochSecondsOnTarget.getTime() / 1000),
-    }),
-    ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
-    ...(input.httpDateOnTarget != null && { httpDateOnTarget: __dateToUtcString(input.httpDateOnTarget) }),
-    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dateTime: (_) => _.toISOString().split(".")[0] + "Z",
+      dateTimeOnTarget: (_) => _.toISOString().split(".")[0] + "Z",
+      epochSeconds: (_) => Math.round(_.getTime() / 1000),
+      epochSecondsOnTarget: (_) => Math.round(_.getTime() / 1000),
+      httpDate: (_) => __dateToUtcString(_),
+      httpDateOnTarget: (_) => __dateToUtcString(_),
+      normal: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4986,9 +4949,11 @@ export const serializeJsonUnionsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.contents != null && { contents: se_MyUnion(input.contents, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contents: (_) => se_MyUnion(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -5025,9 +4990,11 @@ export const serializeMalformedAcceptWithBodyResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.hi != null && { hi: input.hi }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      hi: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6388,9 +6355,11 @@ export const serializePostPlayerActionResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.action != null && { action: se_PlayerAction(input.action, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: (_) => se_PlayerAction(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6427,9 +6396,11 @@ export const serializePostUnionWithJsonNameResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.value != null && { value: se_UnionWithJsonName(input.value, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      value: (_) => se_UnionWithJsonName(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6568,9 +6539,11 @@ export const serializeRecursiveShapesResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.nested != null && { nested: se_RecursiveShapesInputOutputNested1(input.nested, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nested: (_) => se_RecursiveShapesInputOutputNested1(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6608,17 +6581,19 @@ export const serializeSimpleScalarPropertiesResponse = async (
     "x-foo": input.foo!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.byteValue != null && { byteValue: input.byteValue }),
-    ...(input.doubleValue != null && { DoubleDribble: __serializeFloat(input.doubleValue) }),
-    ...(input.falseBooleanValue != null && { falseBooleanValue: input.falseBooleanValue }),
-    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-    ...(input.integerValue != null && { integerValue: input.integerValue }),
-    ...(input.longValue != null && { longValue: input.longValue }),
-    ...(input.shortValue != null && { shortValue: input.shortValue }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-    ...(input.trueBooleanValue != null && { trueBooleanValue: input.trueBooleanValue }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      byteValue: [],
+      DoubleDribble: [, (_) => __serializeFloat(_), `doubleValue`],
+      falseBooleanValue: [],
+      floatValue: (_) => __serializeFloat(_),
+      integerValue: [],
+      longValue: [],
+      shortValue: [],
+      stringValue: [],
+      trueBooleanValue: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6770,9 +6745,11 @@ export const serializeTestBodyStructureResponse = async (
     "x-amz-test-id": input.testId!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.testConfig != null && { testConfig: se_TestConfig(input.testConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      testConfig: (_) => se_TestConfig(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -7098,7 +7075,6 @@ export const serializeFrameworkException = async (
   }
 };
 
-const map = __map;
 export const serializeComplexErrorError = async (
   input: ComplexError,
   ctx: ServerSerdeContext
@@ -7119,10 +7095,12 @@ export const serializeComplexErrorError = async (
     "x-header": input.Header!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Nested != null && { Nested: se_ComplexNestedErrorData(input.Nested, context) }),
-    ...(input.TopLevel != null && { TopLevel: input.TopLevel }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Nested: (_) => se_ComplexNestedErrorData(_, context),
+      TopLevel: [],
+    })
+  );
   return new __HttpResponse({
     headers,
     body,
@@ -7173,9 +7151,11 @@ export const serializeInvalidGreetingError = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Message != null && { Message: input.Message }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Message: [],
+    })
+  );
   return new __HttpResponse({
     headers,
     body,
@@ -7187,9 +7167,9 @@ export const serializeInvalidGreetingError = async (
  * serializeAws_restJson1ComplexNestedErrorData
  */
 const se_ComplexNestedErrorData = (input: ComplexNestedErrorData, context: __SerdeContext): any => {
-  return {
-    ...(input.Foo != null && { Fooooo: input.Foo }),
-  };
+  return take(input, {
+    Fooooo: [, , `Foo`],
+  });
 };
 
 /**
@@ -7287,19 +7267,19 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
  * serializeAws_restJson1NestedPayload
  */
 const se_NestedPayload = (input: NestedPayload, context: __SerdeContext): any => {
-  return {
-    ...(input.greeting != null && { greeting: input.greeting }),
-    ...(input.name != null && { name: input.name }),
-  };
+  return take(input, {
+    greeting: [],
+    name: [],
+  });
 };
 
 /**
  * serializeAws_restJson1PayloadConfig
  */
 const se_PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.data != null && { data: input.data }),
-  };
+  return take(input, {
+    data: [],
+  });
 };
 
 /**
@@ -7319,10 +7299,10 @@ const se_RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.foo != null && { foo: input.foo }),
-    ...(input.nested != null && { nested: se_RecursiveShapesInputOutputNested2(input.nested, context) }),
-  };
+  return take(input, {
+    foo: [],
+    nested: (_) => se_RecursiveShapesInputOutputNested2(_, context),
+  });
 };
 
 /**
@@ -7332,12 +7312,10 @@ const se_RecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.bar != null && { bar: input.bar }),
-    ...(input.recursiveMember != null && {
-      recursiveMember: se_RecursiveShapesInputOutputNested1(input.recursiveMember, context),
-    }),
-  };
+  return take(input, {
+    bar: [],
+    recursiveMember: (_) => se_RecursiveShapesInputOutputNested1(_, context),
+  });
 };
 
 /**
@@ -7411,19 +7389,19 @@ const se_StructureList = (input: StructureListMember[], context: __SerdeContext)
  * serializeAws_restJson1StructureListMember
  */
 const se_StructureListMember = (input: StructureListMember, context: __SerdeContext): any => {
-  return {
-    ...(input.a != null && { value: input.a }),
-    ...(input.b != null && { other: input.b }),
-  };
+  return take(input, {
+    value: [, , `a`],
+    other: [, , `b`],
+  });
 };
 
 /**
  * serializeAws_restJson1TestConfig
  */
 const se_TestConfig = (input: TestConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.timeout != null && { timeout: input.timeout }),
-  };
+  return take(input, {
+    timeout: [],
+  });
 };
 
 /**
@@ -7442,31 +7420,23 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
  * serializeAws_restJson1RenamedGreeting
  */
 const se_RenamedGreeting = (input: RenamedGreeting, context: __SerdeContext): any => {
-  return {
-    ...(input.salutation != null && { salutation: input.salutation }),
-  };
+  return take(input, {
+    salutation: [],
+  });
 };
 
 /**
  * serializeAws_restJson1BooleanList
  */
 const se_BooleanList = (input: boolean[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1FooEnumList
  */
 const se_FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -7486,31 +7456,23 @@ const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __Serde
  * serializeAws_restJson1FooEnumSet
  */
 const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1GreetingStruct
  */
 const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.hi != null && { hi: input.hi }),
-  };
+  return take(input, {
+    hi: [],
+  });
 };
 
 /**
  * serializeAws_restJson1IntegerEnumList
  */
 const se_IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -7530,22 +7492,14 @@ const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context:
  * serializeAws_restJson1IntegerEnumSet
  */
 const se_IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1IntegerList
  */
 const se_IntegerList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -7563,12 +7517,7 @@ const se_NestedStringList = (input: string[][], context: __SerdeContext): any =>
  * serializeAws_restJson1SparseStringList
  */
 const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    if (entry === null) {
-      return null as any;
-    }
-    return entry;
-  });
+  return input;
 };
 
 /**
@@ -7589,11 +7538,7 @@ const se_SparseStringMap = (input: Record<string, string>, context: __SerdeConte
  * serializeAws_restJson1StringList
  */
 const se_StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -7613,11 +7558,7 @@ const se_StringMap = (input: Record<string, string>, context: __SerdeContext): a
  * serializeAws_restJson1StringSet
  */
 const se_StringSet = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -7635,7 +7576,7 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
  * serializeAws_restJson1Unit
  */
 const se_Unit = (input: Unit, context: __SerdeContext): any => {
-  return {};
+  return take(input, {});
 };
 
 /**
@@ -7763,19 +7704,19 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
  * deserializeAws_restJson1NestedPayload
  */
 const de_NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
-  return {
-    greeting: __expectString(output.greeting),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    greeting: __expectString,
+    name: __expectString,
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1PayloadConfig
  */
 const de_PayloadConfig = (output: any, context: __SerdeContext): PayloadConfig => {
-  return {
-    data: __expectInt32(output.data),
-  } as any;
+  return take(output, {
+    data: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -7797,10 +7738,10 @@ const de_RecursiveShapesInputOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
-  return {
-    foo: __expectString(output.foo),
-    nested: output.nested != null ? de_RecursiveShapesInputOutputNested2(output.nested, context) : undefined,
-  } as any;
+  return take(output, {
+    foo: __expectString,
+    nested: (_) => de_RecursiveShapesInputOutputNested2(_, context),
+  }) as any;
 };
 
 /**
@@ -7810,13 +7751,10 @@ const de_RecursiveShapesInputOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
-  return {
-    bar: __expectString(output.bar),
-    recursiveMember:
-      output.recursiveMember != null
-        ? de_RecursiveShapesInputOutputNested1(output.recursiveMember, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    bar: __expectString,
+    recursiveMember: (_) => de_RecursiveShapesInputOutputNested1(_, context),
+  }) as any;
 };
 
 /**
@@ -7935,19 +7873,19 @@ const de_StructureList = (output: any, context: __SerdeContext): StructureListMe
  * deserializeAws_restJson1StructureListMember
  */
 const de_StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  return {
-    a: __expectString(output.value),
-    b: __expectString(output.other),
-  } as any;
+  return take(output, {
+    a: [, __expectString, `value`],
+    b: [, __expectString, `other`],
+  }) as any;
 };
 
 /**
  * deserializeAws_restJson1TestConfig
  */
 const de_TestConfig = (output: any, context: __SerdeContext): TestConfig => {
-  return {
-    timeout: __expectInt32(output.timeout),
-  } as any;
+  return take(output, {
+    timeout: __expectInt32,
+  }) as any;
 };
 
 /**
@@ -7970,9 +7908,9 @@ const de_UnionWithJsonName = (output: any, context: __SerdeContext): UnionWithJs
  * deserializeAws_restJson1RenamedGreeting
  */
 const de_RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {
-  return {
-    salutation: __expectString(output.salutation),
-  } as any;
+  return take(output, {
+    salutation: __expectString,
+  }) as any;
 };
 
 /**
@@ -8037,9 +7975,9 @@ const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)
  * deserializeAws_restJson1GreetingStruct
  */
 const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
+  return take(output, {
+    hi: __expectString,
+  }) as any;
 };
 
 /**
@@ -8202,7 +8140,7 @@ const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
  * deserializeAws_restJson1Unit
  */
 const de_Unit = (output: any, context: __SerdeContext): Unit => {
-  return {} as any;
+  return take(output, {}) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
