@@ -6297,22 +6297,27 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-oracle-ee (for RDS Custom for Oracle instances)</code>
+   *                   <code>custom-oracle-ee (for RDS Custom for Oracle DB instances)</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-sqlserver-ee (for RDS Custom for SQL Server instances)</code>
+   *                   <code>custom-oracle-ee-cdb (for RDS Custom for Oracle DB instances)</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-sqlserver-se (for RDS Custom for SQL Server instances)</code>
+   *                   <code>custom-sqlserver-ee (for RDS Custom for SQL Server DB instances)</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-sqlserver-web (for RDS Custom for SQL Server instances)</code>
+   *                   <code>custom-sqlserver-se (for RDS Custom for SQL Server DB instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-web (for RDS Custom for SQL Server DB instances)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -8516,9 +8521,6 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Can only be specified if the source DB instance identifier specifies a DB instance in another Amazon Web Services Region.</p>
-   *             </li>
-   *             <li>
    *                <p>If supplied, must match the name of an existing DBSubnetGroup.</p>
    *             </li>
    *             <li>
@@ -10197,7 +10199,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  */
 export interface CreateGlobalClusterMessage {
   /**
-   * <p>The cluster identifier of the new global database cluster.</p>
+   * <p>The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.</p>
    */
   GlobalClusterIdentifier?: string;
 
@@ -10634,7 +10636,7 @@ export class CustomDBEngineVersionNotFoundFault extends __BaseException {
  */
 export interface DeleteCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine. The only supported engine is <code>custom-oracle-ee</code>.</p>
+   * <p>The database engine. The only supported engines are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</p>
    */
   Engine: string | undefined;
 
@@ -12267,6 +12269,12 @@ export interface DescribeDBClustersMessage {
    *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
    *               cluster Amazon Resource Names (ARNs). The results list only includes information about
    *               the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers.
+   *                     The results list will only include information about the DB clusters identified
+   *                     by these DB cluster resource identifiers.</p>
    *             </li>
    *             <li>
    *                <p>

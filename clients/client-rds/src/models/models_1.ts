@@ -3592,7 +3592,7 @@ export type CustomEngineVersionStatus = (typeof CustomEngineVersionStatus)[keyof
  */
 export interface ModifyCustomDBEngineVersionMessage {
   /**
-   * <p>The DB engine. The only supported value is <code>custom-oracle-ee</code>.</p>
+   * <p>The DB engine. The only supported values are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</p>
    */
   Engine: string | undefined;
 
@@ -3686,17 +3686,13 @@ export interface ModifyDBClusterMessage {
   NewDBClusterIdentifier?: string;
 
   /**
-   * <p>A value that indicates whether the modifications in this request and
-   *       any pending modifications are asynchronously applied
-   *       as soon as possible, regardless of the
-   *       <code>PreferredMaintenanceWindow</code> setting for the DB cluster.
-   *       If this parameter is disabled, changes to the
-   *       DB cluster are applied during the next maintenance window.</p>
-   *          <p>The <code>ApplyImmediately</code> parameter only affects the <code>EnableIAMDatabaseAuthentication</code>,
-   *       <code>MasterUserPassword</code>, and <code>NewDBClusterIdentifier</code> values. If the <code>ApplyImmediately</code>
-   *       parameter is disabled, then changes to the <code>EnableIAMDatabaseAuthentication</code>, <code>MasterUserPassword</code>,
-   *       and <code>NewDBClusterIdentifier</code> values are applied during the next maintenance window. All other changes are
-   *       applied immediately, regardless of the value of the <code>ApplyImmediately</code> parameter.</p>
+   * <p>A value that indicates whether the modifications in this request and any pending modifications are
+   *             asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code> setting
+   *             for the DB cluster. If this parameter is disabled, changes to the DB cluster are applied during the next
+   *             maintenance window.</p>
+   *          <p>Most modifications can be applied immediately or during the next scheduled maintenance window. Some
+   *             modifications, such as turning on deletion protection and changing the master password, are applied
+   *             immediately—regardless of when you choose to apply them.</p>
    *          <p>By default, this parameter is disabled.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -3854,7 +3850,7 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>The version number of the database engine to which you want to upgrade. Changing this
    *             parameter results in an outage. The change is applied during the next maintenance window
-   *             unless <code>ApplyImmediately</code> is enabled. </p>
+   *             unless <code>ApplyImmediately</code> is enabled.</p>
    *          <p>If the cluster that you're modifying has one or more read replicas, all replicas must
    *             be running an engine version that's the same or later than the version you
    *             specify.</p>
