@@ -49,6 +49,15 @@ export type ObjectMappingInstructions = Record<string, ObjectMappingInstruction>
 /**
  * @internal
  *
+ * A variant of the object mapping instruction for the `take` function.
+ * In this case, the source value is provided to the value function, turning it
+ * from a supplier into a mapper.
+ */
+export type SourceMappingInstructions = Record<string, ValueMapper | SourceMappingInstruction>;
+
+/**
+ * @internal
+ *
  * An instruction set for assigning a value to a target object.
  */
 export type ObjectMappingInstruction =
@@ -80,6 +89,10 @@ export type SimpleValueInstruction = [FilterStatus, Value];
  * @internal
  */
 export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
+/**
+ * @internal
+ */
+export type SourceMappingInstruction = [ValueFilteringFunction?, ValueMapper?, string?];
 
 /**
  * @internal
@@ -115,6 +128,14 @@ export type ValueSupplier = () => any;
 /**
  * @internal
  *
+ * A function that maps the source value to the target value.
+ * Defaults to pass-through with nullish check.
+ */
+export type ValueMapper = (value: any) => any;
+
+/**
+ * @internal
+ *
  * A non-function value.
  */
 export type Value = any;
@@ -139,11 +160,11 @@ export function map(
 /**
  * @internal
  */
-export function map(instructions: Record<string, ObjectMappingInstruction>): any;
+export function map(instructions: ObjectMappingInstructions): any;
 /**
  * @internal
  */
-export function map(target: any, instructions: Record<string, ObjectMappingInstruction>): typeof target;
+export function map(target: any, instructions: ObjectMappingInstructions): typeof target;
 /**
  * @internal
  */
@@ -171,30 +192,7 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
       target[key] = instructions[key]; // unchecked value.
       continue;
     }
-
-    // eslint-disable-next-line prefer-const
-    let [filter, value]: [((_?: any) => boolean) | unknown, any] = instructions[key];
-
-    if (typeof value === "function") {
-      let _value: any;
-      const defaultFilterPassed = filter === undefined && (_value = value()) != null;
-      const customFilterPassed =
-        (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
-
-      if (defaultFilterPassed) {
-        target[key] = _value;
-      } else if (customFilterPassed) {
-        target[key] = value();
-      }
-    } else {
-      const defaultFilterPassed = filter === undefined && value != null;
-      const customFilterPassed =
-        (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
-
-      if (defaultFilterPassed || customFilterPassed) {
-        target[key] = value;
-      }
-    }
+    applyInstruction(target, null, instructions, key);
   }
   return target;
 }
@@ -211,6 +209,20 @@ export const convertMap = (target: any): Record<string, any> => {
     output[k] = [, v];
   }
   return output;
+};
+
+/**
+ * @param source - original object with data.
+ * @param instructions - how to map the data.
+ * @returns new object mapped from the source object.
+ * @internal
+ */
+export const take = (source: any, instructions: SourceMappingInstructions): any => {
+  const out = {};
+  for (const key in instructions) {
+    applyInstruction(out, source, instructions, key);
+  }
+  return out;
 };
 
 /**
@@ -251,3 +263,61 @@ const mapWithFilter = (
     )
   );
 };
+
+/**
+ * @internal
+ *
+ * Applies a single instruction at the given key from source to target.
+ */
+const applyInstruction = (
+  target: any,
+  source: null | any,
+  instructions: ObjectMappingInstructions | Record<string, SourceMappingInstruction>,
+  targetKey: string
+): void => {
+  if (source !== null) {
+    let instruction = instructions[targetKey];
+    if (typeof instruction === "function") {
+      instruction = [, instruction];
+    }
+    const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
+    if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
+      target[targetKey] = valueFn(source[sourceKey]);
+    }
+    return;
+  }
+
+  // eslint-disable-next-line prefer-const
+  let [filter, value]: [((_?: any) => boolean) | unknown, any] = instructions[targetKey];
+
+  if (typeof value === "function") {
+    let _value: any;
+    const defaultFilterPassed = filter === undefined && (_value = value()) != null;
+    const customFilterPassed =
+      (typeof filter === "function" && !!filter(void 0)) || (typeof filter !== "function" && !!filter);
+
+    if (defaultFilterPassed) {
+      target[targetKey] = _value;
+    } else if (customFilterPassed) {
+      target[targetKey] = value();
+    }
+  } else {
+    const defaultFilterPassed = filter === undefined && value != null;
+    const customFilterPassed =
+      (typeof filter === "function" && !!filter(value)) || (typeof filter !== "function" && !!filter);
+
+    if (defaultFilterPassed || customFilterPassed) {
+      target[targetKey] = value;
+    }
+  }
+};
+
+/**
+ * internal
+ */
+const nonNullish = (_: any) => _ != null;
+
+/**
+ * internal
+ */
+const pass = (_: any) => _;
