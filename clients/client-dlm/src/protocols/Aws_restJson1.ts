@@ -5,12 +5,11 @@ import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -1472,13 +1471,9 @@ const de_FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRu
 const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
     DateCreated:
-      output.DateCreated != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
-        : undefined,
+      output.DateCreated != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DateCreated)) : undefined,
     DateModified:
-      output.DateModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
-        : undefined,
+      output.DateModified != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.DateModified)) : undefined,
     Description: __expectString(output.Description),
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     PolicyArn: __expectString(output.PolicyArn),
