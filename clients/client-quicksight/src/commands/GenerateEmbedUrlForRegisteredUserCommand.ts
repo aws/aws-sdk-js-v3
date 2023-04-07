@@ -17,7 +17,7 @@ import {
   GenerateEmbedUrlForRegisteredUserRequest,
   GenerateEmbedUrlForRegisteredUserResponse,
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_GenerateEmbedUrlForRegisteredUserCommand,
   se_GenerateEmbedUrlForRegisteredUserCommand,

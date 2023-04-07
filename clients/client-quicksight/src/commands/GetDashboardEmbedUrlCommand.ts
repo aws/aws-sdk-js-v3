@@ -13,8 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDashboardEmbedUrlRequest } from "../models/models_2";
-import { GetDashboardEmbedUrlResponse, GetDashboardEmbedUrlResponseFilterSensitiveLog } from "../models/models_3";
+import {
+  GetDashboardEmbedUrlRequest,
+  GetDashboardEmbedUrlResponse,
+  GetDashboardEmbedUrlResponseFilterSensitiveLog,
+} from "../models/models_3";
 import { de_GetDashboardEmbedUrlCommand, se_GetDashboardEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

@@ -18,7 +18,7 @@ import {
   GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForAnonymousUserResponse,
   GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_GenerateEmbedUrlForAnonymousUserCommand,
   se_GenerateEmbedUrlForAnonymousUserCommand,

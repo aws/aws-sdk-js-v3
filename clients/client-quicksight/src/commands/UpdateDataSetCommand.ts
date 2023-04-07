@@ -195,6 +195,11 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *         MatchAllValue: "STRING_VALUE",
  *       },
  *     ],
+ *     TagRuleConfigurations: [ // RowLevelPermissionTagRuleConfigurationList
+ *       [ // RowLevelPermissionTagRuleConfiguration
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
  *   },
  *   ColumnLevelPermissionRules: [ // ColumnLevelPermissionRuleList
  *     { // ColumnLevelPermissionRule

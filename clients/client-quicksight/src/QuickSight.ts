@@ -68,6 +68,11 @@ import {
   CreateNamespaceCommandOutput,
 } from "./commands/CreateNamespaceCommand";
 import {
+  CreateRefreshScheduleCommand,
+  CreateRefreshScheduleCommandInput,
+  CreateRefreshScheduleCommandOutput,
+} from "./commands/CreateRefreshScheduleCommand";
+import {
   CreateTemplateAliasCommand,
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
@@ -109,6 +114,11 @@ import {
   DeleteDataSetCommandOutput,
 } from "./commands/DeleteDataSetCommand";
 import {
+  DeleteDataSetRefreshPropertiesCommand,
+  DeleteDataSetRefreshPropertiesCommandInput,
+  DeleteDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DeleteDataSetRefreshPropertiesCommand";
+import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
@@ -139,6 +149,11 @@ import {
   DeleteNamespaceCommandInput,
   DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteRefreshScheduleCommand,
+  DeleteRefreshScheduleCommandInput,
+  DeleteRefreshScheduleCommandOutput,
+} from "./commands/DeleteRefreshScheduleCommand";
 import {
   DeleteTemplateAliasCommand,
   DeleteTemplateAliasCommandInput,
@@ -217,6 +232,11 @@ import {
   DescribeDataSetPermissionsCommandOutput,
 } from "./commands/DescribeDataSetPermissionsCommand";
 import {
+  DescribeDataSetRefreshPropertiesCommand,
+  DescribeDataSetRefreshPropertiesCommandInput,
+  DescribeDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DescribeDataSetRefreshPropertiesCommand";
+import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
   DescribeDataSourceCommandOutput,
@@ -271,6 +291,11 @@ import {
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
 } from "./commands/DescribeNamespaceCommand";
+import {
+  DescribeRefreshScheduleCommand,
+  DescribeRefreshScheduleCommandInput,
+  DescribeRefreshScheduleCommandOutput,
+} from "./commands/DescribeRefreshScheduleCommand";
 import {
   DescribeTemplateAliasCommand,
   DescribeTemplateAliasCommandInput,
@@ -389,6 +414,11 @@ import {
   ListNamespacesCommandOutput,
 } from "./commands/ListNamespacesCommand";
 import {
+  ListRefreshSchedulesCommand,
+  ListRefreshSchedulesCommandInput,
+  ListRefreshSchedulesCommandOutput,
+} from "./commands/ListRefreshSchedulesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -425,6 +455,11 @@ import {
   ListUserGroupsCommandOutput,
 } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  PutDataSetRefreshPropertiesCommand,
+  PutDataSetRefreshPropertiesCommandInput,
+  PutDataSetRefreshPropertiesCommandOutput,
+} from "./commands/PutDataSetRefreshPropertiesCommand";
 import {
   RegisterUserCommand,
   RegisterUserCommandInput,
@@ -552,6 +587,11 @@ import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
+import {
+  UpdateRefreshScheduleCommand,
+  UpdateRefreshScheduleCommandInput,
+  UpdateRefreshScheduleCommandOutput,
+} from "./commands/UpdateRefreshScheduleCommand";
 import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
@@ -1117,6 +1157,39 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * @public
+   * <p>Creates a refresh schedule for a dataset. You can create up to 5 different schedules for a single dataset.</p>
+   */
+  public createRefreshSchedule(
+    args: CreateRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRefreshScheduleCommandOutput>;
+  public createRefreshSchedule(
+    args: CreateRefreshScheduleCommandInput,
+    cb: (err: any, data?: CreateRefreshScheduleCommandOutput) => void
+  ): void;
+  public createRefreshSchedule(
+    args: CreateRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRefreshScheduleCommandOutput) => void
+  ): void;
+  public createRefreshSchedule(
+    args: CreateRefreshScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRefreshScheduleCommandOutput) => void),
+    cb?: (err: any, data?: CreateRefreshScheduleCommandOutput) => void
+  ): Promise<CreateRefreshScheduleCommandOutput> | void {
+    const command = new CreateRefreshScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
    * 			template to create additional dashboards, templates, or analyses.</p>
    *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
@@ -1430,6 +1503,39 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * @public
+   * <p>Deletes the dataset refresh properties of the dataset.</p>
+   */
+  public deleteDataSetRefreshProperties(
+    args: DeleteDataSetRefreshPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSetRefreshPropertiesCommandOutput>;
+  public deleteDataSetRefreshProperties(
+    args: DeleteDataSetRefreshPropertiesCommandInput,
+    cb: (err: any, data?: DeleteDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public deleteDataSetRefreshProperties(
+    args: DeleteDataSetRefreshPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public deleteDataSetRefreshProperties(
+    args: DeleteDataSetRefreshPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSetRefreshPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataSetRefreshPropertiesCommandOutput) => void
+  ): Promise<DeleteDataSetRefreshPropertiesCommandOutput> | void {
+    const command = new DeleteDataSetRefreshPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Deletes the data source permanently. This operation breaks
    * 			all the datasets that reference the deleted data source.</p>
    */
@@ -1643,6 +1749,39 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): Promise<DeleteNamespaceCommandOutput> | void {
     const command = new DeleteNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deletes a refresh schedule from a dataset.</p>
+   */
+  public deleteRefreshSchedule(
+    args: DeleteRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRefreshScheduleCommandOutput>;
+  public deleteRefreshSchedule(
+    args: DeleteRefreshScheduleCommandInput,
+    cb: (err: any, data?: DeleteRefreshScheduleCommandOutput) => void
+  ): void;
+  public deleteRefreshSchedule(
+    args: DeleteRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRefreshScheduleCommandOutput) => void
+  ): void;
+  public deleteRefreshSchedule(
+    args: DeleteRefreshScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRefreshScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRefreshScheduleCommandOutput) => void
+  ): Promise<DeleteRefreshScheduleCommandOutput> | void {
+    const command = new DeleteRefreshScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2283,6 +2422,39 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * @public
+   * <p>Describes the refresh properties of a dataset.</p>
+   */
+  public describeDataSetRefreshProperties(
+    args: DescribeDataSetRefreshPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSetRefreshPropertiesCommandOutput>;
+  public describeDataSetRefreshProperties(
+    args: DescribeDataSetRefreshPropertiesCommandInput,
+    cb: (err: any, data?: DescribeDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public describeDataSetRefreshProperties(
+    args: DescribeDataSetRefreshPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public describeDataSetRefreshProperties(
+    args: DescribeDataSetRefreshPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSetRefreshPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSetRefreshPropertiesCommandOutput) => void
+  ): Promise<DescribeDataSetRefreshPropertiesCommandOutput> | void {
+    const command = new DescribeDataSetRefreshPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Describes a data source.</p>
    */
   public describeDataSource(
@@ -2636,6 +2808,39 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeNamespaceCommandOutput) => void
   ): Promise<DescribeNamespaceCommandOutput> | void {
     const command = new DescribeNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Provides a summary of a refresh schedule.</p>
+   */
+  public describeRefreshSchedule(
+    args: DescribeRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRefreshScheduleCommandOutput>;
+  public describeRefreshSchedule(
+    args: DescribeRefreshScheduleCommandInput,
+    cb: (err: any, data?: DescribeRefreshScheduleCommandOutput) => void
+  ): void;
+  public describeRefreshSchedule(
+    args: DescribeRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRefreshScheduleCommandOutput) => void
+  ): void;
+  public describeRefreshSchedule(
+    args: DescribeRefreshScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRefreshScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRefreshScheduleCommandOutput) => void
+  ): Promise<DescribeRefreshScheduleCommandOutput> | void {
+    const command = new DescribeRefreshScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3546,6 +3751,39 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * @public
+   * <p>Lists the refresh schedules of a dataset. Each dataset can have up to 5 schedules. </p>
+   */
+  public listRefreshSchedules(
+    args: ListRefreshSchedulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRefreshSchedulesCommandOutput>;
+  public listRefreshSchedules(
+    args: ListRefreshSchedulesCommandInput,
+    cb: (err: any, data?: ListRefreshSchedulesCommandOutput) => void
+  ): void;
+  public listRefreshSchedules(
+    args: ListRefreshSchedulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRefreshSchedulesCommandOutput) => void
+  ): void;
+  public listRefreshSchedules(
+    args: ListRefreshSchedulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRefreshSchedulesCommandOutput) => void),
+    cb?: (err: any, data?: ListRefreshSchedulesCommandOutput) => void
+  ): Promise<ListRefreshSchedulesCommandOutput> | void {
+    const command = new ListRefreshSchedulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Lists the tags assigned to a resource.</p>
    */
   public listTagsForResource(
@@ -3819,6 +4057,39 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates or updates the dataset refresh properties for the dataset.</p>
+   */
+  public putDataSetRefreshProperties(
+    args: PutDataSetRefreshPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataSetRefreshPropertiesCommandOutput>;
+  public putDataSetRefreshProperties(
+    args: PutDataSetRefreshPropertiesCommandInput,
+    cb: (err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public putDataSetRefreshProperties(
+    args: PutDataSetRefreshPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+  public putDataSetRefreshProperties(
+    args: PutDataSetRefreshPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void
+  ): Promise<PutDataSetRefreshPropertiesCommandOutput> | void {
+    const command = new PutDataSetRefreshPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4740,6 +5011,39 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void
   ): Promise<UpdatePublicSharingSettingsCommandOutput> | void {
     const command = new UpdatePublicSharingSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates a refresh schedule for a dataset.</p>
+   */
+  public updateRefreshSchedule(
+    args: UpdateRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRefreshScheduleCommandOutput>;
+  public updateRefreshSchedule(
+    args: UpdateRefreshScheduleCommandInput,
+    cb: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
+  ): void;
+  public updateRefreshSchedule(
+    args: UpdateRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
+  ): void;
+  public updateRefreshSchedule(
+    args: UpdateRefreshScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRefreshScheduleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
+  ): Promise<UpdateRefreshScheduleCommandOutput> | void {
+    const command = new UpdateRefreshScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

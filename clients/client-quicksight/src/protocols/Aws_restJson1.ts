@@ -54,6 +54,10 @@ import {
 import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "../commands/CreateIngestionCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "../commands/CreateNamespaceCommand";
 import {
+  CreateRefreshScheduleCommandInput,
+  CreateRefreshScheduleCommandOutput,
+} from "../commands/CreateRefreshScheduleCommand";
+import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "../commands/CreateTemplateAliasCommand";
@@ -71,6 +75,10 @@ import {
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
+import {
+  DeleteDataSetRefreshPropertiesCommandInput,
+  DeleteDataSetRefreshPropertiesCommandOutput,
+} from "../commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "../commands/DeleteFolderCommand";
 import {
@@ -87,6 +95,10 @@ import {
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "../commands/DeleteIAMPolicyAssignmentCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../commands/DeleteNamespaceCommand";
+import {
+  DeleteRefreshScheduleCommandInput,
+  DeleteRefreshScheduleCommandOutput,
+} from "../commands/DeleteRefreshScheduleCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -134,6 +146,10 @@ import {
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput,
 } from "../commands/DescribeDataSetPermissionsCommand";
+import {
+  DescribeDataSetRefreshPropertiesCommandInput,
+  DescribeDataSetRefreshPropertiesCommandOutput,
+} from "../commands/DescribeDataSetRefreshPropertiesCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommandInput,
@@ -163,6 +179,10 @@ import {
   DescribeIpRestrictionCommandOutput,
 } from "../commands/DescribeIpRestrictionCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "../commands/DescribeNamespaceCommand";
+import {
+  DescribeRefreshScheduleCommandInput,
+  DescribeRefreshScheduleCommandOutput,
+} from "../commands/DescribeRefreshScheduleCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -222,6 +242,10 @@ import {
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "../commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "../commands/ListNamespacesCommand";
 import {
+  ListRefreshSchedulesCommandInput,
+  ListRefreshSchedulesCommandOutput,
+} from "../commands/ListRefreshSchedulesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -239,6 +263,10 @@ import { ListThemesCommandInput, ListThemesCommandOutput } from "../commands/Lis
 import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "../commands/ListThemeVersionsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "../commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import {
+  PutDataSetRefreshPropertiesCommandInput,
+  PutDataSetRefreshPropertiesCommandOutput,
+} from "../commands/PutDataSetRefreshPropertiesCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands/RegisterUserCommand";
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
@@ -299,6 +327,10 @@ import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "../commands/UpdatePublicSharingSettingsCommand";
+import {
+  UpdateRefreshScheduleCommandInput,
+  UpdateRefreshScheduleCommandOutput,
+} from "../commands/UpdateRefreshScheduleCommand";
 import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -826,6 +858,7 @@ import {
   DataPointTooltipOption,
   DataSet,
   DataSetConfiguration,
+  DataSetRefreshProperties,
   DataSetSchema,
   DataSetSearchFilter,
   DataSetSummary,
@@ -848,13 +881,12 @@ import {
   FilterOperation,
   Folder,
   FolderMember,
-  FolderSearchFilter,
-  FolderSummary,
   Font,
   Group,
   GroupMember,
   GutterStyle,
   IAMPolicyAssignment,
+  IncrementalRefresh,
   Ingestion,
   InputColumn,
   IntegerParameter,
@@ -866,10 +898,10 @@ import {
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
+  LookbackWindow,
   ManifestFileLocation,
   MarginStyle,
   MariaDbParameters,
-  MemberIdArnPair,
   MySqlParameters,
   NamespaceError,
   NamespaceInfoV2,
@@ -881,16 +913,11 @@ import {
   PrestoParameters,
   ProjectOperation,
   QueueInfo,
-  QuickSightUserNotFoundException,
   RdsParameters,
   RedshiftParameters,
-  RegisteredUserConsoleFeatureConfigurations,
-  RegisteredUserDashboardEmbeddingConfiguration,
-  RegisteredUserDashboardFeatureConfigurations,
-  RegisteredUserDashboardVisualEmbeddingConfiguration,
-  RegisteredUserEmbeddingExperienceConfiguration,
-  RegisteredUserQSearchBarEmbeddingConfiguration,
-  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  RefreshConfiguration,
+  RefreshFrequency,
+  RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
   ResourcePermission,
@@ -900,9 +927,8 @@ import {
   RowLevelPermissionTagRule,
   S3Parameters,
   S3Source,
+  ScheduleRefreshOnEntity,
   ServiceNowParameters,
-  SessionLifetimeInMinutesInvalidException,
-  SessionTag,
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
   SheetStyle,
@@ -910,7 +936,6 @@ import {
   SparkParameters,
   SqlServerParameters,
   SslProperties,
-  StatePersistenceConfigurations,
   StringParameter,
   TagColumnOperation,
   Template,
@@ -933,7 +958,6 @@ import {
   TwitterParameters,
   Typography,
   UIColorPalette,
-  UnsupportedPricingPlanException,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
@@ -943,14 +967,29 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  FolderSearchFilter,
+  FolderSummary,
   GroupSearchFilter,
   IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
   InvalidRequestException,
+  MemberIdArnPair,
+  QuickSightUserNotFoundException,
+  RegisteredUserConsoleFeatureConfigurations,
+  RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserDashboardFeatureConfigurations,
+  RegisteredUserDashboardVisualEmbeddingConfiguration,
+  RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserQSearchBarEmbeddingConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  SessionLifetimeInMinutesInvalidException,
+  SessionTag,
+  StatePersistenceConfigurations,
   TemplateSummary,
   TemplateVersionSummary,
   ThemeSummary,
   ThemeVersionSummary,
+  UnsupportedPricingPlanException,
 } from "../models/models_3";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
@@ -1547,6 +1586,44 @@ export const se_CreateNamespaceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateRefreshScheduleCommand
+ */
+export const se_CreateRefreshScheduleCommand = async (
+  input: CreateRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Schedule != null && { Schedule: se_RefreshSchedule(input.Schedule, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateTemplateCommand
  */
 export const se_CreateTemplateCommand = async (
@@ -1889,6 +1966,39 @@ export const se_DeleteDataSetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteDataSetRefreshPropertiesCommand
+ */
+export const se_DeleteDataSetRefreshPropertiesCommand = async (
+  input: DeleteDataSetRefreshPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteDataSourceCommand
  */
 export const se_DeleteDataSourceCommand = async (
@@ -2127,6 +2237,40 @@ export const se_DeleteNamespaceCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRefreshScheduleCommand
+ */
+export const se_DeleteRefreshScheduleCommand = async (
+  input: DeleteRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2720,6 +2864,39 @@ export const se_DescribeDataSetPermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeDataSetRefreshPropertiesCommand
+ */
+export const se_DescribeDataSetRefreshPropertiesCommand = async (
+  input: DescribeDataSetRefreshPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeDataSourceCommand
  */
 export const se_DescribeDataSourceCommand = async (
@@ -3094,6 +3271,40 @@ export const se_DescribeNamespaceCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeRefreshScheduleCommand
+ */
+export const se_DescribeRefreshScheduleCommand = async (
+  input: DescribeRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -4062,6 +4273,39 @@ export const se_ListNamespacesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRefreshSchedulesCommand
+ */
+export const se_ListRefreshSchedulesCommand = async (
+  input: ListRefreshSchedulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -4383,6 +4627,46 @@ export const se_ListUsersCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutDataSetRefreshPropertiesCommand
+ */
+export const se_PutDataSetRefreshPropertiesCommand = async (
+  input: PutDataSetRefreshPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DataSetRefreshProperties != null && {
+      DataSetRefreshProperties: se_DataSetRefreshProperties(input.DataSetRefreshProperties, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5505,6 +5789,44 @@ export const se_UpdatePublicSharingSettingsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.PublicSharingEnabled != null && { PublicSharingEnabled: input.PublicSharingEnabled }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRefreshScheduleCommand
+ */
+export const se_UpdateRefreshScheduleCommand = async (
+  input: UpdateRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Schedule != null && { Schedule: se_RefreshSchedule(input.Schedule, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -6926,6 +7248,83 @@ const de_CreateNamespaceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateRefreshScheduleCommand
+ */
+export const de_CreateRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ScheduleId != null) {
+    contents.ScheduleId = __expectString(data.ScheduleId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRefreshScheduleCommandError
+ */
+const de_CreateRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateTemplateCommand
  */
 export const de_CreateTemplateCommand = async (
@@ -7589,6 +7988,74 @@ const de_DeleteDataSetCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDataSetRefreshPropertiesCommand
+ */
+export const de_DeleteDataSetRefreshPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSetRefreshPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteDataSetRefreshPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDataSetRefreshPropertiesCommandError
+ */
+const de_DeleteDataSetRefreshPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSetRefreshPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -8059,6 +8526,77 @@ const de_DeleteNamespaceCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.quicksight#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteRefreshScheduleCommand
+ */
+export const de_DeleteRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ScheduleId != null) {
+    contents.ScheduleId = __expectString(data.ScheduleId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRefreshScheduleCommandError
+ */
+const de_DeleteRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -9314,6 +9852,77 @@ const de_DescribeDataSetPermissionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeDataSetRefreshPropertiesCommand
+ */
+export const de_DescribeDataSetRefreshPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSetRefreshPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDataSetRefreshPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DataSetRefreshProperties != null) {
+    contents.DataSetRefreshProperties = de_DataSetRefreshProperties(data.DataSetRefreshProperties, context);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDataSetRefreshPropertiesCommandError
+ */
+const de_DescribeDataSetRefreshPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSetRefreshPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeDataSourceCommand
  */
 export const de_DescribeDataSourceCommand = async (
@@ -10068,6 +10677,77 @@ const de_DescribeNamespaceCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.quicksight#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeRefreshScheduleCommand
+ */
+export const de_DescribeRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.RefreshSchedule != null) {
+    contents.RefreshSchedule = de_RefreshSchedule(data.RefreshSchedule, context);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeRefreshScheduleCommandError
+ */
+const de_DescribeRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -11918,6 +12598,74 @@ const de_ListNamespacesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRefreshSchedulesCommand
+ */
+export const de_ListRefreshSchedulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRefreshSchedulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRefreshSchedulesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RefreshSchedules != null) {
+    contents.RefreshSchedules = de_RefreshSchedules(data.RefreshSchedules, context);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRefreshSchedulesCommandError
+ */
+const de_ListRefreshSchedulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRefreshSchedulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -12551,6 +13299,77 @@ const de_ListUsersCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.quicksight#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutDataSetRefreshPropertiesCommand
+ */
+export const de_PutDataSetRefreshPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataSetRefreshPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutDataSetRefreshPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutDataSetRefreshPropertiesCommandError
+ */
+const de_PutDataSetRefreshPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataSetRefreshPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -14540,6 +15359,80 @@ const de_UpdatePublicSharingSettingsCommandError = async (
     case "UnsupportedPricingPlanException":
     case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
       throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateRefreshScheduleCommand
+ */
+export const de_UpdateRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn != null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (data.ScheduleId != null) {
+    contents.ScheduleId = __expectString(data.ScheduleId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRefreshScheduleCommandError
+ */
+const de_UpdateRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -17625,6 +18518,17 @@ const se_DataSetReferenceList = (input: DataSetReference[], context: __SerdeCont
 };
 
 /**
+ * serializeAws_restJson1DataSetRefreshProperties
+ */
+const se_DataSetRefreshProperties = (input: DataSetRefreshProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.RefreshConfiguration != null && {
+      RefreshConfiguration: se_RefreshConfiguration(input.RefreshConfiguration, context),
+    }),
+  };
+};
+
+/**
  * serializeAws_restJson1DataSetSchema
  */
 const se_DataSetSchema = (input: DataSetSchema, context: __SerdeContext): any => {
@@ -19819,6 +20723,15 @@ const se_IdentityNameList = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1IncrementalRefresh
+ */
+const se_IncrementalRefresh = (input: IncrementalRefresh, context: __SerdeContext): any => {
+  return {
+    ...(input.LookbackWindow != null && { LookbackWindow: se_LookbackWindow(input.LookbackWindow, context) }),
+  };
+};
+
+/**
  * serializeAws_restJson1InputColumn
  */
 const se_InputColumn = (input: InputColumn, context: __SerdeContext): any => {
@@ -20464,6 +21377,17 @@ const se_LongFormatText = (input: LongFormatText, context: __SerdeContext): any 
   return {
     ...(input.PlainText != null && { PlainText: input.PlainText }),
     ...(input.RichText != null && { RichText: input.RichText }),
+  };
+};
+
+/**
+ * serializeAws_restJson1LookbackWindow
+ */
+const se_LookbackWindow = (input: LookbackWindow, context: __SerdeContext): any => {
+  return {
+    ...(input.ColumnName != null && { ColumnName: input.ColumnName }),
+    ...(input.Size != null && { Size: input.Size }),
+    ...(input.SizeUnit != null && { SizeUnit: input.SizeUnit }),
   };
 };
 
@@ -21967,6 +22891,46 @@ const se_ReferenceLineValueLabelConfiguration = (
 };
 
 /**
+ * serializeAws_restJson1RefreshConfiguration
+ */
+const se_RefreshConfiguration = (input: RefreshConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.IncrementalRefresh != null && {
+      IncrementalRefresh: se_IncrementalRefresh(input.IncrementalRefresh, context),
+    }),
+  };
+};
+
+/**
+ * serializeAws_restJson1RefreshFrequency
+ */
+const se_RefreshFrequency = (input: RefreshFrequency, context: __SerdeContext): any => {
+  return {
+    ...(input.Interval != null && { Interval: input.Interval }),
+    ...(input.RefreshOnDay != null && { RefreshOnDay: se_ScheduleRefreshOnEntity(input.RefreshOnDay, context) }),
+    ...(input.TimeOfTheDay != null && { TimeOfTheDay: input.TimeOfTheDay }),
+    ...(input.Timezone != null && { Timezone: input.Timezone }),
+  };
+};
+
+/**
+ * serializeAws_restJson1RefreshSchedule
+ */
+const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): any => {
+  return {
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.RefreshType != null && { RefreshType: input.RefreshType }),
+    ...(input.ScheduleFrequency != null && {
+      ScheduleFrequency: se_RefreshFrequency(input.ScheduleFrequency, context),
+    }),
+    ...(input.ScheduleId != null && { ScheduleId: input.ScheduleId }),
+    ...(input.StartAfterDateTime != null && {
+      StartAfterDateTime: Math.round(input.StartAfterDateTime.getTime() / 1000),
+    }),
+  };
+};
+
+/**
  * serializeAws_restJson1RegisteredUserConsoleFeatureConfigurations
  */
 const se_RegisteredUserConsoleFeatureConfigurations = (
@@ -22207,6 +23171,9 @@ const se_RowLevelPermissionTagConfiguration = (
 ): any => {
   return {
     ...(input.Status != null && { Status: input.Status }),
+    ...(input.TagRuleConfigurations != null && {
+      TagRuleConfigurations: se_RowLevelPermissionTagRuleConfigurationList(input.TagRuleConfigurations, context),
+    }),
     ...(input.TagRules != null && { TagRules: se_RowLevelPermissionTagRuleList(input.TagRules, context) }),
   };
 };
@@ -22221,6 +23188,28 @@ const se_RowLevelPermissionTagRule = (input: RowLevelPermissionTagRule, context:
     ...(input.TagKey != null && { TagKey: input.TagKey }),
     ...(input.TagMultiValueDelimiter != null && { TagMultiValueDelimiter: input.TagMultiValueDelimiter }),
   };
+};
+
+/**
+ * serializeAws_restJson1RowLevelPermissionTagRuleConfiguration
+ */
+const se_RowLevelPermissionTagRuleConfiguration = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+/**
+ * serializeAws_restJson1RowLevelPermissionTagRuleConfigurationList
+ */
+const se_RowLevelPermissionTagRuleConfigurationList = (input: string[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RowLevelPermissionTagRuleConfiguration(entry, context);
+    });
 };
 
 /**
@@ -22441,6 +23430,16 @@ const se_ScatterPlotVisual = (input: ScatterPlotVisual, context: __SerdeContext)
     ...(input.Subtitle != null && { Subtitle: se_VisualSubtitleLabelOptions(input.Subtitle, context) }),
     ...(input.Title != null && { Title: se_VisualTitleLabelOptions(input.Title, context) }),
     ...(input.VisualId != null && { VisualId: input.VisualId }),
+  };
+};
+
+/**
+ * serializeAws_restJson1ScheduleRefreshOnEntity
+ */
+const se_ScheduleRefreshOnEntity = (input: ScheduleRefreshOnEntity, context: __SerdeContext): any => {
+  return {
+    ...(input.DayOfMonth != null && { DayOfMonth: input.DayOfMonth }),
+    ...(input.DayOfWeek != null && { DayOfWeek: input.DayOfWeek }),
   };
 };
 
@@ -26868,6 +27867,16 @@ const de_DataSetIdentifierDeclarationList = (output: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1DataSetRefreshProperties
+ */
+const de_DataSetRefreshProperties = (output: any, context: __SerdeContext): DataSetRefreshProperties => {
+  return {
+    RefreshConfiguration:
+      output.RefreshConfiguration != null ? de_RefreshConfiguration(output.RefreshConfiguration, context) : undefined,
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1DataSetSchema
  */
 const de_DataSetSchema = (output: any, context: __SerdeContext): DataSetSchema => {
@@ -29431,6 +30440,15 @@ const de_IdentityNameList = (output: any, context: __SerdeContext): string[] => 
 };
 
 /**
+ * deserializeAws_restJson1IncrementalRefresh
+ */
+const de_IncrementalRefresh = (output: any, context: __SerdeContext): IncrementalRefresh => {
+  return {
+    LookbackWindow: output.LookbackWindow != null ? de_LookbackWindow(output.LookbackWindow, context) : undefined,
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1Ingestion
  */
 const de_Ingestion = (output: any, context: __SerdeContext): Ingestion => {
@@ -30117,6 +31135,17 @@ const de_LongFormatText = (output: any, context: __SerdeContext): LongFormatText
   return {
     PlainText: __expectString(output.PlainText),
     RichText: __expectString(output.RichText),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1LookbackWindow
+ */
+const de_LookbackWindow = (output: any, context: __SerdeContext): LookbackWindow => {
+  return {
+    ColumnName: __expectString(output.ColumnName),
+    Size: __expectLong(output.Size),
+    SizeUnit: __expectString(output.SizeUnit),
   } as any;
 };
 
@@ -31780,6 +32809,60 @@ const de_ReferenceLineValueLabelConfiguration = (
 };
 
 /**
+ * deserializeAws_restJson1RefreshConfiguration
+ */
+const de_RefreshConfiguration = (output: any, context: __SerdeContext): RefreshConfiguration => {
+  return {
+    IncrementalRefresh:
+      output.IncrementalRefresh != null ? de_IncrementalRefresh(output.IncrementalRefresh, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1RefreshFrequency
+ */
+const de_RefreshFrequency = (output: any, context: __SerdeContext): RefreshFrequency => {
+  return {
+    Interval: __expectString(output.Interval),
+    RefreshOnDay: output.RefreshOnDay != null ? de_ScheduleRefreshOnEntity(output.RefreshOnDay, context) : undefined,
+    TimeOfTheDay: __expectString(output.TimeOfTheDay),
+    Timezone: __expectString(output.Timezone),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1RefreshSchedule
+ */
+const de_RefreshSchedule = (output: any, context: __SerdeContext): RefreshSchedule => {
+  return {
+    Arn: __expectString(output.Arn),
+    RefreshType: __expectString(output.RefreshType),
+    ScheduleFrequency:
+      output.ScheduleFrequency != null ? de_RefreshFrequency(output.ScheduleFrequency, context) : undefined,
+    ScheduleId: __expectString(output.ScheduleId),
+    StartAfterDateTime:
+      output.StartAfterDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartAfterDateTime)))
+        : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1RefreshSchedules
+ */
+const de_RefreshSchedules = (output: any, context: __SerdeContext): RefreshSchedule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_RefreshSchedule(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1RelationalTable
  */
 const de_RelationalTable = (output: any, context: __SerdeContext): RelationalTable => {
@@ -31933,6 +33016,10 @@ const de_RowLevelPermissionTagConfiguration = (
 ): RowLevelPermissionTagConfiguration => {
   return {
     Status: __expectString(output.Status),
+    TagRuleConfigurations:
+      output.TagRuleConfigurations != null
+        ? de_RowLevelPermissionTagRuleConfigurationList(output.TagRuleConfigurations, context)
+        : undefined,
     TagRules: output.TagRules != null ? de_RowLevelPermissionTagRuleList(output.TagRules, context) : undefined,
   } as any;
 };
@@ -31947,6 +33034,36 @@ const de_RowLevelPermissionTagRule = (output: any, context: __SerdeContext): Row
     TagKey: __expectString(output.TagKey),
     TagMultiValueDelimiter: __expectString(output.TagMultiValueDelimiter),
   } as any;
+};
+
+/**
+ * deserializeAws_restJson1RowLevelPermissionTagRuleConfiguration
+ */
+const de_RowLevelPermissionTagRuleConfiguration = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RowLevelPermissionTagRuleConfigurationList
+ */
+const de_RowLevelPermissionTagRuleConfigurationList = (output: any, context: __SerdeContext): string[][] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_RowLevelPermissionTagRuleConfiguration(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -32164,6 +33281,16 @@ const de_ScatterPlotVisual = (output: any, context: __SerdeContext): ScatterPlot
     Subtitle: output.Subtitle != null ? de_VisualSubtitleLabelOptions(output.Subtitle, context) : undefined,
     Title: output.Title != null ? de_VisualTitleLabelOptions(output.Title, context) : undefined,
     VisualId: __expectString(output.VisualId),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1ScheduleRefreshOnEntity
+ */
+const de_ScheduleRefreshOnEntity = (output: any, context: __SerdeContext): ScheduleRefreshOnEntity => {
+  return {
+    DayOfMonth: __expectString(output.DayOfMonth),
+    DayOfWeek: __expectString(output.DayOfWeek),
   } as any;
 };
 

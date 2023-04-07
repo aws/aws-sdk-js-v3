@@ -79,6 +79,10 @@ import {
 import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import {
+  CreateRefreshScheduleCommandInput,
+  CreateRefreshScheduleCommandOutput,
+} from "./commands/CreateRefreshScheduleCommand";
+import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
 } from "./commands/CreateTemplateAliasCommand";
@@ -96,6 +100,10 @@ import {
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
+import {
+  DeleteDataSetRefreshPropertiesCommandInput,
+  DeleteDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DeleteDataSetRefreshPropertiesCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
@@ -112,6 +120,10 @@ import {
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteRefreshScheduleCommandInput,
+  DeleteRefreshScheduleCommandOutput,
+} from "./commands/DeleteRefreshScheduleCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -159,6 +171,10 @@ import {
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput,
 } from "./commands/DescribeDataSetPermissionsCommand";
+import {
+  DescribeDataSetRefreshPropertiesCommandInput,
+  DescribeDataSetRefreshPropertiesCommandOutput,
+} from "./commands/DescribeDataSetRefreshPropertiesCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommandInput,
@@ -188,6 +204,10 @@ import {
   DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
+import {
+  DescribeRefreshScheduleCommandInput,
+  DescribeRefreshScheduleCommandOutput,
+} from "./commands/DescribeRefreshScheduleCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
@@ -247,6 +267,10 @@ import {
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import {
+  ListRefreshSchedulesCommandInput,
+  ListRefreshSchedulesCommandOutput,
+} from "./commands/ListRefreshSchedulesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -264,6 +288,10 @@ import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/List
 import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "./commands/ListThemeVersionsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  PutDataSetRefreshPropertiesCommandInput,
+  PutDataSetRefreshPropertiesCommandOutput,
+} from "./commands/PutDataSetRefreshPropertiesCommand";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
@@ -325,6 +353,10 @@ import {
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
 import {
+  UpdateRefreshScheduleCommandInput,
+  UpdateRefreshScheduleCommandOutput,
+} from "./commands/UpdateRefreshScheduleCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -366,6 +398,7 @@ export type ServiceInputTypes =
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
   | CreateNamespaceCommandInput
+  | CreateRefreshScheduleCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
@@ -375,6 +408,7 @@ export type ServiceInputTypes =
   | DeleteAnalysisCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
+  | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
@@ -382,6 +416,7 @@ export type ServiceInputTypes =
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteNamespaceCommandInput
+  | DeleteRefreshScheduleCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
@@ -399,6 +434,7 @@ export type ServiceInputTypes =
   | DescribeDashboardPermissionsCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
+  | DescribeDataSetRefreshPropertiesCommandInput
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
   | DescribeFolderCommandInput
@@ -410,6 +446,7 @@ export type ServiceInputTypes =
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
   | DescribeNamespaceCommandInput
+  | DescribeRefreshScheduleCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -435,6 +472,7 @@ export type ServiceInputTypes =
   | ListIAMPolicyAssignmentsForUserCommandInput
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
+  | ListRefreshSchedulesCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -444,6 +482,7 @@ export type ServiceInputTypes =
   | ListThemesCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
+  | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
   | SearchAnalysesCommandInput
@@ -471,6 +510,7 @@ export type ServiceInputTypes =
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdatePublicSharingSettingsCommandInput
+  | UpdateRefreshScheduleCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -497,6 +537,7 @@ export type ServiceOutputTypes =
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateRefreshScheduleCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
@@ -506,6 +547,7 @@ export type ServiceOutputTypes =
   | DeleteAnalysisCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
+  | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
@@ -513,6 +555,7 @@ export type ServiceOutputTypes =
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteNamespaceCommandOutput
+  | DeleteRefreshScheduleCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
@@ -530,6 +573,7 @@ export type ServiceOutputTypes =
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
+  | DescribeDataSetRefreshPropertiesCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
   | DescribeFolderCommandOutput
@@ -541,6 +585,7 @@ export type ServiceOutputTypes =
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
   | DescribeNamespaceCommandOutput
+  | DescribeRefreshScheduleCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -566,6 +611,7 @@ export type ServiceOutputTypes =
   | ListIAMPolicyAssignmentsForUserCommandOutput
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
+  | ListRefreshSchedulesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -575,6 +621,7 @@ export type ServiceOutputTypes =
   | ListThemesCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
+  | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
   | SearchAnalysesCommandOutput
@@ -602,6 +649,7 @@ export type ServiceOutputTypes =
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
+  | UpdateRefreshScheduleCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

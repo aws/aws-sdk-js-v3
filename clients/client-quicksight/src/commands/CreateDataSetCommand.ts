@@ -203,6 +203,11 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *         MatchAllValue: "STRING_VALUE",
  *       },
  *     ],
+ *     TagRuleConfigurations: [ // RowLevelPermissionTagRuleConfigurationList
+ *       [ // RowLevelPermissionTagRuleConfiguration
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
  *   },
  *   ColumnLevelPermissionRules: [ // ColumnLevelPermissionRuleList
  *     { // ColumnLevelPermissionRule
