@@ -76,7 +76,7 @@ export interface BatchExecuteStatementInput {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -621,7 +621,7 @@ export interface DescribeTableRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -735,7 +735,7 @@ export interface ExecuteStatementInput {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -1000,7 +1000,7 @@ export interface ListDatabasesRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -1051,7 +1051,7 @@ export interface ListSchemasRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
@@ -1251,7 +1251,7 @@ export interface ListTablesRequest {
   SecretArn?: string;
 
   /**
-   * <p>The database user name. This parameter is required when connecting to a cluster and authenticating using temporary credentials. </p>
+   * <p>The database user name. This parameter is required when connecting to a cluster as a database user and authenticating using temporary credentials. </p>
    */
   DbUser?: string;
 
