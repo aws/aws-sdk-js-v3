@@ -1204,6 +1204,10 @@ export interface ProvisioningArtifactProperties {
    *                <p>
    *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
+   *             </li>
    *          </ul>
    */
   Type?: ProvisioningArtifactType | string;
