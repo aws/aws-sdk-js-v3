@@ -38,7 +38,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * @public
  * <p>Use this operation to update the configuration of an existing Amazon FSx file
  *       system. You can update multiple properties in a single request.</p>
- *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+ *          <p>For FSx for Windows File Server file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -77,7 +77,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For Amazon FSx for Lustre file systems, you can update the following
+ *          <p>For FSx for Lustre file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -116,9 +116,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+ *          <p>For FSx for ONTAP file systems, you can update the following
  *       properties:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AddRouteTableIds</code>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>AutomaticBackupRetentionDays</code>
@@ -141,6 +146,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>RemoveRouteTableIds</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>
@@ -155,7 +165,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For the Amazon FSx for OpenZFS file systems, you can update the following
+ *          <p>For FSx for OpenZFS file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -176,6 +186,16 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>DailyAutomaticBackupStartTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>
  *             <li>

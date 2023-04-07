@@ -239,8 +239,9 @@ export type DataRepositoryLifecycle = (typeof DataRepositoryLifecycle)[keyof typ
  * @public
  * <p>The data repository configuration object for Lustre file systems returned in the response of
  *             the <code>CreateFileSystem</code> operation.</p>
- *          <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
- *             Instead, use .</p>
+ *          <p>This data type is not supported on file systems with a data repository association.
+ *             For file systems with a data repository association,
+ *             see .</p>
  */
 export interface DataRepositoryConfiguration {
   /**
@@ -500,8 +501,9 @@ export interface LustreFileSystemConfiguration {
   /**
    * <p>The data repository configuration object for Lustre file systems returned in the response of
    *             the <code>CreateFileSystem</code> operation.</p>
-   *          <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use .</p>
+   *          <p>This data type is not supported on file systems with a data repository association.
+   *             For file systems with a data repository association,
+   *             see .</p>
    */
   DataRepositoryConfiguration?: DataRepositoryConfiguration;
 
@@ -753,14 +755,13 @@ export interface OntapFileSystemConfiguration {
   DeploymentType?: OntapDeploymentType | string;
 
   /**
-   * <p>(Multi-AZ only) The IP address range in which the endpoints to access your file system
-   *             are created.</p>
-   *          <important>
-   *             <p>The Endpoint IP address range you select for your file system
-   *             must exist outside the VPC's CIDR range and must be at least /30 or larger.
-   *             If you do not specify this optional parameter, Amazon FSx will automatically
-   *             select a CIDR block for you.</p>
-   *          </important>
+   * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+   *             file system will be created. By default in the Amazon FSx  API, Amazon FSx
+   *             selects an unused IP address range for you from the 198.19.* range. By default in the
+   *             Amazon FSx  console, Amazon FSx  chooses the last 64 IP addresses from
+   *             the VPC’s primary CIDR range to use as the endpoint IP address range for the file system.
+   *             You can have overlapping endpoint IP addresses for file systems deployed in the
+   *             same VPC/route tables.</p>
    */
   EndpointIpAddressRange?: string;
 
@@ -1884,7 +1885,7 @@ export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
  */
 export interface AssociateFileSystemAliasesRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -2035,8 +2036,8 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  *             As you create, modify, or delete files, Amazon FSx for Lustre
  *             automatically exports the defined changes asynchronously once your application finishes
  *             modifying the file.</p>
- *          <p>This <code>AutoExportPolicy</code> is supported only for Amazon FSx for Lustre
- *             file systems with the <code>Persistent_2</code> deployment type.</p>
+ *          <p>The <code>AutoExportPolicy</code> is only supported on Amazon FSx for Lustre file systems
+ *             with a data repository association.</p>
  */
 export interface AutoExportPolicy {
   /**
@@ -2069,8 +2070,8 @@ export interface AutoExportPolicy {
  *             The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory
  *             listings up to date by importing changes to your Amazon FSx for Lustre file system
  *             as you modify objects in a linked S3 bucket.</p>
- *          <p>The <code>AutoImportPolicy</code> is supported only for Amazon FSx for Lustre
- *             file systems with the <code>Persistent_2</code> deployment type.</p>
+ *          <p>The <code>AutoImportPolicy</code> is only supported on Amazon FSx for Lustre file systems
+ *             with a data repository association.</p>
  */
 export interface AutoImportPolicy {
   /**
@@ -2276,7 +2277,7 @@ export class BackupNotFound extends __BaseException {
  */
 export interface CopyBackupRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -2659,7 +2660,7 @@ export interface CreateBackupRequest {
   FileSystemId?: string;
 
   /**
-   * <p>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
+   * <p>(Optional) A string of up to 63 ASCII characters that Amazon FSx uses to
    *             ensure idempotent creation. This string is automatically filled on your behalf when you
    *             use the Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -2802,7 +2803,7 @@ export interface CreateDataRepositoryAssociationRequest {
   S3?: S3DataRepositoryConfiguration;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -2880,9 +2881,9 @@ export interface NFSDataRepositoryConfiguration {
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Data repository associations are supported only for an Amazon FSx for Lustre
- *             file system with the <code>Persistent_2</code> deployment type and for an
- *             Amazon File Cache resource.</p>
+ *          <p>Data repository associations are supported on Amazon File Cache resources and
+ *             all Amazon FSx for Lustre file systems excluding <code>Scratch_1</code> deployment
+ *             types.</p>
  */
 export interface DataRepositoryAssociation {
   /**
@@ -3143,8 +3144,7 @@ export interface CompletionReport {
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the location of the report on the file system's linked S3 data repository. An absolute path that defines where the completion report will be stored in the destination location.
    *             The <code>Path</code> you provide must be located within the file system’s ExportPath.
    *             An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following information for each file in the report:
-   *             FilePath, FileStatus, and ErrorCode. To learn more about a file system's <code>ExportPath</code>, see .
-   *             </p>
+   *             FilePath, FileStatus, and ErrorCode.</p>
    */
   Path?: string;
 
@@ -3224,7 +3224,7 @@ export interface CreateDataRepositoryTaskRequest {
   Report: CompletionReport | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -3356,6 +3356,10 @@ export interface DataRepositoryTask {
    *                <p>
    *                   <code>AUTO_RELEASE_DATA</code> tasks automatically release files from
    *                 an Amazon File Cache resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks are not supported.</p>
    *             </li>
    *          </ul>
    */
@@ -3653,7 +3657,7 @@ export interface CreateFileCacheLustreConfiguration {
  */
 export interface CreateFileCacheRequest {
   /**
-   * <p>An idempotency token for resource creation, in a string of up to 64
+   * <p>An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    *          <p>By using the idempotent operation, you can retry a <code>CreateFileCache</code>
@@ -4127,9 +4131,9 @@ export interface LustreLogCreateConfiguration {
  * @public
  * <p>The Lustre configuration for the file system being created.</p>
  *          <note>
- *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
- *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
- *             to create a data repository association to link your Lustre file system to a data repository.</p>
+ *             <p>The following parameters are not supported for file systems
+ *             with a data repository association created with
+ *             .</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -4170,18 +4174,16 @@ export interface CreateFileSystemLustreConfiguration {
    *             after the Amazon S3 bucket name, only object keys with that prefix are loaded into the
    *             file system.</p>
    *          <note>
-   *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
-   *             a data repository association to link your Lustre file system to a data repository.</p>
+   *             <p>This parameter is not supported for file systems with a data repository association.</p>
    *          </note>
    */
   ImportPath?: string;
 
   /**
-   * <p>(Optional) Available with <code>Scratch</code> and <code>Persistent_1</code> deployment types.
-   *             Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported.
-   *             The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which
-   *             new and changed data is to be exported from your Amazon FSx for Lustre file system. If
+   * <p>(Optional) Specifies the path in the Amazon S3 bucket where the root of your
+   *             Amazon FSx file system is exported. The path must use the same Amazon S3
+   *             bucket as specified in ImportPath. You can provide an optional prefix to which new and
+   *             changed data is to be exported from your Amazon FSx for Lustre file system. If
    *             an <code>ExportPath</code> value is not provided, Amazon FSx sets a default export path,
    *             <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in
    *             UTC format, for example
@@ -4194,9 +4196,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file
    *             system to that export prefix in the Amazon S3 bucket.</p>
    *          <note>
-   *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
-   *             a data repository association to link your Lustre file system to a data repository.</p>
+   *             <p>This parameter is not supported for file systems with a data repository association.</p>
    *          </note>
    */
   ExportPath?: string;
@@ -4208,9 +4208,9 @@ export interface CreateFileSystemLustreConfiguration {
    *             number of disks that make up the file system.</p>
    *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3  objects have a maximum size of 5 TB.</p>
-   *          <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
-   *             a data repository association to link your Lustre file system to a data repository.</p>
+   *          <note>
+   *             <p>This parameter is not supported for file systems with a data repository association.</p>
+   *          </note>
    */
   ImportedFileChunkSize?: number;
 
@@ -4237,21 +4237,19 @@ export interface CreateFileSystemLustreConfiguration {
    *          </note>
    *          <p>Encryption of data in transit is automatically turned on when you access
    *                 <code>SCRATCH_2</code>, <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> file
-   *             systems from Amazon EC2 instances that <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-                 protection.html">support
-   *                 automatic encryption</a> in the Amazon Web Services Regions where they are
-   *             available. For more information about encryption in transit for FSx for Lustre
-   *             file systems, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting data in
-   *                 transit</a>  in the <i>Amazon FSx for Lustre User Guide</i>. </p>
+   *                 systems from Amazon EC2 instances that support automatic encryption in
+   *                 the Amazon Web Services Regions where they are available. For more information about
+   *                 encryption in transit for FSx for Lustre file systems, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting data in
+   *                 transit</a> in the <i>Amazon FSx for Lustre User Guide</i>. </p>
    *          <p>(Default = <code>SCRATCH_1</code>)</p>
    */
   DeploymentType?: LustreDeploymentType | string;
 
   /**
-   * <p> (Optional) Available with <code>Scratch</code> and <code>Persistent_1</code> deployment types. When you
-   *             create your file system, your existing S3 objects appear as file and directory listings.
-   *             Use this property to choose how Amazon FSx keeps your file and directory listings up to date
-   *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can
-   *             have the following values:</p>
+   * <p> (Optional) When you create your file system, your existing S3 objects appear as file and
+   *             directory listings.  Use this parameter to choose how Amazon FSx keeps your file and directory
+   *             listings up to date as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code>
+   *             can have the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4283,9 +4281,7 @@ export interface CreateFileSystemLustreConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3">
    *             Automatically import updates from your S3 bucket</a>.</p>
    *          <note>
-   *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
-   *             a data repository association to link your Lustre file system to a data repository.</p>
+   *             <p>This parameter is not supported for file systems with a data repository association.</p>
    *          </note>
    */
   AutoImportPolicy?: AutoImportPolicyType | string;
@@ -4435,7 +4431,7 @@ export interface CreateFileSystemOntapConfiguration {
    *             Amazon FSx  console, Amazon FSx  chooses the last 64 IP addresses from
    *             the VPC’s primary CIDR range to use as the endpoint IP address range for the file system.
    *             You can have overlapping endpoint IP addresses for file systems deployed in the
-   *             same VPC/route tables.</p>
+   *             same VPC/route tables, as long as they don't overlap with any subnet.</p>
    */
   EndpointIpAddressRange?: string;
 
@@ -4946,7 +4942,7 @@ export interface CreateFileSystemWindowsConfiguration {
  */
 export interface CreateFileSystemRequest {
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   * <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
    *                 Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -5089,9 +5085,9 @@ export interface CreateFileSystemRequest {
   /**
    * <p>The Lustre configuration for the file system being created.</p>
    *          <note>
-   *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
-   *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
-   *             to create a data repository association to link your Lustre file system to a data repository.</p>
+   *             <p>The following parameters are not supported for file systems
+   *             with a data repository association created with
+   *             .</p>
    *             <ul>
    *                <li>
    *                   <p>
@@ -5241,7 +5237,7 @@ export interface CreateFileSystemFromBackupRequest {
   BackupId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   * <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
    *                 Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -5280,9 +5276,9 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * <p>The Lustre configuration for the file system being created.</p>
    *          <note>
-   *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
-   *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
-   *             to create a data repository association to link your Lustre file system to a data repository.</p>
+   *             <p>The following parameters are not supported for file systems
+   *             with a data repository association created with
+   *             .</p>
    *             <ul>
    *                <li>
    *                   <p>
@@ -5392,7 +5388,7 @@ export interface CreateFileSystemFromBackupRequest {
  */
 export interface CreateSnapshotRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -5464,7 +5460,7 @@ export interface CreateStorageVirtualMachineRequest {
   ActiveDirectoryConfiguration?: CreateSvmActiveDirectoryConfiguration;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -5756,7 +5752,8 @@ export type InputOntapVolumeType = (typeof InputOntapVolumeType)[keyof typeof In
 export interface CreateOntapVolumeConfiguration {
   /**
    * <p>Specifies the location in the SVM's namespace where the volume is mounted.
-   *             The <code>JunctionPath</code> must have a leading forward slash, such as <code>/vol3</code>.</p>
+   *             This parameter is required. The <code>JunctionPath</code> must have a leading
+   *             forward slash, such as <code>/vol3</code>.</p>
    */
   JunctionPath?: string;
 
@@ -5791,13 +5788,16 @@ export interface CreateOntapVolumeConfiguration {
   SecurityStyle?: SecurityStyle | string;
 
   /**
-   * <p>Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
+   * <p>Specifies the size of the volume, in megabytes (MB), that you are creating.
+   *             Provide any whole number in the range of 20–104857600 to specify the size of
+   *             the volume.</p>
    */
   SizeInMegabytes: number | undefined;
 
   /**
-   * <p>Set to true to enable deduplication, compression, and
-   *             compaction storage efficiency features on the volume.</p>
+   * <p>Set to true to enable deduplication, compression, and compaction storage
+   *             efficiency features on the volume, or set to false to disable them.
+   *             This parameter is required.</p>
    */
   StorageEfficiencyEnabled?: boolean;
 
@@ -6038,7 +6038,7 @@ export interface CreateOpenZFSVolumeConfiguration {
  */
 export interface CreateVolumeRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6131,7 +6131,7 @@ export interface CreateVolumeFromBackupRequest {
   BackupId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6227,7 +6227,7 @@ export interface DeleteBackupRequest {
   BackupId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   * <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure
    *             idempotent deletion. This parameter is automatically filled on your behalf when using
    *             the CLI or SDK.</p>
    */
@@ -6286,7 +6286,7 @@ export interface DeleteDataRepositoryAssociationRequest {
   AssociationId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6330,7 +6330,7 @@ export interface DeleteFileCacheRequest {
   FileCacheId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6476,7 +6476,7 @@ export interface DeleteFileSystemRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   * <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure
    *             idempotent deletion. This token is automatically filled on your behalf when using the
    *                 Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6593,7 +6593,7 @@ export interface DeleteFileSystemResponse {
  */
 export interface DeleteSnapshotRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6651,7 +6651,7 @@ export class SnapshotNotFound extends __BaseException {
  */
 export interface DeleteStorageVirtualMachineRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -6725,7 +6725,7 @@ export interface DeleteVolumeOpenZFSConfiguration {
  */
 export interface DeleteVolumeRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7191,7 +7191,7 @@ export interface DescribeFileCachesResponse {
  */
 export interface DescribeFileSystemAliasesRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7473,7 +7473,7 @@ export interface DescribeVolumesRequest {
  */
 export interface DisassociateFileSystemAliasesRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7651,7 +7651,7 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7677,7 +7677,7 @@ export type RestoreOpenZFSVolumeOption = (typeof RestoreOpenZFSVolumeOption)[key
  */
 export interface RestoreVolumeFromSnapshotRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7771,7 +7771,7 @@ export interface UpdateDataRepositoryAssociationRequest {
   AssociationId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7836,7 +7836,7 @@ export interface UpdateFileCacheRequest {
   FileCacheId: string | undefined;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -7917,9 +7917,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *                 in the S3 bucket.</p>
    *             </li>
    *          </ul>
-   *          <p>The <code>AutoImportPolicy</code> parameter is not supported for Lustre file systems with
-   *             the <code>Persistent_2</code> deployment type. Instead, use
-   *             to update a data repository association on your <code>Persistent_2</code> file system.</p>
+   *          <p>This parameter is not supported for file systems with a data repository association.</p>
    */
   AutoImportPolicy?: AutoImportPolicyType | string;
 
@@ -8183,43 +8181,47 @@ export interface UpdateFileSystemRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+   * <p>A string of up to 63 ASCII characters that Amazon FSx uses to ensure
    *       idempotent updates. This string is automatically filled on your behalf when you use the
    *         Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>Use this parameter to increase the storage capacity of an Amazon FSx for Windows
-   *       File Server, Amazon FSx for Lustre, or Amazon FSx for NetApp ONTAP file system.
+   * <p>Use this parameter to increase the storage capacity of an FSx for Windows File Server,
+   *       FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system.
    *       Specifies the storage capacity target value, in GiB, to increase the storage capacity for
    *       the file system that you're updating. </p>
    *          <note>
    *             <p>You can't make a storage capacity increase request if there is an existing storage
    *         capacity increase request in progress.</p>
    *          </note>
-   *          <p>For Windows file systems, the storage capacity target value must be at least 10 percent
-   *       greater than the current storage capacity value. To increase storage capacity, the file system
-   *       must have at least 16 MBps of throughput capacity. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
-   *         capacity</a> in the <i>Amazon FSx for Windows File Server User
-   *           Guide</i>.</p>
    *          <p>For Lustre file systems, the storage capacity target value can be the following:</p>
    *          <ul>
    *             <li>
    *                <p>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code> deployment types, valid values
-   *           are in multiples of 2400 GiB. The value must be greater than the current storage capacity.</p>
+   *         are in multiples of 2400 GiB. The value must be greater than the current storage capacity.</p>
    *             </li>
    *             <li>
    *                <p>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB for
-   *           12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps throughput
-   *           per TiB file systems. The values must be greater than the current storage capacity.</p>
+   *         12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps throughput
+   *         per TiB file systems. The values must be greater than the current storage capacity.</p>
    *             </li>
    *             <li>
    *                <p>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput
-   *           capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
+   *       capacity</a> in the <i>FSx for Lustre User Guide</i>.</p>
+   *          <p>For FSx for OpenZFS file systems, the storage capacity target value must be at least 10 percent
+   *       greater than the current storage capacity value. For more information, see
+   *       <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing storage capacity</a> in the <i>FSx for OpenZFS User
+   *           Guide</i>.</p>
+   *          <p>For Windows file systems, the storage capacity target value must be at least 10 percent
+   *       greater than the current storage capacity value. To increase storage capacity, the file system
+   *       must have at least 16 MBps of throughput capacity. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
+   *         capacity</a> in the <i>Amazon FSx for Windows File Server User
+   *           Guide</i>.</p>
    *          <p>For ONTAP file systems, the storage capacity target value must be at least 10 percent
    *       greater than the current storage capacity value.  For more information, see
    *       <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
@@ -8228,8 +8230,7 @@ export interface UpdateFileSystemRequest {
   StorageCapacity?: number;
 
   /**
-   * <p>The configuration updates for an Amazon FSx for Windows File Server file
-   *       system.</p>
+   * <p>The configuration updates for an Amazon FSx for Windows File Server file system.</p>
    */
   WindowsConfiguration?: UpdateFileSystemWindowsConfiguration;
 
@@ -8255,7 +8256,7 @@ export interface UpdateFileSystemRequest {
  */
 export interface UpdateSnapshotRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -8296,7 +8297,7 @@ export interface UpdateStorageVirtualMachineRequest {
   ActiveDirectoryConfiguration?: UpdateSvmActiveDirectoryConfiguration;
 
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -8469,7 +8470,7 @@ export interface UpdateOpenZFSVolumeConfiguration {
  */
 export interface UpdateVolumeRequest {
   /**
-   * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
    */
@@ -8656,8 +8657,8 @@ export interface AdministrativeAction {
  */
 export interface FileSystem {
   /**
-   * <p>The Amazon Web Services account that created the file system. If the file system was created by an
-   *             Identity and Access Management (IAM) user, the Amazon Web Services account to which the
+   * <p>The Amazon Web Services account that created the file system. If the file system was created by a
+   *             user in IAM Identity Center, the Amazon Web Services account to which the
    *             IAM user belongs is the owner.</p>
    */
   OwnerId?: string;

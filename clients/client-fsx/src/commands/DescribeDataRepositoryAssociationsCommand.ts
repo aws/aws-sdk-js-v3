@@ -43,8 +43,8 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
  *             data repository associations, if one or more <code>AssociationIds</code> values
  *             are provided in the request, or if filters are used in the request. Data repository
- *             associations are supported only for Amazon FSx for Lustre file systems with the
- *             <code>Persistent_2</code> deployment type and for Amazon File Cache resources.</p>
+ *             associations are supported on Amazon File Cache resources and all Amazon FSx for
+ *             Lustre file systems excluding <code>Scratch_1</code> deployment types.</p>
  *          <p>You can use filters to narrow the response to include just data repository
  *             associations for specific file systems (use the <code>file-system-id</code> filter with
  *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with

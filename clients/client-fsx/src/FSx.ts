@@ -431,8 +431,8 @@ export class FSx extends FSxClient {
    * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
    *             repository association is a link between a directory on the file system and
    *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
-   *             associations on a file system. Data repository associations are supported only
-   *             for file systems with the <code>Persistent_2</code> deployment type.</p>
+   *             associations on a file system. Data repository associations are supported
+   *             for all file systems except for <code>Scratch_1</code> deployment type.</p>
    *          <p>Each data repository association must have a unique Amazon FSx file
    *             system directory and a unique S3 bucket or prefix associated with it. You
    *             can configure a data repository association for automatic import only,
@@ -917,8 +917,8 @@ export class FSx extends FSxClient {
    *             file system from the Amazon S3 bucket. When deleting a data repository
    *             association, you have the option of deleting the data in the file system
    *             that corresponds to the data repository association. Data repository
-   *             associations are supported only for file systems with the
-   *             <code>Persistent_2</code> deployment type.</p>
+   *             associations are supported for all file systems except for <code>Scratch_1</code>
+   *             deployment type.</p>
    */
   public deleteDataRepositoryAssociation(
     args: DeleteDataRepositoryAssociationCommandInput,
@@ -1213,8 +1213,8 @@ export class FSx extends FSxClient {
    * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
    *             data repository associations, if one or more <code>AssociationIds</code> values
    *             are provided in the request, or if filters are used in the request. Data repository
-   *             associations are supported only for Amazon FSx for Lustre file systems with the
-   *             <code>Persistent_2</code> deployment type and for Amazon File Cache resources.</p>
+   *             associations are supported on Amazon File Cache resources and all Amazon FSx for
+   *             Lustre file systems excluding <code>Scratch_1</code> deployment types.</p>
    *          <p>You can use filters to narrow the response to include just data repository
    *             associations for specific file systems (use the <code>file-system-id</code> filter with
    *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with
@@ -1810,8 +1810,9 @@ export class FSx extends FSxClient {
   /**
    * @public
    * <p>Updates the configuration of an existing data repository association
-   *             on an Amazon FSx for Lustre file system. Data repository associations are
-   *             supported only for file systems with the <code>Persistent_2</code> deployment type.</p>
+   *             on an Amazon FSx for Lustre file system. Data repository associations
+   *             are supported for all file systems except for <code>Scratch_1</code>
+   *             deployment type.</p>
    */
   public updateDataRepositoryAssociation(
     args: UpdateDataRepositoryAssociationCommandInput,
@@ -1880,7 +1881,7 @@ export class FSx extends FSxClient {
    * @public
    * <p>Use this operation to update the configuration of an existing Amazon FSx file
    *       system. You can update multiple properties in a single request.</p>
-   *          <p>For Amazon FSx for Windows File Server file systems, you can update the following
+   *          <p>For FSx for Windows File Server file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
@@ -1919,7 +1920,7 @@ export class FSx extends FSxClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For Amazon FSx for Lustre file systems, you can update the following
+   *          <p>For FSx for Lustre file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
@@ -1958,9 +1959,14 @@ export class FSx extends FSxClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
+   *          <p>For FSx for ONTAP file systems, you can update the following
    *       properties:</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AddRouteTableIds</code>
+   *                </p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>AutomaticBackupRetentionDays</code>
@@ -1983,6 +1989,11 @@ export class FSx extends FSxClient {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>RemoveRouteTableIds</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>StorageCapacity</code>
    *                </p>
    *             </li>
@@ -1997,7 +2008,7 @@ export class FSx extends FSxClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For the Amazon FSx for OpenZFS file systems, you can update the following
+   *          <p>For FSx for OpenZFS file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
@@ -2018,6 +2029,16 @@ export class FSx extends FSxClient {
    *             <li>
    *                <p>
    *                   <code>DailyAutomaticBackupStartTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DiskIopsConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StorageCapacity</code>
    *                </p>
    *             </li>
    *             <li>

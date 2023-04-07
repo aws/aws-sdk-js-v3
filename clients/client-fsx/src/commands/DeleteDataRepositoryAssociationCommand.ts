@@ -42,8 +42,8 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  *             file system from the Amazon S3 bucket. When deleting a data repository
  *             association, you have the option of deleting the data in the file system
  *             that corresponds to the data repository association. Data repository
- *             associations are supported only for file systems with the
- *             <code>Persistent_2</code> deployment type.</p>
+ *             associations are supported for all file systems except for <code>Scratch_1</code>
+ *             deployment type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
