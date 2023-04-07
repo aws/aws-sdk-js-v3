@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
+
+
+### Features
+
+* **codegen:** add serde helper function ([#4616](https://github.com/aws/aws-sdk-js-v3/issues/4616)) ([bcb14ba](https://github.com/aws/aws-sdk-js-v3/commit/bcb14ba35166fb975b635f4db6f0a45afbe0e0b7))
+
+
+
+
+
 # [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

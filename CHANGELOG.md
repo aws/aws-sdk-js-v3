@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
+
+
+### Features
+
+* **client-dlm:** Updated timestamp format for GetLifecyclePolicy API ([300cf05](https://github.com/aws/aws-sdk-js-v3/commit/300cf05ea89b1326659e512ef7c2ab032025ccd6))
+* **client-docdb:** This release adds a new parameter 'DBClusterParameterGroupName' to 'RestoreDBClusterFromSnapshot' API to associate the name of the DB cluster parameter group while performing restore. ([5d75e0c](https://github.com/aws/aws-sdk-js-v3/commit/5d75e0ce147bdd504fcef7e51aa2daf1e495ab2d))
+* **client-lambda:** This release adds a new Lambda InvokeWithResponseStream API to support streaming Lambda function responses. The release also adds a new InvokeMode parameter to Function Url APIs to control whether the response will be streamed or buffered. ([1543d4c](https://github.com/aws/aws-sdk-js-v3/commit/1543d4c029093a53f3ef6d9e762b531fef09d2b7))
+* **client-quicksight:** This release has two changes: adding the OR condition to tag-based RLS rules in CreateDataSet and UpdateDataSet; adding RefreshSchedule and Incremental RefreshProperties operations for users to programmatically configure SPICE dataset ingestions. ([500f7df](https://github.com/aws/aws-sdk-js-v3/commit/500f7df7efce1d0e7c4a14c67918c03e1a15f052))
+* **codegen:** add serde helper function ([#4616](https://github.com/aws/aws-sdk-js-v3/issues/4616)) ([bcb14ba](https://github.com/aws/aws-sdk-js-v3/commit/bcb14ba35166fb975b635f4db6f0a45afbe0e0b7))
+* **codegen:** shorten internal serde function names ([#4611](https://github.com/aws/aws-sdk-js-v3/issues/4611)) ([e385e85](https://github.com/aws/aws-sdk-js-v3/commit/e385e85938d112434b752abb38ab5de2d094f669))
+
+
+
+
+
 # [3.308.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.307.0...v3.308.0) (2023-04-06)
 
 
