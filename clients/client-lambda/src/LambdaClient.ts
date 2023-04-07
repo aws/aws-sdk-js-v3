@@ -1,5 +1,10 @@
 // smithy-typescript generated code
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@aws-sdk/config-resolver";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@aws-sdk/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@aws-sdk/middleware-endpoint";
 import {
@@ -38,6 +43,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
@@ -150,6 +156,10 @@ import {
 } from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
+import {
+  InvokeWithResponseStreamCommandInput,
+  InvokeWithResponseStreamCommandOutput,
+} from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListCodeSigningConfigsCommandInput,
@@ -284,6 +294,7 @@ export type ServiceInputTypes =
   | GetRuntimeManagementConfigCommandInput
   | InvokeAsyncCommandInput
   | InvokeCommandInput
+  | InvokeWithResponseStreamCommandInput
   | ListAliasesCommandInput
   | ListCodeSigningConfigsCommandInput
   | ListEventSourceMappingsCommandInput
@@ -354,6 +365,7 @@ export type ServiceOutputTypes =
   | GetRuntimeManagementConfigCommandOutput
   | InvokeAsyncCommandOutput
   | InvokeCommandOutput
+  | InvokeWithResponseStreamCommandOutput
   | ListAliasesCommandOutput
   | ListCodeSigningConfigsCommandOutput
   | ListEventSourceMappingsCommandOutput
@@ -504,6 +516,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -520,6 +537,7 @@ type LambdaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig &
+  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -539,6 +557,7 @@ type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -635,8 +654,9 @@ export class LambdaClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
     const _config_7 = resolveUserAgentConfig(_config_6);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

@@ -60,6 +60,7 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  *     ],
  *     MaxAge: Number("int"),
  *   },
+ *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
  * };
  * const command = new CreateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);

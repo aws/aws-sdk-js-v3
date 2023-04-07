@@ -19,6 +19,7 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
@@ -124,6 +125,10 @@ import {
 } from "../commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "../commands/InvokeAsyncCommand";
 import { InvokeCommandInput, InvokeCommandOutput } from "../commands/InvokeCommand";
+import {
+  InvokeWithResponseStreamCommandInput,
+  InvokeWithResponseStreamCommandOutput,
+} from "../commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import {
   ListCodeSigningConfigsCommandInput,
@@ -263,6 +268,9 @@ import {
   InvalidSecurityGroupIDException,
   InvalidSubnetIDException,
   InvalidZipFileException,
+  InvokeResponseStreamUpdate,
+  InvokeWithResponseStreamCompleteEvent,
+  InvokeWithResponseStreamResponseEvent,
   KMSAccessDeniedException,
   KMSDisabledException,
   KMSInvalidStateException,
@@ -626,6 +634,7 @@ export const se_CreateFunctionUrlConfigCommand = async (
   body = JSON.stringify({
     ...(input.AuthType != null && { AuthType: input.AuthType }),
     ...(input.Cors != null && { Cors: se_Cors(input.Cors, context) }),
+    ...(input.InvokeMode != null && { InvokeMode: input.InvokeMode }),
   });
   return new __HttpRequest({
     protocol,
@@ -1563,6 +1572,50 @@ export const se_InvokeAsyncCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1InvokeWithResponseStreamCommand
+ */
+export const se_InvokeWithResponseStreamCommand = async (
+  input: InvokeWithResponseStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/octet-stream",
+    "x-amz-invocation-type": input.InvocationType!,
+    "x-amz-log-type": input.LogType!,
+    "x-amz-client-context": input.ClientContext!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-11-15/functions/{FunctionName}/response-streaming-invocations";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FunctionName",
+    () => input.FunctionName!,
+    "{FunctionName}",
+    false
+  );
+  const query: any = map({
+    Qualifier: [, input.Qualifier!],
+  });
+  let body: any;
+  if (input.Payload !== undefined) {
+    body = input.Payload;
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2688,6 +2741,7 @@ export const se_UpdateFunctionUrlConfigCommand = async (
   body = JSON.stringify({
     ...(input.AuthType != null && { AuthType: input.AuthType }),
     ...(input.Cors != null && { Cors: se_Cors(input.Cors, context) }),
+    ...(input.InvokeMode != null && { InvokeMode: input.InvokeMode }),
   });
   return new __HttpRequest({
     protocol,
@@ -3304,6 +3358,9 @@ export const de_CreateFunctionUrlConfigCommand = async (
   }
   if (data.FunctionUrl != null) {
     contents.FunctionUrl = __expectString(data.FunctionUrl);
+  }
+  if (data.InvokeMode != null) {
+    contents.InvokeMode = __expectString(data.InvokeMode);
   }
   return contents;
 };
@@ -4735,6 +4792,9 @@ export const de_GetFunctionUrlConfigCommand = async (
   if (data.FunctionUrl != null) {
     contents.FunctionUrl = __expectString(data.FunctionUrl);
   }
+  if (data.InvokeMode != null) {
+    contents.InvokeMode = __expectString(data.InvokeMode);
+  }
   if (data.LastModifiedTime != null) {
     contents.LastModifiedTime = __expectString(data.LastModifiedTime);
   }
@@ -5371,6 +5431,131 @@ const de_InvokeAsyncCommandError = async (
     case "ServiceException":
     case "com.amazonaws.lambda#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1InvokeWithResponseStreamCommand
+ */
+export const de_InvokeWithResponseStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeWithResponseStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_InvokeWithResponseStreamCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ExecutedVersion: [, output.headers["x-amz-executed-version"]],
+    ResponseStreamContentType: [, output.headers["content-type"]],
+  });
+  const data: any = output.body;
+  contents.EventStream = de_InvokeWithResponseStreamResponseEvent(data, context);
+  map(contents, {
+    StatusCode: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeWithResponseStreamCommandError
+ */
+const de_InvokeWithResponseStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InvokeWithResponseStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EC2AccessDeniedException":
+    case "com.amazonaws.lambda#EC2AccessDeniedException":
+      throw await de_EC2AccessDeniedExceptionRes(parsedOutput, context);
+    case "EC2ThrottledException":
+    case "com.amazonaws.lambda#EC2ThrottledException":
+      throw await de_EC2ThrottledExceptionRes(parsedOutput, context);
+    case "EC2UnexpectedException":
+    case "com.amazonaws.lambda#EC2UnexpectedException":
+      throw await de_EC2UnexpectedExceptionRes(parsedOutput, context);
+    case "EFSIOException":
+    case "com.amazonaws.lambda#EFSIOException":
+      throw await de_EFSIOExceptionRes(parsedOutput, context);
+    case "EFSMountConnectivityException":
+    case "com.amazonaws.lambda#EFSMountConnectivityException":
+      throw await de_EFSMountConnectivityExceptionRes(parsedOutput, context);
+    case "EFSMountFailureException":
+    case "com.amazonaws.lambda#EFSMountFailureException":
+      throw await de_EFSMountFailureExceptionRes(parsedOutput, context);
+    case "EFSMountTimeoutException":
+    case "com.amazonaws.lambda#EFSMountTimeoutException":
+      throw await de_EFSMountTimeoutExceptionRes(parsedOutput, context);
+    case "ENILimitReachedException":
+    case "com.amazonaws.lambda#ENILimitReachedException":
+      throw await de_ENILimitReachedExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestContentException":
+    case "com.amazonaws.lambda#InvalidRequestContentException":
+      throw await de_InvalidRequestContentExceptionRes(parsedOutput, context);
+    case "InvalidRuntimeException":
+    case "com.amazonaws.lambda#InvalidRuntimeException":
+      throw await de_InvalidRuntimeExceptionRes(parsedOutput, context);
+    case "InvalidSecurityGroupIDException":
+    case "com.amazonaws.lambda#InvalidSecurityGroupIDException":
+      throw await de_InvalidSecurityGroupIDExceptionRes(parsedOutput, context);
+    case "InvalidSubnetIDException":
+    case "com.amazonaws.lambda#InvalidSubnetIDException":
+      throw await de_InvalidSubnetIDExceptionRes(parsedOutput, context);
+    case "InvalidZipFileException":
+    case "com.amazonaws.lambda#InvalidZipFileException":
+      throw await de_InvalidZipFileExceptionRes(parsedOutput, context);
+    case "KMSAccessDeniedException":
+    case "com.amazonaws.lambda#KMSAccessDeniedException":
+      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
+    case "KMSDisabledException":
+    case "com.amazonaws.lambda#KMSDisabledException":
+      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
+    case "KMSInvalidStateException":
+    case "com.amazonaws.lambda#KMSInvalidStateException":
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
+    case "KMSNotFoundException":
+    case "com.amazonaws.lambda#KMSNotFoundException":
+      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
+    case "RequestTooLargeException":
+    case "com.amazonaws.lambda#RequestTooLargeException":
+      throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.lambda#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "SubnetIPAddressLimitReachedException":
+    case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
+      throw await de_SubnetIPAddressLimitReachedExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnsupportedMediaTypeException":
+    case "com.amazonaws.lambda#UnsupportedMediaTypeException":
+      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7610,6 +7795,9 @@ export const de_UpdateFunctionUrlConfigCommand = async (
   if (data.FunctionUrl != null) {
     contents.FunctionUrl = __expectString(data.FunctionUrl);
   }
+  if (data.InvokeMode != null) {
+    contents.InvokeMode = __expectString(data.InvokeMode);
+  }
   if (data.LastModifiedTime != null) {
     contents.LastModifiedTime = __expectString(data.LastModifiedTime);
   }
@@ -8469,6 +8657,44 @@ const de_UnsupportedMediaTypeExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1InvokeWithResponseStreamResponseEvent
+ */
+const de_InvokeWithResponseStreamResponseEvent = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<InvokeWithResponseStreamResponseEvent> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["PayloadChunk"] != null) {
+      return {
+        PayloadChunk: await de_InvokeResponseStreamUpdate_event(event["PayloadChunk"], context),
+      };
+    }
+    if (event["InvokeComplete"] != null) {
+      return {
+        InvokeComplete: await de_InvokeWithResponseStreamCompleteEvent_event(event["InvokeComplete"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const de_InvokeResponseStreamUpdate_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvokeResponseStreamUpdate> => {
+  const contents: InvokeResponseStreamUpdate = {} as any;
+  contents.Payload = output.body;
+  return contents;
+};
+const de_InvokeWithResponseStreamCompleteEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvokeWithResponseStreamCompleteEvent> => {
+  const contents: InvokeWithResponseStreamCompleteEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_InvokeWithResponseStreamCompleteEvent(data, context));
+  return contents;
+};
 /**
  * serializeAws_restJson1AdditionalVersionWeights
  */
@@ -9596,6 +9822,7 @@ const de_FunctionUrlConfig = (output: any, context: __SerdeContext): FunctionUrl
     CreationTime: __expectString(output.CreationTime),
     FunctionArn: __expectString(output.FunctionArn),
     FunctionUrl: __expectString(output.FunctionUrl),
+    InvokeMode: __expectString(output.InvokeMode),
     LastModifiedTime: __expectString(output.LastModifiedTime),
   } as any;
 };
@@ -9658,6 +9885,20 @@ const de_ImageConfigResponse = (output: any, context: __SerdeContext): ImageConf
   return {
     Error: output.Error != null ? de_ImageConfigError(output.Error, context) : undefined,
     ImageConfig: output.ImageConfig != null ? de_ImageConfig(output.ImageConfig, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1InvokeWithResponseStreamCompleteEvent
+ */
+const de_InvokeWithResponseStreamCompleteEvent = (
+  output: any,
+  context: __SerdeContext
+): InvokeWithResponseStreamCompleteEvent => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorDetails: __expectString(output.ErrorDetails),
+    LogResult: __expectString(output.LogResult),
   } as any;
 };
 

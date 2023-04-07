@@ -59,6 +59,7 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  *     ],
  *     MaxAge: Number("int"),
  *   },
+ *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
  * };
  * const command = new UpdateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);

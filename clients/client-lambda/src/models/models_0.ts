@@ -951,6 +951,10 @@ export interface CreateEventSourceMappingRequest {
    *                <p>
    *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p>
+   *             </li>
    *          </ul>
    */
   EventSourceArn?: string;
@@ -1017,6 +1021,10 @@ export interface CreateEventSourceMappingRequest {
    *                <p>
    *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DocumentDB</b> – Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
@@ -1030,7 +1038,7 @@ export interface CreateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -1038,14 +1046,14 @@ export interface CreateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon
    *       DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for
-   *       Amazon Kinesis streams.</p>
+   *       Amazon Kinesis streams and Amazon DocumentDB.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -1056,27 +1064,27 @@ export interface CreateEventSourceMappingRequest {
   StartingPositionTimestamp?: Date;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -1101,7 +1109,7 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -1138,7 +1146,7 @@ export interface EventSourceMappingConfiguration {
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis
-   *       streams.</p>
+   *       streams and Amazon DocumentDB.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -1158,7 +1166,7 @@ export interface EventSourceMappingConfiguration {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -1166,7 +1174,7 @@ export interface EventSourceMappingConfiguration {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
@@ -1209,7 +1217,7 @@ export interface EventSourceMappingConfiguration {
   StateTransitionReason?: string;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -1234,29 +1242,29 @@ export interface EventSourceMappingConfiguration {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is -1,
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1,
    * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.  </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1,
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1,
    * which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is 1–900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -2297,6 +2305,20 @@ export interface Cors {
 
 /**
  * @public
+ * @enum
+ */
+export const InvokeMode = {
+  BUFFERED: "BUFFERED",
+  RESPONSE_STREAM: "RESPONSE_STREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type InvokeMode = (typeof InvokeMode)[keyof typeof InvokeMode];
+
+/**
+ * @public
  */
 export interface CreateFunctionUrlConfigRequest {
   /**
@@ -2340,6 +2362,23 @@ export interface CreateFunctionUrlConfigRequest {
    *   for your function URL.</p>
    */
   Cors?: Cors;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -2373,6 +2412,23 @@ export interface CreateFunctionUrlConfigResponse {
    * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   CreationTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -3021,11 +3077,11 @@ export interface FunctionEventInvokeConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3140,6 +3196,23 @@ export interface GetFunctionUrlConfigResponse {
    * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -4285,6 +4358,202 @@ export interface InvokeAsyncResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ResponseStreamingInvocationType = {
+  DryRun: "DryRun",
+  RequestResponse: "RequestResponse",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseStreamingInvocationType =
+  (typeof ResponseStreamingInvocationType)[keyof typeof ResponseStreamingInvocationType];
+
+/**
+ * @public
+ */
+export interface InvokeWithResponseStreamRequest {
+  /**
+   * <p>The name of the Lambda function.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> – <code>my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+   *       characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the
+   *           connection open until the function returns a response or times out. The API operation
+   *           response includes the function response and additional data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke
+   *           the function.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvocationType?: ResponseStreamingInvocationType | string;
+
+  /**
+   * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+   *       object.</p>
+   */
+  ClientContext?: string;
+
+  /**
+   * <p>The alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   *          <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also
+   *       specify a file path. For example, <code>--payload file://payload.json</code>.</p>
+   */
+  Payload?: Uint8Array;
+}
+
+/**
+ * @public
+ * <p>A response confirming that the event stream is complete.</p>
+ */
+export interface InvokeWithResponseStreamCompleteEvent {
+  /**
+   * <p>An error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The details of any returned error.</p>
+   */
+  ErrorDetails?: string;
+
+  /**
+   * <p>The last 4 KB of the execution log, which is base64-encoded.</p>
+   */
+  LogResult?: string;
+}
+
+/**
+ * @public
+ * <p>A chunk of the streamed response payload.</p>
+ */
+export interface InvokeResponseStreamUpdate {
+  /**
+   * <p>Data returned by your Lambda function.</p>
+   */
+  Payload?: Uint8Array;
+}
+
+/**
+ * @public
+ * <p>An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a <code>InvokeComplete</code> object.</p>
+ */
+export type InvokeWithResponseStreamResponseEvent =
+  | InvokeWithResponseStreamResponseEvent.InvokeCompleteMember
+  | InvokeWithResponseStreamResponseEvent.PayloadChunkMember
+  | InvokeWithResponseStreamResponseEvent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeWithResponseStreamResponseEvent {
+  /**
+   * <p>A chunk of the streamed response payload.</p>
+   */
+  export interface PayloadChunkMember {
+    PayloadChunk: InvokeResponseStreamUpdate;
+    InvokeComplete?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that's returned when the stream has ended and all the payload chunks have been
+   *       returned.</p>
+   */
+  export interface InvokeCompleteMember {
+    PayloadChunk?: never;
+    InvokeComplete: InvokeWithResponseStreamCompleteEvent;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    PayloadChunk?: never;
+    InvokeComplete?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    PayloadChunk: (value: InvokeResponseStreamUpdate) => T;
+    InvokeComplete: (value: InvokeWithResponseStreamCompleteEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvokeWithResponseStreamResponseEvent, visitor: Visitor<T>): T => {
+    if (value.PayloadChunk !== undefined) return visitor.PayloadChunk(value.PayloadChunk);
+    if (value.InvokeComplete !== undefined) return visitor.InvokeComplete(value.InvokeComplete);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeWithResponseStreamResponse {
+  /**
+   * <p>For a successful request, the HTTP status code is in the 200 range. For the
+   *         <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code>
+   *       invocation type, this status code is 204.</p>
+   */
+  StatusCode?: number;
+
+  /**
+   * <p>The version of the function that executed. When you invoke a function with an alias, this
+   *       indicates which version the alias resolved to.</p>
+   */
+  ExecutedVersion?: string;
+
+  /**
+   * <p>The stream of response payloads.</p>
+   */
+  EventStream?: AsyncIterable<InvokeWithResponseStreamResponseEvent>;
+
+  /**
+   * <p>The type of data the stream is returning.</p>
+   */
+  ResponseStreamContentType?: string;
+}
+
+/**
+ * @public
  */
 export interface ListAliasesRequest {
   /**
@@ -4398,6 +4667,10 @@ export interface ListEventSourceMappingsRequest {
    *             <li>
    *                <p>
    *                   <b>Amazon MQ</b> – The ARN of the broker.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p>
    *             </li>
    *          </ul>
    */
@@ -4682,6 +4955,25 @@ export interface FunctionUrlConfig {
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
   AuthType: FunctionUrlAuthType | string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function
+   *           using the <code>Invoke</code> API operation. Invocation results are available when the
+   *           payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available.
+   *             Lambda invokes your function using the <code>InvokeWithResponseStream</code>
+   *           API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -5356,11 +5648,11 @@ export interface PutFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5796,6 +6088,10 @@ export interface UpdateEventSourceMappingRequest {
    *                <p>
    *                   <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DocumentDB</b> – Default 100. Max 10,000.</p>
+   *             </li>
    *          </ul>
    */
   BatchSize?: number;
@@ -5809,7 +6105,7 @@ export interface UpdateEventSourceMappingRequest {
   /**
    * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *   You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
-   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+   *          <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default
    *   batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it.
    *   To restore the default batching window, you must create a new event source mapping.</p>
    *          <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -5817,27 +6113,27 @@ export interface UpdateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
@@ -5847,12 +6143,12 @@ export interface UpdateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
+   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 
@@ -6132,11 +6428,11 @@ export interface UpdateFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Queue</b> - The ARN of an SQS queue.</p>
+   *                   <b>Queue</b> - The ARN of a standard SQS queue.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Topic</b> - The ARN of an SNS topic.</p>
+   *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6192,6 +6488,23 @@ export interface UpdateFunctionUrlConfigRequest {
    *   for your function URL.</p>
    */
   Cors?: Cors;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -6230,6 +6543,23 @@ export interface UpdateFunctionUrlConfigResponse {
    * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results
+   *         are available when the payload is complete. The maximum payload size is 6 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using
+   *         the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 20 MB, however, you can <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">request a quota increase</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  InvokeMode?: InvokeMode | string;
 }
 
 /**
@@ -6349,6 +6679,42 @@ export const InvocationResponseFilterSensitiveLog = (obj: InvocationResponse): a
  */
 export const InvokeAsyncRequestFilterSensitiveLog = (obj: InvokeAsyncRequest): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvokeWithResponseStreamRequestFilterSensitiveLog = (obj: InvokeWithResponseStreamRequest): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeResponseStreamUpdateFilterSensitiveLog = (obj: InvokeResponseStreamUpdate): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeWithResponseStreamResponseEventFilterSensitiveLog = (
+  obj: InvokeWithResponseStreamResponseEvent
+): any => {
+  if (obj.PayloadChunk !== undefined)
+    return { PayloadChunk: InvokeResponseStreamUpdateFilterSensitiveLog(obj.PayloadChunk) };
+  if (obj.InvokeComplete !== undefined) return { InvokeComplete: obj.InvokeComplete };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeWithResponseStreamResponseFilterSensitiveLog = (obj: InvokeWithResponseStreamResponse): any => ({
+  ...obj,
+  ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
 });
 
 /**

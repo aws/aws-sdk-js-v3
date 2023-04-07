@@ -71,6 +71,12 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *             Apache Kafka</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html">
+ *             Amazon DocumentDB</a>
+ *                </p>
+ *             </li>
  *          </ul>
  *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
  *          <ul>
@@ -131,6 +137,12 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
  *           Apache Kafka</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+ *           Amazon DocumentDB</a>
  *                </p>
  *             </li>
  *          </ul>

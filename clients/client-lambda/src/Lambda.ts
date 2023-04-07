@@ -148,6 +148,11 @@ import {
 } from "./commands/GetRuntimeManagementConfigCommand";
 import { InvokeAsyncCommand, InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
 import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
+import {
+  InvokeWithResponseStreamCommand,
+  InvokeWithResponseStreamCommandInput,
+  InvokeWithResponseStreamCommandOutput,
+} from "./commands/InvokeWithResponseStreamCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListCodeSigningConfigsCommand,
@@ -540,6 +545,12 @@ export class Lambda extends LambdaClient {
    *             Apache Kafka</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html">
+   *             Amazon DocumentDB</a>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
@@ -600,6 +611,12 @@ export class Lambda extends LambdaClient {
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
    *           Apache Kafka</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+   *           Amazon DocumentDB</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1681,6 +1698,39 @@ export class Lambda extends LambdaClient {
 
   /**
    * @public
+   * <p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring a Lambda function to stream responses</a>.</p>
+   */
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeWithResponseStreamCommandOutput>;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    cb: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): void;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): void;
+  public invokeWithResponseStream(
+    args: InvokeWithResponseStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeWithResponseStreamCommandOutput) => void),
+    cb?: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
+  ): Promise<InvokeWithResponseStreamCommandOutput> | void {
+    const command = new InvokeWithResponseStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
    *       for a Lambda function.</p>
    */
@@ -2573,6 +2623,12 @@ export class Lambda extends LambdaClient {
    *             Apache Kafka</a>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html">
+   *             Amazon DocumentDB</a>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
    *          <ul>
@@ -2633,6 +2689,12 @@ export class Lambda extends LambdaClient {
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
    *           Apache Kafka</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+   *           Amazon DocumentDB</a>
    *                </p>
    *             </li>
    *          </ul>
