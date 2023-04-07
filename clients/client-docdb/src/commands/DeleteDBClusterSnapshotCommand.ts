@@ -33,9 +33,9 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
 /**
  * @public
  * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
- *         <note>
+ *          <note>
  *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -35,8 +35,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
 /**
  * @public
  * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>
- *         <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
- *         <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
+ *          <p>If a snapshot is specified, the target cluster is created from the source DB snapshot with a default configuration and default security group.</p>
+ *          <p>If a cluster snapshot is specified, the target cluster is created from the source cluster restore point with the same configuration as the original source DB cluster, except that the new cluster is created with the default security group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   DeletionProtection: true || false,
+ *   DBClusterParameterGroupName: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);

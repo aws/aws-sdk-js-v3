@@ -33,9 +33,9 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
 /**
  * @public
  * <p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

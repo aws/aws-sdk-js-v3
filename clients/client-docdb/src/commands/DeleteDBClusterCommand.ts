@@ -33,7 +33,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
 /**
  * @public
  * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
- *         <p></p>
+ *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

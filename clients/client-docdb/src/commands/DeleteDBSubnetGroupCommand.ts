@@ -33,10 +33,10 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Deletes a subnet group.</p>
- *         <note>
+ *          <note>
  *             <p>The specified database subnet group must not be associated with any DB
  *                 instances.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

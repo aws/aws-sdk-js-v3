@@ -33,9 +33,9 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
 /**
  * @public
  * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,7 +39,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
  *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
  *             parameters. </p>
- *         <p> When you reset the entire group, dynamic parameters are updated immediately and
+ *          <p> When you reset the entire group, dynamic parameters are updated immediately and
  *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
  *             instance reboot.</p>
  * @example
@@ -62,7 +62,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *       AllowedValues: "STRING_VALUE",
  *       IsModifiable: true || false,
  *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
  *     },
  *   ],
  * };

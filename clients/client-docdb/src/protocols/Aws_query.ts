@@ -6876,6 +6876,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input.DeletionProtection != null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.DBClusterParameterGroupName != null) {
+    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  }
   return entries;
 };
 

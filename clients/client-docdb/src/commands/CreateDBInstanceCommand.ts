@@ -70,7 +70,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
  *  <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p>

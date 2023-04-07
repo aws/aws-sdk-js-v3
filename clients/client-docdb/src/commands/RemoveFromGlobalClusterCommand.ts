@@ -33,9 +33,9 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
 /**
  * @public
  * <p>Detaches an Amazon DocumentDB secondary cluster from a global cluster. The cluster becomes a standalone cluster with read-write capability instead of being read-only and receiving data from a primary in a different region. </p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

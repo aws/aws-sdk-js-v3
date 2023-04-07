@@ -17,21 +17,21 @@ export interface AddSourceIdentifierToSubscriptionMessage {
 
   /**
    * <p>The identifier of the event source to be added:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If the source type is an instance, a
+   *                <p>If the source type is an instance, a
    *                     <code>DBInstanceIdentifier</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a security group, a
+   *                <p>If the source type is a security group, a
    *                     <code>DBSecurityGroupName</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a parameter group, a
+   *                <p>If the source type is a parameter group, a
    *                     <code>DBParameterGroupName</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a snapshot, a
+   *                <p>If the source type is a snapshot, a
    *                     <code>DBSnapshotIdentifier</code> must be provided.</p>
    *             </li>
    *          </ul>
@@ -62,12 +62,12 @@ export interface EventSubscription {
 
   /**
    * <p>The status of the Amazon DocumentDB event notification subscription.</p>
-   *         <p>Constraints:</p>
-   *         <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,
+   *          <p>Constraints:</p>
+   *          <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,
    *                 <code>deleting</code>, <code>active</code>, <code>no-permission</code>,
    *                 <code>topic-not-exist</code>
    *          </p>
-   *         <p>The <code>no-permission</code> status indicates that Amazon DocumentDB no longer has permission
+   *          <p>The <code>no-permission</code> status indicates that Amazon DocumentDB no longer has permission
    *             to post to the SNS topic. The <code>topic-not-exist</code> status indicates that the
    *             topic was deleted after the subscription was created.</p>
    */
@@ -266,8 +266,8 @@ export interface ApplyPendingMaintenanceActionMessage {
 
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
-   *         <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>
-   *         </p>
+   *          <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>
+   *          </p>
    */
   ApplyAction: string | undefined;
 
@@ -275,21 +275,21 @@ export interface ApplyPendingMaintenanceActionMessage {
    * <p>A value that specifies the type of opt-in request or undoes an
    *             opt-in request. An opt-in request of type <code>immediate</code>
    *             can't be undone.</p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>immediate</code> - Apply the maintenance action
    *                     immediately.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>next-maintenance</code> - Apply the maintenance
    *                     action during the next maintenance window for the resource.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>undo-opt-in</code> - Cancel any existing
    *                     <code>next-maintenance</code> opt-in requests.</p>
    *             </li>
@@ -439,16 +439,16 @@ export class ResourceNotFoundFault extends __BaseException {
 export interface CopyDBClusterParameterGroupMessage {
   /**
    * <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must specify a valid cluster parameter group.</p>
+   *                <p>Must specify a valid cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
+   *                <p>If the source cluster parameter group is in the same Amazon Web Services Region as the copy, specify a valid parameter group identifier; for example, <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
+   *                <p>If the source parameter group is in a different Amazon Web Services Region than the copy, specify a valid cluster parameter group ARN; for example, <code>arn:aws:rds:us-east-1:123456789012:sample-cluster:sample-parameter-group</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -456,25 +456,25 @@ export interface CopyDBClusterParameterGroupMessage {
 
   /**
    * <p>The identifier for the copied cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Cannot be null, empty, or blank.</p>
+   *                <p>Cannot be null, empty, or blank.</p>
    *             </li>
    *             <li>
-   *                 <p>Must contain from 1 to 255 letters, numbers, or hyphens.
+   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster-param-group1</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster-param-group1</code>
+   *          </p>
    */
   TargetDBClusterParameterGroupIdentifier: string | undefined;
 
@@ -597,45 +597,43 @@ export interface CopyDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the cluster snapshot to copy. This parameter is
    *             not case sensitive.</p>
-   *
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must specify a valid system snapshot in the
+   *                <p>Must specify a valid system snapshot in the
    *                     <i>available</i> state.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid snapshot identifier.</p>
+   *                <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid snapshot identifier.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid cluster snapshot ARN.</p>
+   *                <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid cluster snapshot ARN.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster-snapshot1</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster-snapshot1</code>
+   *          </p>
    */
   SourceDBClusterSnapshotIdentifier: string | undefined;
 
   /**
    * <p>The identifier of the new cluster snapshot to create from the
    *             source cluster snapshot. This parameter is not case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster-snapshot2</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster-snapshot2</code>
+   *          </p>
    */
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
@@ -643,40 +641,34 @@ export interface CopyDBClusterSnapshotMessage {
    * <p>The KMS key ID for an encrypted cluster snapshot. The KMS
    *             key ID is the Amazon Resource Name (ARN), KMS key identifier, or
    *             the KMS key alias for the KMS encryption key. </p>
-   *
-   *         <p>If you copy an encrypted cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>
-   *
-   *         <p>If you copy an encrypted cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for <code>KmsKeyId</code>.</p>
-   *
-   *         <p>To copy an encrypted cluster snapshot to another Amazon Web Services Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Amazon Web Services Region that they are created in, and you can't use encryption keys from one Amazon Web Services Region in another Amazon Web Services Region.</p>
-   *
-   *         <p>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
+   *          <p>If you copy an encrypted cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.</p>
+   *          <p>If you copy an encrypted cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for <code>KmsKeyId</code>.</p>
+   *          <p>To copy an encrypted cluster snapshot to another Amazon Web Services Region, set <code>KmsKeyId</code> to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Amazon Web Services Region that they are created in, and you can't use encryption keys from one Amazon Web Services Region in another Amazon Web Services Region.</p>
+   *          <p>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter, an error is returned.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Amazon Web Services Region.</p>
-   *
-   *         <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *          <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
    *             <code>SourceRegion</code> (or <code>--source-region</code> for the
    *             CLI) instead of specifying <code>PreSignedUrl</code> manually.
    *             Specifying <code>SourceRegion</code> autogenerates a pre-signed URL
    *             that is a valid request for the operation that can be executed in
    *             the source Amazon Web Services Region.</p>
-   *
-   *         <p>The presigned URL must be a valid request for the
+   *          <p>The presigned URL must be a valid request for the
    *             <code>CopyDBClusterSnapshot</code> API action that can be executed
    *             in the source Amazon Web Services Region that contains the cluster snapshot to be
    *             copied. The presigned URL request must contain the following
    *             parameter values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SourceRegion</code> - The ID of the region that
    *                     contains the snapshot to be copied.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SourceDBClusterSnapshotIdentifier</code> - The
    *                     identifier for the the encrypted cluster snapshot to be
    *                     copied. This identifier must be in the Amazon Resource Name
@@ -688,7 +680,7 @@ export interface CopyDBClusterSnapshotMessage {
    *                     <code>arn:aws:rds:us-east-1:12345678012:sample-cluster:sample-cluster-snapshot</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TargetDBClusterSnapshotIdentifier</code> - The
    *                     identifier for the new cluster snapshot to be created. This
    *                     parameter isn't case sensitive.</p>
@@ -933,11 +925,11 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The number of days for which automated backups are retained. You
    *             must specify a minimum value of 1.</p>
-   *         <p>Default: 1</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be a value from 1 to 35.</p>
+   *                <p>Must be a value from 1 to 35.</p>
    *             </li>
    *          </ul>
    */
@@ -946,22 +938,22 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The cluster identifier. This parameter is stored as a lowercase
    *             string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster</code>
+   *          </p>
    */
   DBClusterIdentifier: string | undefined;
 
@@ -979,17 +971,17 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>A subnet group to associate with this cluster.</p>
-   *         <p>Constraints: Must match the name of an existing
+   *          <p>Constraints: Must match the name of an existing
    *             <code>DBSubnetGroup</code>. Must not be default.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
   /**
    * <p>The name of the database engine to be used for this cluster.</p>
-   *         <p>Valid values: <code>docdb</code>
-   *         </p>
+   *          <p>Valid values: <code>docdb</code>
+   *          </p>
    */
   Engine: string | undefined;
 
@@ -1006,16 +998,16 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The name of the master user for the cluster.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be from 1 to 63 letters or numbers.</p>
+   *                <p>Must be from 1 to 63 letters or numbers.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be a reserved word for the chosen database engine.
+   *                <p>Cannot be a reserved word for the chosen database engine.
    *                     </p>
    *             </li>
    *          </ul>
@@ -1026,28 +1018,28 @@ export interface CreateDBClusterMessage {
    * <p>The password for the master database user. This password can
    *             contain any printable ASCII character except forward slash (/),
    *             double quote ("), or the "at" symbol (@).</p>
-   *         <p>Constraints: Must contain from 8 to 100 characters.</p>
+   *          <p>Constraints: Must contain from 8 to 100 characters.</p>
    */
   MasterUserPassword?: string;
 
   /**
    * <p>The daily time range during which automated backups are created if
    *             automated backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. </p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
+   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be in Universal Coordinated Time (UTC).</p>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
    *             </li>
    *             <li>
-   *                 <p>Must not conflict with the preferred maintenance window.
+   *                <p>Must not conflict with the preferred maintenance window.
    *                     </p>
    *             </li>
    *             <li>
-   *                 <p>Must be at least 30 minutes.</p>
+   *                <p>Must be at least 30 minutes.</p>
    *             </li>
    *          </ul>
    */
@@ -1056,11 +1048,11 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The weekly time range during which system maintenance can occur,
    *             in Universal Coordinated Time (UTC).</p>
-   *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region, occurring on a random day of the week.</p>
-   *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
+   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region, occurring on a random day of the week.</p>
+   *          <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -1076,17 +1068,17 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The KMS key identifier for an encrypted cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon Web Services account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
-   *         <p>If an encryption key is not specified in <code>KmsKeyId</code>:
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon Web Services account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *          <p>If an encryption key is not specified in <code>KmsKeyId</code>:
    *             </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If the <code>StorageEncrypted</code> parameter is
+   *                <p>If the <code>StorageEncrypted</code> parameter is
    *                     <code>true</code>, Amazon DocumentDB uses your default encryption key.
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Regions.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Regions.</p>
    */
   KmsKeyId?: string;
 
@@ -1136,17 +1128,17 @@ export interface DBClusterRole {
 
   /**
    * <p>Describes the state of association between the IAMrole and the cluster. The <code>Status</code> property returns one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ACTIVE</code> - The IAMrole ARN is associated with the cluster and can be used to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - The IAMrole ARN is being associated with the cluster.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INVALID</code> - The IAMrole ARN is associated with the cluster, but the cluster cannot assume the IAMrole to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *          </ul>
@@ -1255,7 +1247,7 @@ export interface DBCluster {
 
   /**
    * <p>The reader endpoint for the cluster. The reader endpoint for a cluster load balances connections across the Amazon DocumentDB replicas that are available in a cluster. As clients request new connections to the reader endpoint, Amazon DocumentDB distributes the connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>
-   *         <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader endpoint.</p>
+   *          <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader endpoint.</p>
    */
   ReaderEndpoint?: string;
 
@@ -1643,16 +1635,16 @@ export class StorageQuotaExceededFault extends __BaseException {
 export interface CreateDBClusterParameterGroupMessage {
   /**
    * <p>The name of the cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must not match the name of an existing
+   *                <p>Must not match the name of an existing
    *                     <code>DBClusterParameterGroup</code>.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>This value is stored as a lowercase string.</p>
-   *         </note>
+   *          </note>
    */
   DBClusterParameterGroupName: string | undefined;
 
@@ -1690,36 +1682,36 @@ export interface CreateDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the cluster snapshot. This parameter is stored
    *             as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.
    *                     </p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster-snapshot1</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster-snapshot1</code>
+   *          </p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
 
   /**
    * <p>The identifier of the cluster to create a snapshot for. This
    *             parameter is not case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing
+   *                <p>Must match the identifier of an existing
    *                     <code>DBCluster</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster</code>
+   *          </p>
    */
   DBClusterIdentifier: string | undefined;
 
@@ -1742,7 +1734,7 @@ export interface CreateDBClusterSnapshotResult {
 /**
  * @public
  * <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  */
 export class AuthorizationNotFoundFault extends __BaseException {
   readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
@@ -1767,20 +1759,20 @@ export class AuthorizationNotFoundFault extends __BaseException {
 export interface CreateDBInstanceMessage {
   /**
    * <p>The instance identifier. This parameter is stored as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>mydbinstance</code>
-   *         </p>
+   *          <p>Example: <code>mydbinstance</code>
+   *          </p>
    */
   DBInstanceIdentifier: string | undefined;
 
@@ -1792,15 +1784,15 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The name of the database engine to be used for this instance.</p>
-   *         <p>Valid value: <code>docdb</code>
+   *          <p>Valid value: <code>docdb</code>
    *          </p>
    */
   Engine: string | undefined;
 
   /**
    * <p>The Amazon EC2 Availability Zone that the instance is created in. </p>
-   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
-   *         <p>Example: <code>us-east-1d</code>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
+   *          <p>Example: <code>us-east-1d</code>
    *          </p>
    */
   AvailabilityZone?: string;
@@ -1808,19 +1800,19 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The time range each week during which system maintenance can occur, in Universal
    *             Coordinated Time (UTC).</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
+   *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
    *             each Amazon Web Services Region, occurring on a random day of the week. </p>
-   *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
+   *          <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
    * <p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -1843,8 +1835,8 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
    *             primary instance after a failure of the existing primary instance.</p>
-   *         <p>Default: 1</p>
-   *         <p>Valid values: 0-15</p>
+   *          <p>Default: 1</p>
+   *          <p>Valid values: 0-15</p>
    */
   PromotionTier?: number;
 
@@ -1858,9 +1850,9 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The KMS key identifier for encryption of Performance Insights
    *             data.</p>
-   *         <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+   *          <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
    *             for the KMS key.</p>
-   *         <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
+   *          <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
    *             default KMS key. There is a default KMS key for your
    *             Amazon Web Services account. Your Amazon Web Services account has a different
    *             default KMS key for each Amazon Web Services region.</p>
@@ -2023,7 +2015,7 @@ export interface PendingModifiedValues {
 
   /**
    * <p>The license model for the instance.</p>
-   *         <p>Valid values: <code>license-included</code>, <code>bring-your-own-license</code>,
+   *          <p>Valid values: <code>license-included</code>, <code>bring-your-own-license</code>,
    *                 <code>general-public-license</code>
    *          </p>
    */
@@ -2365,10 +2357,10 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 export interface CreateDBSubnetGroupMessage {
   /**
    * <p>The name for the subnet group. This value is stored as a lowercase string.</p>
-   *         <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
+   *          <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
    *             spaces, or hyphens. Must not be default.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName: string | undefined;
 
@@ -2466,7 +2458,7 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
 export interface CreateEventSubscriptionMessage {
   /**
    * <p>The name of the subscription.</p>
-   *         <p>Constraints: The name must be fewer than 255 characters.</p>
+   *          <p>Constraints: The name must be fewer than 255 characters.</p>
    */
   SubscriptionName: string | undefined;
 
@@ -2477,10 +2469,10 @@ export interface CreateEventSubscriptionMessage {
 
   /**
    * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, you would set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
-   *         <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,
+   *          <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,
    *                 <code>db-parameter-group</code>, <code>db-security-group</code>,
    *                 <code>db-cluster-snapshot</code>
-   *         </p>
+   *          </p>
    */
   SourceType?: string;
 
@@ -2492,26 +2484,26 @@ export interface CreateEventSubscriptionMessage {
   /**
    * <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a
    *             hyphen or contain two consecutive hyphens.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be
+   *                <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be
    *                     provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must
+   *                <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must
    *                     be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a security group, a <code>DBSecurityGroupName</code>
+   *                <p>If the source type is a security group, a <code>DBSecurityGroupName</code>
    *                     must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a parameter group, a
+   *                <p>If the source type is a parameter group, a
    *                         <code>DBParameterGroupName</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must
+   *                <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must
    *                     be provided.</p>
    *             </li>
    *          </ul>
@@ -2732,7 +2724,7 @@ export interface GlobalCluster {
   GlobalClusterIdentifier?: string;
 
   /**
-   * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed. </p>
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in CloudTrail log entries whenever the KMS customer master key (CMK) for the cluster is accessed. </p>
    */
   GlobalClusterResourceId?: string;
 
@@ -2834,10 +2826,10 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
 export interface DeleteDBClusterMessage {
   /**
    * <p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match an existing <code>DBClusterIdentifier</code>.</p>
+   *                <p>Must match an existing <code>DBClusterIdentifier</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2845,29 +2837,29 @@ export interface DeleteDBClusterMessage {
 
   /**
    * <p> Determines whether a final cluster snapshot is created before the cluster is deleted. If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code> is specified, a cluster snapshot is created before the DB cluster is deleted. </p>
-   *         <note>
+   *          <note>
    *             <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code> parameter.</p>
-   *         </note>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   *          </note>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   SkipFinalSnapshot?: boolean;
 
   /**
    * <p> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>
-   *         <note>
+   *          <note>
    *             <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter to <code>true</code> results in an error. </p>
-   *         </note>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          </note>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be from 1 to 255 letters, numbers, or hyphens.</p>
+   *                <p>Must be from 1 to 255 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
@@ -2891,16 +2883,16 @@ export interface DeleteDBClusterResult {
 export interface DeleteDBClusterParameterGroupMessage {
   /**
    * <p>The name of the cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be the name of an existing cluster parameter group.</p>
+   *                <p>Must be the name of an existing cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                 <p>You can't delete a default cluster parameter group.</p>
+   *                <p>You can't delete a default cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be associated with any clusters.</p>
+   *                <p>Cannot be associated with any clusters.</p>
    *             </li>
    *          </ul>
    */
@@ -2934,7 +2926,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
 export interface DeleteDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the cluster snapshot to delete.</p>
-   *         <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>
+   *          <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
 }
@@ -2978,10 +2970,10 @@ export interface DeleteDBInstanceMessage {
   /**
    * <p>The instance identifier for the instance to be deleted. This parameter isn't
    *             case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the name of an existing instance.</p>
+   *                <p>Must match the name of an existing instance.</p>
    *             </li>
    *          </ul>
    */
@@ -3005,13 +2997,13 @@ export interface DeleteDBInstanceResult {
 export interface DeleteDBSubnetGroupMessage {
   /**
    * <p>The name of the database subnet group to delete.</p>
-   *         <note>
+   *          <note>
    *             <p>You can't delete the default subnet group.</p>
-   *         </note>
-   *         <p>Constraints:</p>
-   *         <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          </note>
+   *          <p>Constraints:</p>
+   *          <p>Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName: string | undefined;
 }
@@ -3185,7 +3177,7 @@ export class CertificateNotFoundFault extends __BaseException {
  * @public
  * <p>A named set of filter values, used to return a more specific list of results. You can
  *             use a filter to match a set of resources by specific criteria, such as IDs.</p>
- *         <p>Wildcards are not supported in filters.</p>
+ *          <p>Wildcards are not supported in filters.</p>
  */
 export interface Filter {
   /**
@@ -3265,10 +3257,10 @@ export interface DBClusterParameterGroupsMessage {
 export interface DescribeDBClusterParameterGroupsMessage {
   /**
    * <p>The name of a specific cluster parameter group to return details for.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match the name of an existing
+   *                <p>If provided, must match the name of an existing
    *                         <code>DBClusterParameterGroup</code>.</p>
    *             </li>
    *          </ul>
@@ -3285,7 +3277,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3299,8 +3291,17 @@ export interface DescribeDBClusterParameterGroupsMessage {
 
 /**
  * @public
+ * @enum
  */
-export type ApplyMethod = "immediate" | "pending-reboot";
+export const ApplyMethod = {
+  immediate: "immediate",
+  pending_reboot: "pending-reboot",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplyMethod = (typeof ApplyMethod)[keyof typeof ApplyMethod];
 
 /**
  * @public
@@ -3385,10 +3386,10 @@ export interface DBClusterParameterGroupDetails {
 export interface DescribeDBClusterParametersMessage {
   /**
    * <p>The name of a specific cluster parameter group to return parameter details for.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</p>
+   *                <p>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -3410,7 +3411,7 @@ export interface DescribeDBClusterParametersMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3447,10 +3448,10 @@ export interface DBClusterMessage {
 export interface DescribeDBClustersMessage {
   /**
    * <p>The user-provided cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match an existing <code>DBClusterIdentifier</code>.</p>
+   *                <p>If provided, must match an existing <code>DBClusterIdentifier</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -3458,11 +3459,11 @@ export interface DescribeDBClustersMessage {
 
   /**
    * <p>A filter that specifies one or more clusters to describe.</p>
-   *         <p>Supported filters:</p>
-   *         <ul>
+   *          <p>Supported filters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list only includes information about the clusters identified by these ARNs.</p>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list only includes information about the clusters identified by these ARNs.</p>
    *             </li>
    *          </ul>
    */
@@ -3473,7 +3474,7 @@ export interface DescribeDBClustersMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3499,18 +3500,18 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 /**
  * @public
  * <p>Contains the name and values of a manual cluster snapshot attribute.</p>
- *         <p>Manual cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual cluster snapshot.</p>
+ *          <p>Manual cluster snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual cluster snapshot.</p>
  */
 export interface DBClusterSnapshotAttribute {
   /**
    * <p>The name of the manual cluster snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual cluster snapshot.</p>
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual cluster snapshot.</p>
    */
   AttributeName?: string;
 
   /**
    * <p>The values for the manual cluster snapshot attribute.</p>
-   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any Amazon Web Services account to copy or restore.</p>
+   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any Amazon Web Services account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -3568,10 +3569,10 @@ export interface DBClusterSnapshotMessage {
 export interface DescribeDBClusterSnapshotsMessage {
   /**
    * <p>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not case sensitive. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match the identifier of an existing
+   *                <p>If provided, must match the identifier of an existing
    *                     <code>DBCluster</code>.</p>
    *             </li>
    *          </ul>
@@ -3580,14 +3581,14 @@ export interface DescribeDBClusterSnapshotsMessage {
 
   /**
    * <p>A specific cluster snapshot identifier to describe. This parameter can't be used with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase string. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match the identifier of an existing
+   *                <p>If provided, must match the identifier of an existing
    *                         <code>DBClusterSnapshot</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code>
    *                     parameter must also be specified.</p>
    *             </li>
    *          </ul>
@@ -3596,26 +3597,26 @@ export interface DescribeDBClusterSnapshotsMessage {
 
   /**
    * <p>The type of cluster snapshots to be returned. You can specify one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your Amazon Web Services account.</p>
+   *                <p>
+   *                   <code>automated</code> - Return all cluster snapshots that Amazon DocumentDB has automatically created for your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>manual</code> - Return all cluster snapshots that you have manually created for your Amazon Web Services account.</p>
+   *                <p>
+   *                   <code>manual</code> - Return all cluster snapshots that you have manually created for your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>shared</code> - Return all manual cluster snapshots that have been shared to your Amazon Web Services account.</p>
+   *                <p>
+   *                   <code>shared</code> - Return all manual cluster snapshots that have been shared to your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>public</code> - Return all cluster snapshots that have been marked as public.</p>
+   *                <p>
+   *                   <code>public</code> - Return all cluster snapshots that have been marked as public.</p>
    *             </li>
    *          </ul>
-   *         <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual cluster snapshots are returned. You can include shared cluster snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public cluster snapshots with these results by setting the<code>IncludePublic</code> parameter to <code>true</code>.</p>
-   *         <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual cluster snapshots are returned. You can include shared cluster snapshots with these results by setting the <code>IncludeShared</code> parameter to <code>true</code>. You can include public cluster snapshots with these results by setting the<code>IncludePublic</code> parameter to <code>true</code>.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to <code>public</code>.</p>
    */
   SnapshotType?: string;
 
@@ -3629,7 +3630,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3761,17 +3762,17 @@ export interface DescribeDBEngineVersionsMessage {
 
   /**
    * <p>The database engine version to return.</p>
-   *         <p>Example: <code>3.6.0</code>
-   *         </p>
+   *          <p>Example: <code>3.6.0</code>
+   *          </p>
    */
   EngineVersion?: string;
 
   /**
    * <p>The name of a specific parameter group family to return details for.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match an existing
+   *                <p>If provided, must match an existing
    *                     <code>DBParameterGroupFamily</code>.</p>
    *             </li>
    *          </ul>
@@ -3788,7 +3789,7 @@ export interface DescribeDBEngineVersionsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3841,10 +3842,10 @@ export interface DBInstanceMessage {
 export interface DescribeDBInstancesMessage {
   /**
    * <p>The user-provided instance identifier. If this parameter is specified, information from only the specific instance is returned. This parameter isn't case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If provided, must match the identifier of an existing
+   *                <p>If provided, must match the identifier of an existing
    *                     <code>DBInstance</code>.</p>
    *             </li>
    *          </ul>
@@ -3853,15 +3854,15 @@ export interface DescribeDBInstancesMessage {
 
   /**
    * <p>A filter that specifies one or more instances to describe.</p>
-   *         <p>Supported filters:</p>
-   *         <ul>
+   *          <p>Supported filters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only the information about the instances that are associated with the clusters that are identified by these ARNs.</p>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource Names (ARNs). The results list includes only the information about the instances that are associated with the clusters that are identified by these ARNs.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only the information about the instances that are identified by these ARNs.</p>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The results list includes only the information about the instances that are identified by these ARNs.</p>
    *             </li>
    *          </ul>
    */
@@ -3872,7 +3873,7 @@ export interface DescribeDBInstancesMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3922,7 +3923,7 @@ export interface DescribeDBSubnetGroupsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -3955,7 +3956,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -4009,7 +4010,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
 export interface DescribeEventCategoriesMessage {
   /**
    * <p>The type of source that is generating the events.</p>
-   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
+   *          <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
    *          </p>
    */
   SourceType?: string;
@@ -4049,14 +4050,21 @@ export interface EventCategoriesMessage {
 
 /**
  * @public
+ * @enum
  */
-export type SourceType =
-  | "db-cluster"
-  | "db-cluster-snapshot"
-  | "db-instance"
-  | "db-parameter-group"
-  | "db-security-group"
-  | "db-snapshot";
+export const SourceType = {
+  db_cluster: "db-cluster",
+  db_cluster_snapshot: "db-cluster-snapshot",
+  db_instance: "db-instance",
+  db_parameter_group: "db-parameter-group",
+  db_security_group: "db-security-group",
+  db_snapshot: "db-snapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -4065,29 +4073,29 @@ export type SourceType =
 export interface DescribeEventsMessage {
   /**
    * <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must also be provided.</p>
+   *                <p>If <code>SourceIdentifier</code> is provided, <code>SourceType</code> must also be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is <code>DBInstance</code>, a
+   *                <p>If the source type is <code>DBInstance</code>, a
    *                         <code>DBInstanceIdentifier</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is <code>DBSecurityGroup</code>, a
+   *                <p>If the source type is <code>DBSecurityGroup</code>, a
    *                         <code>DBSecurityGroupName</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is <code>DBParameterGroup</code>, a
+   *                <p>If the source type is <code>DBParameterGroup</code>, a
    *                         <code>DBParameterGroupName</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>If the source type is <code>DBSnapshot</code>, a
+   *                <p>If the source type is <code>DBSnapshot</code>, a
    *                         <code>DBSnapshotIdentifier</code> must be provided.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
@@ -4100,20 +4108,20 @@ export interface DescribeEventsMessage {
 
   /**
    * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. </p>
-   *         <p>Example: 2009-07-08T18:00Z</p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
    */
   StartTime?: Date;
 
   /**
    * <p> The end of the time interval for which to retrieve events, specified in ISO 8601
    *             format. </p>
-   *         <p>Example: 2009-07-08T18:00Z</p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
    */
   EndTime?: Date;
 
   /**
    * <p>The number of minutes to retrieve events for.</p>
-   *         <p>Default: 60</p>
+   *          <p>Default: 60</p>
    */
   Duration?: number;
 
@@ -4133,7 +4141,7 @@ export interface DescribeEventsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -4220,7 +4228,7 @@ export interface DescribeEventSubscriptionsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -4261,7 +4269,7 @@ export interface DescribeGlobalClustersMessage {
 
   /**
    * <p>A filter that specifies one or more global DB clusters to describe.</p>
-   *         <p>Supported filters: <code>db-cluster-id</code> accepts  cluster identifiers and  cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>
+   *          <p>Supported filters: <code>db-cluster-id</code> accepts  cluster identifiers and  cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>
    */
   Filters?: Filter[];
 
@@ -4335,7 +4343,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 
@@ -4414,17 +4422,17 @@ export interface DescribePendingMaintenanceActionsMessage {
   /**
    * <p>A filter that specifies one or more resources to return pending maintenance actions
    *             for.</p>
-   *         <p>Supported filters:</p>
-   *         <ul>
+   *          <p>Supported filters:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>db-cluster-id</code> - Accepts cluster identifiers and cluster
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts cluster identifiers and cluster
    *                     Amazon Resource Names (ARNs). The results list includes only pending maintenance
    *                     actions for the clusters identified by these ARNs.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>db-instance-id</code> - Accepts instance identifiers and instance
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts instance identifiers and instance
    *                     ARNs. The results list includes only pending maintenance actions for the DB
    *                     instances identified by these ARNs.</p>
    *             </li>
@@ -4444,7 +4452,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
 }
@@ -4474,10 +4482,10 @@ export interface PendingMaintenanceActionsMessage {
 export interface FailoverDBClusterMessage {
   /**
    * <p>A cluster identifier to force a failover for. This parameter is not case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
+   *                <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -4485,7 +4493,7 @@ export interface FailoverDBClusterMessage {
 
   /**
    * <p>The name of the instance to promote to the primary instance.</p>
-   *         <p>You must specify the instance identifier for an Amazon DocumentDB replica in the cluster. For
+   *          <p>You must specify the instance identifier for an Amazon DocumentDB replica in the cluster. For
    *             example, <code>mydbcluster-replica1</code>.</p>
    */
   TargetDBInstanceIdentifier?: string;
@@ -4553,7 +4561,7 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
  * @public
  * <p>The configuration setting for the log types to be enabled for export to Amazon
  *             CloudWatch Logs for a specific instance or cluster.</p>
- *         <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine
+ *          <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine
  *             which logs are exported (or not exported) to CloudWatch Logs. The values within these
  *             arrays depend on the engine that is being used.</p>
  */
@@ -4577,10 +4585,10 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>The cluster identifier for the cluster that is being modified. This parameter is
    *             not case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
+   *                <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -4589,20 +4597,20 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>The new cluster identifier for the cluster when renaming a cluster. This
    *             value is stored as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-cluster2</code>
-   *         </p>
+   *          <p>Example: <code>my-cluster2</code>
+   *          </p>
    */
   NewDBClusterIdentifier?: string;
 
@@ -4612,25 +4620,25 @@ export interface ModifyDBClusterMessage {
    *                 <code>PreferredMaintenanceWindow</code> setting for the cluster. If this
    *             parameter is set to <code>false</code>, changes to the cluster are applied during the
    *             next maintenance window.</p>
-   *         <p>The <code>ApplyImmediately</code> parameter affects only the
+   *          <p>The <code>ApplyImmediately</code> parameter affects only the
    *                 <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values. If
    *             you set this parameter value to <code>false</code>, the changes to the
    *                 <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values are
    *             applied during the next maintenance window. All other changes are applied immediately,
    *             regardless of the value of the <code>ApplyImmediately</code> parameter.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   ApplyImmediately?: boolean;
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a
    *             minimum value of 1.</p>
-   *         <p>Default: 1</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be a value from 1 to 35.</p>
+   *                <p>Must be a value from 1 to 35.</p>
    *             </li>
    *          </ul>
    */
@@ -4649,8 +4657,8 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>The port number on which the cluster accepts connections.</p>
-   *         <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
-   *         <p>Default: The same port as the original cluster.</p>
+   *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
+   *          <p>Default: The same port as the original cluster.</p>
    */
   Port?: number;
 
@@ -4658,28 +4666,28 @@ export interface ModifyDBClusterMessage {
    * <p>The password for the master database user. This password can contain any printable
    *             ASCII character except forward slash (/), double quote ("), or the "at" symbol
    *             (@).</p>
-   *         <p>Constraints: Must contain from 8 to 100 characters.</p>
+   *          <p>Constraints: Must contain from 8 to 100 characters.</p>
    */
   MasterUserPassword?: string;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups
    *             are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
    *             each Amazon Web Services Region. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
+   *                <p>Must be in the format <code>hh24:mi-hh24:mi</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be in Universal Coordinated Time (UTC).</p>
+   *                <p>Must be in Universal Coordinated Time (UTC).</p>
    *             </li>
    *             <li>
-   *                 <p>Must not conflict with the preferred maintenance window.</p>
+   *                <p>Must not conflict with the preferred maintenance window.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be at least 30 minutes.</p>
+   *                <p>Must be at least 30 minutes.</p>
    *             </li>
    *          </ul>
    */
@@ -4688,12 +4696,12 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal
    *             Coordinated Time (UTC).</p>
-   *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p>The default is a 30-minute window selected at random from an 8-hour block of time for
+   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
    *             each Amazon Web Services Region, occurring on a random day of the week. </p>
-   *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
+   *          <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -4736,21 +4744,21 @@ export interface ModifyDBClusterResult {
 export interface DBClusterParameterGroupNameMessage {
   /**
    * <p>The name of a cluster parameter group.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be from 1 to 255 letters or numbers.</p>
+   *                <p>Must be from 1 to 255 letters or numbers.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>This value is stored as a lowercase string.</p>
-   *         </note>
+   *          </note>
    */
   DBClusterParameterGroupName?: string;
 }
@@ -4783,20 +4791,20 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>The name of the cluster snapshot attribute to modify.</p>
-   *         <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual cluster
+   *          <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual cluster
    *             snapshot, set this value to <code>restore</code>.</p>
    */
   AttributeName: string | undefined;
 
   /**
    * <p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To authorize other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account IDs. To make the manual cluster snapshot restorable by any Amazon Web Services account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all Amazon Web Services accounts.</p>
+   *          <p>To authorize other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account IDs. To make the manual cluster snapshot restorable by any Amazon Web Services account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all Amazon Web Services accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
    * <p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account identifiers. To remove authorization for any Amazon Web Services account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
+   *          <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account identifiers. To remove authorization for any Amazon Web Services account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
    */
   ValuesToRemove?: string[];
 }
@@ -4861,10 +4869,10 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
 export interface ModifyDBInstanceMessage {
   /**
    * <p>The instance identifier. This value is stored as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing <code>DBInstance</code>.</p>
+   *                <p>Must match the identifier of an existing <code>DBInstance</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -4872,10 +4880,10 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Amazon Web Services Regions. </p>
-   *         <p>If you modify the instance class, an outage occurs during the change. The change is
+   *          <p>If you modify the instance class, an outage occurs during the change. The change is
    *             applied during the next maintenance window, unless <code>ApplyImmediately</code> is
    *             specified as <code>true</code> for this request. </p>
-   *         <p>Default: Uses existing setting.</p>
+   *          <p>Default: Uses existing setting.</p>
    */
   DBInstanceClass?: string;
 
@@ -4883,11 +4891,11 @@ export interface ModifyDBInstanceMessage {
    * <p>Specifies whether the modifications in this request and any pending modifications are
    *             asynchronously applied as soon as possible, regardless of the
    *                 <code>PreferredMaintenanceWindow</code> setting for the instance. </p>
-   *         <p> If this parameter is set to <code>false</code>, changes to the instance are
+   *          <p> If this parameter is set to <code>false</code>, changes to the instance are
    *             applied during the next maintenance window. Some parameter changes can cause an outage
    *             and are applied on the next reboot.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   ApplyImmediately?: boolean;
 
@@ -4900,11 +4908,11 @@ export interface ModifyDBInstanceMessage {
    *             you are moving this window to the current time, there must be at least 30 minutes
    *             between the current time and end of the window to ensure that pending changes are
    *             applied.</p>
-   *         <p>Default: Uses existing setting.</p>
-   *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          <p>Default: Uses existing setting.</p>
+   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
-   *         <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
-   *         <p>Constraints: Must be at least 30 minutes.</p>
+   *          <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes.</p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -4915,20 +4923,20 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p> The new instance identifier for the instance when renaming an instance. When you change the instance identifier, an instance reboot occurs immediately if you set <code>Apply Immediately</code> to <code>true</code>. It occurs during the next maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This value is stored as a lowercase string. </p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>mydbinstance</code>
-   *         </p>
+   *          <p>Example: <code>mydbinstance</code>
+   *          </p>
    */
   NewDBInstanceIdentifier?: string;
 
@@ -4944,8 +4952,8 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
-   *         <p>Default: 1</p>
-   *         <p>Valid values: 0-15</p>
+   *          <p>Default: 1</p>
+   *          <p>Valid values: 0-15</p>
    */
   PromotionTier?: number;
 
@@ -4959,9 +4967,9 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>The KMS key identifier for encryption of Performance Insights
    *             data.</p>
-   *         <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+   *          <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
    *             for the KMS key.</p>
-   *         <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
+   *          <p>If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your
    *             default KMS key. There is a default KMS key for your
    *             Amazon Web Services account. Your Amazon Web Services account has a different
    *             default KMS key for each Amazon Web Services region.</p>
@@ -4986,9 +4994,9 @@ export interface ModifyDBInstanceResult {
 export interface ModifyDBSubnetGroupMessage {
   /**
    * <p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p>
-   *         <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName: string | undefined;
 
@@ -5051,7 +5059,7 @@ export interface ModifyEventSubscriptionMessage {
 
   /**
    * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
-   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
+   *          <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
    *          </p>
    */
   SourceType?: string;
@@ -5085,25 +5093,25 @@ export interface ModifyEventSubscriptionResult {
 export interface ModifyGlobalClusterMessage {
   /**
    * <p>The identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>
-   * 		       <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>Must match the identifier of an existing global cluster.</p>
-   * 			         </li>
+   *                <p>Must match the identifier of an existing global cluster.</p>
+   *             </li>
    *          </ul>
    */
   GlobalClusterIdentifier: string | undefined;
 
   /**
    * <p>The new identifier for a global cluster when you modify a global cluster. This value is stored as a lowercase string.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
-   * 				           <p>The first character must be a letter</p>
-   * 				           <p>Can't end with a hyphen or contain two consecutive hyphens</p>
-   * 			         </li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *                <p>The first character must be a letter</p>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
    *          </ul>
-   * 		       <p>Example: <code>my-cluster2</code>
+   *          <p>Example: <code>my-cluster2</code>
    *          </p>
    */
   NewGlobalClusterIdentifier?: string;
@@ -5131,10 +5139,10 @@ export interface ModifyGlobalClusterResult {
 export interface RebootDBInstanceMessage {
   /**
    * <p>The instance identifier. This parameter is stored as a lowercase string.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing <code>DBInstance</code>.</p>
+   *                <p>Must match the identifier of an existing <code>DBInstance</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5142,7 +5150,7 @@ export interface RebootDBInstanceMessage {
 
   /**
    * <p> When <code>true</code>, the reboot is conducted through a Multi-AZ failover. </p>
-   *         <p>Constraint: You can't specify <code>true</code> if the instance is not configured for
+   *          <p>Constraint: You can't specify <code>true</code> if the instance is not configured for
    *             Multi-AZ.</p>
    */
   ForceFailover?: boolean;
@@ -5330,31 +5338,31 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The name of the cluster to create from the snapshot or cluster snapshot. This
    *             parameter isn't case sensitive.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>my-snapshot-id</code>
-   *         </p>
+   *          <p>Example: <code>my-snapshot-id</code>
+   *          </p>
    */
   DBClusterIdentifier: string | undefined;
 
   /**
    * <p>The identifier for the snapshot or cluster snapshot to restore from.</p>
-   *         <p>You can use either the name or the Amazon Resource Name (ARN) to specify a cluster
+   *          <p>You can use either the name or the Amazon Resource Name (ARN) to specify a cluster
    *             snapshot. However, you can use only the ARN to specify a snapshot.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing snapshot.</p>
+   *                <p>Must match the identifier of an existing snapshot.</p>
    *             </li>
    *          </ul>
    */
@@ -5362,8 +5370,8 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
   /**
    * <p>The database engine to use for the new cluster.</p>
-   *         <p>Default: The same as source.</p>
-   *         <p>Constraint: Must be compatible with the engine of the source.</p>
+   *          <p>Default: The same as source.</p>
+   *          <p>Constraint: Must be compatible with the engine of the source.</p>
    */
   Engine: string | undefined;
 
@@ -5374,17 +5382,17 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
   /**
    * <p>The port number on which the new cluster accepts connections.</p>
-   *         <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</p>
-   *         <p>Default: The same port as the original cluster.</p>
+   *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</p>
+   *          <p>Default: The same port as the original cluster.</p>
    */
   Port?: number;
 
   /**
    * <p>The name of the subnet group to use for the new cluster.</p>
-   *         <p>Constraints: If provided, must match the name of an existing
+   *          <p>Constraints: If provided, must match the name of an existing
    *                 <code>DBSubnetGroup</code>.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
@@ -5401,15 +5409,15 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
   /**
    * <p>The KMS key identifier to use when restoring an encrypted cluster from a DB snapshot or cluster snapshot.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
-   *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *          <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the snapshot or the cluster snapshot.</p>
+   *                <p>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the snapshot or the cluster snapshot.</p>
    *             </li>
    *             <li>
-   *                 <p>If the snapshot or the cluster snapshot in
+   *                <p>If the snapshot or the cluster snapshot in
    *                         <code>SnapshotIdentifier</code> is not encrypted, then the restored DB
    *                     cluster is not encrypted.</p>
    *             </li>
@@ -5426,6 +5434,18 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the DB cluster parameter group to associate with this DB cluster.</p>
+   *          <p>
+   *             <i>Type:</i> String.         <i>Required:</i> No.</p>
+   *          <p>If this argument is omitted, the default DB cluster parameter group is used.
+   *         If supplied, must match the name of an existing default DB cluster parameter group.
+   *         The string must consist of from 1 to 255 letters, numbers or hyphens. Its first
+   *         character must be a letter, and it cannot end with a hyphen or contain two consecutive
+   *         hyphens.</p>
+   */
+  DBClusterParameterGroupName?: string;
 }
 
 /**
@@ -5445,16 +5465,16 @@ export interface RestoreDBClusterFromSnapshotResult {
 export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The name of the new cluster to be created.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                 <p>The first character must be a letter.</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    */
@@ -5462,7 +5482,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The type of restore to be performed. You can specify one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the
@@ -5474,17 +5494,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *                 source DB cluster.</p>
    *             </li>
    *          </ul>
-   *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
+   *          <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
+   *          <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
    *             restored as a full copy of the source DB cluster.</p>
    */
   RestoreType?: string;
 
   /**
    * <p>The identifier of the source cluster from which to restore.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
+   *                <p>Must match the identifier of an existing <code>DBCluster</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5492,50 +5513,50 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The date and time to restore the cluster to.</p>
-   *         <p>Valid values: A time in Universal Coordinated Time (UTC) format.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
+   *          <p>Valid values: A time in Universal Coordinated Time (UTC) format.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Must be before the latest restorable time for the instance.</p>
+   *                <p>Must be before the latest restorable time for the instance.</p>
    *             </li>
    *             <li>
-   *                 <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</p>
+   *                <p>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</p>
+   *                <p>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</p>
+   *                <p>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>Example: <code>2015-03-07T23:45:00Z</code>
-   *         </p>
+   *          <p>Example: <code>2015-03-07T23:45:00Z</code>
+   *          </p>
    */
   RestoreToTime?: Date;
 
   /**
    * <p>A value that is set to <code>true</code> to restore the cluster to the latest
    *             restorable backup time, and <code>false</code> otherwise. </p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   *         <p>Constraints: Cannot be specified if the <code>RestoreToTime</code> parameter is
+   *          <p>Default: <code>false</code>
+   *          </p>
+   *          <p>Constraints: Cannot be specified if the <code>RestoreToTime</code> parameter is
    *             provided.</p>
    */
   UseLatestRestorableTime?: boolean;
 
   /**
    * <p>The port number on which the new cluster accepts connections.</p>
-   *         <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
-   *         <p>Default: The default port for the engine.</p>
+   *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
+   *          <p>Default: The default port for the engine.</p>
    */
   Port?: number;
 
   /**
    * <p>The subnet group name to use for the new cluster.</p>
-   *         <p>Constraints: If provided, must match the name of an existing
+   *          <p>Constraints: If provided, must match the name of an existing
    *                 <code>DBSubnetGroup</code>.</p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
@@ -5551,18 +5572,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The KMS key identifier to use when restoring an encrypted cluster from an encrypted cluster.</p>
-   *         <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
-   *         <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>
-   *         <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
-   *         <ul>
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
+   *          <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>
+   *          <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If the cluster is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the source cluster.</p>
+   *                <p>If the cluster is encrypted, then the restored cluster is encrypted using the KMS key that was used to encrypt the source cluster.</p>
    *             </li>
    *             <li>
-   *                 <p>If the cluster is not encrypted, then the restored cluster is not encrypted.</p>
+   *                <p>If the cluster is not encrypted, then the restored cluster is not encrypted.</p>
    *             </li>
    *          </ul>
-   *         <p>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then
+   *          <p>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then
    *             the restore request is rejected.</p>
    */
   KmsKeyId?: string;

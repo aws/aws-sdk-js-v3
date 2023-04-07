@@ -41,13 +41,13 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *             parameter, submit a list of the following: <code>ParameterName</code>,
  *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
  *             parameters can be modified in a single request. </p>
- *         <note>
+ *          <note>
  *             <p>Changes to dynamic parameters are applied immediately. Changes to static
  *                 parameters require a reboot or maintenance window
  *
  *                 before the change can take effect.</p>
- *         </note>
- *         <important>
+ *          </note>
+ *          <important>
  *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first cluster that uses that cluster parameter group as
  *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
@@ -55,7 +55,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *                 especially important for parameters that are critical when creating the default
  *                 database for a cluster, such as the character set for the default database
  *                 defined by the <code>character_set_database</code> parameter.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +75,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *       AllowedValues: "STRING_VALUE",
  *       IsModifiable: true || false,
  *       MinimumEngineVersion: "STRING_VALUE",
- *       ApplyMethod: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
  *     },
  *   ],
  * };

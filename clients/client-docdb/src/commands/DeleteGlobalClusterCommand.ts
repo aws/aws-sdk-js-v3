@@ -33,9 +33,9 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
 /**
  * @public
  * <p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -38,9 +38,9 @@ export interface CreateDBClusterParameterGroupCommandOutput
 /**
  * @public
  * <p>Creates a new cluster parameter group.</p>
- *         <p>Parameters in a cluster parameter group apply to all of the
+ *          <p>Parameters in a cluster parameter group apply to all of the
  *             instances in a cluster.</p>
- *         <p>A cluster parameter group is initially created with the default
+ *          <p>A cluster parameter group is initially created with the default
  *             parameters for the database engine used by instances in the cluster.
  *             In Amazon DocumentDB, you cannot make modifications directly to the
  *             <code>default.docdb3.6</code> cluster parameter group. If your
