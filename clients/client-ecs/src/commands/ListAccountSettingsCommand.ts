@@ -40,7 +40,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListAccountSettingsRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights",
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode",
  *   value: "STRING_VALUE",
  *   principalArn: "STRING_VALUE",
  *   effectiveSettings: true || false,

@@ -36,7 +36,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
  * 				Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.</p>
- *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets the
+ *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS clears the
  * 				<code>protectionEnabled</code> property making the task eligible for termination by
  * 			a subsequent scale-in event.</p>
  *          <p>You can specify a custom expiration period for task protection from 1 minute to up to

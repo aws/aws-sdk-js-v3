@@ -33,9 +33,9 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
 /**
  * @public
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
- *          <p>If you change the account setting for the root user, the default settings for all of
- * 			the users and roles that no individual account setting was specified are reset for.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
+ *          <p>If you change the root user account setting, the default settings are reset for  users
+ * 			and roles that do not have specified individual account settings. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
  * 				Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
  * 				<code>containerInstanceLongArnFormat</code> are specified, the Amazon Resource Name
@@ -46,15 +46,15 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			must turn on this setting to use Amazon ECS features such as resource tagging.</p>
  *          <p>When <code>awsvpcTrunking</code> is specified, the elastic network interface (ENI)
  * 			limit for any new container instances that support the feature is changed. If
- * 				<code>awsvpcTrunking</code> is enabled, any new container instances that support the
+ * 				<code>awsvpcTrunking</code> is turned on, any new container instances that support the
  * 			feature are launched have the increased ENI limits available to them. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic Network
  * 				Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>When <code>containerInsights</code> is specified, the default setting indicating
- * 			whether CloudWatch Container Insights is enabled for your clusters is changed. If
- * 				<code>containerInsights</code> is enabled, any new clusters that are created will
- * 			have Container Insights enabled unless you disable it during cluster creation. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
+ *          <p>When <code>containerInsights</code> is specified, the default setting indicating whether
+ * 			Amazon Web Services CloudWatch Container Insights is turned on for your clusters is changed. If
+ * 				<code>containerInsights</code> is turned on, any new clusters that are created will
+ * 			have Container Insights turned on unless you disable it during cluster creation. For
+ * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
  * 				Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,7 +63,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * // const { ECSClient, PutAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode", // required
  *   value: "STRING_VALUE", // required
  *   principalArn: "STRING_VALUE",
  * };

@@ -41,7 +41,7 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * // const { ECSClient, DeleteAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // DeleteAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode", // required
  *   principalArn: "STRING_VALUE",
  * };
  * const command = new DeleteAccountSettingCommand(input);
