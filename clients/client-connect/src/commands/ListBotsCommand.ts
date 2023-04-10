@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListBotsRequest, ListBotsResponse } from "../models/models_0";
+import { ListBotsRequest } from "../models/models_0";
+import { ListBotsResponse } from "../models/models_1";
 import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**

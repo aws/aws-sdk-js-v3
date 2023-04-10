@@ -20,6 +20,7 @@ import {
   InstanceStorageResourceType,
   IntegrationType,
   LexBot,
+  LexV2Bot,
   MediaConcurrency,
   MonitorCapability,
   OutboundCallerConfig,
@@ -48,6 +49,38 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
+ */
+export interface LexBotConfig {
+  /**
+   * <p>Configuration information of an Amazon Lex bot.</p>
+   */
+  LexBot?: LexBot;
+
+  /**
+   * <p>Configuration information of an Amazon Lex V2 bot.</p>
+   */
+  LexV2Bot?: LexV2Bot;
+}
+
+/**
+ * @public
+ */
+export interface ListBotsResponse {
+  /**
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots
+   *    associated with the specified instance.</p>
+   */
+  LexBots?: LexBotConfig[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -2870,7 +2903,8 @@ export interface SearchVocabulariesResponse {
 export interface ChatMessage {
   /**
    * <p>The type of the content. Supported types are <code>text/plain</code>,
-   *     <code>text/markdown</code>, and <code>application/json</code>.</p>
+   *    <code>text/markdown</code>, <code>application/json</code>, and
+   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -2884,6 +2918,10 @@ export interface ChatMessage {
    *             <li>
    *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of
    *      12000. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length
+   *      Constraints are Minimum of 1, Maximum of 12288.</p>
    *             </li>
    *          </ul>
    */

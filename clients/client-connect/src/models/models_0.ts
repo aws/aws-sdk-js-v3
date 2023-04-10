@@ -1804,6 +1804,32 @@ export interface CreateQuickConnectResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const BehaviorType = {
+  ROUTE_ANY_CHANNEL: "ROUTE_ANY_CHANNEL",
+  ROUTE_CURRENT_CHANNEL_ONLY: "ROUTE_CURRENT_CHANNEL_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type BehaviorType = (typeof BehaviorType)[keyof typeof BehaviorType];
+
+/**
+ * @public
+ * <p>Defines the cross-channel routing behavior that allows an agent working on a contact in
+ *    one channel to be offered a contact from a different channel.</p>
+ */
+export interface CrossChannelBehavior {
+  /**
+   * <p>Specifies the other channels that can be routed to an agent handling their current channel.</p>
+   */
+  BehaviorType: BehaviorType | string | undefined;
+}
+
+/**
+ * @public
  * <p>Contains information about which channels are supported, and how many contacts an agent can
  *    have on a channel simultaneously.</p>
  */
@@ -1820,6 +1846,13 @@ export interface MediaConcurrency {
    *          <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
    */
   Concurrency: number | undefined;
+
+  /**
+   * <p>Defines the cross-channel routing behavior for each channel that is enabled for this Routing
+   *    Profile. For example, this allows you to offer an agent a different contact from another channel
+   *    when they are currently working with a contact from a Voice channel.</p>
+   */
+  CrossChannelBehavior?: CrossChannelBehavior;
 }
 
 /**
@@ -6558,7 +6591,7 @@ export interface GetMetricDataV2Request {
   /**
    * <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the
    *    retrieval of historical metrics data. The time must be later than the start time
-   *    timestamp.</p>
+   *    timestamp.  It cannot be later than the current timestamp.</p>
    *          <p>The time range between the start and end time must be less than 24 hours.</p>
    */
   EndTime: Date | undefined;
@@ -6763,11 +6796,17 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
+   *       "Less than"). </p>
    *             </dd>
    *             <dt>SUM_CONTACTS_ABANDONED_IN_X</dt>
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile</p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
+   *       "Less than"). </p>
    *             </dd>
    *             <dt>SUM_CONTACTS_DISCONNECTED </dt>
    *             <dd>
@@ -7112,38 +7151,6 @@ export interface ListBotsRequest {
    * <p>The version of Amazon Lex or Amazon Lex V2.</p>
    */
   LexVersion: LexVersion | string | undefined;
-}
-
-/**
- * @public
- * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
- */
-export interface LexBotConfig {
-  /**
-   * <p>Configuration information of an Amazon Lex bot.</p>
-   */
-  LexBot?: LexBot;
-
-  /**
-   * <p>Configuration information of an Amazon Lex V2 bot.</p>
-   */
-  LexV2Bot?: LexV2Bot;
-}
-
-/**
- * @public
- */
-export interface ListBotsResponse {
-  /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots
-   *    associated with the specified instance.</p>
-   */
-  LexBots?: LexBotConfig[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 /**

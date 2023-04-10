@@ -50,6 +50,9 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  *     { // MediaConcurrency
  *       Channel: "VOICE" || "CHAT" || "TASK", // required
  *       Concurrency: Number("int"), // required
+ *       CrossChannelBehavior: { // CrossChannelBehavior
+ *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ *       },
  *     },
  *   ],
  * };

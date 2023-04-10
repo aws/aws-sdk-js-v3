@@ -515,6 +515,7 @@ import {
   ContactFlowNotPublishedException,
   ContactState,
   Credentials,
+  CrossChannelBehavior,
   CurrentMetric,
   CurrentMetricData,
   CurrentMetricResult,
@@ -554,7 +555,6 @@ import {
   KinesisStreamConfig,
   KinesisVideoStreamConfig,
   LexBot,
-  LexBotConfig,
   LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
@@ -639,6 +639,7 @@ import {
   HoursOfOperationSummary,
   InstanceSummary,
   IntegrationAssociationSummary,
+  LexBotConfig,
   ListPhoneNumbersSummary,
   NumberReference,
   OutboundContactNotPermittedException,
@@ -17103,6 +17104,15 @@ const se_ControlPlaneTagFilter = (input: ControlPlaneTagFilter, context: __Serde
 };
 
 /**
+ * serializeAws_restJson1CrossChannelBehavior
+ */
+const se_CrossChannelBehavior = (input: CrossChannelBehavior, context: __SerdeContext): any => {
+  return {
+    ...(input.BehaviorType != null && { BehaviorType: input.BehaviorType }),
+  };
+};
+
+/**
  * serializeAws_restJson1CurrentMetric
  */
 const se_CurrentMetric = (input: CurrentMetric, context: __SerdeContext): any => {
@@ -17442,6 +17452,9 @@ const se_MediaConcurrency = (input: MediaConcurrency, context: __SerdeContext): 
   return {
     ...(input.Channel != null && { Channel: input.Channel }),
     ...(input.Concurrency != null && { Concurrency: input.Concurrency }),
+    ...(input.CrossChannelBehavior != null && {
+      CrossChannelBehavior: se_CrossChannelBehavior(input.CrossChannelBehavior, context),
+    }),
   };
 };
 
@@ -18725,6 +18738,15 @@ const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
 };
 
 /**
+ * deserializeAws_restJson1CrossChannelBehavior
+ */
+const de_CrossChannelBehavior = (output: any, context: __SerdeContext): CrossChannelBehavior => {
+  return {
+    BehaviorType: __expectString(output.BehaviorType),
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1CurrentMetric
  */
 const de_CurrentMetric = (output: any, context: __SerdeContext): CurrentMetric => {
@@ -19454,6 +19476,8 @@ const de_MediaConcurrency = (output: any, context: __SerdeContext): MediaConcurr
   return {
     Channel: __expectString(output.Channel),
     Concurrency: __expectInt32(output.Concurrency),
+    CrossChannelBehavior:
+      output.CrossChannelBehavior != null ? de_CrossChannelBehavior(output.CrossChannelBehavior, context) : undefined,
   } as any;
 };
 
