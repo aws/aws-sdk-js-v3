@@ -53,6 +53,10 @@ import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/
 import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "./commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import {
+  CreateFaceLivenessSessionCommandInput,
+  CreateFaceLivenessSessionCommandOutput,
+} from "./commands/CreateFaceLivenessSessionCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommandInput,
@@ -115,6 +119,10 @@ import {
   GetContentModerationCommandOutput,
 } from "./commands/GetContentModerationCommand";
 import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand";
+import {
+  GetFaceLivenessSessionResultsCommandInput,
+  GetFaceLivenessSessionResultsCommandOutput,
+} from "./commands/GetFaceLivenessSessionResultsCommand";
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
@@ -209,6 +217,7 @@ export type ServiceInputTypes =
   | CopyProjectVersionCommandInput
   | CreateCollectionCommandInput
   | CreateDatasetCommandInput
+  | CreateFaceLivenessSessionCommandInput
   | CreateProjectCommandInput
   | CreateProjectVersionCommandInput
   | CreateStreamProcessorCommandInput
@@ -235,6 +244,7 @@ export type ServiceInputTypes =
   | GetCelebrityRecognitionCommandInput
   | GetContentModerationCommandInput
   | GetFaceDetectionCommandInput
+  | GetFaceLivenessSessionResultsCommandInput
   | GetFaceSearchCommandInput
   | GetLabelDetectionCommandInput
   | GetPersonTrackingCommandInput
@@ -277,6 +287,7 @@ export type ServiceOutputTypes =
   | CopyProjectVersionCommandOutput
   | CreateCollectionCommandOutput
   | CreateDatasetCommandOutput
+  | CreateFaceLivenessSessionCommandOutput
   | CreateProjectCommandOutput
   | CreateProjectVersionCommandOutput
   | CreateStreamProcessorCommandOutput
@@ -303,6 +314,7 @@ export type ServiceOutputTypes =
   | GetCelebrityRecognitionCommandOutput
   | GetContentModerationCommandOutput
   | GetFaceDetectionCommandOutput
+  | GetFaceLivenessSessionResultsCommandOutput
   | GetFaceSearchCommandOutput
   | GetLabelDetectionCommandOutput
   | GetPersonTrackingCommandOutput

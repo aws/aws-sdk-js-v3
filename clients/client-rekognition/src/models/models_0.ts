@@ -2,6 +2,7 @@
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
+  SENSITIVE_STRING,
 } from "@aws-sdk/smithy-client";
 
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
@@ -154,6 +155,92 @@ export interface AudioMetadata {
 
 /**
  * @public
+ * <p>Identifies the bounding box around the label, face, text, object of interest, or
+ *       personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code>
+ *       (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note
+ *       that the upper-left corner of the image is the origin (0,0). </p>
+ *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
+ *       image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of
+ *       the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700)
+ *       and a <code>top</code> value of 0.25 (50/200).</p>
+ *          <p>The <code>width</code> and <code>height</code> values represent the dimensions of the
+ *       bounding box as a ratio of the overall image dimension. For example, if the input image is
+ *       700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
+ *          <note>
+ *             <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is
+ *         able to detect a face that is at the image edge and is only partially visible, the service
+ *         can return coordinates that are outside the image bounds and, depending on the image edge,
+ *         you might get negative values or values greater than 1 for the <code>left</code> or
+ *           <code>top</code> values. </p>
+ *          </note>
+ */
+export interface BoundingBox {
+  /**
+   * <p>Width of the bounding box as a ratio of the overall image width.</p>
+   */
+  Width?: number;
+
+  /**
+   * <p>Height of the bounding box as a ratio of the overall image height.</p>
+   */
+  Height?: number;
+
+  /**
+   * <p>Left coordinate of the bounding box as a ratio of overall image width.</p>
+   */
+  Left?: number;
+
+  /**
+   * <p>Top coordinate of the bounding box as a ratio of overall image height.</p>
+   */
+  Top?: number;
+}
+
+/**
+ * @public
+ * <p>An image that is picked from the Face Liveness video and returned for audit trail purposes, returned as Base64-encoded bytes.</p>
+ */
+export interface AuditImage {
+  /**
+   * <p>The Base64-encoded bytes representing an image selected from the Face Liveness video and returned for audit purposes.</p>
+   */
+  Bytes?: Uint8Array;
+
+  /**
+   * <p>Provides the S3 bucket name and object name.</p>
+   *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
+   *       Amazon Rekognition operations.</p>
+   *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+   *       Amazon Rekognition Developer Guide. </p>
+   */
+  S3Object?: S3Object;
+
+  /**
+   * <p>Identifies the bounding box around the label, face, text, object of interest, or
+   *       personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code>
+   *       (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note
+   *       that the upper-left corner of the image is the origin (0,0). </p>
+   *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
+   *       image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of
+   *       the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700)
+   *       and a <code>top</code> value of 0.25 (50/200).</p>
+   *          <p>The <code>width</code> and <code>height</code> values represent the dimensions of the
+   *       bounding box as a ratio of the overall image dimension. For example, if the input image is
+   *       700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
+   *          <note>
+   *             <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is
+   *         able to detect a face that is at the image edge and is only partially visible, the service
+   *         can return coordinates that are outside the image bounds and, depending on the image edge,
+   *         you might get negative values or values greater than 1 for the <code>left</code> or
+   *           <code>top</code> values. </p>
+   *          </note>
+   */
+  BoundingBox?: BoundingBox;
+}
+
+/**
+ * @public
  * <p>Indicates whether or not the face has a beard, and the confidence level in the
  *       determination.</p>
  */
@@ -217,49 +304,6 @@ export const BodyPart = {
  * @public
  */
 export type BodyPart = (typeof BodyPart)[keyof typeof BodyPart];
-
-/**
- * @public
- * <p>Identifies the bounding box around the label, face, text, object of interest, or
- *       personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code>
- *       (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note
- *       that the upper-left corner of the image is the origin (0,0). </p>
- *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
- *       image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of
- *       the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700)
- *       and a <code>top</code> value of 0.25 (50/200).</p>
- *          <p>The <code>width</code> and <code>height</code> values represent the dimensions of the
- *       bounding box as a ratio of the overall image dimension. For example, if the input image is
- *       700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
- *          <note>
- *             <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is
- *         able to detect a face that is at the image edge and is only partially visible, the service
- *         can return coordinates that are outside the image bounds and, depending on the image edge,
- *         you might get negative values or values greater than 1 for the <code>left</code> or
- *           <code>top</code> values. </p>
- *          </note>
- */
-export interface BoundingBox {
-  /**
-   * <p>Width of the bounding box as a ratio of the overall image width.</p>
-   */
-  Width?: number;
-
-  /**
-   * <p>Height of the bounding box as a ratio of the overall image height.</p>
-   */
-  Height?: number;
-
-  /**
-   * <p>Left coordinate of the bounding box as a ratio of overall image width.</p>
-   */
-  Left?: number;
-
-  /**
-   * <p>Top coordinate of the bounding box as a ratio of overall image height.</p>
-   */
-  Top?: number;
-}
 
 /**
  * @public
@@ -995,18 +1039,17 @@ export type QualityFilter = (typeof QualityFilter)[keyof typeof QualityFilter];
  *       base64-encoded.</p>
  *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
  *       Amazon Rekognition operations.</p>
- *          <p>If you use the
- *       AWS
- *       CLI to call Amazon Rekognition operations, passing image bytes using the Bytes
- *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
- *       call the operation using the S3Object property.</p>
+ *          <p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the
+ *       Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and
+ *       then call the operation using the S3Object property.</p>
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
  *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
  *       Amazon Rekognition Developer Guide. </p>
  */
 export interface Image {
   /**
-   * <p>Blob of image bytes up to 5 MBs.</p>
+   * <p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
+   *         <code>DetectCustomLabels</code> is 4MB. </p>
    */
   Bytes?: Uint8Array;
 
@@ -1831,6 +1874,83 @@ export interface CreateDatasetResponse {
    * </p>
    */
   DatasetArn?: string;
+}
+
+/**
+ * @public
+ * <p>Contains settings that specify the location of an Amazon S3 bucket used
+ *       to store the output of a Face Liveness session. Note that the S3 bucket must be located
+ *       in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are
+ *       auto-generated by the Face Liveness system. </p>
+ */
+export interface LivenessOutputConfig {
+  /**
+   * <p>The path to an AWS Amazon S3 bucket used to store Face Liveness session results.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix appended to the output files for the Face Liveness session results.</p>
+   */
+  S3KeyPrefix?: string;
+}
+
+/**
+ * @public
+ * <p>A session settings object. It contains settings for the operation
+ *       to be performed. It accepts arguments for OutputConfig and AuditImagesLimit.</p>
+ */
+export interface CreateFaceLivenessSessionRequestSettings {
+  /**
+   * <p>Can specify the  location of an Amazon S3 bucket, where reference and audit images will be
+   *       stored. Note that the Amazon S3 bucket must be located in the caller's AWS account and in the same
+   *       region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are auto-generated by
+   *       the Face Liveness system.</p>
+   */
+  OutputConfig?: LivenessOutputConfig;
+
+  /**
+   * <p>Number of audit images to be returned back. Takes an integer between 0-4. Any integer less
+   *       than 0 will return 0, any integer above 4 will return 4 images in the response. By default, it
+   *       is set to 0. The limit is best effort and is based on the actual duration of the
+   *       selfie-video.</p>
+   */
+  AuditImagesLimit?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateFaceLivenessSessionRequest {
+  /**
+   * <p> The identifier for your AWS Key Management Service key (AWS KMS key).
+   *       Used to encrypt audit images and reference images.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A session settings object. It contains settings for the operation to be performed. For
+   *       Face Liveness, it accepts <code>OutputConfig</code> and <code>AuditImagesLimit</code>.</p>
+   */
+  Settings?: CreateFaceLivenessSessionRequestSettings;
+
+  /**
+   * <p>Idempotent token is used to recognize the Face Liveness request. If the same token is used
+   *       with multiple <code>CreateFaceLivenessSession</code> requests, the same session is returned.
+   *       This token is employed to avoid unintentionally creating the same session multiple
+   *       times.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateFaceLivenessSessionResponse {
+  /**
+   * <p>A unique 128-bit UUID identifying a Face Liveness session.</p>
+   */
+  SessionId: string | undefined;
 }
 
 /**
@@ -3285,11 +3405,9 @@ export interface DetectCustomLabelsRequest {
    *       base64-encoded.</p>
    *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
    *       Amazon Rekognition operations.</p>
-   *          <p>If you use the
-   *       AWS
-   *       CLI to call Amazon Rekognition operations, passing image bytes using the Bytes
-   *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
-   *       call the operation using the S3Object property.</p>
+   *          <p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the
+   *       Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and
+   *       then call the operation using the S3Object property.</p>
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
    *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
    *       Amazon Rekognition Developer Guide. </p>
@@ -3447,8 +3565,8 @@ export type DetectLabelsFeatureName = (typeof DetectLabelsFeatureName)[keyof typ
 /**
  * @public
  * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
- *       exclusive, or a combination of both and can be applied to individual l
- *       abels or entire label categories.</p>
+ *       exclusive, or a combination of both and can be applied to individual labels or entire label categories.
+ *       To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 export interface GeneralLabelsSettings {
   /**
@@ -3541,7 +3659,7 @@ export interface DetectLabelsRequest {
    * <p>A list of the filters to be applied to returned detected labels and image properties. Specified
    *       filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual
    *       labels or label categories. The exact label names or label categories must be supplied. For
-   *       a full list of labels and label categories, see LINK HERE.</p>
+   *       a full list of labels and label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting labels</a>.</p>
    */
   Settings?: DetectLabelsSettings;
 }
@@ -4667,6 +4785,101 @@ export interface GetFaceDetectionResponse {
 /**
  * @public
  */
+export interface GetFaceLivenessSessionResultsRequest {
+  /**
+   * <p>A unique 128-bit UUID. This is used to uniquely identify the session and also acts as an
+   *       idempotency token for all operations associated with the session.</p>
+   */
+  SessionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LivenessSessionStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LivenessSessionStatus = (typeof LivenessSessionStatus)[keyof typeof LivenessSessionStatus];
+
+/**
+ * @public
+ */
+export interface GetFaceLivenessSessionResultsResponse {
+  /**
+   * <p>The sessionId for which this request was called.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>Represents a status corresponding to the state of the session. Possible statuses are:
+   *       CREATED, IN_PROGRESS, SUCCEEDED, FAILED, EXPIRED.</p>
+   */
+  Status: LivenessSessionStatus | string | undefined;
+
+  /**
+   * <p>Probabalistic confidence score for if the person in the given video was live, represented as a
+   *       float value between 0 to 100.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>A high-quality image from the Face Liveness video that can be used for face comparison or
+   *       search. It includes a bounding box of the face and the Base64-encoded bytes that return an
+   *       image. If the CreateFaceLivenessSession request included an OutputConfig argument, the image
+   *       will be uploaded to an S3Object specified in the output configuration. In case the reference
+   *       image is not returned, it's recommended to retry the Liveness check.</p>
+   */
+  ReferenceImage?: AuditImage;
+
+  /**
+   * <p>A set of images from the Face Liveness video that can be used for audit purposes. It
+   *       includes a bounding box of the face and the Base64-encoded bytes that return an image. If the
+   *       CreateFaceLivenessSession request included an OutputConfig argument, the image will be
+   *       uploaded to an S3Object specified in the output configuration.</p>
+   */
+  AuditImages?: AuditImage[];
+}
+
+/**
+ * @public
+ * <p>Occurs when a given sessionId is not found.</p>
+ */
+export class SessionNotFoundException extends __BaseException {
+  readonly name: "SessionNotFoundException" = "SessionNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionNotFoundException, __BaseException>) {
+    super({
+      name: "SessionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
+}
+
+/**
+ * @public
+ */
 export interface GetFaceSearchRequest {
   /**
    * <p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>
@@ -5583,8 +5796,8 @@ export type LabelDetectionFeatureName = (typeof LabelDetectionFeatureName)[keyof
 export interface LabelDetectionSettings {
   /**
    * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
-   *       exclusive, or a combination of both and can be applied to individual l
-   *       abels or entire label categories.</p>
+   *       exclusive, or a combination of both and can be applied to individual labels or entire label categories.
+   *       To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
    */
   GeneralLabels?: GeneralLabelsSettings;
 }
@@ -6951,62 +7164,20 @@ export type StreamProcessorParameterToDelete =
   (typeof StreamProcessorParameterToDelete)[keyof typeof StreamProcessorParameterToDelete];
 
 /**
- * @public
- * <p>
- *             The stream processor settings that you want to update. <code>ConnectedHome</code> settings can be updated to detect different labels with a different minimum confidence.
- *         </p>
+ * @internal
  */
-export interface StreamProcessorSettingsForUpdate {
-  /**
-   * <p>
-   *             The label detection settings you want to use for your stream processor.
-   *         </p>
-   */
-  ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
-}
+export const AuditImageFilterSensitiveLog = (obj: AuditImage): any => ({
+  ...obj,
+  ...(obj.Bytes && { Bytes: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateStreamProcessorRequest {
-  /**
-   * <p>
-   *             Name of the stream processor that you want to update.
-   *         </p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   *             The stream processor settings that you want to update. Label detection settings can be updated to detect different labels with a different minimum confidence.
-   *         </p>
-   */
-  SettingsForUpdate?: StreamProcessorSettingsForUpdate;
-
-  /**
-   * <p>
-   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors.
-   *         </p>
-   */
-  RegionsOfInterestForUpdate?: RegionOfInterest[];
-
-  /**
-   * <p>
-   *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
-   *             Note that if you opt out at the account level this setting is ignored on individual streams.
-   *         </p>
-   */
-  DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
-
-  /**
-   * <p>
-   *             A list of parameters you want to delete from the stream processor.
-   *         </p>
-   */
-  ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
-}
-
-/**
- * @public
- */
-export interface UpdateStreamProcessorResponse {}
+export const GetFaceLivenessSessionResultsResponseFilterSensitiveLog = (
+  obj: GetFaceLivenessSessionResultsResponse
+): any => ({
+  ...obj,
+  ...(obj.ReferenceImage && { ReferenceImage: AuditImageFilterSensitiveLog(obj.ReferenceImage) }),
+  ...(obj.AuditImages && { AuditImages: obj.AuditImages.map((item) => AuditImageFilterSensitiveLog(item)) }),
+});

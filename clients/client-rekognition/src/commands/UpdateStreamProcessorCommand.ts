@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_0";
+import { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_1";
 import { de_UpdateStreamProcessorCommand, se_UpdateStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
@@ -97,6 +97,9 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request cannot be found.</p>

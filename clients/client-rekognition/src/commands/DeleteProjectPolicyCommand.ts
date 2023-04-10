@@ -34,6 +34,7 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @public
  * <p>Deletes an existing project policy.</p>
  *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

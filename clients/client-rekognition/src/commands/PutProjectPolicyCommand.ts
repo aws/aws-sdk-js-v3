@@ -45,6 +45,7 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *          <p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.
  *          To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p>
  *          <p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:PutProjectPolicy</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,6 +25,10 @@ import { CompareFacesCommandInput, CompareFacesCommandOutput } from "../commands
 import { CopyProjectVersionCommandInput, CopyProjectVersionCommandOutput } from "../commands/CopyProjectVersionCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "../commands/CreateCollectionCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
+import {
+  CreateFaceLivenessSessionCommandInput,
+  CreateFaceLivenessSessionCommandOutput,
+} from "../commands/CreateFaceLivenessSessionCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommandInput,
@@ -87,6 +91,10 @@ import {
   GetContentModerationCommandOutput,
 } from "../commands/GetContentModerationCommand";
 import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "../commands/GetFaceDetectionCommand";
+import {
+  GetFaceLivenessSessionResultsCommandInput,
+  GetFaceLivenessSessionResultsCommandOutput,
+} from "../commands/GetFaceLivenessSessionResultsCommand";
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "../commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "../commands/GetLabelDetectionCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "../commands/GetPersonTrackingCommand";
@@ -171,6 +179,7 @@ import {
   Asset,
   Attribute,
   AudioMetadata,
+  AuditImage,
   Beard,
   BlackFrame,
   BoundingBox,
@@ -193,6 +202,9 @@ import {
   CreateCollectionResponse,
   CreateDatasetRequest,
   CreateDatasetResponse,
+  CreateFaceLivenessSessionRequest,
+  CreateFaceLivenessSessionRequestSettings,
+  CreateFaceLivenessSessionResponse,
   CreateProjectRequest,
   CreateProjectResponse,
   CreateProjectVersionRequest,
@@ -278,6 +290,8 @@ import {
   GetContentModerationResponse,
   GetFaceDetectionRequest,
   GetFaceDetectionResponse,
+  GetFaceLivenessSessionResultsRequest,
+  GetFaceLivenessSessionResultsResponse,
   GetFaceSearchRequest,
   GetFaceSearchResponse,
   GetLabelDetectionRequest,
@@ -332,6 +346,7 @@ import {
   ListStreamProcessorsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  LivenessOutputConfig,
   MalformedPolicyDocumentException,
   ModerationLabel,
   MouthOpen,
@@ -373,6 +388,7 @@ import {
   SegmentType,
   SegmentTypeInfo,
   ServiceQuotaExceededException,
+  SessionNotFoundException,
   ShotSegment,
   Smile,
   StartCelebrityRecognitionRequest,
@@ -412,7 +428,6 @@ import {
   StreamProcessorOutput,
   StreamProcessorParameterToDelete,
   StreamProcessorSettings,
-  StreamProcessorSettingsForUpdate,
   Summary,
   Sunglasses,
   TagResourceRequest,
@@ -430,13 +445,16 @@ import {
   UntagResourceResponse,
   UpdateDatasetEntriesRequest,
   UpdateDatasetEntriesResponse,
-  UpdateStreamProcessorRequest,
-  UpdateStreamProcessorResponse,
   ValidationData,
   Video,
   VideoMetadata,
   VideoTooLargeException,
 } from "../models/models_0";
+import {
+  StreamProcessorSettingsForUpdate,
+  UpdateStreamProcessorRequest,
+  UpdateStreamProcessorResponse,
+} from "../models/models_1";
 import { RekognitionServiceException as __BaseException } from "../models/RekognitionServiceException";
 
 /**
@@ -500,6 +518,22 @@ export const se_CreateDatasetCommand = async (
   };
   let body: any;
   body = JSON.stringify(se_CreateDatasetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateFaceLivenessSessionCommand
+ */
+export const se_CreateFaceLivenessSessionCommand = async (
+  input: CreateFaceLivenessSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.CreateFaceLivenessSession",
+  };
+  let body: any;
+  body = JSON.stringify(se_CreateFaceLivenessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -916,6 +950,22 @@ export const se_GetFaceDetectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(se_GetFaceDetectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetFaceLivenessSessionResultsCommand
+ */
+export const se_GetFaceLivenessSessionResultsCommand = async (
+  input: GetFaceLivenessSessionResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "RekognitionService.GetFaceLivenessSessionResults",
+  };
+  let body: any;
+  body = JSON.stringify(se_GetFaceLivenessSessionResultsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1708,6 +1758,65 @@ const de_CreateDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateFaceLivenessSessionCommand
+ */
+export const de_CreateFaceLivenessSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFaceLivenessSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateFaceLivenessSessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateFaceLivenessSessionResponse(data, context);
+  const response: CreateFaceLivenessSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+/**
+ * deserializeAws_json1_1CreateFaceLivenessSessionCommandError
+ */
+const de_CreateFaceLivenessSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFaceLivenessSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3419,6 +3528,68 @@ const de_GetFaceDetectionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetFaceLivenessSessionResultsCommand
+ */
+export const de_GetFaceLivenessSessionResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFaceLivenessSessionResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetFaceLivenessSessionResultsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetFaceLivenessSessionResultsResponse(data, context);
+  const response: GetFaceLivenessSessionResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+/**
+ * deserializeAws_json1_1GetFaceLivenessSessionResultsCommandError
+ */
+const de_GetFaceLivenessSessionResultsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFaceLivenessSessionResultsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "SessionNotFoundException":
+    case "com.amazonaws.rekognition#SessionNotFoundException":
+      throw await de_SessionNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -5645,6 +5816,9 @@ const de_UpdateStreamProcessorCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
       throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -5948,6 +6122,22 @@ const de_ServiceQuotaExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1SessionNotFoundExceptionRes
+ */
+const de_SessionNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SessionNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_SessionNotFoundException(body, context);
+  const exception = new SessionNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -6120,6 +6310,30 @@ const se_CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeCo
     ...(input.DatasetSource != null && { DatasetSource: se_DatasetSource(input.DatasetSource, context) }),
     ...(input.DatasetType != null && { DatasetType: input.DatasetType }),
     ...(input.ProjectArn != null && { ProjectArn: input.ProjectArn }),
+  };
+};
+
+/**
+ * serializeAws_json1_1CreateFaceLivenessSessionRequest
+ */
+const se_CreateFaceLivenessSessionRequest = (input: CreateFaceLivenessSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Settings != null && { Settings: se_CreateFaceLivenessSessionRequestSettings(input.Settings, context) }),
+  };
+};
+
+/**
+ * serializeAws_json1_1CreateFaceLivenessSessionRequestSettings
+ */
+const se_CreateFaceLivenessSessionRequestSettings = (
+  input: CreateFaceLivenessSessionRequestSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditImagesLimit != null && { AuditImagesLimit: input.AuditImagesLimit }),
+    ...(input.OutputConfig != null && { OutputConfig: se_LivenessOutputConfig(input.OutputConfig, context) }),
   };
 };
 
@@ -6571,6 +6785,18 @@ const se_GetFaceDetectionRequest = (input: GetFaceDetectionRequest, context: __S
 };
 
 /**
+ * serializeAws_json1_1GetFaceLivenessSessionResultsRequest
+ */
+const se_GetFaceLivenessSessionResultsRequest = (
+  input: GetFaceLivenessSessionResultsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SessionId != null && { SessionId: input.SessionId }),
+  };
+};
+
+/**
  * serializeAws_json1_1GetFaceSearchRequest
  */
 const se_GetFaceSearchRequest = (input: GetFaceSearchRequest, context: __SerdeContext): any => {
@@ -6808,6 +7034,16 @@ const se_ListStreamProcessorsRequest = (input: ListStreamProcessorsRequest, cont
 const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+/**
+ * serializeAws_json1_1LivenessOutputConfig
+ */
+const se_LivenessOutputConfig = (input: LivenessOutputConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
   };
 };
 
@@ -7488,6 +7724,32 @@ const de_AudioMetadataList = (output: any, context: __SerdeContext): AudioMetada
 };
 
 /**
+ * deserializeAws_json1_1AuditImage
+ */
+const de_AuditImage = (output: any, context: __SerdeContext): AuditImage => {
+  return {
+    BoundingBox: output.BoundingBox != null ? de_BoundingBox(output.BoundingBox, context) : undefined,
+    Bytes: output.Bytes != null ? context.base64Decoder(output.Bytes) : undefined,
+    S3Object: output.S3Object != null ? de_S3Object(output.S3Object, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1AuditImages
+ */
+const de_AuditImages = (output: any, context: __SerdeContext): AuditImage[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_AuditImage(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1Beard
  */
 const de_Beard = (output: any, context: __SerdeContext): Beard => {
@@ -7789,6 +8051,18 @@ const de_CreateCollectionResponse = (output: any, context: __SerdeContext): Crea
 const de_CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
   return {
     DatasetArn: __expectString(output.DatasetArn),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateFaceLivenessSessionResponse
+ */
+const de_CreateFaceLivenessSessionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateFaceLivenessSessionResponse => {
+  return {
+    SessionId: __expectString(output.SessionId),
   } as any;
 };
 
@@ -8587,6 +8861,22 @@ const de_GetFaceDetectionResponse = (output: any, context: __SerdeContext): GetF
     NextToken: __expectString(output.NextToken),
     StatusMessage: __expectString(output.StatusMessage),
     VideoMetadata: output.VideoMetadata != null ? de_VideoMetadata(output.VideoMetadata, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1GetFaceLivenessSessionResultsResponse
+ */
+const de_GetFaceLivenessSessionResultsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetFaceLivenessSessionResultsResponse => {
+  return {
+    AuditImages: output.AuditImages != null ? de_AuditImages(output.AuditImages, context) : undefined,
+    Confidence: __limitedParseFloat32(output.Confidence),
+    ReferenceImage: output.ReferenceImage != null ? de_AuditImage(output.ReferenceImage, context) : undefined,
+    SessionId: __expectString(output.SessionId),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -9710,6 +10000,17 @@ const de_SegmentTypesInfo = (output: any, context: __SerdeContext): SegmentTypeI
  * deserializeAws_json1_1ServiceQuotaExceededException
  */
 const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
+  return {
+    Code: __expectString(output.Code),
+    Logref: __expectString(output.Logref),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1SessionNotFoundException
+ */
+const de_SessionNotFoundException = (output: any, context: __SerdeContext): SessionNotFoundException => {
   return {
     Code: __expectString(output.Code),
     Logref: __expectString(output.Logref),

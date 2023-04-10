@@ -34,6 +34,7 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @public
  * <p>Gets a list of the project policies attached to a project.</p>
  *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

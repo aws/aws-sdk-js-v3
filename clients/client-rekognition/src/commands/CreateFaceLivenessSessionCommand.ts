@@ -13,45 +13,57 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/models_0";
-import { de_StopProjectVersionCommand, se_StopProjectVersionCommand } from "../protocols/Aws_json1_1";
+import { CreateFaceLivenessSessionRequest, CreateFaceLivenessSessionResponse } from "../models/models_0";
+import { de_CreateFaceLivenessSessionCommand, se_CreateFaceLivenessSessionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
  * @public
  *
- * The input for {@link StopProjectVersionCommand}.
+ * The input for {@link CreateFaceLivenessSessionCommand}.
  */
-export interface StopProjectVersionCommandInput extends StopProjectVersionRequest {}
+export interface CreateFaceLivenessSessionCommandInput extends CreateFaceLivenessSessionRequest {}
 /**
  * @public
  *
- * The output of {@link StopProjectVersionCommand}.
+ * The output of {@link CreateFaceLivenessSessionCommand}.
  */
-export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
+export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivenessSessionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops a running model. The operation might take a while to complete. To
- *          check the current status, call <a>DescribeProjectVersions</a>. </p>
- *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
+ * <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
+ *       which you can use to start streaming Face Liveness video and get the results for a Face
+ *       Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter
+ *       to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and
+ *       audit images. You can use <code>AuditImagesLimit</code> to limit of audit images returned.
+ *       This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based
+ *       on the duration of the selfie-video. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RekognitionClient, StopProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
- * // const { RekognitionClient, StopProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * import { RekognitionClient, CreateFaceLivenessSessionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, CreateFaceLivenessSessionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
- * const input = { // StopProjectVersionRequest
- *   ProjectVersionArn: "STRING_VALUE", // required
+ * const input = { // CreateFaceLivenessSessionRequest
+ *   KmsKeyId: "STRING_VALUE",
+ *   Settings: { // CreateFaceLivenessSessionRequestSettings
+ *     OutputConfig: { // LivenessOutputConfig
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3KeyPrefix: "STRING_VALUE",
+ *     },
+ *     AuditImagesLimit: Number("int"),
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
  * };
- * const command = new StopProjectVersionCommand(input);
+ * const command = new CreateFaceLivenessSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param StopProjectVersionCommandInput - {@link StopProjectVersionCommandInput}
- * @returns {@link StopProjectVersionCommandOutput}
- * @see {@link StopProjectVersionCommandInput} for command's `input` shape.
- * @see {@link StopProjectVersionCommandOutput} for command's `response` shape.
+ * @param CreateFaceLivenessSessionCommandInput - {@link CreateFaceLivenessSessionCommandInput}
+ * @returns {@link CreateFaceLivenessSessionCommandOutput}
+ * @see {@link CreateFaceLivenessSessionCommandInput} for command's `input` shape.
+ * @see {@link CreateFaceLivenessSessionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,20 +80,14 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
  *
- * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is already being used.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
- *
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
  *
  */
-export class StopProjectVersionCommand extends $Command<
-  StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput,
+export class CreateFaceLivenessSessionCommand extends $Command<
+  CreateFaceLivenessSessionCommandInput,
+  CreateFaceLivenessSessionCommandOutput,
   RekognitionClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +105,7 @@ export class StopProjectVersionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopProjectVersionCommandInput) {
+  constructor(readonly input: CreateFaceLivenessSessionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,17 +118,17 @@ export class StopProjectVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopProjectVersionCommandInput, StopProjectVersionCommandOutput> {
+  ): Handler<CreateFaceLivenessSessionCommandInput, CreateFaceLivenessSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopProjectVersionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateFaceLivenessSessionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RekognitionClient";
-    const commandName = "StopProjectVersionCommand";
+    const commandName = "CreateFaceLivenessSessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -141,15 +147,18 @@ export class StopProjectVersionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopProjectVersionCommand(input, context);
+  private serialize(input: CreateFaceLivenessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateFaceLivenessSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProjectVersionCommandOutput> {
-    return de_StopProjectVersionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateFaceLivenessSessionCommandOutput> {
+    return de_CreateFaceLivenessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

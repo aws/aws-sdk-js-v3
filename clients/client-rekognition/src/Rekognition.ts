@@ -22,6 +22,11 @@ import {
   CreateDatasetCommandOutput,
 } from "./commands/CreateDatasetCommand";
 import {
+  CreateFaceLivenessSessionCommand,
+  CreateFaceLivenessSessionCommandInput,
+  CreateFaceLivenessSessionCommandOutput,
+} from "./commands/CreateFaceLivenessSessionCommand";
+import {
   CreateProjectCommand,
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -139,6 +144,11 @@ import {
   GetFaceDetectionCommandInput,
   GetFaceDetectionCommandOutput,
 } from "./commands/GetFaceDetectionCommand";
+import {
+  GetFaceLivenessSessionResultsCommand,
+  GetFaceLivenessSessionResultsCommandInput,
+  GetFaceLivenessSessionResultsCommandOutput,
+} from "./commands/GetFaceLivenessSessionResultsCommand";
 import {
   GetFaceSearchCommand,
   GetFaceSearchCommandInput,
@@ -719,6 +729,7 @@ export class Rekognition extends RekognitionClient {
    *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
    *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
    *          the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code> action.</p>
    */
   public copyProjectVersion(
     args: CopyProjectVersionCommandInput,
@@ -849,6 +860,45 @@ export class Rekognition extends RekognitionClient {
 
   /**
    * @public
+   * <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
+   *       which you can use to start streaming Face Liveness video and get the results for a Face
+   *       Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter
+   *       to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and
+   *       audit images. You can use <code>AuditImagesLimit</code> to limit of audit images returned.
+   *       This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based
+   *       on the duration of the selfie-video. </p>
+   */
+  public createFaceLivenessSession(
+    args: CreateFaceLivenessSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFaceLivenessSessionCommandOutput>;
+  public createFaceLivenessSession(
+    args: CreateFaceLivenessSessionCommandInput,
+    cb: (err: any, data?: CreateFaceLivenessSessionCommandOutput) => void
+  ): void;
+  public createFaceLivenessSession(
+    args: CreateFaceLivenessSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFaceLivenessSessionCommandOutput) => void
+  ): void;
+  public createFaceLivenessSession(
+    args: CreateFaceLivenessSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFaceLivenessSessionCommandOutput) => void),
+    cb?: (err: any, data?: CreateFaceLivenessSessionCommandOutput) => void
+  ): Promise<CreateFaceLivenessSessionCommandOutput> | void {
+    const command = new CreateFaceLivenessSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources (datasets, model versions)
    *          that you use to create and manage Amazon Rekognition Custom Labels models.  </p>
    *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
@@ -950,15 +1000,25 @@ export class Rekognition extends RekognitionClient {
    *          <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
    *          <ul>
    *             <li>
-   *                <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream. You also specify the
-   *                 face recognition criteria in <code>Settings</code>. For example, the collection containing faces that you want to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
-   *                 stop processing.</p>
+   *                <p>If you are creating a stream processor for detecting faces, you provide as input a Kinesis video stream
+   *                         (<code>Input</code>) and a Kinesis data stream (<code>Output</code>) stream for receiving
+   *                     the output. You must use the <code>FaceSearch</code> option in
+   *                         <code>Settings</code>, specifying the collection that contains the faces you
+   *                     want to recognize. After you have finished analyzing a streaming video, use
+   *                         <a>StopStreamProcessor</a> to stop processing.</p>
    *             </li>
    *             <li>
-   *                <p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an
-   *                 Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS key ID to encrypt the data sent to your Amazon S3 bucket.
-   *                 You specify what you want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and people, or pets, people, and packages. You can also specify where in the frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>.
-   *                 When you run the <a>StartStreamProcessor</a> operation on a label detection stream processor, you input start and stop information to determine the length of the processing time.</p>
+   *                <p>If you are creating a stream processor to detect labels, you provide as input a Kinesis video stream
+   *                         (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>), and an
+   *                     Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide a KMS
+   *                     key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you want
+   *                     to detect by using the <code>ConnectedHome</code> option in settings, and
+   *                     selecting one of the following: <code>PERSON</code>, <code>PET</code>,
+   *                         <code>PACKAGE</code>, <code>ALL</code> You can also specify where in the
+   *                     frame you want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When
+   *                     you run the <a>StartStreamProcessor</a> operation on a label
+   *                     detection stream processor, you input start and stop information to determine
+   *                     the length of the processing time.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -1151,6 +1211,7 @@ export class Rekognition extends RekognitionClient {
    * @public
    * <p>Deletes an existing project policy.</p>
    *          <p>To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. To attach a project policy to a project, call <a>PutProjectPolicy</a>.</p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code> action.</p>
    */
   public deleteProjectPolicy(
     args: DeleteProjectPolicyCommandInput,
@@ -1575,7 +1636,7 @@ export class Rekognition extends RekognitionClient {
    *             <b>Response Elements</b>
    *          </p>
    *          <p> For each object, scene, and concept the API returns one or more labels. The API
-   *       returns the following types of information regarding labels:</p>
+   *       returns the following types of information about labels:</p>
    *          <ul>
    *             <li>
    *                <p> Name - The name of the detected label. </p>
@@ -1654,8 +1715,7 @@ export class Rekognition extends RekognitionClient {
    *             <p>If the object detected is a person, the operation doesn't provide the same facial
    *         details that the <a>DetectFaces</a> operation provides.</p>
    *          </note>
-   *          <p>This is a stateless API operation. That is, the operation does not persist any
-   *       data.</p>
+   *          <p>This is a stateless API operation that doesn't return any data.</p>
    *          <p>This operation requires permissions to perform the
    *         <code>rekognition:DetectLabels</code> action. </p>
    */
@@ -2095,6 +2155,44 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: GetFaceDetectionCommandOutput) => void
   ): Promise<GetFaceDetectionCommandOutput> | void {
     const command = new GetFaceDetectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves the results of a specific Face Liveness session. It requires the
+   *         <code>sessionId</code> as input, which was created using
+   *         <code>CreateFaceLivenessSession</code>. Returns the corresponding Face Liveness confidence
+   *       score, a reference image that includes a face bounding box, and audit images that also contain
+   *       face bounding boxes. The Face Liveness confidence score ranges from 0 to 100. The reference
+   *       image can optionally be returned.</p>
+   */
+  public getFaceLivenessSessionResults(
+    args: GetFaceLivenessSessionResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFaceLivenessSessionResultsCommandOutput>;
+  public getFaceLivenessSessionResults(
+    args: GetFaceLivenessSessionResultsCommandInput,
+    cb: (err: any, data?: GetFaceLivenessSessionResultsCommandOutput) => void
+  ): void;
+  public getFaceLivenessSessionResults(
+    args: GetFaceLivenessSessionResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFaceLivenessSessionResultsCommandOutput) => void
+  ): void;
+  public getFaceLivenessSessionResults(
+    args: GetFaceLivenessSessionResultsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFaceLivenessSessionResultsCommandOutput) => void),
+    cb?: (err: any, data?: GetFaceLivenessSessionResultsCommandOutput) => void
+  ): Promise<GetFaceLivenessSessionResultsCommandOutput> | void {
+    const command = new GetFaceLivenessSessionResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2702,6 +2800,7 @@ export class Rekognition extends RekognitionClient {
    * @public
    * <p>Gets a list of the project policies attached to a project.</p>
    *          <p>To attach a project policy to a project, call <a>PutProjectPolicy</a>. To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.</p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:ListProjectPolicies</code> action.</p>
    */
   public listProjectPolicies(
     args: ListProjectPoliciesCommandInput,
@@ -2816,6 +2915,7 @@ export class Rekognition extends RekognitionClient {
    *          <p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.
    *          To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p>
    *          <p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:PutProjectPolicy</code> action.</p>
    */
   public putProjectPolicy(
     args: PutProjectPolicyCommandInput,
@@ -3456,6 +3556,7 @@ export class Rekognition extends RekognitionClient {
    * @public
    * <p>Stops a running model. The operation might take a while to complete. To
    *          check the current status, call <a>DescribeProjectVersions</a>. </p>
+   *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
    */
   public stopProjectVersion(
     args: StopProjectVersionCommandInput,

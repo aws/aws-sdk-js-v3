@@ -62,7 +62,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *             <b>Response Elements</b>
  *          </p>
  *          <p> For each object, scene, and concept the API returns one or more labels. The API
- *       returns the following types of information regarding labels:</p>
+ *       returns the following types of information about labels:</p>
  *          <ul>
  *             <li>
  *                <p> Name - The name of the detected label. </p>
@@ -141,8 +141,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *             <p>If the object detected is a person, the operation doesn't provide the same facial
  *         details that the <a>DetectFaces</a> operation provides.</p>
  *          </note>
- *          <p>This is a stateless API operation. That is, the operation does not persist any
- *       data.</p>
+ *          <p>This is a stateless API operation that doesn't return any data.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DetectLabels</code> action. </p>
  * @example
