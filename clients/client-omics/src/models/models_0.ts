@@ -1749,7 +1749,6 @@ export const WorkflowStatus = {
   CREATING: "CREATING",
   DELETED: "DELETED",
   FAILED: "FAILED",
-  INACTIVE: "INACTIVE",
   UPDATING: "UPDATING",
 } as const;
 
@@ -2957,7 +2956,6 @@ export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
  */
 export const WorkflowType = {
   PRIVATE: "PRIVATE",
-  SERVICE: "SERVICE",
 } as const;
 
 /**
