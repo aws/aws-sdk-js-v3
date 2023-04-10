@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+### Features
+
+* **client-connect:** This release adds the ability to configure an agent's routing profile to receive contacts from multiple channels at the same time via extending the UpdateRoutingProfileConcurrency, CreateRoutingProfile and DescribeRoutingProfile APIs. ([449823d](https://github.com/aws/aws-sdk-js-v3/commit/449823db503181513cb39ba443e382a40788c0bf))
+* **client-ecs:** This release adds support for enabling FIPS compliance on Amazon ECS Fargate tasks ([db95943](https://github.com/aws/aws-sdk-js-v3/commit/db95943c738d0a0ada3ed39ae9c51322089337bc))
+* **client-marketplace-catalog:** Added three new APIs to support resource sharing: GetResourcePolicy, PutResourcePolicy, and DeleteResourcePolicy. Added new OwnershipType field to ListEntities request to let users filter on entities that are shared with them. Increased max page size of ListEntities response from 20 to 50 results. ([d860c2f](https://github.com/aws/aws-sdk-js-v3/commit/d860c2f38d047074fcca85209e2c9292f0480cab))
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK now supports conversion of 608 paint-on captions to pop-on captions for SCC sources. ([e233a50](https://github.com/aws/aws-sdk-js-v3/commit/e233a5087853eb36db2857b019e5090b67aa5398))
+* **client-omics:** Remove unexpected API changes. ([16d0576](https://github.com/aws/aws-sdk-js-v3/commit/16d05761eaa5aa75518854770efc1dd92d23d6a5))
+* **client-rekognition:** This release adds support for Face Liveness APIs in Amazon Rekognition. Updates UpdateStreamProcessor to return ResourceInUseException Exception. Minor updates to API documentation. ([0ffd995](https://github.com/aws/aws-sdk-js-v3/commit/0ffd995f8a39e2ae95f0cc2403c9f49f292f6b31))
+* **clients:** update client endpoints as of 2023-04-10 ([edbe989](https://github.com/aws/aws-sdk-js-v3/commit/edbe9896e0cea0776aa216ce944ddfa81900db89))
+
+
+
+
+
 # [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
 
 

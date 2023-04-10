@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+### Features
+
+* **client-marketplace-catalog:** Added three new APIs to support resource sharing: GetResourcePolicy, PutResourcePolicy, and DeleteResourcePolicy. Added new OwnershipType field to ListEntities request to let users filter on entities that are shared with them. Increased max page size of ListEntities response from 20 to 50 results. ([d860c2f](https://github.com/aws/aws-sdk-js-v3/commit/d860c2f38d047074fcca85209e2c9292f0480cab))
+
+
+
+
+
 # [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
 
 
