@@ -64,7 +64,7 @@
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "repository": {

@@ -53,7 +53,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"

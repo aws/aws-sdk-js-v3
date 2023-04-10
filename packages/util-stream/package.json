@@ -48,7 +48,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",

@@ -42,7 +42,7 @@
     "node": ">=14.0.0"
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/signature-v4-crt",
   "repository": {

@@ -44,7 +44,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/fromBase64": "./dist-es/fromBase64.browser",

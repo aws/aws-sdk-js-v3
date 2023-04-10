@@ -43,7 +43,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/fromUtf8": "./dist-es/fromUtf8.browser",
