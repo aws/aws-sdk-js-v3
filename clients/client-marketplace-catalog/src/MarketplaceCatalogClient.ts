@@ -50,14 +50,20 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "./commands/CancelChangeSetCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand";
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "./commands/StartChangeSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -74,11 +80,14 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  */
 export type ServiceInputTypes =
   | CancelChangeSetCommandInput
+  | DeleteResourcePolicyCommandInput
   | DescribeChangeSetCommandInput
   | DescribeEntityCommandInput
+  | GetResourcePolicyCommandInput
   | ListChangeSetsCommandInput
   | ListEntitiesCommandInput
   | ListTagsForResourceCommandInput
+  | PutResourcePolicyCommandInput
   | StartChangeSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
@@ -88,11 +97,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CancelChangeSetCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DescribeChangeSetCommandOutput
   | DescribeEntityCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListChangeSetsCommandOutput
   | ListEntitiesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResourcePolicyCommandOutput
   | StartChangeSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
@@ -263,7 +275,7 @@ export interface MarketplaceCatalogClientResolvedConfig extends MarketplaceCatal
  * @public
  * <p>Catalog API actions allow you to manage your entities through list, describe, and
  *             update capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
- *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
+ *          <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create
  *             your own applications on top of the Catalog API to manage your products on AWS
  *             Marketplace.</p>

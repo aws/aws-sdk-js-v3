@@ -40,7 +40,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *             can filter this list by providing any combination of <code>entityId</code>,
  *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
  *             operation applies a logical AND between the filters.</p>
- *         <p>You can describe a change during the 60-day request history retention period for API
+ *          <p>You can describe a change during the 60-day request history retention period for API
  *             calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,15 +77,19 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */

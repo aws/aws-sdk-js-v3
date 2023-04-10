@@ -62,21 +62,26 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource is currently in use.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */

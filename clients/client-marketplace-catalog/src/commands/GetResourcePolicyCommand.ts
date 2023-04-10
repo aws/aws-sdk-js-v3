@@ -18,58 +18,43 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
-import { de_ListEntitiesCommand, se_ListEntitiesCommand } from "../protocols/Aws_restJson1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ListEntitiesCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link ListEntitiesCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides the list of entities of a given type.</p>
+ * <p>Gets a resource-based policy of an Entity that is identified by its resource
+ *             ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, GetResourcePolicyCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, GetResourcePolicyCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const input = { // ListEntitiesRequest
- *   Catalog: "STRING_VALUE", // required
- *   EntityType: "STRING_VALUE", // required
- *   FilterList: [ // FilterList
- *     { // Filter
- *       Name: "STRING_VALUE",
- *       ValueList: [ // ValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Sort: { // Sort
- *     SortBy: "STRING_VALUE",
- *     SortOrder: "ASCENDING" || "DESCENDING",
- *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   OwnershipType: "SELF" || "SHARED",
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new ListEntitiesCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
- * @returns {@link ListEntitiesCommandOutput}
- * @see {@link ListEntitiesCommandInput} for command's `input` shape.
- * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -94,9 +79,9 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *
  *
  */
-export class ListEntitiesCommand extends $Command<
-  ListEntitiesCommandInput,
-  ListEntitiesCommandOutput,
+export class GetResourcePolicyCommand extends $Command<
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
   MarketplaceCatalogClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +99,7 @@ export class ListEntitiesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEntitiesCommandInput) {
+  constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,15 +112,17 @@ export class ListEntitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEntitiesCommandInput, ListEntitiesCommandOutput> {
+  ): Handler<GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListEntitiesCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetResourcePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MarketplaceCatalogClient";
-    const commandName = "ListEntitiesCommand";
+    const commandName = "GetResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -154,15 +141,15 @@ export class ListEntitiesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEntitiesCommand(input, context);
+  private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
-    return de_ListEntitiesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
+    return de_GetResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

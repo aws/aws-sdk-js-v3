@@ -43,10 +43,12 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *             succeeded, cancelled, or failed). If you try to start a change set containing a change
  *             against an entity that is already locked, you will receive a
  *                 <code>ResourceInUseException</code> error.</p>
- *         <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
+ *          <p>For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a> later in this topic because it contains two changes to run the same
  *             change type (<code>AddRevisions</code>) against the same entity
  *                 (<code>entity-id@1</code>).</p>
- *         <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>.</p>
+ *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information on change types for single-AMI
+ *             products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Als, for more information on change types
+ *             available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,24 +95,29 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource is currently in use.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The maximum number of open requests per account has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */

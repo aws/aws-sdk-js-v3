@@ -18,58 +18,44 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
-import { de_ListEntitiesCommand, se_ListEntitiesCommand } from "../protocols/Aws_restJson1";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ListEntitiesCommand}.
+ * The input for {@link PutResourcePolicyCommand}.
  */
-export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link ListEntitiesCommand}.
+ * The output of {@link PutResourcePolicyCommand}.
  */
-export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides the list of entities of a given type.</p>
+ * <p>Attaches a resource-based policy to an Entity. Examples of an entity include:
+ *                 <code>AmiProduct</code> and <code>ContainerProduct</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, PutResourcePolicyCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, PutResourcePolicyCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const input = { // ListEntitiesRequest
- *   Catalog: "STRING_VALUE", // required
- *   EntityType: "STRING_VALUE", // required
- *   FilterList: [ // FilterList
- *     { // Filter
- *       Name: "STRING_VALUE",
- *       ValueList: [ // ValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Sort: { // Sort
- *     SortBy: "STRING_VALUE",
- *     SortOrder: "ASCENDING" || "DESCENDING",
- *   },
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   OwnershipType: "SELF" || "SHARED",
+ * const input = { // PutResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
  * };
- * const command = new ListEntitiesCommand(input);
+ * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
- * @returns {@link ListEntitiesCommandOutput}
- * @see {@link ListEntitiesCommandInput} for command's `input` shape.
- * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -94,9 +80,9 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *
  *
  */
-export class ListEntitiesCommand extends $Command<
-  ListEntitiesCommandInput,
-  ListEntitiesCommandOutput,
+export class PutResourcePolicyCommand extends $Command<
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
   MarketplaceCatalogClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +100,7 @@ export class ListEntitiesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEntitiesCommandInput) {
+  constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,15 +113,17 @@ export class ListEntitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEntitiesCommandInput, ListEntitiesCommandOutput> {
+  ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListEntitiesCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutResourcePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MarketplaceCatalogClient";
-    const commandName = "ListEntitiesCommand";
+    const commandName = "PutResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -154,15 +142,15 @@ export class ListEntitiesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEntitiesCommand(input, context);
+  private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
-    return de_ListEntitiesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra
