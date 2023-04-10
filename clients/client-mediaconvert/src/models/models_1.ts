@@ -5690,6 +5690,22 @@ export interface Timing {
 
 /**
  * @public
+ * Contains any warning codes and their count for the job.
+ */
+export interface WarningGroup {
+  /**
+   * Warning code that identifies a specific warning in the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   */
+  Code: number | undefined;
+
+  /**
+   * The number of times this warning occurred in the job.
+   */
+  Count: number | undefined;
+}
+
+/**
+ * @public
  * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Job {
@@ -5712,6 +5728,11 @@ export interface Job {
    * The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
    */
   BillingTagsSource?: BillingTagsSource | string;
+
+  /**
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
+   */
+  ClientRequestToken?: string;
 
   /**
    * The time, in Unix epoch format in seconds, when the job got created.
@@ -5817,6 +5838,11 @@ export interface Job {
    * User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
    */
   UserMetadata?: Record<string, string>;
+
+  /**
+   * Contains any warning messages for the job. Use to help identify potential issues with your input, output, or job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html
+   */
+  Warnings?: WarningGroup[];
 }
 
 /**
@@ -6740,13 +6766,3 @@ export interface DisassociateCertificateRequest {
  * @public
  */
 export interface DisassociateCertificateResponse {}
-
-/**
- * @public
- */
-export interface GetJobRequest {
-  /**
-   * the job ID of the job.
-   */
-  Id: string | undefined;
-}

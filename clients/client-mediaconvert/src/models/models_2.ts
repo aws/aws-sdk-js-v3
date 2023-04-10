@@ -16,6 +16,16 @@ import {
 /**
  * @public
  */
+export interface GetJobRequest {
+  /**
+   * the job ID of the job.
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html

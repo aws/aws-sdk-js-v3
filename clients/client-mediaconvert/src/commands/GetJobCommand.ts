@@ -14,8 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { GetJobRequest } from "../models/models_1";
-import { GetJobResponse } from "../models/models_2";
+import { GetJobRequest, GetJobResponse } from "../models/models_2";
 import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 
 /**

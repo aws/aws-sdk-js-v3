@@ -236,6 +236,7 @@ import {
   VideoPreprocessor,
   Vp8Settings,
   Vp9Settings,
+  WarningGroup,
   Xavc4kIntraCbgProfileSettings,
   Xavc4kIntraVbrProfileSettings,
   Xavc4kProfileSettings,
@@ -6539,6 +6540,21 @@ const de___listOfTeletextPageType = (output: any, context: __SerdeContext): (Tel
 };
 
 /**
+ * deserializeAws_restJson1__listOfWarningGroup
+ */
+const de___listOfWarningGroup = (output: any, context: __SerdeContext): WarningGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_WarningGroup(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__mapOf__string
  */
 const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
@@ -8048,6 +8064,7 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     AccelerationStatus: __expectString(output.accelerationStatus),
     Arn: __expectString(output.arn),
     BillingTagsSource: __expectString(output.billingTagsSource),
+    ClientRequestToken: __expectString(output.clientRequestToken),
     CreatedAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     CurrentPhase: __expectString(output.currentPhase),
@@ -8073,6 +8090,7 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     StatusUpdateInterval: __expectString(output.statusUpdateInterval),
     Timing: output.timing != null ? de_Timing(output.timing, context) : undefined,
     UserMetadata: output.userMetadata != null ? de___mapOf__string(output.userMetadata, context) : undefined,
+    Warnings: output.warnings != null ? de___listOfWarningGroup(output.warnings, context) : undefined,
   } as any;
 };
 
@@ -9227,6 +9245,16 @@ const de_Vp9Settings = (output: any, context: __SerdeContext): Vp9Settings => {
     ParNumerator: __expectInt32(output.parNumerator),
     QualityTuningLevel: __expectString(output.qualityTuningLevel),
     RateControlMode: __expectString(output.rateControlMode),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1WarningGroup
+ */
+const de_WarningGroup = (output: any, context: __SerdeContext): WarningGroup => {
+  return {
+    Code: __expectInt32(output.code),
+    Count: __expectInt32(output.count),
   } as any;
 };
 
