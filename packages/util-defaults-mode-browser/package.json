@@ -45,7 +45,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "react-native": {
     "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"

@@ -53,7 +53,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"

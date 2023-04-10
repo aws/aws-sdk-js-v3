@@ -63,7 +63,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/private/aws-restjson-server",
