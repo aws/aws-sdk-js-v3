@@ -23,6 +23,7 @@
     "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
+    "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0"
