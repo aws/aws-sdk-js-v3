@@ -47,7 +47,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                      </li>
  *                      <li>
  *                         <p>For Amazon CloudFront distributions, use the CloudFront call
- *                            <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>.</p>
+ *                            <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
+ *                                in the <i>Amazon CloudFront API Reference</i>. </p>
  *                      </li>
  *                   </ul>
  *                </li>
@@ -59,7 +60,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                      </li>
  *                      <li>
  *                         <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call
- *                            <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ *                            <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
+ *                                in the <i>Amazon CloudFront API Reference</i>. </p>
  *                      </li>
  *                   </ul>
  *                </li>

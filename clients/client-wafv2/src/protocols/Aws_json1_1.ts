@@ -147,8 +147,10 @@ import {
   AllowAction,
   AllQueryArguments,
   AndStatement,
+  AssociatedResourceType,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
+  AssociationConfig,
   AWSManagedRulesATPRuleSet,
   AWSManagedRulesBotControlRuleSet,
   BlockAction,
@@ -297,6 +299,7 @@ import {
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
   ReleaseSummary,
+  RequestBodyAssociatedResourceTypeConfig,
   RequestInspection,
   ResponseInspection,
   ResponseInspectionBodyContains,
@@ -4382,6 +4385,15 @@ const se_AssociateWebACLRequest = (input: AssociateWebACLRequest, context: __Ser
 };
 
 /**
+ * serializeAws_json1_1AssociationConfig
+ */
+const se_AssociationConfig = (input: AssociationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.RequestBody != null && { RequestBody: se_RequestBody(input.RequestBody, context) }),
+  };
+};
+
+/**
  * serializeAws_json1_1AWSManagedRulesATPRuleSet
  */
 const se_AWSManagedRulesATPRuleSet = (input: AWSManagedRulesATPRuleSet, context: __SerdeContext): any => {
@@ -4621,6 +4633,9 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
  */
 const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AssociationConfig != null && {
+      AssociationConfig: se_AssociationConfig(input.AssociationConfig, context),
+    }),
     ...(input.CaptchaConfig != null && { CaptchaConfig: se_CaptchaConfig(input.CaptchaConfig, context) }),
     ...(input.ChallengeConfig != null && { ChallengeConfig: se_ChallengeConfig(input.ChallengeConfig, context) }),
     ...(input.CustomResponseBodies != null && {
@@ -5568,6 +5583,37 @@ const se_RegularExpressionList = (input: Regex[], context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_json1_1RequestBody
+ */
+const se_RequestBody = (
+  input: Record<string, RequestBodyAssociatedResourceTypeConfig>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [AssociatedResourceType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = se_RequestBodyAssociatedResourceTypeConfig(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
+/**
+ * serializeAws_json1_1RequestBodyAssociatedResourceTypeConfig
+ */
+const se_RequestBodyAssociatedResourceTypeConfig = (
+  input: RequestBodyAssociatedResourceTypeConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultSizeInspectionLimit != null && { DefaultSizeInspectionLimit: input.DefaultSizeInspectionLimit }),
+  };
+};
+
+/**
  * serializeAws_json1_1RequestInspection
  */
 const se_RequestInspection = (input: RequestInspection, context: __SerdeContext): any => {
@@ -6081,6 +6127,9 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
  */
 const se_UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AssociationConfig != null && {
+      AssociationConfig: se_AssociationConfig(input.AssociationConfig, context),
+    }),
     ...(input.CaptchaConfig != null && { CaptchaConfig: se_CaptchaConfig(input.CaptchaConfig, context) }),
     ...(input.ChallengeConfig != null && { ChallengeConfig: se_ChallengeConfig(input.ChallengeConfig, context) }),
     ...(input.CustomResponseBodies != null && {
@@ -6209,6 +6258,15 @@ const de_AndStatement = (output: any, context: __SerdeContext): AndStatement => 
  */
 const de_AssociateWebACLResponse = (output: any, context: __SerdeContext): AssociateWebACLResponse => {
   return {} as any;
+};
+
+/**
+ * deserializeAws_json1_1AssociationConfig
+ */
+const de_AssociationConfig = (output: any, context: __SerdeContext): AssociationConfig => {
+  return {
+    RequestBody: output.RequestBody != null ? de_RequestBody(output.RequestBody, context) : undefined,
+  } as any;
 };
 
 /**
@@ -7807,6 +7865,40 @@ const de_ReleaseSummary = (output: any, context: __SerdeContext): ReleaseSummary
 };
 
 /**
+ * deserializeAws_json1_1RequestBody
+ */
+const de_RequestBody = (
+  output: any,
+  context: __SerdeContext
+): Record<string, RequestBodyAssociatedResourceTypeConfig> => {
+  return Object.entries(output).reduce(
+    (
+      acc: Record<string, RequestBodyAssociatedResourceTypeConfig>,
+      [key, value]: [AssociatedResourceType | string, any]
+    ) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = de_RequestBodyAssociatedResourceTypeConfig(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
+/**
+ * deserializeAws_json1_1RequestBodyAssociatedResourceTypeConfig
+ */
+const de_RequestBodyAssociatedResourceTypeConfig = (
+  output: any,
+  context: __SerdeContext
+): RequestBodyAssociatedResourceTypeConfig => {
+  return {
+    DefaultSizeInspectionLimit: __expectString(output.DefaultSizeInspectionLimit),
+  } as any;
+};
+
+/**
  * deserializeAws_json1_1RequestInspection
  */
 const de_RequestInspection = (output: any, context: __SerdeContext): RequestInspection => {
@@ -8697,6 +8789,8 @@ const de_WAFUnavailableEntityException = (output: any, context: __SerdeContext):
 const de_WebACL = (output: any, context: __SerdeContext): WebACL => {
   return {
     ARN: __expectString(output.ARN),
+    AssociationConfig:
+      output.AssociationConfig != null ? de_AssociationConfig(output.AssociationConfig, context) : undefined,
     Capacity: __expectLong(output.Capacity),
     CaptchaConfig: output.CaptchaConfig != null ? de_CaptchaConfig(output.CaptchaConfig, context) : undefined,
     ChallengeConfig: output.ChallengeConfig != null ? de_ChallengeConfig(output.ChallengeConfig, context) : undefined,
