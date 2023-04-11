@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
+
+
+### Features
+
+* **client-eventbridge:** EventBridge PutTarget support for multiple SQL arguments on RedshiftDataParameters ([829cbbf](https://github.com/aws/aws-sdk-js-v3/commit/829cbbf5df9087ee1ffa960586155898a5ab735e))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 

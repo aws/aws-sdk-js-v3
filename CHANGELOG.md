@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* **middleware-sdk-ec2:** serialize presignedUrl into request body ([#4629](https://github.com/aws/aws-sdk-js-v3/issues/4629)) ([5e82636](https://github.com/aws/aws-sdk-js-v3/commit/5e826366a15de496327fefa4f1d3b879968cdc69))
+
+
+### Features
+
+* **client-ecr-public:** This release will allow using registry alias as registryId in BatchDeleteImage request. ([ba305cf](https://github.com/aws/aws-sdk-js-v3/commit/ba305cf08875ea40358a2c8e1316c36f40854244))
+* **client-emr-serverless:** This release extends GetJobRun API to return job run timeout (executionTimeoutMinutes) specified during StartJobRun call (or default timeout of 720 minutes if none was specified). ([5a7de1b](https://github.com/aws/aws-sdk-js-v3/commit/5a7de1bef66841a931d5e0f643370cda299ae0b4))
+* **client-eventbridge:** EventBridge PutTarget support for multiple SQL arguments on RedshiftDataParameters ([829cbbf](https://github.com/aws/aws-sdk-js-v3/commit/829cbbf5df9087ee1ffa960586155898a5ab735e))
+* **client-iot-data-plane:** This release adds support for MQTT5 user properties when calling the AWS IoT GetRetainedMessage API ([e663f3f](https://github.com/aws/aws-sdk-js-v3/commit/e663f3ffd51844738fc8e8c9b321d9f6931cc4e5))
+* **client-iot:** Re-release to remove unexpected API changes ([4a0d34e](https://github.com/aws/aws-sdk-js-v3/commit/4a0d34e541ff551ca79071a738ce9a276f51fc94))
+* **client-wafv2:** For web ACLs that protect CloudFront protections, the default request body inspection size is now 16 KB, and you can use the new association configuration to increase the inspection size further, up to 64 KB. Sizes over 16 KB can incur additional costs. ([25573e3](https://github.com/aws/aws-sdk-js-v3/commit/25573e3ba1a9e92613973e7db6ec1d75c051771b))
+* **clients:** update client endpoints as of 2023-04-11 ([ac0a5f5](https://github.com/aws/aws-sdk-js-v3/commit/ac0a5f54798f3d6d590093bc573dfc4a730590a3))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 

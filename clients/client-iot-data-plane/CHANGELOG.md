@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
+
+
+### Features
+
+* **client-iot-data-plane:** This release adds support for MQTT5 user properties when calling the AWS IoT GetRetainedMessage API ([e663f3f](https://github.com/aws/aws-sdk-js-v3/commit/e663f3ffd51844738fc8e8c9b321d9f6931cc4e5))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
+
+
+### Features
+
+* **client-emr-serverless:** This release extends GetJobRun API to return job run timeout (executionTimeoutMinutes) specified during StartJobRun call (or default timeout of 720 minutes if none was specified). ([5a7de1b](https://github.com/aws/aws-sdk-js-v3/commit/5a7de1bef66841a931d5e0f643370cda299ae0b4))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 

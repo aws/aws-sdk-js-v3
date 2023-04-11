@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* **middleware-sdk-ec2:** serialize presignedUrl into request body ([#4629](https://github.com/aws/aws-sdk-js-v3/issues/4629)) ([5e82636](https://github.com/aws/aws-sdk-js-v3/commit/5e826366a15de496327fefa4f1d3b879968cdc69))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 
