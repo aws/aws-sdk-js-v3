@@ -2010,6 +2010,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     createdBy: __expectString(output.createdBy),
     executionRole: __expectString(output.executionRole),
+    executionTimeoutMinutes: __expectLong(output.executionTimeoutMinutes),
     jobDriver: output.jobDriver != null ? de_JobDriver(__expectUnion(output.jobDriver), context) : undefined,
     jobRunId: __expectString(output.jobRunId),
     name: __expectString(output.name),

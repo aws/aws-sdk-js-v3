@@ -60,7 +60,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  *
  */

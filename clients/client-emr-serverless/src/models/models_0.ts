@@ -59,8 +59,8 @@ export interface ImageConfiguration {
   imageUri: string | undefined;
 
   /**
-   * <p>The SHA256 digest of the image URI. This indicates which specific image
-   *          the application is configured for. The image digest doesn't exist until an application has started.</p>
+   * <p>The SHA256 digest of the image URI. This indicates which specific image the application
+   *          is configured for. The image digest doesn't exist until an application has started.</p>
    */
   resolvedImageDigest?: string;
 }
@@ -353,8 +353,9 @@ export class ConflictException extends __BaseException {
  */
 export interface ImageConfigurationInput {
   /**
-   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a new
-   *          application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>
+   * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a
+   *          new application. If you leave this field blank in an update, Amazon EMR will remove the
+   *          image configuration.</p>
    */
   imageUri?: string;
 }
@@ -434,16 +435,20 @@ export interface CreateApplicationRequest {
   architecture?: Architecture | string;
 
   /**
-   * <p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code>
-   *          for each worker type in <code>workerTypeSpecifications</code>.</p>
+   * <p>The image configuration for all worker types. You can either set this parameter or
+   *             <code>imageConfiguration</code> for each worker type in
+   *             <code>workerTypeSpecifications</code>.</p>
    */
   imageConfiguration?: ImageConfigurationInput;
 
   /**
-   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
-   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
-   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
-   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
@@ -510,7 +515,7 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -699,16 +704,20 @@ export interface UpdateApplicationRequest {
   architecture?: Architecture | string;
 
   /**
-   * <p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code>
-   *          for each worker type in <code>WorkerTypeSpecificationInput</code>.</p>
+   * <p>The image configuration to be used for all worker types. You can either set this
+   *          parameter or <code>imageConfiguration</code> for each worker type in
+   *             <code>WorkerTypeSpecificationInput</code>.</p>
    */
   imageConfiguration?: ImageConfigurationInput;
 
   /**
-   * <p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid
-   *          worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for
-   *          Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set
-   *          image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>
+   * <p>The key-value pairs that specify worker type to
+   *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
+   *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
+   *             <code>Executor</code> for Spark applications and <code>HiveDriver</code> and
+   *             <code>TezTask</code> for Hive applications. You can either set image details in this
+   *          parameter for each worker type, or in <code>imageConfiguration</code> for all worker
+   *          types.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 }
@@ -1110,7 +1119,7 @@ export interface StartJobRunResponse {
   jobRunId: string | undefined;
 
   /**
-   * <p>The output lists the execution role ARN of the job run.</p>
+   * <p>This output displays the ARN of the job run..</p>
    */
   arn: string | undefined;
 }
@@ -1314,6 +1323,11 @@ export interface JobRun {
    *          state.</p>
    */
   totalExecutionDurationSeconds?: number;
+
+  /**
+   * Maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.
+   */
+  executionTimeoutMinutes?: number;
 }
 
 /**
