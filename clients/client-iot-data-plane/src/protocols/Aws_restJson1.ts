@@ -350,6 +350,9 @@ export const de_GetRetainedMessageCommand = async (
   if (data.topic != null) {
     contents.topic = __expectString(data.topic);
   }
+  if (data.userProperties != null) {
+    contents.userProperties = context.base64Decoder(data.userProperties);
+  }
   return contents;
 };
 
