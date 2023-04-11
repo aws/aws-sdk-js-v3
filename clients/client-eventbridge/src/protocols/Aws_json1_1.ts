@@ -5353,6 +5353,7 @@ const se_RedshiftDataParameters = (input: RedshiftDataParameters, context: __Ser
     ...(input.DbUser != null && { DbUser: input.DbUser }),
     ...(input.SecretManagerArn != null && { SecretManagerArn: input.SecretManagerArn }),
     ...(input.Sql != null && { Sql: input.Sql }),
+    ...(input.Sqls != null && { Sqls: se_Sqls(input.Sqls, context) }),
     ...(input.StatementName != null && { StatementName: input.StatementName }),
     ...(input.WithEvent != null && { WithEvent: input.WithEvent }),
   };
@@ -5512,6 +5513,17 @@ const se_Secondary = (input: Secondary, context: __SerdeContext): any => {
   return {
     ...(input.Route != null && { Route: input.Route }),
   };
+};
+
+/**
+ * serializeAws_json1_1Sqls
+ */
+const se_Sqls = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 /**
@@ -7262,6 +7274,7 @@ const de_RedshiftDataParameters = (output: any, context: __SerdeContext): Redshi
     DbUser: __expectString(output.DbUser),
     SecretManagerArn: __expectString(output.SecretManagerArn),
     Sql: __expectString(output.Sql),
+    Sqls: output.Sqls != null ? de_Sqls(output.Sqls, context) : undefined,
     StatementName: __expectString(output.StatementName),
     WithEvent: __expectBoolean(output.WithEvent),
   } as any;
@@ -7563,6 +7576,21 @@ const de_Secondary = (output: any, context: __SerdeContext): Secondary => {
   return {
     Route: __expectString(output.Route),
   } as any;
+};
+
+/**
+ * deserializeAws_json1_1Sqls
+ */
+const de_Sqls = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**

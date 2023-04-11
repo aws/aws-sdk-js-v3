@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { PutTargetsRequest, PutTargetsResponse } from "../models/models_0";
+import { PutTargetsRequest, PutTargetsRequestFilterSensitiveLog, PutTargetsResponse } from "../models/models_0";
 import { de_PutTargetsCommand, se_PutTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -320,9 +320,12 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         SecretManagerArn: "STRING_VALUE",
  *         Database: "STRING_VALUE", // required
  *         DbUser: "STRING_VALUE",
- *         Sql: "STRING_VALUE", // required
+ *         Sql: "STRING_VALUE",
  *         StatementName: "STRING_VALUE",
  *         WithEvent: true || false,
+ *         Sqls: [ // Sqls
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *       SageMakerPipelineParameters: { // SageMakerPipelineParameters
  *         PipelineParameterList: [ // SageMakerPipelineParameterList
@@ -421,7 +424,7 @@ export class PutTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: PutTargetsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

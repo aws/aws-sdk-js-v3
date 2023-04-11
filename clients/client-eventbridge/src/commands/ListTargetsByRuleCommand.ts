@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/models_0";
+import {
+  ListTargetsByRuleRequest,
+  ListTargetsByRuleResponse,
+  ListTargetsByRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -112,7 +116,7 @@ export class ListTargetsByRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListTargetsByRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { EventBridgeServiceException as __BaseException } from "./EventBridgeServiceException";
 
@@ -3381,7 +3381,7 @@ export interface RedshiftDataParameters {
   /**
    * <p>The SQL statement text to run.</p>
    */
-  Sql: string | undefined;
+  Sql?: string;
 
   /**
    * <p>The name of the SQL statement. You can name the SQL statement when you create it to
@@ -3394,6 +3394,11 @@ export interface RedshiftDataParameters {
    *       runs.</p>
    */
   WithEvent?: boolean;
+
+  /**
+   * A list of SQLs.
+   */
+  Sqls?: string[];
 }
 
 /**
@@ -4668,3 +4673,38 @@ export interface UpdateEndpointResponse {
    */
   State?: EndpointState | string;
 }
+
+/**
+ * @internal
+ */
+export const RedshiftDataParametersFilterSensitiveLog = (obj: RedshiftDataParameters): any => ({
+  ...obj,
+  ...(obj.Sql && { Sql: SENSITIVE_STRING }),
+  ...(obj.Sqls && { Sqls: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+  ...(obj.RedshiftDataParameters && {
+    RedshiftDataParameters: RedshiftDataParametersFilterSensitiveLog(obj.RedshiftDataParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsByRuleResponseFilterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
+  ...obj,
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutTargetsRequestFilterSensitiveLog = (obj: PutTargetsRequest): any => ({
+  ...obj,
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
