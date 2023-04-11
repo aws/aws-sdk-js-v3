@@ -259,8 +259,8 @@ export interface ImageIdentifier {
  */
 export interface BatchDeleteImageRequest {
   /**
-   * <p>The Amazon Web Services account ID that's associated with the registry that contains the image to
-   *          delete. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The Amazon Web Services account ID, or registry alias, that's associated with the registry that
+   *          contains the image to delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
   registryId?: string;
 

@@ -36,7 +36,6 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  *          <p>When an image is pushed and all new image layers have been uploaded, the PutImage API is
  *          called once to create or update the image manifest and the tags that are associated with
  *          the image.</p>
- *
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
