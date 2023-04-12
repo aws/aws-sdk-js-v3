@@ -1007,10 +1007,7 @@ export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.AddTagsToResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTagsToResource");
   let body: any;
   body = JSON.stringify(se_AddTagsToResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1023,10 +1020,7 @@ export const se_AssociateOpsItemRelatedItemCommand = async (
   input: AssociateOpsItemRelatedItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.AssociateOpsItemRelatedItem",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateOpsItemRelatedItem");
   let body: any;
   body = JSON.stringify(se_AssociateOpsItemRelatedItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1039,10 +1033,7 @@ export const se_CancelCommandCommand = async (
   input: CancelCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CancelCommand",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelCommand");
   let body: any;
   body = JSON.stringify(se_CancelCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1055,10 +1046,7 @@ export const se_CancelMaintenanceWindowExecutionCommand = async (
   input: CancelMaintenanceWindowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CancelMaintenanceWindowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelMaintenanceWindowExecution");
   let body: any;
   body = JSON.stringify(se_CancelMaintenanceWindowExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1071,10 +1059,7 @@ export const se_CreateActivationCommand = async (
   input: CreateActivationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateActivation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateActivation");
   let body: any;
   body = JSON.stringify(se_CreateActivationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1087,10 +1072,7 @@ export const se_CreateAssociationCommand = async (
   input: CreateAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAssociation");
   let body: any;
   body = JSON.stringify(se_CreateAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1103,10 +1085,7 @@ export const se_CreateAssociationBatchCommand = async (
   input: CreateAssociationBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateAssociationBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAssociationBatch");
   let body: any;
   body = JSON.stringify(se_CreateAssociationBatchRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1119,10 +1098,7 @@ export const se_CreateDocumentCommand = async (
   input: CreateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDocument");
   let body: any;
   body = JSON.stringify(se_CreateDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1135,10 +1111,7 @@ export const se_CreateMaintenanceWindowCommand = async (
   input: CreateMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_CreateMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1151,10 +1124,7 @@ export const se_CreateOpsItemCommand = async (
   input: CreateOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateOpsItem",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOpsItem");
   let body: any;
   body = JSON.stringify(se_CreateOpsItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1167,10 +1137,7 @@ export const se_CreateOpsMetadataCommand = async (
   input: CreateOpsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateOpsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOpsMetadata");
   let body: any;
   body = JSON.stringify(se_CreateOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1183,10 +1150,7 @@ export const se_CreatePatchBaselineCommand = async (
   input: CreatePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreatePatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePatchBaseline");
   let body: any;
   body = JSON.stringify(se_CreatePatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1199,10 +1163,7 @@ export const se_CreateResourceDataSyncCommand = async (
   input: CreateResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.CreateResourceDataSync",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResourceDataSync");
   let body: any;
   body = JSON.stringify(se_CreateResourceDataSyncRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1215,10 +1176,7 @@ export const se_DeleteActivationCommand = async (
   input: DeleteActivationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteActivation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteActivation");
   let body: any;
   body = JSON.stringify(se_DeleteActivationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1231,10 +1189,7 @@ export const se_DeleteAssociationCommand = async (
   input: DeleteAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAssociation");
   let body: any;
   body = JSON.stringify(se_DeleteAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1247,10 +1202,7 @@ export const se_DeleteDocumentCommand = async (
   input: DeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDocument");
   let body: any;
   body = JSON.stringify(se_DeleteDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1263,10 +1215,7 @@ export const se_DeleteInventoryCommand = async (
   input: DeleteInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteInventory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInventory");
   let body: any;
   body = JSON.stringify(se_DeleteInventoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1279,10 +1228,7 @@ export const se_DeleteMaintenanceWindowCommand = async (
   input: DeleteMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_DeleteMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1295,10 +1241,7 @@ export const se_DeleteOpsMetadataCommand = async (
   input: DeleteOpsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteOpsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOpsMetadata");
   let body: any;
   body = JSON.stringify(se_DeleteOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1311,10 +1254,7 @@ export const se_DeleteParameterCommand = async (
   input: DeleteParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteParameter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteParameter");
   let body: any;
   body = JSON.stringify(se_DeleteParameterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1327,10 +1267,7 @@ export const se_DeleteParametersCommand = async (
   input: DeleteParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteParameters");
   let body: any;
   body = JSON.stringify(se_DeleteParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1343,10 +1280,7 @@ export const se_DeletePatchBaselineCommand = async (
   input: DeletePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeletePatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePatchBaseline");
   let body: any;
   body = JSON.stringify(se_DeletePatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1359,10 +1293,7 @@ export const se_DeleteResourceDataSyncCommand = async (
   input: DeleteResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteResourceDataSync",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourceDataSync");
   let body: any;
   body = JSON.stringify(se_DeleteResourceDataSyncRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1375,10 +1306,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1391,10 +1319,7 @@ export const se_DeregisterManagedInstanceCommand = async (
   input: DeregisterManagedInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeregisterManagedInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterManagedInstance");
   let body: any;
   body = JSON.stringify(se_DeregisterManagedInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1407,10 +1332,7 @@ export const se_DeregisterPatchBaselineForPatchGroupCommand = async (
   input: DeregisterPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeregisterPatchBaselineForPatchGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterPatchBaselineForPatchGroup");
   let body: any;
   body = JSON.stringify(se_DeregisterPatchBaselineForPatchGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1423,10 +1345,7 @@ export const se_DeregisterTargetFromMaintenanceWindowCommand = async (
   input: DeregisterTargetFromMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeregisterTargetFromMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterTargetFromMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_DeregisterTargetFromMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1439,10 +1358,7 @@ export const se_DeregisterTaskFromMaintenanceWindowCommand = async (
   input: DeregisterTaskFromMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DeregisterTaskFromMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterTaskFromMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_DeregisterTaskFromMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1455,10 +1371,7 @@ export const se_DescribeActivationsCommand = async (
   input: DescribeActivationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeActivations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeActivations");
   let body: any;
   body = JSON.stringify(se_DescribeActivationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1471,10 +1384,7 @@ export const se_DescribeAssociationCommand = async (
   input: DescribeAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssociation");
   let body: any;
   body = JSON.stringify(se_DescribeAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1487,10 +1397,7 @@ export const se_DescribeAssociationExecutionsCommand = async (
   input: DescribeAssociationExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAssociationExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssociationExecutions");
   let body: any;
   body = JSON.stringify(se_DescribeAssociationExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1503,10 +1410,7 @@ export const se_DescribeAssociationExecutionTargetsCommand = async (
   input: DescribeAssociationExecutionTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAssociationExecutionTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssociationExecutionTargets");
   let body: any;
   body = JSON.stringify(se_DescribeAssociationExecutionTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1519,10 +1423,7 @@ export const se_DescribeAutomationExecutionsCommand = async (
   input: DescribeAutomationExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAutomationExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAutomationExecutions");
   let body: any;
   body = JSON.stringify(se_DescribeAutomationExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1535,10 +1436,7 @@ export const se_DescribeAutomationStepExecutionsCommand = async (
   input: DescribeAutomationStepExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAutomationStepExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAutomationStepExecutions");
   let body: any;
   body = JSON.stringify(se_DescribeAutomationStepExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1551,10 +1449,7 @@ export const se_DescribeAvailablePatchesCommand = async (
   input: DescribeAvailablePatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeAvailablePatches",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAvailablePatches");
   let body: any;
   body = JSON.stringify(se_DescribeAvailablePatchesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1567,10 +1462,7 @@ export const se_DescribeDocumentCommand = async (
   input: DescribeDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDocument");
   let body: any;
   body = JSON.stringify(se_DescribeDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1583,10 +1475,7 @@ export const se_DescribeDocumentPermissionCommand = async (
   input: DescribeDocumentPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeDocumentPermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDocumentPermission");
   let body: any;
   body = JSON.stringify(se_DescribeDocumentPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1599,10 +1488,7 @@ export const se_DescribeEffectiveInstanceAssociationsCommand = async (
   input: DescribeEffectiveInstanceAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeEffectiveInstanceAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEffectiveInstanceAssociations");
   let body: any;
   body = JSON.stringify(se_DescribeEffectiveInstanceAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1615,10 +1501,7 @@ export const se_DescribeEffectivePatchesForPatchBaselineCommand = async (
   input: DescribeEffectivePatchesForPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeEffectivePatchesForPatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEffectivePatchesForPatchBaseline");
   let body: any;
   body = JSON.stringify(se_DescribeEffectivePatchesForPatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1631,10 +1514,7 @@ export const se_DescribeInstanceAssociationsStatusCommand = async (
   input: DescribeInstanceAssociationsStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInstanceAssociationsStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstanceAssociationsStatus");
   let body: any;
   body = JSON.stringify(se_DescribeInstanceAssociationsStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1647,10 +1527,7 @@ export const se_DescribeInstanceInformationCommand = async (
   input: DescribeInstanceInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInstanceInformation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstanceInformation");
   let body: any;
   body = JSON.stringify(se_DescribeInstanceInformationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1663,10 +1540,7 @@ export const se_DescribeInstancePatchesCommand = async (
   input: DescribeInstancePatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInstancePatches",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstancePatches");
   let body: any;
   body = JSON.stringify(se_DescribeInstancePatchesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1679,10 +1553,7 @@ export const se_DescribeInstancePatchStatesCommand = async (
   input: DescribeInstancePatchStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInstancePatchStates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstancePatchStates");
   let body: any;
   body = JSON.stringify(se_DescribeInstancePatchStatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1695,10 +1566,7 @@ export const se_DescribeInstancePatchStatesForPatchGroupCommand = async (
   input: DescribeInstancePatchStatesForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInstancePatchStatesForPatchGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstancePatchStatesForPatchGroup");
   let body: any;
   body = JSON.stringify(se_DescribeInstancePatchStatesForPatchGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1711,10 +1579,7 @@ export const se_DescribeInventoryDeletionsCommand = async (
   input: DescribeInventoryDeletionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeInventoryDeletions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInventoryDeletions");
   let body: any;
   body = JSON.stringify(se_DescribeInventoryDeletionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1727,10 +1592,7 @@ export const se_DescribeMaintenanceWindowExecutionsCommand = async (
   input: DescribeMaintenanceWindowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowExecutions");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1743,10 +1605,7 @@ export const se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand = async
   input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowExecutionTaskInvocations");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowExecutionTaskInvocationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1759,10 +1618,7 @@ export const se_DescribeMaintenanceWindowExecutionTasksCommand = async (
   input: DescribeMaintenanceWindowExecutionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowExecutionTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowExecutionTasks");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowExecutionTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1775,10 +1631,7 @@ export const se_DescribeMaintenanceWindowsCommand = async (
   input: DescribeMaintenanceWindowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindows",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindows");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1791,10 +1644,7 @@ export const se_DescribeMaintenanceWindowScheduleCommand = async (
   input: DescribeMaintenanceWindowScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowSchedule");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1807,10 +1657,7 @@ export const se_DescribeMaintenanceWindowsForTargetCommand = async (
   input: DescribeMaintenanceWindowsForTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowsForTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowsForTarget");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowsForTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1823,10 +1670,7 @@ export const se_DescribeMaintenanceWindowTargetsCommand = async (
   input: DescribeMaintenanceWindowTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowTargets");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1839,10 +1683,7 @@ export const se_DescribeMaintenanceWindowTasksCommand = async (
   input: DescribeMaintenanceWindowTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMaintenanceWindowTasks");
   let body: any;
   body = JSON.stringify(se_DescribeMaintenanceWindowTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1855,10 +1696,7 @@ export const se_DescribeOpsItemsCommand = async (
   input: DescribeOpsItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeOpsItems",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOpsItems");
   let body: any;
   body = JSON.stringify(se_DescribeOpsItemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1871,10 +1709,7 @@ export const se_DescribeParametersCommand = async (
   input: DescribeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeParameters");
   let body: any;
   body = JSON.stringify(se_DescribeParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1887,10 +1722,7 @@ export const se_DescribePatchBaselinesCommand = async (
   input: DescribePatchBaselinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribePatchBaselines",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePatchBaselines");
   let body: any;
   body = JSON.stringify(se_DescribePatchBaselinesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1903,10 +1735,7 @@ export const se_DescribePatchGroupsCommand = async (
   input: DescribePatchGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribePatchGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePatchGroups");
   let body: any;
   body = JSON.stringify(se_DescribePatchGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1919,10 +1748,7 @@ export const se_DescribePatchGroupStateCommand = async (
   input: DescribePatchGroupStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribePatchGroupState",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePatchGroupState");
   let body: any;
   body = JSON.stringify(se_DescribePatchGroupStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1935,10 +1761,7 @@ export const se_DescribePatchPropertiesCommand = async (
   input: DescribePatchPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribePatchProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePatchProperties");
   let body: any;
   body = JSON.stringify(se_DescribePatchPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1951,10 +1774,7 @@ export const se_DescribeSessionsCommand = async (
   input: DescribeSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DescribeSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSessions");
   let body: any;
   body = JSON.stringify(se_DescribeSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1967,10 +1787,7 @@ export const se_DisassociateOpsItemRelatedItemCommand = async (
   input: DisassociateOpsItemRelatedItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.DisassociateOpsItemRelatedItem",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateOpsItemRelatedItem");
   let body: any;
   body = JSON.stringify(se_DisassociateOpsItemRelatedItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1983,10 +1800,7 @@ export const se_GetAutomationExecutionCommand = async (
   input: GetAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetAutomationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAutomationExecution");
   let body: any;
   body = JSON.stringify(se_GetAutomationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1999,10 +1813,7 @@ export const se_GetCalendarStateCommand = async (
   input: GetCalendarStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetCalendarState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCalendarState");
   let body: any;
   body = JSON.stringify(se_GetCalendarStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2015,10 +1826,7 @@ export const se_GetCommandInvocationCommand = async (
   input: GetCommandInvocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetCommandInvocation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCommandInvocation");
   let body: any;
   body = JSON.stringify(se_GetCommandInvocationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2031,10 +1839,7 @@ export const se_GetConnectionStatusCommand = async (
   input: GetConnectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetConnectionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConnectionStatus");
   let body: any;
   body = JSON.stringify(se_GetConnectionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2047,10 +1852,7 @@ export const se_GetDefaultPatchBaselineCommand = async (
   input: GetDefaultPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetDefaultPatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDefaultPatchBaseline");
   let body: any;
   body = JSON.stringify(se_GetDefaultPatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2063,10 +1865,7 @@ export const se_GetDeployablePatchSnapshotForInstanceCommand = async (
   input: GetDeployablePatchSnapshotForInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetDeployablePatchSnapshotForInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDeployablePatchSnapshotForInstance");
   let body: any;
   body = JSON.stringify(se_GetDeployablePatchSnapshotForInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2079,10 +1878,7 @@ export const se_GetDocumentCommand = async (
   input: GetDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDocument");
   let body: any;
   body = JSON.stringify(se_GetDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2095,10 +1891,7 @@ export const se_GetInventoryCommand = async (
   input: GetInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetInventory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInventory");
   let body: any;
   body = JSON.stringify(se_GetInventoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2111,10 +1904,7 @@ export const se_GetInventorySchemaCommand = async (
   input: GetInventorySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetInventorySchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInventorySchema");
   let body: any;
   body = JSON.stringify(se_GetInventorySchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2127,10 +1917,7 @@ export const se_GetMaintenanceWindowCommand = async (
   input: GetMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_GetMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2143,10 +1930,7 @@ export const se_GetMaintenanceWindowExecutionCommand = async (
   input: GetMaintenanceWindowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetMaintenanceWindowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMaintenanceWindowExecution");
   let body: any;
   body = JSON.stringify(se_GetMaintenanceWindowExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2159,10 +1943,7 @@ export const se_GetMaintenanceWindowExecutionTaskCommand = async (
   input: GetMaintenanceWindowExecutionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetMaintenanceWindowExecutionTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMaintenanceWindowExecutionTask");
   let body: any;
   body = JSON.stringify(se_GetMaintenanceWindowExecutionTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2175,10 +1956,7 @@ export const se_GetMaintenanceWindowExecutionTaskInvocationCommand = async (
   input: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMaintenanceWindowExecutionTaskInvocation");
   let body: any;
   body = JSON.stringify(se_GetMaintenanceWindowExecutionTaskInvocationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2191,10 +1969,7 @@ export const se_GetMaintenanceWindowTaskCommand = async (
   input: GetMaintenanceWindowTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetMaintenanceWindowTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMaintenanceWindowTask");
   let body: any;
   body = JSON.stringify(se_GetMaintenanceWindowTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2207,10 +1982,7 @@ export const se_GetOpsItemCommand = async (
   input: GetOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetOpsItem",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOpsItem");
   let body: any;
   body = JSON.stringify(se_GetOpsItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2223,10 +1995,7 @@ export const se_GetOpsMetadataCommand = async (
   input: GetOpsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetOpsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOpsMetadata");
   let body: any;
   body = JSON.stringify(se_GetOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2239,10 +2008,7 @@ export const se_GetOpsSummaryCommand = async (
   input: GetOpsSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetOpsSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOpsSummary");
   let body: any;
   body = JSON.stringify(se_GetOpsSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2255,10 +2021,7 @@ export const se_GetParameterCommand = async (
   input: GetParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetParameter",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParameter");
   let body: any;
   body = JSON.stringify(se_GetParameterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2271,10 +2034,7 @@ export const se_GetParameterHistoryCommand = async (
   input: GetParameterHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetParameterHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParameterHistory");
   let body: any;
   body = JSON.stringify(se_GetParameterHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2287,10 +2047,7 @@ export const se_GetParametersCommand = async (
   input: GetParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParameters");
   let body: any;
   body = JSON.stringify(se_GetParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2303,10 +2060,7 @@ export const se_GetParametersByPathCommand = async (
   input: GetParametersByPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetParametersByPath",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParametersByPath");
   let body: any;
   body = JSON.stringify(se_GetParametersByPathRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2319,10 +2073,7 @@ export const se_GetPatchBaselineCommand = async (
   input: GetPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetPatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPatchBaseline");
   let body: any;
   body = JSON.stringify(se_GetPatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2335,10 +2086,7 @@ export const se_GetPatchBaselineForPatchGroupCommand = async (
   input: GetPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetPatchBaselineForPatchGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPatchBaselineForPatchGroup");
   let body: any;
   body = JSON.stringify(se_GetPatchBaselineForPatchGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2351,10 +2099,7 @@ export const se_GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetResourcePolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicies");
   let body: any;
   body = JSON.stringify(se_GetResourcePoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2367,10 +2112,7 @@ export const se_GetServiceSettingCommand = async (
   input: GetServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.GetServiceSetting",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceSetting");
   let body: any;
   body = JSON.stringify(se_GetServiceSettingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2383,10 +2125,7 @@ export const se_LabelParameterVersionCommand = async (
   input: LabelParameterVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.LabelParameterVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("LabelParameterVersion");
   let body: any;
   body = JSON.stringify(se_LabelParameterVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2399,10 +2138,7 @@ export const se_ListAssociationsCommand = async (
   input: ListAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociations");
   let body: any;
   body = JSON.stringify(se_ListAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2415,10 +2151,7 @@ export const se_ListAssociationVersionsCommand = async (
   input: ListAssociationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListAssociationVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociationVersions");
   let body: any;
   body = JSON.stringify(se_ListAssociationVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2431,10 +2164,7 @@ export const se_ListCommandInvocationsCommand = async (
   input: ListCommandInvocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListCommandInvocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCommandInvocations");
   let body: any;
   body = JSON.stringify(se_ListCommandInvocationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2447,10 +2177,7 @@ export const se_ListCommandsCommand = async (
   input: ListCommandsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListCommands",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCommands");
   let body: any;
   body = JSON.stringify(se_ListCommandsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2463,10 +2190,7 @@ export const se_ListComplianceItemsCommand = async (
   input: ListComplianceItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListComplianceItems",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComplianceItems");
   let body: any;
   body = JSON.stringify(se_ListComplianceItemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2479,10 +2203,7 @@ export const se_ListComplianceSummariesCommand = async (
   input: ListComplianceSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListComplianceSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComplianceSummaries");
   let body: any;
   body = JSON.stringify(se_ListComplianceSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2495,10 +2216,7 @@ export const se_ListDocumentMetadataHistoryCommand = async (
   input: ListDocumentMetadataHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListDocumentMetadataHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocumentMetadataHistory");
   let body: any;
   body = JSON.stringify(se_ListDocumentMetadataHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2511,10 +2229,7 @@ export const se_ListDocumentsCommand = async (
   input: ListDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListDocuments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocuments");
   let body: any;
   body = JSON.stringify(se_ListDocumentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2527,10 +2242,7 @@ export const se_ListDocumentVersionsCommand = async (
   input: ListDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListDocumentVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocumentVersions");
   let body: any;
   body = JSON.stringify(se_ListDocumentVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2543,10 +2255,7 @@ export const se_ListInventoryEntriesCommand = async (
   input: ListInventoryEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListInventoryEntries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInventoryEntries");
   let body: any;
   body = JSON.stringify(se_ListInventoryEntriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2559,10 +2268,7 @@ export const se_ListOpsItemEventsCommand = async (
   input: ListOpsItemEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListOpsItemEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOpsItemEvents");
   let body: any;
   body = JSON.stringify(se_ListOpsItemEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2575,10 +2281,7 @@ export const se_ListOpsItemRelatedItemsCommand = async (
   input: ListOpsItemRelatedItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListOpsItemRelatedItems",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOpsItemRelatedItems");
   let body: any;
   body = JSON.stringify(se_ListOpsItemRelatedItemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2591,10 +2294,7 @@ export const se_ListOpsMetadataCommand = async (
   input: ListOpsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListOpsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOpsMetadata");
   let body: any;
   body = JSON.stringify(se_ListOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2607,10 +2307,7 @@ export const se_ListResourceComplianceSummariesCommand = async (
   input: ListResourceComplianceSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListResourceComplianceSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceComplianceSummaries");
   let body: any;
   body = JSON.stringify(se_ListResourceComplianceSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2623,10 +2320,7 @@ export const se_ListResourceDataSyncCommand = async (
   input: ListResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListResourceDataSync",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceDataSync");
   let body: any;
   body = JSON.stringify(se_ListResourceDataSyncRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2639,10 +2333,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2655,10 +2346,7 @@ export const se_ModifyDocumentPermissionCommand = async (
   input: ModifyDocumentPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ModifyDocumentPermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyDocumentPermission");
   let body: any;
   body = JSON.stringify(se_ModifyDocumentPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2671,10 +2359,7 @@ export const se_PutComplianceItemsCommand = async (
   input: PutComplianceItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.PutComplianceItems",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutComplianceItems");
   let body: any;
   body = JSON.stringify(se_PutComplianceItemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2687,10 +2372,7 @@ export const se_PutInventoryCommand = async (
   input: PutInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.PutInventory",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutInventory");
   let body: any;
   body = JSON.stringify(se_PutInventoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2703,10 +2385,7 @@ export const se_PutParameterCommand = async (
   input: PutParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.PutParameter",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutParameter");
   let body: any;
   body = JSON.stringify(se_PutParameterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2719,10 +2398,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2735,10 +2411,7 @@ export const se_RegisterDefaultPatchBaselineCommand = async (
   input: RegisterDefaultPatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.RegisterDefaultPatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterDefaultPatchBaseline");
   let body: any;
   body = JSON.stringify(se_RegisterDefaultPatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2751,10 +2424,7 @@ export const se_RegisterPatchBaselineForPatchGroupCommand = async (
   input: RegisterPatchBaselineForPatchGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.RegisterPatchBaselineForPatchGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterPatchBaselineForPatchGroup");
   let body: any;
   body = JSON.stringify(se_RegisterPatchBaselineForPatchGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2767,10 +2437,7 @@ export const se_RegisterTargetWithMaintenanceWindowCommand = async (
   input: RegisterTargetWithMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.RegisterTargetWithMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterTargetWithMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_RegisterTargetWithMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2783,10 +2450,7 @@ export const se_RegisterTaskWithMaintenanceWindowCommand = async (
   input: RegisterTaskWithMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.RegisterTaskWithMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterTaskWithMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_RegisterTaskWithMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2799,10 +2463,7 @@ export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.RemoveTagsFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTagsFromResource");
   let body: any;
   body = JSON.stringify(se_RemoveTagsFromResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2815,10 +2476,7 @@ export const se_ResetServiceSettingCommand = async (
   input: ResetServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ResetServiceSetting",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetServiceSetting");
   let body: any;
   body = JSON.stringify(se_ResetServiceSettingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2831,10 +2489,7 @@ export const se_ResumeSessionCommand = async (
   input: ResumeSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.ResumeSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResumeSession");
   let body: any;
   body = JSON.stringify(se_ResumeSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2847,10 +2502,7 @@ export const se_SendAutomationSignalCommand = async (
   input: SendAutomationSignalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.SendAutomationSignal",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendAutomationSignal");
   let body: any;
   body = JSON.stringify(se_SendAutomationSignalRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2863,10 +2515,7 @@ export const se_SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.SendCommand",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendCommand");
   let body: any;
   body = JSON.stringify(se_SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2879,10 +2528,7 @@ export const se_StartAssociationsOnceCommand = async (
   input: StartAssociationsOnceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.StartAssociationsOnce",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartAssociationsOnce");
   let body: any;
   body = JSON.stringify(se_StartAssociationsOnceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2895,10 +2541,7 @@ export const se_StartAutomationExecutionCommand = async (
   input: StartAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.StartAutomationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartAutomationExecution");
   let body: any;
   body = JSON.stringify(se_StartAutomationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2911,10 +2554,7 @@ export const se_StartChangeRequestExecutionCommand = async (
   input: StartChangeRequestExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.StartChangeRequestExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartChangeRequestExecution");
   let body: any;
   body = JSON.stringify(se_StartChangeRequestExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2927,10 +2567,7 @@ export const se_StartSessionCommand = async (
   input: StartSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.StartSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSession");
   let body: any;
   body = JSON.stringify(se_StartSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2943,10 +2580,7 @@ export const se_StopAutomationExecutionCommand = async (
   input: StopAutomationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.StopAutomationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopAutomationExecution");
   let body: any;
   body = JSON.stringify(se_StopAutomationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2959,10 +2593,7 @@ export const se_TerminateSessionCommand = async (
   input: TerminateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.TerminateSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateSession");
   let body: any;
   body = JSON.stringify(se_TerminateSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2975,10 +2606,7 @@ export const se_UnlabelParameterVersionCommand = async (
   input: UnlabelParameterVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UnlabelParameterVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UnlabelParameterVersion");
   let body: any;
   body = JSON.stringify(se_UnlabelParameterVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2991,10 +2619,7 @@ export const se_UpdateAssociationCommand = async (
   input: UpdateAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAssociation");
   let body: any;
   body = JSON.stringify(se_UpdateAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3007,10 +2632,7 @@ export const se_UpdateAssociationStatusCommand = async (
   input: UpdateAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateAssociationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAssociationStatus");
   let body: any;
   body = JSON.stringify(se_UpdateAssociationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3023,10 +2645,7 @@ export const se_UpdateDocumentCommand = async (
   input: UpdateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDocument");
   let body: any;
   body = JSON.stringify(se_UpdateDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3039,10 +2658,7 @@ export const se_UpdateDocumentDefaultVersionCommand = async (
   input: UpdateDocumentDefaultVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateDocumentDefaultVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDocumentDefaultVersion");
   let body: any;
   body = JSON.stringify(se_UpdateDocumentDefaultVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3055,10 +2671,7 @@ export const se_UpdateDocumentMetadataCommand = async (
   input: UpdateDocumentMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateDocumentMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDocumentMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateDocumentMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3071,10 +2684,7 @@ export const se_UpdateMaintenanceWindowCommand = async (
   input: UpdateMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateMaintenanceWindow",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMaintenanceWindow");
   let body: any;
   body = JSON.stringify(se_UpdateMaintenanceWindowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3087,10 +2697,7 @@ export const se_UpdateMaintenanceWindowTargetCommand = async (
   input: UpdateMaintenanceWindowTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateMaintenanceWindowTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMaintenanceWindowTarget");
   let body: any;
   body = JSON.stringify(se_UpdateMaintenanceWindowTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3103,10 +2710,7 @@ export const se_UpdateMaintenanceWindowTaskCommand = async (
   input: UpdateMaintenanceWindowTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateMaintenanceWindowTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMaintenanceWindowTask");
   let body: any;
   body = JSON.stringify(se_UpdateMaintenanceWindowTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3119,10 +2723,7 @@ export const se_UpdateManagedInstanceRoleCommand = async (
   input: UpdateManagedInstanceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateManagedInstanceRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateManagedInstanceRole");
   let body: any;
   body = JSON.stringify(se_UpdateManagedInstanceRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3135,10 +2736,7 @@ export const se_UpdateOpsItemCommand = async (
   input: UpdateOpsItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateOpsItem",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateOpsItem");
   let body: any;
   body = JSON.stringify(se_UpdateOpsItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3151,10 +2749,7 @@ export const se_UpdateOpsMetadataCommand = async (
   input: UpdateOpsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateOpsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateOpsMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateOpsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3167,10 +2762,7 @@ export const se_UpdatePatchBaselineCommand = async (
   input: UpdatePatchBaselineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdatePatchBaseline",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePatchBaseline");
   let body: any;
   body = JSON.stringify(se_UpdatePatchBaselineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3183,10 +2775,7 @@ export const se_UpdateResourceDataSyncCommand = async (
   input: UpdateResourceDataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateResourceDataSync",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResourceDataSync");
   let body: any;
   body = JSON.stringify(se_UpdateResourceDataSyncRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3199,10 +2788,7 @@ export const se_UpdateServiceSettingCommand = async (
   input: UpdateServiceSettingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonSSM.UpdateServiceSetting",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceSetting");
   let body: any;
   body = JSON.stringify(se_UpdateServiceSettingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -23573,6 +23159,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonSSM.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

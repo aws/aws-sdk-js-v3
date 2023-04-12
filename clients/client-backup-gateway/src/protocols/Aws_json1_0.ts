@@ -162,10 +162,7 @@ export const se_AssociateGatewayToServerCommand = async (
   input: AssociateGatewayToServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.AssociateGatewayToServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateGatewayToServer");
   let body: any;
   body = JSON.stringify(se_AssociateGatewayToServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -178,10 +175,7 @@ export const se_CreateGatewayCommand = async (
   input: CreateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.CreateGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGateway");
   let body: any;
   body = JSON.stringify(se_CreateGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -194,10 +188,7 @@ export const se_DeleteGatewayCommand = async (
   input: DeleteGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.DeleteGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGateway");
   let body: any;
   body = JSON.stringify(se_DeleteGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -210,10 +201,7 @@ export const se_DeleteHypervisorCommand = async (
   input: DeleteHypervisorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.DeleteHypervisor",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHypervisor");
   let body: any;
   body = JSON.stringify(se_DeleteHypervisorInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -226,10 +214,7 @@ export const se_DisassociateGatewayFromServerCommand = async (
   input: DisassociateGatewayFromServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.DisassociateGatewayFromServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateGatewayFromServer");
   let body: any;
   body = JSON.stringify(se_DisassociateGatewayFromServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -242,10 +227,7 @@ export const se_GetBandwidthRateLimitScheduleCommand = async (
   input: GetBandwidthRateLimitScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.GetBandwidthRateLimitSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBandwidthRateLimitSchedule");
   let body: any;
   body = JSON.stringify(se_GetBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -258,10 +240,7 @@ export const se_GetGatewayCommand = async (
   input: GetGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.GetGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGateway");
   let body: any;
   body = JSON.stringify(se_GetGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -274,10 +253,7 @@ export const se_GetHypervisorCommand = async (
   input: GetHypervisorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.GetHypervisor",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHypervisor");
   let body: any;
   body = JSON.stringify(se_GetHypervisorInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -290,10 +266,7 @@ export const se_GetHypervisorPropertyMappingsCommand = async (
   input: GetHypervisorPropertyMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.GetHypervisorPropertyMappings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHypervisorPropertyMappings");
   let body: any;
   body = JSON.stringify(se_GetHypervisorPropertyMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -306,10 +279,7 @@ export const se_GetVirtualMachineCommand = async (
   input: GetVirtualMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.GetVirtualMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVirtualMachine");
   let body: any;
   body = JSON.stringify(se_GetVirtualMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -322,10 +292,7 @@ export const se_ImportHypervisorConfigurationCommand = async (
   input: ImportHypervisorConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.ImportHypervisorConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportHypervisorConfiguration");
   let body: any;
   body = JSON.stringify(se_ImportHypervisorConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,10 +305,7 @@ export const se_ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.ListGateways",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGateways");
   let body: any;
   body = JSON.stringify(se_ListGatewaysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -354,10 +318,7 @@ export const se_ListHypervisorsCommand = async (
   input: ListHypervisorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.ListHypervisors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHypervisors");
   let body: any;
   body = JSON.stringify(se_ListHypervisorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -370,10 +331,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,10 +344,7 @@ export const se_ListVirtualMachinesCommand = async (
   input: ListVirtualMachinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.ListVirtualMachines",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVirtualMachines");
   let body: any;
   body = JSON.stringify(se_ListVirtualMachinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -402,10 +357,7 @@ export const se_PutBandwidthRateLimitScheduleCommand = async (
   input: PutBandwidthRateLimitScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.PutBandwidthRateLimitSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutBandwidthRateLimitSchedule");
   let body: any;
   body = JSON.stringify(se_PutBandwidthRateLimitScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -418,10 +370,7 @@ export const se_PutHypervisorPropertyMappingsCommand = async (
   input: PutHypervisorPropertyMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.PutHypervisorPropertyMappings",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutHypervisorPropertyMappings");
   let body: any;
   body = JSON.stringify(se_PutHypervisorPropertyMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -434,10 +383,7 @@ export const se_PutMaintenanceStartTimeCommand = async (
   input: PutMaintenanceStartTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.PutMaintenanceStartTime",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutMaintenanceStartTime");
   let body: any;
   body = JSON.stringify(se_PutMaintenanceStartTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,10 +396,7 @@ export const se_StartVirtualMachinesMetadataSyncCommand = async (
   input: StartVirtualMachinesMetadataSyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.StartVirtualMachinesMetadataSync",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartVirtualMachinesMetadataSync");
   let body: any;
   body = JSON.stringify(se_StartVirtualMachinesMetadataSyncInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -466,10 +409,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -482,10 +422,7 @@ export const se_TestHypervisorConfigurationCommand = async (
   input: TestHypervisorConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.TestHypervisorConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestHypervisorConfiguration");
   let body: any;
   body = JSON.stringify(se_TestHypervisorConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -498,10 +435,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -514,10 +448,7 @@ export const se_UpdateGatewayInformationCommand = async (
   input: UpdateGatewayInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.UpdateGatewayInformation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGatewayInformation");
   let body: any;
   body = JSON.stringify(se_UpdateGatewayInformationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -530,10 +461,7 @@ export const se_UpdateGatewaySoftwareNowCommand = async (
   input: UpdateGatewaySoftwareNowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.UpdateGatewaySoftwareNow",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGatewaySoftwareNow");
   let body: any;
   body = JSON.stringify(se_UpdateGatewaySoftwareNowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -546,10 +474,7 @@ export const se_UpdateHypervisorCommand = async (
   input: UpdateHypervisorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "BackupOnPremises_v20210101.UpdateHypervisor",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHypervisor");
   let body: any;
   body = JSON.stringify(se_UpdateHypervisorInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3091,6 +3016,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `BackupOnPremises_v20210101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

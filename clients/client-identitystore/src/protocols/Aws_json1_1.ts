@@ -123,10 +123,7 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.CreateGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGroup");
   let body: any;
   body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -139,10 +136,7 @@ export const se_CreateGroupMembershipCommand = async (
   input: CreateGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.CreateGroupMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGroupMembership");
   let body: any;
   body = JSON.stringify(se_CreateGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -155,10 +149,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
   body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -171,10 +162,7 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DeleteGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGroup");
   let body: any;
   body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -187,10 +175,7 @@ export const se_DeleteGroupMembershipCommand = async (
   input: DeleteGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DeleteGroupMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGroupMembership");
   let body: any;
   body = JSON.stringify(se_DeleteGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -203,10 +188,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -219,10 +201,7 @@ export const se_DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DescribeGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGroup");
   let body: any;
   body = JSON.stringify(se_DescribeGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -235,10 +214,7 @@ export const se_DescribeGroupMembershipCommand = async (
   input: DescribeGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DescribeGroupMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGroupMembership");
   let body: any;
   body = JSON.stringify(se_DescribeGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -251,10 +227,7 @@ export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.DescribeUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUser");
   let body: any;
   body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -267,10 +240,7 @@ export const se_GetGroupIdCommand = async (
   input: GetGroupIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.GetGroupId",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGroupId");
   let body: any;
   body = JSON.stringify(se_GetGroupIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,10 +253,7 @@ export const se_GetGroupMembershipIdCommand = async (
   input: GetGroupMembershipIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.GetGroupMembershipId",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGroupMembershipId");
   let body: any;
   body = JSON.stringify(se_GetGroupMembershipIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -299,10 +266,7 @@ export const se_GetUserIdCommand = async (
   input: GetUserIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.GetUserId",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUserId");
   let body: any;
   body = JSON.stringify(se_GetUserIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -315,10 +279,7 @@ export const se_IsMemberInGroupsCommand = async (
   input: IsMemberInGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.IsMemberInGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("IsMemberInGroups");
   let body: any;
   body = JSON.stringify(se_IsMemberInGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -331,10 +292,7 @@ export const se_ListGroupMembershipsCommand = async (
   input: ListGroupMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.ListGroupMemberships",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroupMemberships");
   let body: any;
   body = JSON.stringify(se_ListGroupMembershipsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -347,10 +305,7 @@ export const se_ListGroupMembershipsForMemberCommand = async (
   input: ListGroupMembershipsForMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.ListGroupMembershipsForMember",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroupMembershipsForMember");
   let body: any;
   body = JSON.stringify(se_ListGroupMembershipsForMemberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -363,10 +318,7 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.ListGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroups");
   let body: any;
   body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -379,10 +331,7 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.ListUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
   body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -395,10 +344,7 @@ export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.UpdateGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGroup");
   let body: any;
   body = JSON.stringify(se_UpdateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -411,10 +357,7 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIdentityStore.UpdateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUser");
   let body: any;
   body = JSON.stringify(se_UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2661,6 +2604,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSIdentityStore.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

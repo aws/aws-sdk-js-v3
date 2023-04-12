@@ -51,10 +51,7 @@ export const se_SendCommandCommand = async (
   input: SendCommandCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "QLDBSession.SendCommand",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendCommand");
   let body: any;
   body = JSON.stringify(se_SendCommandRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,6 +570,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `QLDBSession.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

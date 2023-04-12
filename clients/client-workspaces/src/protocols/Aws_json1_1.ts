@@ -423,10 +423,7 @@ export const se_AssociateConnectionAliasCommand = async (
   input: AssociateConnectionAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.AssociateConnectionAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateConnectionAlias");
   let body: any;
   body = JSON.stringify(se_AssociateConnectionAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -439,10 +436,7 @@ export const se_AssociateIpGroupsCommand = async (
   input: AssociateIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.AssociateIpGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateIpGroups");
   let body: any;
   body = JSON.stringify(se_AssociateIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -455,10 +449,7 @@ export const se_AuthorizeIpRulesCommand = async (
   input: AuthorizeIpRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.AuthorizeIpRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("AuthorizeIpRules");
   let body: any;
   body = JSON.stringify(se_AuthorizeIpRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -471,10 +462,7 @@ export const se_CopyWorkspaceImageCommand = async (
   input: CopyWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CopyWorkspaceImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyWorkspaceImage");
   let body: any;
   body = JSON.stringify(se_CopyWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -487,10 +475,7 @@ export const se_CreateConnectClientAddInCommand = async (
   input: CreateConnectClientAddInCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateConnectClientAddIn",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnectClientAddIn");
   let body: any;
   body = JSON.stringify(se_CreateConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -503,10 +488,7 @@ export const se_CreateConnectionAliasCommand = async (
   input: CreateConnectionAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateConnectionAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnectionAlias");
   let body: any;
   body = JSON.stringify(se_CreateConnectionAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -519,10 +501,7 @@ export const se_CreateIpGroupCommand = async (
   input: CreateIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateIpGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateIpGroup");
   let body: any;
   body = JSON.stringify(se_CreateIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -535,10 +514,7 @@ export const se_CreateStandbyWorkspacesCommand = async (
   input: CreateStandbyWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateStandbyWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStandbyWorkspaces");
   let body: any;
   body = JSON.stringify(se_CreateStandbyWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -551,10 +527,7 @@ export const se_CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTags");
   let body: any;
   body = JSON.stringify(se_CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -567,10 +540,7 @@ export const se_CreateUpdatedWorkspaceImageCommand = async (
   input: CreateUpdatedWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateUpdatedWorkspaceImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUpdatedWorkspaceImage");
   let body: any;
   body = JSON.stringify(se_CreateUpdatedWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -583,10 +553,7 @@ export const se_CreateWorkspaceBundleCommand = async (
   input: CreateWorkspaceBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateWorkspaceBundle",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkspaceBundle");
   let body: any;
   body = JSON.stringify(se_CreateWorkspaceBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -599,10 +566,7 @@ export const se_CreateWorkspaceImageCommand = async (
   input: CreateWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateWorkspaceImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkspaceImage");
   let body: any;
   body = JSON.stringify(se_CreateWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -615,10 +579,7 @@ export const se_CreateWorkspacesCommand = async (
   input: CreateWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.CreateWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkspaces");
   let body: any;
   body = JSON.stringify(se_CreateWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -631,10 +592,7 @@ export const se_DeleteClientBrandingCommand = async (
   input: DeleteClientBrandingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteClientBranding",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteClientBranding");
   let body: any;
   body = JSON.stringify(se_DeleteClientBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -647,10 +605,7 @@ export const se_DeleteConnectClientAddInCommand = async (
   input: DeleteConnectClientAddInCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteConnectClientAddIn",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnectClientAddIn");
   let body: any;
   body = JSON.stringify(se_DeleteConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -663,10 +618,7 @@ export const se_DeleteConnectionAliasCommand = async (
   input: DeleteConnectionAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteConnectionAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnectionAlias");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -679,10 +631,7 @@ export const se_DeleteIpGroupCommand = async (
   input: DeleteIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteIpGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteIpGroup");
   let body: any;
   body = JSON.stringify(se_DeleteIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -695,10 +644,7 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTags");
   let body: any;
   body = JSON.stringify(se_DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -711,10 +657,7 @@ export const se_DeleteWorkspaceBundleCommand = async (
   input: DeleteWorkspaceBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteWorkspaceBundle",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkspaceBundle");
   let body: any;
   body = JSON.stringify(se_DeleteWorkspaceBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -727,10 +670,7 @@ export const se_DeleteWorkspaceImageCommand = async (
   input: DeleteWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeleteWorkspaceImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkspaceImage");
   let body: any;
   body = JSON.stringify(se_DeleteWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -743,10 +683,7 @@ export const se_DeregisterWorkspaceDirectoryCommand = async (
   input: DeregisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DeregisterWorkspaceDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterWorkspaceDirectory");
   let body: any;
   body = JSON.stringify(se_DeregisterWorkspaceDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -759,10 +696,7 @@ export const se_DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccount");
   let body: any;
   body = JSON.stringify(se_DescribeAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -775,10 +709,7 @@ export const se_DescribeAccountModificationsCommand = async (
   input: DescribeAccountModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeAccountModifications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountModifications");
   let body: any;
   body = JSON.stringify(se_DescribeAccountModificationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -791,10 +722,7 @@ export const se_DescribeClientBrandingCommand = async (
   input: DescribeClientBrandingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeClientBranding",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClientBranding");
   let body: any;
   body = JSON.stringify(se_DescribeClientBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -807,10 +735,7 @@ export const se_DescribeClientPropertiesCommand = async (
   input: DescribeClientPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeClientProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClientProperties");
   let body: any;
   body = JSON.stringify(se_DescribeClientPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -823,10 +748,7 @@ export const se_DescribeConnectClientAddInsCommand = async (
   input: DescribeConnectClientAddInsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeConnectClientAddIns",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnectClientAddIns");
   let body: any;
   body = JSON.stringify(se_DescribeConnectClientAddInsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -839,10 +761,7 @@ export const se_DescribeConnectionAliasesCommand = async (
   input: DescribeConnectionAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeConnectionAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnectionAliases");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -855,10 +774,7 @@ export const se_DescribeConnectionAliasPermissionsCommand = async (
   input: DescribeConnectionAliasPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeConnectionAliasPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnectionAliasPermissions");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionAliasPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -871,10 +787,7 @@ export const se_DescribeIpGroupsCommand = async (
   input: DescribeIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeIpGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeIpGroups");
   let body: any;
   body = JSON.stringify(se_DescribeIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -887,10 +800,7 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
   body = JSON.stringify(se_DescribeTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -903,10 +813,7 @@ export const se_DescribeWorkspaceBundlesCommand = async (
   input: DescribeWorkspaceBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaceBundles",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceBundles");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspaceBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -919,10 +826,7 @@ export const se_DescribeWorkspaceDirectoriesCommand = async (
   input: DescribeWorkspaceDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaceDirectories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceDirectories");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspaceDirectoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -935,10 +839,7 @@ export const se_DescribeWorkspaceImagePermissionsCommand = async (
   input: DescribeWorkspaceImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaceImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceImagePermissions");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspaceImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -951,10 +852,7 @@ export const se_DescribeWorkspaceImagesCommand = async (
   input: DescribeWorkspaceImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaceImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceImages");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspaceImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -967,10 +865,7 @@ export const se_DescribeWorkspacesCommand = async (
   input: DescribeWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaces");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -983,10 +878,7 @@ export const se_DescribeWorkspacesConnectionStatusCommand = async (
   input: DescribeWorkspacesConnectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspacesConnectionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspacesConnectionStatus");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspacesConnectionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -999,10 +891,7 @@ export const se_DescribeWorkspaceSnapshotsCommand = async (
   input: DescribeWorkspaceSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DescribeWorkspaceSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspaceSnapshots");
   let body: any;
   body = JSON.stringify(se_DescribeWorkspaceSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1015,10 +904,7 @@ export const se_DisassociateConnectionAliasCommand = async (
   input: DisassociateConnectionAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DisassociateConnectionAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateConnectionAlias");
   let body: any;
   body = JSON.stringify(se_DisassociateConnectionAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1031,10 +917,7 @@ export const se_DisassociateIpGroupsCommand = async (
   input: DisassociateIpGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.DisassociateIpGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateIpGroups");
   let body: any;
   body = JSON.stringify(se_DisassociateIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1047,10 +930,7 @@ export const se_ImportClientBrandingCommand = async (
   input: ImportClientBrandingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ImportClientBranding",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportClientBranding");
   let body: any;
   body = JSON.stringify(se_ImportClientBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1063,10 +943,7 @@ export const se_ImportWorkspaceImageCommand = async (
   input: ImportWorkspaceImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ImportWorkspaceImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportWorkspaceImage");
   let body: any;
   body = JSON.stringify(se_ImportWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1079,10 +956,7 @@ export const se_ListAvailableManagementCidrRangesCommand = async (
   input: ListAvailableManagementCidrRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ListAvailableManagementCidrRanges",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailableManagementCidrRanges");
   let body: any;
   body = JSON.stringify(se_ListAvailableManagementCidrRangesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1095,10 +969,7 @@ export const se_MigrateWorkspaceCommand = async (
   input: MigrateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.MigrateWorkspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("MigrateWorkspace");
   let body: any;
   body = JSON.stringify(se_MigrateWorkspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1111,10 +982,7 @@ export const se_ModifyAccountCommand = async (
   input: ModifyAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyAccount");
   let body: any;
   body = JSON.stringify(se_ModifyAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1127,10 +995,7 @@ export const se_ModifyCertificateBasedAuthPropertiesCommand = async (
   input: ModifyCertificateBasedAuthPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyCertificateBasedAuthProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyCertificateBasedAuthProperties");
   let body: any;
   body = JSON.stringify(se_ModifyCertificateBasedAuthPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1143,10 +1008,7 @@ export const se_ModifyClientPropertiesCommand = async (
   input: ModifyClientPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyClientProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyClientProperties");
   let body: any;
   body = JSON.stringify(se_ModifyClientPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1159,10 +1021,7 @@ export const se_ModifySamlPropertiesCommand = async (
   input: ModifySamlPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifySamlProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifySamlProperties");
   let body: any;
   body = JSON.stringify(se_ModifySamlPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1175,10 +1034,7 @@ export const se_ModifySelfservicePermissionsCommand = async (
   input: ModifySelfservicePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifySelfservicePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifySelfservicePermissions");
   let body: any;
   body = JSON.stringify(se_ModifySelfservicePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1191,10 +1047,7 @@ export const se_ModifyWorkspaceAccessPropertiesCommand = async (
   input: ModifyWorkspaceAccessPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyWorkspaceAccessProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyWorkspaceAccessProperties");
   let body: any;
   body = JSON.stringify(se_ModifyWorkspaceAccessPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1207,10 +1060,7 @@ export const se_ModifyWorkspaceCreationPropertiesCommand = async (
   input: ModifyWorkspaceCreationPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyWorkspaceCreationProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyWorkspaceCreationProperties");
   let body: any;
   body = JSON.stringify(se_ModifyWorkspaceCreationPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1223,10 +1073,7 @@ export const se_ModifyWorkspacePropertiesCommand = async (
   input: ModifyWorkspacePropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyWorkspaceProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyWorkspaceProperties");
   let body: any;
   body = JSON.stringify(se_ModifyWorkspacePropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1239,10 +1086,7 @@ export const se_ModifyWorkspaceStateCommand = async (
   input: ModifyWorkspaceStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.ModifyWorkspaceState",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyWorkspaceState");
   let body: any;
   body = JSON.stringify(se_ModifyWorkspaceStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1255,10 +1099,7 @@ export const se_RebootWorkspacesCommand = async (
   input: RebootWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.RebootWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebootWorkspaces");
   let body: any;
   body = JSON.stringify(se_RebootWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1271,10 +1112,7 @@ export const se_RebuildWorkspacesCommand = async (
   input: RebuildWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.RebuildWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebuildWorkspaces");
   let body: any;
   body = JSON.stringify(se_RebuildWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1287,10 +1125,7 @@ export const se_RegisterWorkspaceDirectoryCommand = async (
   input: RegisterWorkspaceDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.RegisterWorkspaceDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterWorkspaceDirectory");
   let body: any;
   body = JSON.stringify(se_RegisterWorkspaceDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1303,10 +1138,7 @@ export const se_RestoreWorkspaceCommand = async (
   input: RestoreWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.RestoreWorkspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreWorkspace");
   let body: any;
   body = JSON.stringify(se_RestoreWorkspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1319,10 +1151,7 @@ export const se_RevokeIpRulesCommand = async (
   input: RevokeIpRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.RevokeIpRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("RevokeIpRules");
   let body: any;
   body = JSON.stringify(se_RevokeIpRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1335,10 +1164,7 @@ export const se_StartWorkspacesCommand = async (
   input: StartWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.StartWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartWorkspaces");
   let body: any;
   body = JSON.stringify(se_StartWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1351,10 +1177,7 @@ export const se_StopWorkspacesCommand = async (
   input: StopWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.StopWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopWorkspaces");
   let body: any;
   body = JSON.stringify(se_StopWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1367,10 +1190,7 @@ export const se_TerminateWorkspacesCommand = async (
   input: TerminateWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.TerminateWorkspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateWorkspaces");
   let body: any;
   body = JSON.stringify(se_TerminateWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1383,10 +1203,7 @@ export const se_UpdateConnectClientAddInCommand = async (
   input: UpdateConnectClientAddInCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.UpdateConnectClientAddIn",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnectClientAddIn");
   let body: any;
   body = JSON.stringify(se_UpdateConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1399,10 +1216,7 @@ export const se_UpdateConnectionAliasPermissionCommand = async (
   input: UpdateConnectionAliasPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.UpdateConnectionAliasPermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnectionAliasPermission");
   let body: any;
   body = JSON.stringify(se_UpdateConnectionAliasPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1415,10 +1229,7 @@ export const se_UpdateRulesOfIpGroupCommand = async (
   input: UpdateRulesOfIpGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.UpdateRulesOfIpGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRulesOfIpGroup");
   let body: any;
   body = JSON.stringify(se_UpdateRulesOfIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1431,10 +1242,7 @@ export const se_UpdateWorkspaceBundleCommand = async (
   input: UpdateWorkspaceBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.UpdateWorkspaceBundle",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkspaceBundle");
   let body: any;
   body = JSON.stringify(se_UpdateWorkspaceBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1447,10 +1255,7 @@ export const se_UpdateWorkspaceImagePermissionCommand = async (
   input: UpdateWorkspaceImagePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkspacesService.UpdateWorkspaceImagePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkspaceImagePermission");
   let body: any;
   body = JSON.stringify(se_UpdateWorkspaceImagePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8419,6 +8224,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `WorkspacesService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -732,9 +732,7 @@ export const se_AddClientIDToOpenIDConnectProviderCommand = async (
   input: AddClientIDToOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddClientIDToOpenIDConnectProviderRequest(input, context),
@@ -751,9 +749,7 @@ export const se_AddRoleToInstanceProfileCommand = async (
   input: AddRoleToInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddRoleToInstanceProfileRequest(input, context),
@@ -770,9 +766,7 @@ export const se_AddUserToGroupCommand = async (
   input: AddUserToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddUserToGroupRequest(input, context),
@@ -789,9 +783,7 @@ export const se_AttachGroupPolicyCommand = async (
   input: AttachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachGroupPolicyRequest(input, context),
@@ -808,9 +800,7 @@ export const se_AttachRolePolicyCommand = async (
   input: AttachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachRolePolicyRequest(input, context),
@@ -827,9 +817,7 @@ export const se_AttachUserPolicyCommand = async (
   input: AttachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachUserPolicyRequest(input, context),
@@ -846,9 +834,7 @@ export const se_ChangePasswordCommand = async (
   input: ChangePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ChangePasswordRequest(input, context),
@@ -865,9 +851,7 @@ export const se_CreateAccessKeyCommand = async (
   input: CreateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccessKeyRequest(input, context),
@@ -884,9 +868,7 @@ export const se_CreateAccountAliasCommand = async (
   input: CreateAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccountAliasRequest(input, context),
@@ -903,9 +885,7 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGroupRequest(input, context),
@@ -922,9 +902,7 @@ export const se_CreateInstanceProfileCommand = async (
   input: CreateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateInstanceProfileRequest(input, context),
@@ -941,9 +919,7 @@ export const se_CreateLoginProfileCommand = async (
   input: CreateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoginProfileRequest(input, context),
@@ -960,9 +936,7 @@ export const se_CreateOpenIDConnectProviderCommand = async (
   input: CreateOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateOpenIDConnectProviderRequest(input, context),
@@ -979,9 +953,7 @@ export const se_CreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePolicyRequest(input, context),
@@ -998,9 +970,7 @@ export const se_CreatePolicyVersionCommand = async (
   input: CreatePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePolicyVersionRequest(input, context),
@@ -1017,9 +987,7 @@ export const se_CreateRoleCommand = async (
   input: CreateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateRoleRequest(input, context),
@@ -1036,9 +1004,7 @@ export const se_CreateSAMLProviderCommand = async (
   input: CreateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateSAMLProviderRequest(input, context),
@@ -1055,9 +1021,7 @@ export const se_CreateServiceLinkedRoleCommand = async (
   input: CreateServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServiceLinkedRoleRequest(input, context),
@@ -1074,9 +1038,7 @@ export const se_CreateServiceSpecificCredentialCommand = async (
   input: CreateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServiceSpecificCredentialRequest(input, context),
@@ -1093,9 +1055,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserRequest(input, context),
@@ -1112,9 +1072,7 @@ export const se_CreateVirtualMFADeviceCommand = async (
   input: CreateVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateVirtualMFADeviceRequest(input, context),
@@ -1131,9 +1089,7 @@ export const se_DeactivateMFADeviceCommand = async (
   input: DeactivateMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeactivateMFADeviceRequest(input, context),
@@ -1150,9 +1106,7 @@ export const se_DeleteAccessKeyCommand = async (
   input: DeleteAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccessKeyRequest(input, context),
@@ -1169,9 +1123,7 @@ export const se_DeleteAccountAliasCommand = async (
   input: DeleteAccountAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccountAliasRequest(input, context),
@@ -1188,9 +1140,7 @@ export const se_DeleteAccountPasswordPolicyCommand = async (
   input: DeleteAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "DeleteAccountPasswordPolicy",
     Version: "2010-05-08",
@@ -1205,9 +1155,7 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGroupRequest(input, context),
@@ -1224,9 +1172,7 @@ export const se_DeleteGroupPolicyCommand = async (
   input: DeleteGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGroupPolicyRequest(input, context),
@@ -1243,9 +1189,7 @@ export const se_DeleteInstanceProfileCommand = async (
   input: DeleteInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteInstanceProfileRequest(input, context),
@@ -1262,9 +1206,7 @@ export const se_DeleteLoginProfileCommand = async (
   input: DeleteLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoginProfileRequest(input, context),
@@ -1281,9 +1223,7 @@ export const se_DeleteOpenIDConnectProviderCommand = async (
   input: DeleteOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteOpenIDConnectProviderRequest(input, context),
@@ -1300,9 +1240,7 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePolicyRequest(input, context),
@@ -1319,9 +1257,7 @@ export const se_DeletePolicyVersionCommand = async (
   input: DeletePolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePolicyVersionRequest(input, context),
@@ -1338,9 +1274,7 @@ export const se_DeleteRoleCommand = async (
   input: DeleteRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRoleRequest(input, context),
@@ -1357,9 +1291,7 @@ export const se_DeleteRolePermissionsBoundaryCommand = async (
   input: DeleteRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRolePermissionsBoundaryRequest(input, context),
@@ -1376,9 +1308,7 @@ export const se_DeleteRolePolicyCommand = async (
   input: DeleteRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRolePolicyRequest(input, context),
@@ -1395,9 +1325,7 @@ export const se_DeleteSAMLProviderCommand = async (
   input: DeleteSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSAMLProviderRequest(input, context),
@@ -1414,9 +1342,7 @@ export const se_DeleteServerCertificateCommand = async (
   input: DeleteServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServerCertificateRequest(input, context),
@@ -1433,9 +1359,7 @@ export const se_DeleteServiceLinkedRoleCommand = async (
   input: DeleteServiceLinkedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServiceLinkedRoleRequest(input, context),
@@ -1452,9 +1376,7 @@ export const se_DeleteServiceSpecificCredentialCommand = async (
   input: DeleteServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServiceSpecificCredentialRequest(input, context),
@@ -1471,9 +1393,7 @@ export const se_DeleteSigningCertificateCommand = async (
   input: DeleteSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSigningCertificateRequest(input, context),
@@ -1490,9 +1410,7 @@ export const se_DeleteSSHPublicKeyCommand = async (
   input: DeleteSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSSHPublicKeyRequest(input, context),
@@ -1509,9 +1427,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserRequest(input, context),
@@ -1528,9 +1444,7 @@ export const se_DeleteUserPermissionsBoundaryCommand = async (
   input: DeleteUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserPermissionsBoundaryRequest(input, context),
@@ -1547,9 +1461,7 @@ export const se_DeleteUserPolicyCommand = async (
   input: DeleteUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserPolicyRequest(input, context),
@@ -1566,9 +1478,7 @@ export const se_DeleteVirtualMFADeviceCommand = async (
   input: DeleteVirtualMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteVirtualMFADeviceRequest(input, context),
@@ -1585,9 +1495,7 @@ export const se_DetachGroupPolicyCommand = async (
   input: DetachGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachGroupPolicyRequest(input, context),
@@ -1604,9 +1512,7 @@ export const se_DetachRolePolicyCommand = async (
   input: DetachRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachRolePolicyRequest(input, context),
@@ -1623,9 +1529,7 @@ export const se_DetachUserPolicyCommand = async (
   input: DetachUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachUserPolicyRequest(input, context),
@@ -1642,9 +1546,7 @@ export const se_EnableMFADeviceCommand = async (
   input: EnableMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EnableMFADeviceRequest(input, context),
@@ -1661,9 +1563,7 @@ export const se_GenerateCredentialReportCommand = async (
   input: GenerateCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GenerateCredentialReport",
     Version: "2010-05-08",
@@ -1678,9 +1578,7 @@ export const se_GenerateOrganizationsAccessReportCommand = async (
   input: GenerateOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GenerateOrganizationsAccessReportRequest(input, context),
@@ -1697,9 +1595,7 @@ export const se_GenerateServiceLastAccessedDetailsCommand = async (
   input: GenerateServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GenerateServiceLastAccessedDetailsRequest(input, context),
@@ -1716,9 +1612,7 @@ export const se_GetAccessKeyLastUsedCommand = async (
   input: GetAccessKeyLastUsedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccessKeyLastUsedRequest(input, context),
@@ -1735,9 +1629,7 @@ export const se_GetAccountAuthorizationDetailsCommand = async (
   input: GetAccountAuthorizationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccountAuthorizationDetailsRequest(input, context),
@@ -1754,9 +1646,7 @@ export const se_GetAccountPasswordPolicyCommand = async (
   input: GetAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetAccountPasswordPolicy",
     Version: "2010-05-08",
@@ -1771,9 +1661,7 @@ export const se_GetAccountSummaryCommand = async (
   input: GetAccountSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetAccountSummary",
     Version: "2010-05-08",
@@ -1788,9 +1676,7 @@ export const se_GetContextKeysForCustomPolicyCommand = async (
   input: GetContextKeysForCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetContextKeysForCustomPolicyRequest(input, context),
@@ -1807,9 +1693,7 @@ export const se_GetContextKeysForPrincipalPolicyCommand = async (
   input: GetContextKeysForPrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetContextKeysForPrincipalPolicyRequest(input, context),
@@ -1826,9 +1710,7 @@ export const se_GetCredentialReportCommand = async (
   input: GetCredentialReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetCredentialReport",
     Version: "2010-05-08",
@@ -1843,9 +1725,7 @@ export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetGroupRequest(input, context),
@@ -1862,9 +1742,7 @@ export const se_GetGroupPolicyCommand = async (
   input: GetGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetGroupPolicyRequest(input, context),
@@ -1881,9 +1759,7 @@ export const se_GetInstanceProfileCommand = async (
   input: GetInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetInstanceProfileRequest(input, context),
@@ -1900,9 +1776,7 @@ export const se_GetLoginProfileCommand = async (
   input: GetLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetLoginProfileRequest(input, context),
@@ -1919,9 +1793,7 @@ export const se_GetOpenIDConnectProviderCommand = async (
   input: GetOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetOpenIDConnectProviderRequest(input, context),
@@ -1938,9 +1810,7 @@ export const se_GetOrganizationsAccessReportCommand = async (
   input: GetOrganizationsAccessReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetOrganizationsAccessReportRequest(input, context),
@@ -1957,9 +1827,7 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetPolicyRequest(input, context),
@@ -1976,9 +1844,7 @@ export const se_GetPolicyVersionCommand = async (
   input: GetPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetPolicyVersionRequest(input, context),
@@ -1995,9 +1861,7 @@ export const se_GetRoleCommand = async (
   input: GetRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetRoleRequest(input, context),
@@ -2014,9 +1878,7 @@ export const se_GetRolePolicyCommand = async (
   input: GetRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetRolePolicyRequest(input, context),
@@ -2033,9 +1895,7 @@ export const se_GetSAMLProviderCommand = async (
   input: GetSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSAMLProviderRequest(input, context),
@@ -2052,9 +1912,7 @@ export const se_GetServerCertificateCommand = async (
   input: GetServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServerCertificateRequest(input, context),
@@ -2071,9 +1929,7 @@ export const se_GetServiceLastAccessedDetailsCommand = async (
   input: GetServiceLastAccessedDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLastAccessedDetailsRequest(input, context),
@@ -2090,9 +1946,7 @@ export const se_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
   input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLastAccessedDetailsWithEntitiesRequest(input, context),
@@ -2109,9 +1963,7 @@ export const se_GetServiceLinkedRoleDeletionStatusCommand = async (
   input: GetServiceLinkedRoleDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLinkedRoleDeletionStatusRequest(input, context),
@@ -2128,9 +1980,7 @@ export const se_GetSSHPublicKeyCommand = async (
   input: GetSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSSHPublicKeyRequest(input, context),
@@ -2147,9 +1997,7 @@ export const se_GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetUserRequest(input, context),
@@ -2166,9 +2014,7 @@ export const se_GetUserPolicyCommand = async (
   input: GetUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetUserPolicyRequest(input, context),
@@ -2185,9 +2031,7 @@ export const se_ListAccessKeysCommand = async (
   input: ListAccessKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAccessKeysRequest(input, context),
@@ -2204,9 +2048,7 @@ export const se_ListAccountAliasesCommand = async (
   input: ListAccountAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAccountAliasesRequest(input, context),
@@ -2223,9 +2065,7 @@ export const se_ListAttachedGroupPoliciesCommand = async (
   input: ListAttachedGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedGroupPoliciesRequest(input, context),
@@ -2242,9 +2082,7 @@ export const se_ListAttachedRolePoliciesCommand = async (
   input: ListAttachedRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedRolePoliciesRequest(input, context),
@@ -2261,9 +2099,7 @@ export const se_ListAttachedUserPoliciesCommand = async (
   input: ListAttachedUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedUserPoliciesRequest(input, context),
@@ -2280,9 +2116,7 @@ export const se_ListEntitiesForPolicyCommand = async (
   input: ListEntitiesForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListEntitiesForPolicyRequest(input, context),
@@ -2299,9 +2133,7 @@ export const se_ListGroupPoliciesCommand = async (
   input: ListGroupPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupPoliciesRequest(input, context),
@@ -2318,9 +2150,7 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupsRequest(input, context),
@@ -2337,9 +2167,7 @@ export const se_ListGroupsForUserCommand = async (
   input: ListGroupsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupsForUserRequest(input, context),
@@ -2356,9 +2184,7 @@ export const se_ListInstanceProfilesCommand = async (
   input: ListInstanceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfilesRequest(input, context),
@@ -2375,9 +2201,7 @@ export const se_ListInstanceProfilesForRoleCommand = async (
   input: ListInstanceProfilesForRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfilesForRoleRequest(input, context),
@@ -2394,9 +2218,7 @@ export const se_ListInstanceProfileTagsCommand = async (
   input: ListInstanceProfileTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfileTagsRequest(input, context),
@@ -2413,9 +2235,7 @@ export const se_ListMFADevicesCommand = async (
   input: ListMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMFADevicesRequest(input, context),
@@ -2432,9 +2252,7 @@ export const se_ListMFADeviceTagsCommand = async (
   input: ListMFADeviceTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMFADeviceTagsRequest(input, context),
@@ -2451,9 +2269,7 @@ export const se_ListOpenIDConnectProvidersCommand = async (
   input: ListOpenIDConnectProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListOpenIDConnectProvidersRequest(input, context),
@@ -2470,9 +2286,7 @@ export const se_ListOpenIDConnectProviderTagsCommand = async (
   input: ListOpenIDConnectProviderTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListOpenIDConnectProviderTagsRequest(input, context),
@@ -2489,9 +2303,7 @@ export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPoliciesRequest(input, context),
@@ -2508,9 +2320,7 @@ export const se_ListPoliciesGrantingServiceAccessCommand = async (
   input: ListPoliciesGrantingServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPoliciesGrantingServiceAccessRequest(input, context),
@@ -2527,9 +2337,7 @@ export const se_ListPolicyTagsCommand = async (
   input: ListPolicyTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPolicyTagsRequest(input, context),
@@ -2546,9 +2354,7 @@ export const se_ListPolicyVersionsCommand = async (
   input: ListPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPolicyVersionsRequest(input, context),
@@ -2565,9 +2371,7 @@ export const se_ListRolePoliciesCommand = async (
   input: ListRolePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRolePoliciesRequest(input, context),
@@ -2584,9 +2388,7 @@ export const se_ListRolesCommand = async (
   input: ListRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRolesRequest(input, context),
@@ -2603,9 +2405,7 @@ export const se_ListRoleTagsCommand = async (
   input: ListRoleTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRoleTagsRequest(input, context),
@@ -2622,9 +2422,7 @@ export const se_ListSAMLProvidersCommand = async (
   input: ListSAMLProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSAMLProvidersRequest(input, context),
@@ -2641,9 +2439,7 @@ export const se_ListSAMLProviderTagsCommand = async (
   input: ListSAMLProviderTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSAMLProviderTagsRequest(input, context),
@@ -2660,9 +2456,7 @@ export const se_ListServerCertificatesCommand = async (
   input: ListServerCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServerCertificatesRequest(input, context),
@@ -2679,9 +2473,7 @@ export const se_ListServerCertificateTagsCommand = async (
   input: ListServerCertificateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServerCertificateTagsRequest(input, context),
@@ -2698,9 +2490,7 @@ export const se_ListServiceSpecificCredentialsCommand = async (
   input: ListServiceSpecificCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServiceSpecificCredentialsRequest(input, context),
@@ -2717,9 +2507,7 @@ export const se_ListSigningCertificatesCommand = async (
   input: ListSigningCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSigningCertificatesRequest(input, context),
@@ -2736,9 +2524,7 @@ export const se_ListSSHPublicKeysCommand = async (
   input: ListSSHPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSSHPublicKeysRequest(input, context),
@@ -2755,9 +2541,7 @@ export const se_ListUserPoliciesCommand = async (
   input: ListUserPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUserPoliciesRequest(input, context),
@@ -2774,9 +2558,7 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUsersRequest(input, context),
@@ -2793,9 +2575,7 @@ export const se_ListUserTagsCommand = async (
   input: ListUserTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUserTagsRequest(input, context),
@@ -2812,9 +2592,7 @@ export const se_ListVirtualMFADevicesCommand = async (
   input: ListVirtualMFADevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListVirtualMFADevicesRequest(input, context),
@@ -2831,9 +2609,7 @@ export const se_PutGroupPolicyCommand = async (
   input: PutGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutGroupPolicyRequest(input, context),
@@ -2850,9 +2626,7 @@ export const se_PutRolePermissionsBoundaryCommand = async (
   input: PutRolePermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutRolePermissionsBoundaryRequest(input, context),
@@ -2869,9 +2643,7 @@ export const se_PutRolePolicyCommand = async (
   input: PutRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutRolePolicyRequest(input, context),
@@ -2888,9 +2660,7 @@ export const se_PutUserPermissionsBoundaryCommand = async (
   input: PutUserPermissionsBoundaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutUserPermissionsBoundaryRequest(input, context),
@@ -2907,9 +2677,7 @@ export const se_PutUserPolicyCommand = async (
   input: PutUserPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutUserPolicyRequest(input, context),
@@ -2926,9 +2694,7 @@ export const se_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveClientIDFromOpenIDConnectProviderRequest(input, context),
@@ -2945,9 +2711,7 @@ export const se_RemoveRoleFromInstanceProfileCommand = async (
   input: RemoveRoleFromInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveRoleFromInstanceProfileRequest(input, context),
@@ -2964,9 +2728,7 @@ export const se_RemoveUserFromGroupCommand = async (
   input: RemoveUserFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveUserFromGroupRequest(input, context),
@@ -2983,9 +2745,7 @@ export const se_ResetServiceSpecificCredentialCommand = async (
   input: ResetServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetServiceSpecificCredentialRequest(input, context),
@@ -3002,9 +2762,7 @@ export const se_ResyncMFADeviceCommand = async (
   input: ResyncMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResyncMFADeviceRequest(input, context),
@@ -3021,9 +2779,7 @@ export const se_SetDefaultPolicyVersionCommand = async (
   input: SetDefaultPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetDefaultPolicyVersionRequest(input, context),
@@ -3040,9 +2796,7 @@ export const se_SetSecurityTokenServicePreferencesCommand = async (
   input: SetSecurityTokenServicePreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSecurityTokenServicePreferencesRequest(input, context),
@@ -3059,9 +2813,7 @@ export const se_SimulateCustomPolicyCommand = async (
   input: SimulateCustomPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SimulateCustomPolicyRequest(input, context),
@@ -3078,9 +2830,7 @@ export const se_SimulatePrincipalPolicyCommand = async (
   input: SimulatePrincipalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SimulatePrincipalPolicyRequest(input, context),
@@ -3097,9 +2847,7 @@ export const se_TagInstanceProfileCommand = async (
   input: TagInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagInstanceProfileRequest(input, context),
@@ -3116,9 +2864,7 @@ export const se_TagMFADeviceCommand = async (
   input: TagMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagMFADeviceRequest(input, context),
@@ -3135,9 +2881,7 @@ export const se_TagOpenIDConnectProviderCommand = async (
   input: TagOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagOpenIDConnectProviderRequest(input, context),
@@ -3154,9 +2898,7 @@ export const se_TagPolicyCommand = async (
   input: TagPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagPolicyRequest(input, context),
@@ -3173,9 +2915,7 @@ export const se_TagRoleCommand = async (
   input: TagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagRoleRequest(input, context),
@@ -3192,9 +2932,7 @@ export const se_TagSAMLProviderCommand = async (
   input: TagSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagSAMLProviderRequest(input, context),
@@ -3211,9 +2949,7 @@ export const se_TagServerCertificateCommand = async (
   input: TagServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagServerCertificateRequest(input, context),
@@ -3230,9 +2966,7 @@ export const se_TagUserCommand = async (
   input: TagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagUserRequest(input, context),
@@ -3249,9 +2983,7 @@ export const se_UntagInstanceProfileCommand = async (
   input: UntagInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagInstanceProfileRequest(input, context),
@@ -3268,9 +3000,7 @@ export const se_UntagMFADeviceCommand = async (
   input: UntagMFADeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagMFADeviceRequest(input, context),
@@ -3287,9 +3017,7 @@ export const se_UntagOpenIDConnectProviderCommand = async (
   input: UntagOpenIDConnectProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagOpenIDConnectProviderRequest(input, context),
@@ -3306,9 +3034,7 @@ export const se_UntagPolicyCommand = async (
   input: UntagPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagPolicyRequest(input, context),
@@ -3325,9 +3051,7 @@ export const se_UntagRoleCommand = async (
   input: UntagRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagRoleRequest(input, context),
@@ -3344,9 +3068,7 @@ export const se_UntagSAMLProviderCommand = async (
   input: UntagSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagSAMLProviderRequest(input, context),
@@ -3363,9 +3085,7 @@ export const se_UntagServerCertificateCommand = async (
   input: UntagServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagServerCertificateRequest(input, context),
@@ -3382,9 +3102,7 @@ export const se_UntagUserCommand = async (
   input: UntagUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagUserRequest(input, context),
@@ -3401,9 +3119,7 @@ export const se_UpdateAccessKeyCommand = async (
   input: UpdateAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccessKeyRequest(input, context),
@@ -3420,9 +3136,7 @@ export const se_UpdateAccountPasswordPolicyCommand = async (
   input: UpdateAccountPasswordPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccountPasswordPolicyRequest(input, context),
@@ -3439,9 +3153,7 @@ export const se_UpdateAssumeRolePolicyCommand = async (
   input: UpdateAssumeRolePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAssumeRolePolicyRequest(input, context),
@@ -3458,9 +3170,7 @@ export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateGroupRequest(input, context),
@@ -3477,9 +3187,7 @@ export const se_UpdateLoginProfileCommand = async (
   input: UpdateLoginProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateLoginProfileRequest(input, context),
@@ -3496,9 +3204,7 @@ export const se_UpdateOpenIDConnectProviderThumbprintCommand = async (
   input: UpdateOpenIDConnectProviderThumbprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateOpenIDConnectProviderThumbprintRequest(input, context),
@@ -3515,9 +3221,7 @@ export const se_UpdateRoleCommand = async (
   input: UpdateRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateRoleRequest(input, context),
@@ -3534,9 +3238,7 @@ export const se_UpdateRoleDescriptionCommand = async (
   input: UpdateRoleDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateRoleDescriptionRequest(input, context),
@@ -3553,9 +3255,7 @@ export const se_UpdateSAMLProviderCommand = async (
   input: UpdateSAMLProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSAMLProviderRequest(input, context),
@@ -3572,9 +3272,7 @@ export const se_UpdateServerCertificateCommand = async (
   input: UpdateServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateServerCertificateRequest(input, context),
@@ -3591,9 +3289,7 @@ export const se_UpdateServiceSpecificCredentialCommand = async (
   input: UpdateServiceSpecificCredentialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateServiceSpecificCredentialRequest(input, context),
@@ -3610,9 +3306,7 @@ export const se_UpdateSigningCertificateCommand = async (
   input: UpdateSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSigningCertificateRequest(input, context),
@@ -3629,9 +3323,7 @@ export const se_UpdateSSHPublicKeyCommand = async (
   input: UpdateSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSSHPublicKeyRequest(input, context),
@@ -3648,9 +3340,7 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateUserRequest(input, context),
@@ -3667,9 +3357,7 @@ export const se_UploadServerCertificateCommand = async (
   input: UploadServerCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadServerCertificateRequest(input, context),
@@ -3686,9 +3374,7 @@ export const se_UploadSigningCertificateCommand = async (
   input: UploadSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadSigningCertificateRequest(input, context),
@@ -3705,9 +3391,7 @@ export const se_UploadSSHPublicKeyCommand = async (
   input: UploadSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadSSHPublicKeyRequest(input, context),
@@ -19030,6 +18714,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

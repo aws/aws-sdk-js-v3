@@ -86,10 +86,7 @@ export const se_CancelResourceRequestCommand = async (
   input: CancelResourceRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.CancelResourceRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelResourceRequest");
   let body: any;
   body = JSON.stringify(se_CancelResourceRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -102,10 +99,7 @@ export const se_CreateResourceCommand = async (
   input: CreateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.CreateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResource");
   let body: any;
   body = JSON.stringify(se_CreateResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -118,10 +112,7 @@ export const se_DeleteResourceCommand = async (
   input: DeleteResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.DeleteResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResource");
   let body: any;
   body = JSON.stringify(se_DeleteResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -134,10 +125,7 @@ export const se_GetResourceCommand = async (
   input: GetResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.GetResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResource");
   let body: any;
   body = JSON.stringify(se_GetResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -150,10 +138,7 @@ export const se_GetResourceRequestStatusCommand = async (
   input: GetResourceRequestStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.GetResourceRequestStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceRequestStatus");
   let body: any;
   body = JSON.stringify(se_GetResourceRequestStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,10 +151,7 @@ export const se_ListResourceRequestsCommand = async (
   input: ListResourceRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.ListResourceRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceRequests");
   let body: any;
   body = JSON.stringify(se_ListResourceRequestsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -182,10 +164,7 @@ export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.ListResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResources");
   let body: any;
   body = JSON.stringify(se_ListResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -198,10 +177,7 @@ export const se_UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CloudApiService.UpdateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResource");
   let body: any;
   body = JSON.stringify(se_UpdateResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1676,6 +1652,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `CloudApiService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

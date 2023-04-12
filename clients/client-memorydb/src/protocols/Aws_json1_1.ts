@@ -270,10 +270,7 @@ export const se_BatchUpdateClusterCommand = async (
   input: BatchUpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.BatchUpdateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchUpdateCluster");
   let body: any;
   body = JSON.stringify(se_BatchUpdateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -286,10 +283,7 @@ export const se_CopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CopySnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopySnapshot");
   let body: any;
   body = JSON.stringify(se_CopySnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -302,10 +296,7 @@ export const se_CreateACLCommand = async (
   input: CreateACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateACL");
   let body: any;
   body = JSON.stringify(se_CreateACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,10 +309,7 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCluster");
   let body: any;
   body = JSON.stringify(se_CreateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -334,10 +322,7 @@ export const se_CreateParameterGroupCommand = async (
   input: CreateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateParameterGroup");
   let body: any;
   body = JSON.stringify(se_CreateParameterGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -350,10 +335,7 @@ export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -366,10 +348,7 @@ export const se_CreateSubnetGroupCommand = async (
   input: CreateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSubnetGroup");
   let body: any;
   body = JSON.stringify(se_CreateSubnetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,10 +361,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
   body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,10 +374,7 @@ export const se_DeleteACLCommand = async (
   input: DeleteACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteACL");
   let body: any;
   body = JSON.stringify(se_DeleteACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -414,10 +387,7 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCluster");
   let body: any;
   body = JSON.stringify(se_DeleteClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -430,10 +400,7 @@ export const se_DeleteParameterGroupCommand = async (
   input: DeleteParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteParameterGroup");
   let body: any;
   body = JSON.stringify(se_DeleteParameterGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -446,10 +413,7 @@ export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,10 +426,7 @@ export const se_DeleteSubnetGroupCommand = async (
   input: DeleteSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSubnetGroup");
   let body: any;
   body = JSON.stringify(se_DeleteSubnetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -478,10 +439,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,10 +452,7 @@ export const se_DescribeACLsCommand = async (
   input: DescribeACLsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeACLs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeACLs");
   let body: any;
   body = JSON.stringify(se_DescribeACLsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -510,10 +465,7 @@ export const se_DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeClusters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClusters");
   let body: any;
   body = JSON.stringify(se_DescribeClustersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,10 +478,7 @@ export const se_DescribeEngineVersionsCommand = async (
   input: DescribeEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeEngineVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEngineVersions");
   let body: any;
   body = JSON.stringify(se_DescribeEngineVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -542,10 +491,7 @@ export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
   body = JSON.stringify(se_DescribeEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -558,10 +504,7 @@ export const se_DescribeParameterGroupsCommand = async (
   input: DescribeParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeParameterGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeParameterGroups");
   let body: any;
   body = JSON.stringify(se_DescribeParameterGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,10 +517,7 @@ export const se_DescribeParametersCommand = async (
   input: DescribeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeParameters");
   let body: any;
   body = JSON.stringify(se_DescribeParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -590,10 +530,7 @@ export const se_DescribeReservedNodesCommand = async (
   input: DescribeReservedNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeReservedNodes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReservedNodes");
   let body: any;
   body = JSON.stringify(se_DescribeReservedNodesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,10 +543,7 @@ export const se_DescribeReservedNodesOfferingsCommand = async (
   input: DescribeReservedNodesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeReservedNodesOfferings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReservedNodesOfferings");
   let body: any;
   body = JSON.stringify(se_DescribeReservedNodesOfferingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -622,10 +556,7 @@ export const se_DescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeServiceUpdates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServiceUpdates");
   let body: any;
   body = JSON.stringify(se_DescribeServiceUpdatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -638,10 +569,7 @@ export const se_DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSnapshots");
   let body: any;
   body = JSON.stringify(se_DescribeSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -654,10 +582,7 @@ export const se_DescribeSubnetGroupsCommand = async (
   input: DescribeSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeSubnetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSubnetGroups");
   let body: any;
   body = JSON.stringify(se_DescribeSubnetGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -670,10 +595,7 @@ export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.DescribeUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUsers");
   let body: any;
   body = JSON.stringify(se_DescribeUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -686,10 +608,7 @@ export const se_FailoverShardCommand = async (
   input: FailoverShardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.FailoverShard",
-  };
+  const headers: __HeaderBag = sharedHeaders("FailoverShard");
   let body: any;
   body = JSON.stringify(se_FailoverShardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -702,10 +621,7 @@ export const se_ListAllowedNodeTypeUpdatesCommand = async (
   input: ListAllowedNodeTypeUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.ListAllowedNodeTypeUpdates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAllowedNodeTypeUpdates");
   let body: any;
   body = JSON.stringify(se_ListAllowedNodeTypeUpdatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -718,10 +634,7 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
   body = JSON.stringify(se_ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -734,10 +647,7 @@ export const se_PurchaseReservedNodesOfferingCommand = async (
   input: PurchaseReservedNodesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.PurchaseReservedNodesOffering",
-  };
+  const headers: __HeaderBag = sharedHeaders("PurchaseReservedNodesOffering");
   let body: any;
   body = JSON.stringify(se_PurchaseReservedNodesOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -750,10 +660,7 @@ export const se_ResetParameterGroupCommand = async (
   input: ResetParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.ResetParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetParameterGroup");
   let body: any;
   body = JSON.stringify(se_ResetParameterGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -766,10 +673,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -782,10 +686,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -798,10 +699,7 @@ export const se_UpdateACLCommand = async (
   input: UpdateACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UpdateACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateACL");
   let body: any;
   body = JSON.stringify(se_UpdateACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -814,10 +712,7 @@ export const se_UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UpdateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCluster");
   let body: any;
   body = JSON.stringify(se_UpdateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -830,10 +725,7 @@ export const se_UpdateParameterGroupCommand = async (
   input: UpdateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UpdateParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateParameterGroup");
   let body: any;
   body = JSON.stringify(se_UpdateParameterGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -846,10 +738,7 @@ export const se_UpdateSubnetGroupCommand = async (
   input: UpdateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UpdateSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubnetGroup");
   let body: any;
   body = JSON.stringify(se_UpdateSubnetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -862,10 +751,7 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonMemoryDB.UpdateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUser");
   let body: any;
   body = JSON.stringify(se_UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6411,6 +6297,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonMemoryDB.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

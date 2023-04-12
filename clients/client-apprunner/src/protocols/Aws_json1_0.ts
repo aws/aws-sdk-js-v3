@@ -226,10 +226,7 @@ export const se_AssociateCustomDomainCommand = async (
   input: AssociateCustomDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.AssociateCustomDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateCustomDomain");
   let body: any;
   body = JSON.stringify(se_AssociateCustomDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -242,10 +239,7 @@ export const se_CreateAutoScalingConfigurationCommand = async (
   input: CreateAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateAutoScalingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAutoScalingConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -258,10 +252,7 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
   body = JSON.stringify(se_CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -274,10 +265,7 @@ export const se_CreateObservabilityConfigurationCommand = async (
   input: CreateObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateObservabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateObservabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -290,10 +278,7 @@ export const se_CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
   body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -306,10 +291,7 @@ export const se_CreateVpcConnectorCommand = async (
   input: CreateVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateVpcConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVpcConnector");
   let body: any;
   body = JSON.stringify(se_CreateVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -322,10 +304,7 @@ export const se_CreateVpcIngressConnectionCommand = async (
   input: CreateVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.CreateVpcIngressConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVpcIngressConnection");
   let body: any;
   body = JSON.stringify(se_CreateVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,10 +317,7 @@ export const se_DeleteAutoScalingConfigurationCommand = async (
   input: DeleteAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteAutoScalingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAutoScalingConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -354,10 +330,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -370,10 +343,7 @@ export const se_DeleteObservabilityConfigurationCommand = async (
   input: DeleteObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteObservabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteObservabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,10 +356,7 @@ export const se_DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
   body = JSON.stringify(se_DeleteServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -402,10 +369,7 @@ export const se_DeleteVpcConnectorCommand = async (
   input: DeleteVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteVpcConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcConnector");
   let body: any;
   body = JSON.stringify(se_DeleteVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -418,10 +382,7 @@ export const se_DeleteVpcIngressConnectionCommand = async (
   input: DeleteVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DeleteVpcIngressConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcIngressConnection");
   let body: any;
   body = JSON.stringify(se_DeleteVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -434,10 +395,7 @@ export const se_DescribeAutoScalingConfigurationCommand = async (
   input: DescribeAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeAutoScalingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAutoScalingConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,10 +408,7 @@ export const se_DescribeCustomDomainsCommand = async (
   input: DescribeCustomDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeCustomDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomDomains");
   let body: any;
   body = JSON.stringify(se_DescribeCustomDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -466,10 +421,7 @@ export const se_DescribeObservabilityConfigurationCommand = async (
   input: DescribeObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeObservabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeObservabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -482,10 +434,7 @@ export const se_DescribeServiceCommand = async (
   input: DescribeServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeService");
   let body: any;
   body = JSON.stringify(se_DescribeServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -498,10 +447,7 @@ export const se_DescribeVpcConnectorCommand = async (
   input: DescribeVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeVpcConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVpcConnector");
   let body: any;
   body = JSON.stringify(se_DescribeVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -514,10 +460,7 @@ export const se_DescribeVpcIngressConnectionCommand = async (
   input: DescribeVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DescribeVpcIngressConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVpcIngressConnection");
   let body: any;
   body = JSON.stringify(se_DescribeVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -530,10 +473,7 @@ export const se_DisassociateCustomDomainCommand = async (
   input: DisassociateCustomDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.DisassociateCustomDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateCustomDomain");
   let body: any;
   body = JSON.stringify(se_DisassociateCustomDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -546,10 +486,7 @@ export const se_ListAutoScalingConfigurationsCommand = async (
   input: ListAutoScalingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListAutoScalingConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAutoScalingConfigurations");
   let body: any;
   body = JSON.stringify(se_ListAutoScalingConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -562,10 +499,7 @@ export const se_ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConnections");
   let body: any;
   body = JSON.stringify(se_ListConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -578,10 +512,7 @@ export const se_ListObservabilityConfigurationsCommand = async (
   input: ListObservabilityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListObservabilityConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListObservabilityConfigurations");
   let body: any;
   body = JSON.stringify(se_ListObservabilityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -594,10 +525,7 @@ export const se_ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOperations");
   let body: any;
   body = JSON.stringify(se_ListOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -610,10 +538,7 @@ export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
   body = JSON.stringify(se_ListServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -626,10 +551,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -642,10 +564,7 @@ export const se_ListVpcConnectorsCommand = async (
   input: ListVpcConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListVpcConnectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVpcConnectors");
   let body: any;
   body = JSON.stringify(se_ListVpcConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -658,10 +577,7 @@ export const se_ListVpcIngressConnectionsCommand = async (
   input: ListVpcIngressConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ListVpcIngressConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVpcIngressConnections");
   let body: any;
   body = JSON.stringify(se_ListVpcIngressConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -674,10 +590,7 @@ export const se_PauseServiceCommand = async (
   input: PauseServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.PauseService",
-  };
+  const headers: __HeaderBag = sharedHeaders("PauseService");
   let body: any;
   body = JSON.stringify(se_PauseServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -690,10 +603,7 @@ export const se_ResumeServiceCommand = async (
   input: ResumeServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.ResumeService",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResumeService");
   let body: any;
   body = JSON.stringify(se_ResumeServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -706,10 +616,7 @@ export const se_StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.StartDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDeployment");
   let body: any;
   body = JSON.stringify(se_StartDeploymentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -722,10 +629,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -738,10 +642,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -754,10 +655,7 @@ export const se_UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.UpdateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
   body = JSON.stringify(se_UpdateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -770,10 +668,7 @@ export const se_UpdateVpcIngressConnectionCommand = async (
   input: UpdateVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AppRunner.UpdateVpcIngressConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVpcIngressConnection");
   let body: any;
   body = JSON.stringify(se_UpdateVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4654,6 +4549,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `AppRunner.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

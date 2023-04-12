@@ -393,9 +393,7 @@ export const se_ActivateTypeCommand = async (
   input: ActivateTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ActivateTypeInput(input, context),
@@ -412,9 +410,7 @@ export const se_BatchDescribeTypeConfigurationsCommand = async (
   input: BatchDescribeTypeConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchDescribeTypeConfigurationsInput(input, context),
@@ -431,9 +427,7 @@ export const se_CancelUpdateStackCommand = async (
   input: CancelUpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CancelUpdateStackInput(input, context),
@@ -450,9 +444,7 @@ export const se_ContinueUpdateRollbackCommand = async (
   input: ContinueUpdateRollbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ContinueUpdateRollbackInput(input, context),
@@ -469,9 +461,7 @@ export const se_CreateChangeSetCommand = async (
   input: CreateChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateChangeSetInput(input, context),
@@ -488,9 +478,7 @@ export const se_CreateStackCommand = async (
   input: CreateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackInput(input, context),
@@ -507,9 +495,7 @@ export const se_CreateStackInstancesCommand = async (
   input: CreateStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackInstancesInput(input, context),
@@ -526,9 +512,7 @@ export const se_CreateStackSetCommand = async (
   input: CreateStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackSetInput(input, context),
@@ -545,9 +529,7 @@ export const se_DeactivateTypeCommand = async (
   input: DeactivateTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeactivateTypeInput(input, context),
@@ -564,9 +546,7 @@ export const se_DeleteChangeSetCommand = async (
   input: DeleteChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteChangeSetInput(input, context),
@@ -583,9 +563,7 @@ export const se_DeleteStackCommand = async (
   input: DeleteStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackInput(input, context),
@@ -602,9 +580,7 @@ export const se_DeleteStackInstancesCommand = async (
   input: DeleteStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackInstancesInput(input, context),
@@ -621,9 +597,7 @@ export const se_DeleteStackSetCommand = async (
   input: DeleteStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackSetInput(input, context),
@@ -640,9 +614,7 @@ export const se_DeregisterTypeCommand = async (
   input: DeregisterTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterTypeInput(input, context),
@@ -659,9 +631,7 @@ export const se_DescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
@@ -678,9 +648,7 @@ export const se_DescribeChangeSetCommand = async (
   input: DescribeChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeChangeSetInput(input, context),
@@ -697,9 +665,7 @@ export const se_DescribeChangeSetHooksCommand = async (
   input: DescribeChangeSetHooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeChangeSetHooksInput(input, context),
@@ -716,9 +682,7 @@ export const se_DescribePublisherCommand = async (
   input: DescribePublisherCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribePublisherInput(input, context),
@@ -735,9 +699,7 @@ export const se_DescribeStackDriftDetectionStatusCommand = async (
   input: DescribeStackDriftDetectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackDriftDetectionStatusInput(input, context),
@@ -754,9 +716,7 @@ export const se_DescribeStackEventsCommand = async (
   input: DescribeStackEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackEventsInput(input, context),
@@ -773,9 +733,7 @@ export const se_DescribeStackInstanceCommand = async (
   input: DescribeStackInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackInstanceInput(input, context),
@@ -792,9 +750,7 @@ export const se_DescribeStackResourceCommand = async (
   input: DescribeStackResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourceInput(input, context),
@@ -811,9 +767,7 @@ export const se_DescribeStackResourceDriftsCommand = async (
   input: DescribeStackResourceDriftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourceDriftsInput(input, context),
@@ -830,9 +784,7 @@ export const se_DescribeStackResourcesCommand = async (
   input: DescribeStackResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourcesInput(input, context),
@@ -849,9 +801,7 @@ export const se_DescribeStacksCommand = async (
   input: DescribeStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStacksInput(input, context),
@@ -868,9 +818,7 @@ export const se_DescribeStackSetCommand = async (
   input: DescribeStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackSetInput(input, context),
@@ -887,9 +835,7 @@ export const se_DescribeStackSetOperationCommand = async (
   input: DescribeStackSetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackSetOperationInput(input, context),
@@ -906,9 +852,7 @@ export const se_DescribeTypeCommand = async (
   input: DescribeTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTypeInput(input, context),
@@ -925,9 +869,7 @@ export const se_DescribeTypeRegistrationCommand = async (
   input: DescribeTypeRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTypeRegistrationInput(input, context),
@@ -944,9 +886,7 @@ export const se_DetectStackDriftCommand = async (
   input: DetectStackDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackDriftInput(input, context),
@@ -963,9 +903,7 @@ export const se_DetectStackResourceDriftCommand = async (
   input: DetectStackResourceDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackResourceDriftInput(input, context),
@@ -982,9 +920,7 @@ export const se_DetectStackSetDriftCommand = async (
   input: DetectStackSetDriftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackSetDriftInput(input, context),
@@ -1001,9 +937,7 @@ export const se_EstimateTemplateCostCommand = async (
   input: EstimateTemplateCostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EstimateTemplateCostInput(input, context),
@@ -1020,9 +954,7 @@ export const se_ExecuteChangeSetCommand = async (
   input: ExecuteChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ExecuteChangeSetInput(input, context),
@@ -1039,9 +971,7 @@ export const se_GetStackPolicyCommand = async (
   input: GetStackPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetStackPolicyInput(input, context),
@@ -1058,9 +988,7 @@ export const se_GetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateInput(input, context),
@@ -1077,9 +1005,7 @@ export const se_GetTemplateSummaryCommand = async (
   input: GetTemplateSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateSummaryInput(input, context),
@@ -1096,9 +1022,7 @@ export const se_ImportStacksToStackSetCommand = async (
   input: ImportStacksToStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ImportStacksToStackSetInput(input, context),
@@ -1115,9 +1039,7 @@ export const se_ListChangeSetsCommand = async (
   input: ListChangeSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListChangeSetsInput(input, context),
@@ -1134,9 +1056,7 @@ export const se_ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListExportsInput(input, context),
@@ -1153,9 +1073,7 @@ export const se_ListImportsCommand = async (
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListImportsInput(input, context),
@@ -1172,9 +1090,7 @@ export const se_ListStackInstancesCommand = async (
   input: ListStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackInstancesInput(input, context),
@@ -1191,9 +1107,7 @@ export const se_ListStackResourcesCommand = async (
   input: ListStackResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackResourcesInput(input, context),
@@ -1210,9 +1124,7 @@ export const se_ListStacksCommand = async (
   input: ListStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStacksInput(input, context),
@@ -1229,9 +1141,7 @@ export const se_ListStackSetOperationResultsCommand = async (
   input: ListStackSetOperationResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetOperationResultsInput(input, context),
@@ -1248,9 +1158,7 @@ export const se_ListStackSetOperationsCommand = async (
   input: ListStackSetOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetOperationsInput(input, context),
@@ -1267,9 +1175,7 @@ export const se_ListStackSetsCommand = async (
   input: ListStackSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetsInput(input, context),
@@ -1286,9 +1192,7 @@ export const se_ListTypeRegistrationsCommand = async (
   input: ListTypeRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypeRegistrationsInput(input, context),
@@ -1305,9 +1209,7 @@ export const se_ListTypesCommand = async (
   input: ListTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypesInput(input, context),
@@ -1324,9 +1226,7 @@ export const se_ListTypeVersionsCommand = async (
   input: ListTypeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypeVersionsInput(input, context),
@@ -1343,9 +1243,7 @@ export const se_PublishTypeCommand = async (
   input: PublishTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PublishTypeInput(input, context),
@@ -1362,9 +1260,7 @@ export const se_RecordHandlerProgressCommand = async (
   input: RecordHandlerProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RecordHandlerProgressInput(input, context),
@@ -1381,9 +1277,7 @@ export const se_RegisterPublisherCommand = async (
   input: RegisterPublisherCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterPublisherInput(input, context),
@@ -1400,9 +1294,7 @@ export const se_RegisterTypeCommand = async (
   input: RegisterTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterTypeInput(input, context),
@@ -1419,9 +1311,7 @@ export const se_RollbackStackCommand = async (
   input: RollbackStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RollbackStackInput(input, context),
@@ -1438,9 +1328,7 @@ export const se_SetStackPolicyCommand = async (
   input: SetStackPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetStackPolicyInput(input, context),
@@ -1457,9 +1345,7 @@ export const se_SetTypeConfigurationCommand = async (
   input: SetTypeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetTypeConfigurationInput(input, context),
@@ -1476,9 +1362,7 @@ export const se_SetTypeDefaultVersionCommand = async (
   input: SetTypeDefaultVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetTypeDefaultVersionInput(input, context),
@@ -1495,9 +1379,7 @@ export const se_SignalResourceCommand = async (
   input: SignalResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SignalResourceInput(input, context),
@@ -1514,9 +1396,7 @@ export const se_StopStackSetOperationCommand = async (
   input: StopStackSetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopStackSetOperationInput(input, context),
@@ -1533,9 +1413,7 @@ export const se_TestTypeCommand = async (
   input: TestTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestTypeInput(input, context),
@@ -1552,9 +1430,7 @@ export const se_UpdateStackCommand = async (
   input: UpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackInput(input, context),
@@ -1571,9 +1447,7 @@ export const se_UpdateStackInstancesCommand = async (
   input: UpdateStackInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackInstancesInput(input, context),
@@ -1590,9 +1464,7 @@ export const se_UpdateStackSetCommand = async (
   input: UpdateStackSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackSetInput(input, context),
@@ -1609,9 +1481,7 @@ export const se_UpdateTerminationProtectionCommand = async (
   input: UpdateTerminationProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateTerminationProtectionInput(input, context),
@@ -1628,9 +1498,7 @@ export const se_ValidateTemplateCommand = async (
   input: ValidateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ValidateTemplateInput(input, context),
@@ -11017,6 +10885,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

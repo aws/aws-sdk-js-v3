@@ -403,10 +403,7 @@ export const se_AssociateFirewallRuleGroupCommand = async (
   input: AssociateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.AssociateFirewallRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFirewallRuleGroup");
   let body: any;
   body = JSON.stringify(se_AssociateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +416,7 @@ export const se_AssociateResolverEndpointIpAddressCommand = async (
   input: AssociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.AssociateResolverEndpointIpAddress",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateResolverEndpointIpAddress");
   let body: any;
   body = JSON.stringify(se_AssociateResolverEndpointIpAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +429,7 @@ export const se_AssociateResolverQueryLogConfigCommand = async (
   input: AssociateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.AssociateResolverQueryLogConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateResolverQueryLogConfig");
   let body: any;
   body = JSON.stringify(se_AssociateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +442,7 @@ export const se_AssociateResolverRuleCommand = async (
   input: AssociateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.AssociateResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateResolverRule");
   let body: any;
   body = JSON.stringify(se_AssociateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +455,7 @@ export const se_CreateFirewallDomainListCommand = async (
   input: CreateFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateFirewallDomainList",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewallDomainList");
   let body: any;
   body = JSON.stringify(se_CreateFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +468,7 @@ export const se_CreateFirewallRuleCommand = async (
   input: CreateFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateFirewallRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewallRule");
   let body: any;
   body = JSON.stringify(se_CreateFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +481,7 @@ export const se_CreateFirewallRuleGroupCommand = async (
   input: CreateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateFirewallRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewallRuleGroup");
   let body: any;
   body = JSON.stringify(se_CreateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +494,7 @@ export const se_CreateResolverEndpointCommand = async (
   input: CreateResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateResolverEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResolverEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +507,7 @@ export const se_CreateResolverQueryLogConfigCommand = async (
   input: CreateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateResolverQueryLogConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResolverQueryLogConfig");
   let body: any;
   body = JSON.stringify(se_CreateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +520,7 @@ export const se_CreateResolverRuleCommand = async (
   input: CreateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.CreateResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResolverRule");
   let body: any;
   body = JSON.stringify(se_CreateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +533,7 @@ export const se_DeleteFirewallDomainListCommand = async (
   input: DeleteFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteFirewallDomainList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallDomainList");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +546,7 @@ export const se_DeleteFirewallRuleCommand = async (
   input: DeleteFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteFirewallRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallRule");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +559,7 @@ export const se_DeleteFirewallRuleGroupCommand = async (
   input: DeleteFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteFirewallRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallRuleGroup");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +572,7 @@ export const se_DeleteResolverEndpointCommand = async (
   input: DeleteResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteResolverEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResolverEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +585,7 @@ export const se_DeleteResolverQueryLogConfigCommand = async (
   input: DeleteResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteResolverQueryLogConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResolverQueryLogConfig");
   let body: any;
   body = JSON.stringify(se_DeleteResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +598,7 @@ export const se_DeleteResolverRuleCommand = async (
   input: DeleteResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DeleteResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResolverRule");
   let body: any;
   body = JSON.stringify(se_DeleteResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +611,7 @@ export const se_DisassociateFirewallRuleGroupCommand = async (
   input: DisassociateFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DisassociateFirewallRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateFirewallRuleGroup");
   let body: any;
   body = JSON.stringify(se_DisassociateFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +624,7 @@ export const se_DisassociateResolverEndpointIpAddressCommand = async (
   input: DisassociateResolverEndpointIpAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DisassociateResolverEndpointIpAddress",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateResolverEndpointIpAddress");
   let body: any;
   body = JSON.stringify(se_DisassociateResolverEndpointIpAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +637,7 @@ export const se_DisassociateResolverQueryLogConfigCommand = async (
   input: DisassociateResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DisassociateResolverQueryLogConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateResolverQueryLogConfig");
   let body: any;
   body = JSON.stringify(se_DisassociateResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +650,7 @@ export const se_DisassociateResolverRuleCommand = async (
   input: DisassociateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.DisassociateResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateResolverRule");
   let body: any;
   body = JSON.stringify(se_DisassociateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +663,7 @@ export const se_GetFirewallConfigCommand = async (
   input: GetFirewallConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetFirewallConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFirewallConfig");
   let body: any;
   body = JSON.stringify(se_GetFirewallConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +676,7 @@ export const se_GetFirewallDomainListCommand = async (
   input: GetFirewallDomainListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetFirewallDomainList",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFirewallDomainList");
   let body: any;
   body = JSON.stringify(se_GetFirewallDomainListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +689,7 @@ export const se_GetFirewallRuleGroupCommand = async (
   input: GetFirewallRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetFirewallRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFirewallRuleGroup");
   let body: any;
   body = JSON.stringify(se_GetFirewallRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +702,7 @@ export const se_GetFirewallRuleGroupAssociationCommand = async (
   input: GetFirewallRuleGroupAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetFirewallRuleGroupAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFirewallRuleGroupAssociation");
   let body: any;
   body = JSON.stringify(se_GetFirewallRuleGroupAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +715,7 @@ export const se_GetFirewallRuleGroupPolicyCommand = async (
   input: GetFirewallRuleGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetFirewallRuleGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFirewallRuleGroupPolicy");
   let body: any;
   body = JSON.stringify(se_GetFirewallRuleGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +728,7 @@ export const se_GetResolverConfigCommand = async (
   input: GetResolverConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverConfig");
   let body: any;
   body = JSON.stringify(se_GetResolverConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +741,7 @@ export const se_GetResolverDnssecConfigCommand = async (
   input: GetResolverDnssecConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverDnssecConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverDnssecConfig");
   let body: any;
   body = JSON.stringify(se_GetResolverDnssecConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +754,7 @@ export const se_GetResolverEndpointCommand = async (
   input: GetResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverEndpoint");
   let body: any;
   body = JSON.stringify(se_GetResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +767,7 @@ export const se_GetResolverQueryLogConfigCommand = async (
   input: GetResolverQueryLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverQueryLogConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverQueryLogConfig");
   let body: any;
   body = JSON.stringify(se_GetResolverQueryLogConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +780,7 @@ export const se_GetResolverQueryLogConfigAssociationCommand = async (
   input: GetResolverQueryLogConfigAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverQueryLogConfigAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverQueryLogConfigAssociation");
   let body: any;
   body = JSON.stringify(se_GetResolverQueryLogConfigAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,10 +793,7 @@ export const se_GetResolverQueryLogConfigPolicyCommand = async (
   input: GetResolverQueryLogConfigPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverQueryLogConfigPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverQueryLogConfigPolicy");
   let body: any;
   body = JSON.stringify(se_GetResolverQueryLogConfigPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,10 +806,7 @@ export const se_GetResolverRuleCommand = async (
   input: GetResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverRule");
   let body: any;
   body = JSON.stringify(se_GetResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -915,10 +819,7 @@ export const se_GetResolverRuleAssociationCommand = async (
   input: GetResolverRuleAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverRuleAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverRuleAssociation");
   let body: any;
   body = JSON.stringify(se_GetResolverRuleAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -931,10 +832,7 @@ export const se_GetResolverRulePolicyCommand = async (
   input: GetResolverRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.GetResolverRulePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResolverRulePolicy");
   let body: any;
   body = JSON.stringify(se_GetResolverRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -947,10 +845,7 @@ export const se_ImportFirewallDomainsCommand = async (
   input: ImportFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ImportFirewallDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportFirewallDomains");
   let body: any;
   body = JSON.stringify(se_ImportFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -963,10 +858,7 @@ export const se_ListFirewallConfigsCommand = async (
   input: ListFirewallConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallConfigs");
   let body: any;
   body = JSON.stringify(se_ListFirewallConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -979,10 +871,7 @@ export const se_ListFirewallDomainListsCommand = async (
   input: ListFirewallDomainListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallDomainLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallDomainLists");
   let body: any;
   body = JSON.stringify(se_ListFirewallDomainListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -995,10 +884,7 @@ export const se_ListFirewallDomainsCommand = async (
   input: ListFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallDomains");
   let body: any;
   body = JSON.stringify(se_ListFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1011,10 +897,7 @@ export const se_ListFirewallRuleGroupAssociationsCommand = async (
   input: ListFirewallRuleGroupAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallRuleGroupAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallRuleGroupAssociations");
   let body: any;
   body = JSON.stringify(se_ListFirewallRuleGroupAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1027,10 +910,7 @@ export const se_ListFirewallRuleGroupsCommand = async (
   input: ListFirewallRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallRuleGroups");
   let body: any;
   body = JSON.stringify(se_ListFirewallRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1043,10 +923,7 @@ export const se_ListFirewallRulesCommand = async (
   input: ListFirewallRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListFirewallRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallRules");
   let body: any;
   body = JSON.stringify(se_ListFirewallRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1059,10 +936,7 @@ export const se_ListResolverConfigsCommand = async (
   input: ListResolverConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverConfigs");
   let body: any;
   body = JSON.stringify(se_ListResolverConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1075,10 +949,7 @@ export const se_ListResolverDnssecConfigsCommand = async (
   input: ListResolverDnssecConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverDnssecConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverDnssecConfigs");
   let body: any;
   body = JSON.stringify(se_ListResolverDnssecConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1091,10 +962,7 @@ export const se_ListResolverEndpointIpAddressesCommand = async (
   input: ListResolverEndpointIpAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverEndpointIpAddresses",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverEndpointIpAddresses");
   let body: any;
   body = JSON.stringify(se_ListResolverEndpointIpAddressesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1107,10 +975,7 @@ export const se_ListResolverEndpointsCommand = async (
   input: ListResolverEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverEndpoints");
   let body: any;
   body = JSON.stringify(se_ListResolverEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1123,10 +988,7 @@ export const se_ListResolverQueryLogConfigAssociationsCommand = async (
   input: ListResolverQueryLogConfigAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverQueryLogConfigAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverQueryLogConfigAssociations");
   let body: any;
   body = JSON.stringify(se_ListResolverQueryLogConfigAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1139,10 +1001,7 @@ export const se_ListResolverQueryLogConfigsCommand = async (
   input: ListResolverQueryLogConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverQueryLogConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverQueryLogConfigs");
   let body: any;
   body = JSON.stringify(se_ListResolverQueryLogConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1155,10 +1014,7 @@ export const se_ListResolverRuleAssociationsCommand = async (
   input: ListResolverRuleAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverRuleAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverRuleAssociations");
   let body: any;
   body = JSON.stringify(se_ListResolverRuleAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1171,10 +1027,7 @@ export const se_ListResolverRulesCommand = async (
   input: ListResolverRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListResolverRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResolverRules");
   let body: any;
   body = JSON.stringify(se_ListResolverRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1187,10 +1040,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1203,10 +1053,7 @@ export const se_PutFirewallRuleGroupPolicyCommand = async (
   input: PutFirewallRuleGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.PutFirewallRuleGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutFirewallRuleGroupPolicy");
   let body: any;
   body = JSON.stringify(se_PutFirewallRuleGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1219,10 +1066,7 @@ export const se_PutResolverQueryLogConfigPolicyCommand = async (
   input: PutResolverQueryLogConfigPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.PutResolverQueryLogConfigPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResolverQueryLogConfigPolicy");
   let body: any;
   body = JSON.stringify(se_PutResolverQueryLogConfigPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1235,10 +1079,7 @@ export const se_PutResolverRulePolicyCommand = async (
   input: PutResolverRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.PutResolverRulePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResolverRulePolicy");
   let body: any;
   body = JSON.stringify(se_PutResolverRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1251,10 +1092,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1267,10 +1105,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1283,10 +1118,7 @@ export const se_UpdateFirewallConfigCommand = async (
   input: UpdateFirewallConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateFirewallConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallConfig");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1299,10 +1131,7 @@ export const se_UpdateFirewallDomainsCommand = async (
   input: UpdateFirewallDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateFirewallDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallDomains");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1315,10 +1144,7 @@ export const se_UpdateFirewallRuleCommand = async (
   input: UpdateFirewallRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateFirewallRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallRule");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1331,10 +1157,7 @@ export const se_UpdateFirewallRuleGroupAssociationCommand = async (
   input: UpdateFirewallRuleGroupAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateFirewallRuleGroupAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallRuleGroupAssociation");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallRuleGroupAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1347,10 +1170,7 @@ export const se_UpdateResolverConfigCommand = async (
   input: UpdateResolverConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateResolverConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResolverConfig");
   let body: any;
   body = JSON.stringify(se_UpdateResolverConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1363,10 +1183,7 @@ export const se_UpdateResolverDnssecConfigCommand = async (
   input: UpdateResolverDnssecConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateResolverDnssecConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResolverDnssecConfig");
   let body: any;
   body = JSON.stringify(se_UpdateResolverDnssecConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1379,10 +1196,7 @@ export const se_UpdateResolverEndpointCommand = async (
   input: UpdateResolverEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateResolverEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResolverEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateResolverEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1395,10 +1209,7 @@ export const se_UpdateResolverRuleCommand = async (
   input: UpdateResolverRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Resolver.UpdateResolverRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResolverRule");
   let body: any;
   body = JSON.stringify(se_UpdateResolverRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7873,6 +7684,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Route53Resolver.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

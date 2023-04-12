@@ -241,10 +241,7 @@ export const se_CancelTaskExecutionCommand = async (
   input: CancelTaskExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CancelTaskExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelTaskExecution");
   let body: any;
   body = JSON.stringify(se_CancelTaskExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,10 +254,7 @@ export const se_CreateAgentCommand = async (
   input: CreateAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateAgent",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAgent");
   let body: any;
   body = JSON.stringify(se_CreateAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +267,7 @@ export const se_CreateLocationEfsCommand = async (
   input: CreateLocationEfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationEfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationEfs");
   let body: any;
   body = JSON.stringify(se_CreateLocationEfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +280,7 @@ export const se_CreateLocationFsxLustreCommand = async (
   input: CreateLocationFsxLustreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationFsxLustre",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationFsxLustre");
   let body: any;
   body = JSON.stringify(se_CreateLocationFsxLustreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +293,7 @@ export const se_CreateLocationFsxOntapCommand = async (
   input: CreateLocationFsxOntapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationFsxOntap",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationFsxOntap");
   let body: any;
   body = JSON.stringify(se_CreateLocationFsxOntapRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +306,7 @@ export const se_CreateLocationFsxOpenZfsCommand = async (
   input: CreateLocationFsxOpenZfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationFsxOpenZfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationFsxOpenZfs");
   let body: any;
   body = JSON.stringify(se_CreateLocationFsxOpenZfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +319,7 @@ export const se_CreateLocationFsxWindowsCommand = async (
   input: CreateLocationFsxWindowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationFsxWindows",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationFsxWindows");
   let body: any;
   body = JSON.stringify(se_CreateLocationFsxWindowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +332,7 @@ export const se_CreateLocationHdfsCommand = async (
   input: CreateLocationHdfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationHdfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationHdfs");
   let body: any;
   body = JSON.stringify(se_CreateLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +345,7 @@ export const se_CreateLocationNfsCommand = async (
   input: CreateLocationNfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationNfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationNfs");
   let body: any;
   body = JSON.stringify(se_CreateLocationNfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +358,7 @@ export const se_CreateLocationObjectStorageCommand = async (
   input: CreateLocationObjectStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationObjectStorage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationObjectStorage");
   let body: any;
   body = JSON.stringify(se_CreateLocationObjectStorageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +371,7 @@ export const se_CreateLocationS3Command = async (
   input: CreateLocationS3CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationS3",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationS3");
   let body: any;
   body = JSON.stringify(se_CreateLocationS3Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,10 +384,7 @@ export const se_CreateLocationSmbCommand = async (
   input: CreateLocationSmbCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateLocationSmb",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocationSmb");
   let body: any;
   body = JSON.stringify(se_CreateLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +397,7 @@ export const se_CreateTaskCommand = async (
   input: CreateTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.CreateTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTask");
   let body: any;
   body = JSON.stringify(se_CreateTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -449,10 +410,7 @@ export const se_DeleteAgentCommand = async (
   input: DeleteAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DeleteAgent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAgent");
   let body: any;
   body = JSON.stringify(se_DeleteAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,10 +423,7 @@ export const se_DeleteLocationCommand = async (
   input: DeleteLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DeleteLocation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLocation");
   let body: any;
   body = JSON.stringify(se_DeleteLocationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -481,10 +436,7 @@ export const se_DeleteTaskCommand = async (
   input: DeleteTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DeleteTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTask");
   let body: any;
   body = JSON.stringify(se_DeleteTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,10 +449,7 @@ export const se_DescribeAgentCommand = async (
   input: DescribeAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeAgent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAgent");
   let body: any;
   body = JSON.stringify(se_DescribeAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +462,7 @@ export const se_DescribeLocationEfsCommand = async (
   input: DescribeLocationEfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationEfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationEfs");
   let body: any;
   body = JSON.stringify(se_DescribeLocationEfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +475,7 @@ export const se_DescribeLocationFsxLustreCommand = async (
   input: DescribeLocationFsxLustreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationFsxLustre",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationFsxLustre");
   let body: any;
   body = JSON.stringify(se_DescribeLocationFsxLustreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -545,10 +488,7 @@ export const se_DescribeLocationFsxOntapCommand = async (
   input: DescribeLocationFsxOntapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationFsxOntap",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationFsxOntap");
   let body: any;
   body = JSON.stringify(se_DescribeLocationFsxOntapRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,10 +501,7 @@ export const se_DescribeLocationFsxOpenZfsCommand = async (
   input: DescribeLocationFsxOpenZfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationFsxOpenZfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationFsxOpenZfs");
   let body: any;
   body = JSON.stringify(se_DescribeLocationFsxOpenZfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -577,10 +514,7 @@ export const se_DescribeLocationFsxWindowsCommand = async (
   input: DescribeLocationFsxWindowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationFsxWindows",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationFsxWindows");
   let body: any;
   body = JSON.stringify(se_DescribeLocationFsxWindowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -593,10 +527,7 @@ export const se_DescribeLocationHdfsCommand = async (
   input: DescribeLocationHdfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationHdfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationHdfs");
   let body: any;
   body = JSON.stringify(se_DescribeLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -609,10 +540,7 @@ export const se_DescribeLocationNfsCommand = async (
   input: DescribeLocationNfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationNfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationNfs");
   let body: any;
   body = JSON.stringify(se_DescribeLocationNfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -625,10 +553,7 @@ export const se_DescribeLocationObjectStorageCommand = async (
   input: DescribeLocationObjectStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationObjectStorage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationObjectStorage");
   let body: any;
   body = JSON.stringify(se_DescribeLocationObjectStorageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -641,10 +566,7 @@ export const se_DescribeLocationS3Command = async (
   input: DescribeLocationS3CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationS3",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationS3");
   let body: any;
   body = JSON.stringify(se_DescribeLocationS3Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -657,10 +579,7 @@ export const se_DescribeLocationSmbCommand = async (
   input: DescribeLocationSmbCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeLocationSmb",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationSmb");
   let body: any;
   body = JSON.stringify(se_DescribeLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -673,10 +592,7 @@ export const se_DescribeTaskCommand = async (
   input: DescribeTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTask");
   let body: any;
   body = JSON.stringify(se_DescribeTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -689,10 +605,7 @@ export const se_DescribeTaskExecutionCommand = async (
   input: DescribeTaskExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.DescribeTaskExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTaskExecution");
   let body: any;
   body = JSON.stringify(se_DescribeTaskExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,10 +618,7 @@ export const se_ListAgentsCommand = async (
   input: ListAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.ListAgents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAgents");
   let body: any;
   body = JSON.stringify(se_ListAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -721,10 +631,7 @@ export const se_ListLocationsCommand = async (
   input: ListLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.ListLocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLocations");
   let body: any;
   body = JSON.stringify(se_ListLocationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -737,10 +644,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -753,10 +657,7 @@ export const se_ListTaskExecutionsCommand = async (
   input: ListTaskExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.ListTaskExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTaskExecutions");
   let body: any;
   body = JSON.stringify(se_ListTaskExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -769,10 +670,7 @@ export const se_ListTasksCommand = async (
   input: ListTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.ListTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTasks");
   let body: any;
   body = JSON.stringify(se_ListTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -785,10 +683,7 @@ export const se_StartTaskExecutionCommand = async (
   input: StartTaskExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.StartTaskExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTaskExecution");
   let body: any;
   body = JSON.stringify(se_StartTaskExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -801,10 +696,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -817,10 +709,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -833,10 +722,7 @@ export const se_UpdateAgentCommand = async (
   input: UpdateAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateAgent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAgent");
   let body: any;
   body = JSON.stringify(se_UpdateAgentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -849,10 +735,7 @@ export const se_UpdateLocationHdfsCommand = async (
   input: UpdateLocationHdfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateLocationHdfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationHdfs");
   let body: any;
   body = JSON.stringify(se_UpdateLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -865,10 +748,7 @@ export const se_UpdateLocationNfsCommand = async (
   input: UpdateLocationNfsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateLocationNfs",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationNfs");
   let body: any;
   body = JSON.stringify(se_UpdateLocationNfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -881,10 +761,7 @@ export const se_UpdateLocationObjectStorageCommand = async (
   input: UpdateLocationObjectStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateLocationObjectStorage",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationObjectStorage");
   let body: any;
   body = JSON.stringify(se_UpdateLocationObjectStorageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -897,10 +774,7 @@ export const se_UpdateLocationSmbCommand = async (
   input: UpdateLocationSmbCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateLocationSmb",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationSmb");
   let body: any;
   body = JSON.stringify(se_UpdateLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -913,10 +787,7 @@ export const se_UpdateTaskCommand = async (
   input: UpdateTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTask");
   let body: any;
   body = JSON.stringify(se_UpdateTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -929,10 +800,7 @@ export const se_UpdateTaskExecutionCommand = async (
   input: UpdateTaskExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "FmrsService.UpdateTaskExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTaskExecution");
   let body: any;
   body = JSON.stringify(se_UpdateTaskExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5034,6 +4902,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `FmrsService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -604,10 +604,7 @@ export const se_AddCustomAttributesCommand = async (
   input: AddCustomAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AddCustomAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddCustomAttributes");
   let body: any;
   body = JSON.stringify(se_AddCustomAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -620,10 +617,7 @@ export const se_AdminAddUserToGroupCommand = async (
   input: AdminAddUserToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminAddUserToGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminAddUserToGroup");
   let body: any;
   body = JSON.stringify(se_AdminAddUserToGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -636,10 +630,7 @@ export const se_AdminConfirmSignUpCommand = async (
   input: AdminConfirmSignUpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminConfirmSignUp",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminConfirmSignUp");
   let body: any;
   body = JSON.stringify(se_AdminConfirmSignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -652,10 +643,7 @@ export const se_AdminCreateUserCommand = async (
   input: AdminCreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminCreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminCreateUser");
   let body: any;
   body = JSON.stringify(se_AdminCreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -668,10 +656,7 @@ export const se_AdminDeleteUserCommand = async (
   input: AdminDeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminDeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminDeleteUser");
   let body: any;
   body = JSON.stringify(se_AdminDeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -684,10 +669,7 @@ export const se_AdminDeleteUserAttributesCommand = async (
   input: AdminDeleteUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminDeleteUserAttributes");
   let body: any;
   body = JSON.stringify(se_AdminDeleteUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -700,10 +682,7 @@ export const se_AdminDisableProviderForUserCommand = async (
   input: AdminDisableProviderForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminDisableProviderForUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminDisableProviderForUser");
   let body: any;
   body = JSON.stringify(se_AdminDisableProviderForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -716,10 +695,7 @@ export const se_AdminDisableUserCommand = async (
   input: AdminDisableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminDisableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminDisableUser");
   let body: any;
   body = JSON.stringify(se_AdminDisableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -732,10 +708,7 @@ export const se_AdminEnableUserCommand = async (
   input: AdminEnableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminEnableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminEnableUser");
   let body: any;
   body = JSON.stringify(se_AdminEnableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -748,10 +721,7 @@ export const se_AdminForgetDeviceCommand = async (
   input: AdminForgetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminForgetDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminForgetDevice");
   let body: any;
   body = JSON.stringify(se_AdminForgetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -764,10 +734,7 @@ export const se_AdminGetDeviceCommand = async (
   input: AdminGetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminGetDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminGetDevice");
   let body: any;
   body = JSON.stringify(se_AdminGetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -780,10 +747,7 @@ export const se_AdminGetUserCommand = async (
   input: AdminGetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminGetUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminGetUser");
   let body: any;
   body = JSON.stringify(se_AdminGetUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -796,10 +760,7 @@ export const se_AdminInitiateAuthCommand = async (
   input: AdminInitiateAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminInitiateAuth",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminInitiateAuth");
   let body: any;
   body = JSON.stringify(se_AdminInitiateAuthRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -812,10 +773,7 @@ export const se_AdminLinkProviderForUserCommand = async (
   input: AdminLinkProviderForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminLinkProviderForUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminLinkProviderForUser");
   let body: any;
   body = JSON.stringify(se_AdminLinkProviderForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -828,10 +786,7 @@ export const se_AdminListDevicesCommand = async (
   input: AdminListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminListDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminListDevices");
   let body: any;
   body = JSON.stringify(se_AdminListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -844,10 +799,7 @@ export const se_AdminListGroupsForUserCommand = async (
   input: AdminListGroupsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminListGroupsForUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminListGroupsForUser");
   let body: any;
   body = JSON.stringify(se_AdminListGroupsForUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -860,10 +812,7 @@ export const se_AdminListUserAuthEventsCommand = async (
   input: AdminListUserAuthEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminListUserAuthEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminListUserAuthEvents");
   let body: any;
   body = JSON.stringify(se_AdminListUserAuthEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -876,10 +825,7 @@ export const se_AdminRemoveUserFromGroupCommand = async (
   input: AdminRemoveUserFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminRemoveUserFromGroup");
   let body: any;
   body = JSON.stringify(se_AdminRemoveUserFromGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -892,10 +838,7 @@ export const se_AdminResetUserPasswordCommand = async (
   input: AdminResetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminResetUserPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminResetUserPassword");
   let body: any;
   body = JSON.stringify(se_AdminResetUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,10 +851,7 @@ export const se_AdminRespondToAuthChallengeCommand = async (
   input: AdminRespondToAuthChallengeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminRespondToAuthChallenge");
   let body: any;
   body = JSON.stringify(se_AdminRespondToAuthChallengeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -924,10 +864,7 @@ export const se_AdminSetUserMFAPreferenceCommand = async (
   input: AdminSetUserMFAPreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminSetUserMFAPreference");
   let body: any;
   body = JSON.stringify(se_AdminSetUserMFAPreferenceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -940,10 +877,7 @@ export const se_AdminSetUserPasswordCommand = async (
   input: AdminSetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminSetUserPassword");
   let body: any;
   body = JSON.stringify(se_AdminSetUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -956,10 +890,7 @@ export const se_AdminSetUserSettingsCommand = async (
   input: AdminSetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminSetUserSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminSetUserSettings");
   let body: any;
   body = JSON.stringify(se_AdminSetUserSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -972,10 +903,7 @@ export const se_AdminUpdateAuthEventFeedbackCommand = async (
   input: AdminUpdateAuthEventFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminUpdateAuthEventFeedback");
   let body: any;
   body = JSON.stringify(se_AdminUpdateAuthEventFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,10 +916,7 @@ export const se_AdminUpdateDeviceStatusCommand = async (
   input: AdminUpdateDeviceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminUpdateDeviceStatus");
   let body: any;
   body = JSON.stringify(se_AdminUpdateDeviceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1004,10 +929,7 @@ export const se_AdminUpdateUserAttributesCommand = async (
   input: AdminUpdateUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminUpdateUserAttributes");
   let body: any;
   body = JSON.stringify(se_AdminUpdateUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1020,10 +942,7 @@ export const se_AdminUserGlobalSignOutCommand = async (
   input: AdminUserGlobalSignOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdminUserGlobalSignOut");
   let body: any;
   body = JSON.stringify(se_AdminUserGlobalSignOutRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1036,10 +955,7 @@ export const se_AssociateSoftwareTokenCommand = async (
   input: AssociateSoftwareTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.AssociateSoftwareToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateSoftwareToken");
   let body: any;
   body = JSON.stringify(se_AssociateSoftwareTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,10 +968,7 @@ export const se_ChangePasswordCommand = async (
   input: ChangePasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ChangePassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("ChangePassword");
   let body: any;
   body = JSON.stringify(se_ChangePasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1068,10 +981,7 @@ export const se_ConfirmDeviceCommand = async (
   input: ConfirmDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmDevice");
   let body: any;
   body = JSON.stringify(se_ConfirmDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1084,10 +994,7 @@ export const se_ConfirmForgotPasswordCommand = async (
   input: ConfirmForgotPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmForgotPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmForgotPassword");
   let body: any;
   body = JSON.stringify(se_ConfirmForgotPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1100,10 +1007,7 @@ export const se_ConfirmSignUpCommand = async (
   input: ConfirmSignUpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ConfirmSignUp",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmSignUp");
   let body: any;
   body = JSON.stringify(se_ConfirmSignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1116,10 +1020,7 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGroup");
   let body: any;
   body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1132,10 +1033,7 @@ export const se_CreateIdentityProviderCommand = async (
   input: CreateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateIdentityProvider",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateIdentityProvider");
   let body: any;
   body = JSON.stringify(se_CreateIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1148,10 +1046,7 @@ export const se_CreateResourceServerCommand = async (
   input: CreateResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateResourceServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResourceServer");
   let body: any;
   body = JSON.stringify(se_CreateResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1164,10 +1059,7 @@ export const se_CreateUserImportJobCommand = async (
   input: CreateUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserImportJob");
   let body: any;
   body = JSON.stringify(se_CreateUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1180,10 +1072,7 @@ export const se_CreateUserPoolCommand = async (
   input: CreateUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPool",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserPool");
   let body: any;
   body = JSON.stringify(se_CreateUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1196,10 +1085,7 @@ export const se_CreateUserPoolClientCommand = async (
   input: CreateUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPoolClient",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserPoolClient");
   let body: any;
   body = JSON.stringify(se_CreateUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1212,10 +1098,7 @@ export const se_CreateUserPoolDomainCommand = async (
   input: CreateUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.CreateUserPoolDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserPoolDomain");
   let body: any;
   body = JSON.stringify(se_CreateUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1228,10 +1111,7 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGroup");
   let body: any;
   body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1244,10 +1124,7 @@ export const se_DeleteIdentityProviderCommand = async (
   input: DeleteIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteIdentityProvider",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteIdentityProvider");
   let body: any;
   body = JSON.stringify(se_DeleteIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1260,10 +1137,7 @@ export const se_DeleteResourceServerCommand = async (
   input: DeleteResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteResourceServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourceServer");
   let body: any;
   body = JSON.stringify(se_DeleteResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1276,10 +1150,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1292,10 +1163,7 @@ export const se_DeleteUserAttributesCommand = async (
   input: DeleteUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserAttributes");
   let body: any;
   body = JSON.stringify(se_DeleteUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1308,10 +1176,7 @@ export const se_DeleteUserPoolCommand = async (
   input: DeleteUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPool",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserPool");
   let body: any;
   body = JSON.stringify(se_DeleteUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1324,10 +1189,7 @@ export const se_DeleteUserPoolClientCommand = async (
   input: DeleteUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPoolClient",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserPoolClient");
   let body: any;
   body = JSON.stringify(se_DeleteUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1340,10 +1202,7 @@ export const se_DeleteUserPoolDomainCommand = async (
   input: DeleteUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DeleteUserPoolDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserPoolDomain");
   let body: any;
   body = JSON.stringify(se_DeleteUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1356,10 +1215,7 @@ export const se_DescribeIdentityProviderCommand = async (
   input: DescribeIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeIdentityProvider",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeIdentityProvider");
   let body: any;
   body = JSON.stringify(se_DescribeIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1372,10 +1228,7 @@ export const se_DescribeResourceServerCommand = async (
   input: DescribeResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeResourceServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourceServer");
   let body: any;
   body = JSON.stringify(se_DescribeResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1388,10 +1241,7 @@ export const se_DescribeRiskConfigurationCommand = async (
   input: DescribeRiskConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeRiskConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRiskConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeRiskConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1404,10 +1254,7 @@ export const se_DescribeUserImportJobCommand = async (
   input: DescribeUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserImportJob");
   let body: any;
   body = JSON.stringify(se_DescribeUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1420,10 +1267,7 @@ export const se_DescribeUserPoolCommand = async (
   input: DescribeUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPool",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserPool");
   let body: any;
   body = JSON.stringify(se_DescribeUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1436,10 +1280,7 @@ export const se_DescribeUserPoolClientCommand = async (
   input: DescribeUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPoolClient",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserPoolClient");
   let body: any;
   body = JSON.stringify(se_DescribeUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1452,10 +1293,7 @@ export const se_DescribeUserPoolDomainCommand = async (
   input: DescribeUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.DescribeUserPoolDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserPoolDomain");
   let body: any;
   body = JSON.stringify(se_DescribeUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1468,10 +1306,7 @@ export const se_ForgetDeviceCommand = async (
   input: ForgetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ForgetDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("ForgetDevice");
   let body: any;
   body = JSON.stringify(se_ForgetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1484,10 +1319,7 @@ export const se_ForgotPasswordCommand = async (
   input: ForgotPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ForgotPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("ForgotPassword");
   let body: any;
   body = JSON.stringify(se_ForgotPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1500,10 +1332,7 @@ export const se_GetCSVHeaderCommand = async (
   input: GetCSVHeaderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetCSVHeader",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCSVHeader");
   let body: any;
   body = JSON.stringify(se_GetCSVHeaderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1516,10 +1345,7 @@ export const se_GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevice");
   let body: any;
   body = JSON.stringify(se_GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1532,10 +1358,7 @@ export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGroup");
   let body: any;
   body = JSON.stringify(se_GetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1548,10 +1371,7 @@ export const se_GetIdentityProviderByIdentifierCommand = async (
   input: GetIdentityProviderByIdentifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetIdentityProviderByIdentifier");
   let body: any;
   body = JSON.stringify(se_GetIdentityProviderByIdentifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1564,10 +1384,7 @@ export const se_GetSigningCertificateCommand = async (
   input: GetSigningCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetSigningCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSigningCertificate");
   let body: any;
   body = JSON.stringify(se_GetSigningCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1580,10 +1397,7 @@ export const se_GetUICustomizationCommand = async (
   input: GetUICustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetUICustomization",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUICustomization");
   let body: any;
   body = JSON.stringify(se_GetUICustomizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1596,10 +1410,7 @@ export const se_GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUser");
   let body: any;
   body = JSON.stringify(se_GetUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1612,10 +1423,7 @@ export const se_GetUserAttributeVerificationCodeCommand = async (
   input: GetUserAttributeVerificationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUserAttributeVerificationCode");
   let body: any;
   body = JSON.stringify(se_GetUserAttributeVerificationCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1628,10 +1436,7 @@ export const se_GetUserPoolMfaConfigCommand = async (
   input: GetUserPoolMfaConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUserPoolMfaConfig");
   let body: any;
   body = JSON.stringify(se_GetUserPoolMfaConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1644,10 +1449,7 @@ export const se_GlobalSignOutCommand = async (
   input: GlobalSignOutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.GlobalSignOut",
-  };
+  const headers: __HeaderBag = sharedHeaders("GlobalSignOut");
   let body: any;
   body = JSON.stringify(se_GlobalSignOutRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1660,10 +1462,7 @@ export const se_InitiateAuthCommand = async (
   input: InitiateAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.InitiateAuth",
-  };
+  const headers: __HeaderBag = sharedHeaders("InitiateAuth");
   let body: any;
   body = JSON.stringify(se_InitiateAuthRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1676,10 +1475,7 @@ export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDevices");
   let body: any;
   body = JSON.stringify(se_ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1692,10 +1488,7 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroups");
   let body: any;
   body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1708,10 +1501,7 @@ export const se_ListIdentityProvidersCommand = async (
   input: ListIdentityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListIdentityProviders",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListIdentityProviders");
   let body: any;
   body = JSON.stringify(se_ListIdentityProvidersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1724,10 +1514,7 @@ export const se_ListResourceServersCommand = async (
   input: ListResourceServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListResourceServers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceServers");
   let body: any;
   body = JSON.stringify(se_ListResourceServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1740,10 +1527,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1756,10 +1540,7 @@ export const se_ListUserImportJobsCommand = async (
   input: ListUserImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListUserImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUserImportJobs");
   let body: any;
   body = JSON.stringify(se_ListUserImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1772,10 +1553,7 @@ export const se_ListUserPoolClientsCommand = async (
   input: ListUserPoolClientsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListUserPoolClients",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUserPoolClients");
   let body: any;
   body = JSON.stringify(se_ListUserPoolClientsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1788,10 +1566,7 @@ export const se_ListUserPoolsCommand = async (
   input: ListUserPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListUserPools",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUserPools");
   let body: any;
   body = JSON.stringify(se_ListUserPoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1804,10 +1579,7 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
   body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1820,10 +1592,7 @@ export const se_ListUsersInGroupCommand = async (
   input: ListUsersInGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ListUsersInGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsersInGroup");
   let body: any;
   body = JSON.stringify(se_ListUsersInGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1836,10 +1605,7 @@ export const se_ResendConfirmationCodeCommand = async (
   input: ResendConfirmationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.ResendConfirmationCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResendConfirmationCode");
   let body: any;
   body = JSON.stringify(se_ResendConfirmationCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1852,10 +1618,7 @@ export const se_RespondToAuthChallengeCommand = async (
   input: RespondToAuthChallengeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.RespondToAuthChallenge",
-  };
+  const headers: __HeaderBag = sharedHeaders("RespondToAuthChallenge");
   let body: any;
   body = JSON.stringify(se_RespondToAuthChallengeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1868,10 +1631,7 @@ export const se_RevokeTokenCommand = async (
   input: RevokeTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.RevokeToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("RevokeToken");
   let body: any;
   body = JSON.stringify(se_RevokeTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1884,10 +1644,7 @@ export const se_SetRiskConfigurationCommand = async (
   input: SetRiskConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SetRiskConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetRiskConfiguration");
   let body: any;
   body = JSON.stringify(se_SetRiskConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1900,10 +1657,7 @@ export const se_SetUICustomizationCommand = async (
   input: SetUICustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SetUICustomization",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetUICustomization");
   let body: any;
   body = JSON.stringify(se_SetUICustomizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1916,10 +1670,7 @@ export const se_SetUserMFAPreferenceCommand = async (
   input: SetUserMFAPreferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SetUserMFAPreference",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetUserMFAPreference");
   let body: any;
   body = JSON.stringify(se_SetUserMFAPreferenceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1932,10 +1683,7 @@ export const se_SetUserPoolMfaConfigCommand = async (
   input: SetUserPoolMfaConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetUserPoolMfaConfig");
   let body: any;
   body = JSON.stringify(se_SetUserPoolMfaConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1948,10 +1696,7 @@ export const se_SetUserSettingsCommand = async (
   input: SetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SetUserSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetUserSettings");
   let body: any;
   body = JSON.stringify(se_SetUserSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1961,10 +1706,7 @@ export const se_SetUserSettingsCommand = async (
  * serializeAws_json1_1SignUpCommand
  */
 export const se_SignUpCommand = async (input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.SignUp",
-  };
+  const headers: __HeaderBag = sharedHeaders("SignUp");
   let body: any;
   body = JSON.stringify(se_SignUpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1977,10 +1719,7 @@ export const se_StartUserImportJobCommand = async (
   input: StartUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.StartUserImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartUserImportJob");
   let body: any;
   body = JSON.stringify(se_StartUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1993,10 +1732,7 @@ export const se_StopUserImportJobCommand = async (
   input: StopUserImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.StopUserImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopUserImportJob");
   let body: any;
   body = JSON.stringify(se_StopUserImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2009,10 +1745,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2025,10 +1758,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2041,10 +1771,7 @@ export const se_UpdateAuthEventFeedbackCommand = async (
   input: UpdateAuthEventFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAuthEventFeedback");
   let body: any;
   body = JSON.stringify(se_UpdateAuthEventFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2057,10 +1784,7 @@ export const se_UpdateDeviceStatusCommand = async (
   input: UpdateDeviceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateDeviceStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDeviceStatus");
   let body: any;
   body = JSON.stringify(se_UpdateDeviceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2073,10 +1797,7 @@ export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGroup");
   let body: any;
   body = JSON.stringify(se_UpdateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2089,10 +1810,7 @@ export const se_UpdateIdentityProviderCommand = async (
   input: UpdateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateIdentityProvider",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateIdentityProvider");
   let body: any;
   body = JSON.stringify(se_UpdateIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2105,10 +1823,7 @@ export const se_UpdateResourceServerCommand = async (
   input: UpdateResourceServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateResourceServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResourceServer");
   let body: any;
   body = JSON.stringify(se_UpdateResourceServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2121,10 +1836,7 @@ export const se_UpdateUserAttributesCommand = async (
   input: UpdateUserAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateUserAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2137,10 +1849,7 @@ export const se_UpdateUserPoolCommand = async (
   input: UpdateUserPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPool",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserPool");
   let body: any;
   body = JSON.stringify(se_UpdateUserPoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2153,10 +1862,7 @@ export const se_UpdateUserPoolClientCommand = async (
   input: UpdateUserPoolClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPoolClient",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserPoolClient");
   let body: any;
   body = JSON.stringify(se_UpdateUserPoolClientRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2169,10 +1875,7 @@ export const se_UpdateUserPoolDomainCommand = async (
   input: UpdateUserPoolDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.UpdateUserPoolDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserPoolDomain");
   let body: any;
   body = JSON.stringify(se_UpdateUserPoolDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2185,10 +1888,7 @@ export const se_VerifySoftwareTokenCommand = async (
   input: VerifySoftwareTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.VerifySoftwareToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("VerifySoftwareToken");
   let body: any;
   body = JSON.stringify(se_VerifySoftwareTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2201,10 +1901,7 @@ export const se_VerifyUserAttributeCommand = async (
   input: VerifyUserAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCognitoIdentityProviderService.VerifyUserAttribute",
-  };
+  const headers: __HeaderBag = sharedHeaders("VerifyUserAttribute");
   let body: any;
   body = JSON.stringify(se_VerifyUserAttributeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -14670,6 +14367,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSCognitoIdentityProviderService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

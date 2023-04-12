@@ -123,10 +123,7 @@ export const se_DeleteScalingPolicyCommand = async (
   input: DeleteScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeleteScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScalingPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteScalingPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -139,10 +136,7 @@ export const se_DeleteScheduledActionCommand = async (
   input: DeleteScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeleteScheduledAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScheduledAction");
   let body: any;
   body = JSON.stringify(se_DeleteScheduledActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -155,10 +149,7 @@ export const se_DeregisterScalableTargetCommand = async (
   input: DeregisterScalableTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DeregisterScalableTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterScalableTarget");
   let body: any;
   body = JSON.stringify(se_DeregisterScalableTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -171,10 +162,7 @@ export const se_DescribeScalableTargetsCommand = async (
   input: DescribeScalableTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalableTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalableTargets");
   let body: any;
   body = JSON.stringify(se_DescribeScalableTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -187,10 +175,7 @@ export const se_DescribeScalingActivitiesCommand = async (
   input: DescribeScalingActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalingActivities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalingActivities");
   let body: any;
   body = JSON.stringify(se_DescribeScalingActivitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -203,10 +188,7 @@ export const se_DescribeScalingPoliciesCommand = async (
   input: DescribeScalingPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScalingPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalingPolicies");
   let body: any;
   body = JSON.stringify(se_DescribeScalingPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -219,10 +201,7 @@ export const se_DescribeScheduledActionsCommand = async (
   input: DescribeScheduledActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.DescribeScheduledActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScheduledActions");
   let body: any;
   body = JSON.stringify(se_DescribeScheduledActionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -235,10 +214,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -251,10 +227,7 @@ export const se_PutScalingPolicyCommand = async (
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.PutScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutScalingPolicy");
   let body: any;
   body = JSON.stringify(se_PutScalingPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -267,10 +240,7 @@ export const se_PutScheduledActionCommand = async (
   input: PutScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.PutScheduledAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutScheduledAction");
   let body: any;
   body = JSON.stringify(se_PutScheduledActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,10 +253,7 @@ export const se_RegisterScalableTargetCommand = async (
   input: RegisterScalableTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.RegisterScalableTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterScalableTarget");
   let body: any;
   body = JSON.stringify(se_RegisterScalableTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -299,10 +266,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -315,10 +279,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AnyScaleFrontendService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2268,6 +2229,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AnyScaleFrontendService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

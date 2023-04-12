@@ -476,10 +476,7 @@ export const se_AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.AssociateEntitiesToExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateEntitiesToExperience");
   let body: any;
   body = JSON.stringify(se_AssociateEntitiesToExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -492,10 +489,7 @@ export const se_AssociatePersonasToEntitiesCommand = async (
   input: AssociatePersonasToEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.AssociatePersonasToEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociatePersonasToEntities");
   let body: any;
   body = JSON.stringify(se_AssociatePersonasToEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -508,10 +502,7 @@ export const se_BatchDeleteDocumentCommand = async (
   input: BatchDeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.BatchDeleteDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteDocument");
   let body: any;
   body = JSON.stringify(se_BatchDeleteDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -524,10 +515,7 @@ export const se_BatchDeleteFeaturedResultsSetCommand = async (
   input: BatchDeleteFeaturedResultsSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.BatchDeleteFeaturedResultsSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteFeaturedResultsSet");
   let body: any;
   body = JSON.stringify(se_BatchDeleteFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -540,10 +528,7 @@ export const se_BatchGetDocumentStatusCommand = async (
   input: BatchGetDocumentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.BatchGetDocumentStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetDocumentStatus");
   let body: any;
   body = JSON.stringify(se_BatchGetDocumentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -556,10 +541,7 @@ export const se_BatchPutDocumentCommand = async (
   input: BatchPutDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.BatchPutDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchPutDocument");
   let body: any;
   body = JSON.stringify(se_BatchPutDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -572,10 +554,7 @@ export const se_ClearQuerySuggestionsCommand = async (
   input: ClearQuerySuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ClearQuerySuggestions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ClearQuerySuggestions");
   let body: any;
   body = JSON.stringify(se_ClearQuerySuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -588,10 +567,7 @@ export const se_CreateAccessControlConfigurationCommand = async (
   input: CreateAccessControlConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateAccessControlConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccessControlConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -604,10 +580,7 @@ export const se_CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataSource");
   let body: any;
   body = JSON.stringify(se_CreateDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -620,10 +593,7 @@ export const se_CreateExperienceCommand = async (
   input: CreateExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateExperience");
   let body: any;
   body = JSON.stringify(se_CreateExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -636,10 +606,7 @@ export const se_CreateFaqCommand = async (
   input: CreateFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateFaq",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFaq");
   let body: any;
   body = JSON.stringify(se_CreateFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -652,10 +619,7 @@ export const se_CreateFeaturedResultsSetCommand = async (
   input: CreateFeaturedResultsSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateFeaturedResultsSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFeaturedResultsSet");
   let body: any;
   body = JSON.stringify(se_CreateFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -668,10 +632,7 @@ export const se_CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateIndex");
   let body: any;
   body = JSON.stringify(se_CreateIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -684,10 +645,7 @@ export const se_CreateQuerySuggestionsBlockListCommand = async (
   input: CreateQuerySuggestionsBlockListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateQuerySuggestionsBlockList",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateQuerySuggestionsBlockList");
   let body: any;
   body = JSON.stringify(se_CreateQuerySuggestionsBlockListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -700,10 +658,7 @@ export const se_CreateThesaurusCommand = async (
   input: CreateThesaurusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.CreateThesaurus",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateThesaurus");
   let body: any;
   body = JSON.stringify(se_CreateThesaurusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -716,10 +671,7 @@ export const se_DeleteAccessControlConfigurationCommand = async (
   input: DeleteAccessControlConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteAccessControlConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccessControlConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -732,10 +684,7 @@ export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataSource");
   let body: any;
   body = JSON.stringify(se_DeleteDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -748,10 +697,7 @@ export const se_DeleteExperienceCommand = async (
   input: DeleteExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteExperience");
   let body: any;
   body = JSON.stringify(se_DeleteExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -764,10 +710,7 @@ export const se_DeleteFaqCommand = async (
   input: DeleteFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteFaq",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFaq");
   let body: any;
   body = JSON.stringify(se_DeleteFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -780,10 +723,7 @@ export const se_DeleteIndexCommand = async (
   input: DeleteIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteIndex");
   let body: any;
   body = JSON.stringify(se_DeleteIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -796,10 +736,7 @@ export const se_DeletePrincipalMappingCommand = async (
   input: DeletePrincipalMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeletePrincipalMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePrincipalMapping");
   let body: any;
   body = JSON.stringify(se_DeletePrincipalMappingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -812,10 +749,7 @@ export const se_DeleteQuerySuggestionsBlockListCommand = async (
   input: DeleteQuerySuggestionsBlockListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteQuerySuggestionsBlockList");
   let body: any;
   body = JSON.stringify(se_DeleteQuerySuggestionsBlockListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -828,10 +762,7 @@ export const se_DeleteThesaurusCommand = async (
   input: DeleteThesaurusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DeleteThesaurus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteThesaurus");
   let body: any;
   body = JSON.stringify(se_DeleteThesaurusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -844,10 +775,7 @@ export const se_DescribeAccessControlConfigurationCommand = async (
   input: DescribeAccessControlConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeAccessControlConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccessControlConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -860,10 +788,7 @@ export const se_DescribeDataSourceCommand = async (
   input: DescribeDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataSource");
   let body: any;
   body = JSON.stringify(se_DescribeDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -876,10 +801,7 @@ export const se_DescribeExperienceCommand = async (
   input: DescribeExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExperience");
   let body: any;
   body = JSON.stringify(se_DescribeExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -892,10 +814,7 @@ export const se_DescribeFaqCommand = async (
   input: DescribeFaqCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeFaq",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFaq");
   let body: any;
   body = JSON.stringify(se_DescribeFaqRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,10 +827,7 @@ export const se_DescribeFeaturedResultsSetCommand = async (
   input: DescribeFeaturedResultsSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeFeaturedResultsSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFeaturedResultsSet");
   let body: any;
   body = JSON.stringify(se_DescribeFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -924,10 +840,7 @@ export const se_DescribeIndexCommand = async (
   input: DescribeIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeIndex");
   let body: any;
   body = JSON.stringify(se_DescribeIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -940,10 +853,7 @@ export const se_DescribePrincipalMappingCommand = async (
   input: DescribePrincipalMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribePrincipalMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePrincipalMapping");
   let body: any;
   body = JSON.stringify(se_DescribePrincipalMappingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -956,10 +866,7 @@ export const se_DescribeQuerySuggestionsBlockListCommand = async (
   input: DescribeQuerySuggestionsBlockListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeQuerySuggestionsBlockList");
   let body: any;
   body = JSON.stringify(se_DescribeQuerySuggestionsBlockListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -972,10 +879,7 @@ export const se_DescribeQuerySuggestionsConfigCommand = async (
   input: DescribeQuerySuggestionsConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeQuerySuggestionsConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeQuerySuggestionsConfig");
   let body: any;
   body = JSON.stringify(se_DescribeQuerySuggestionsConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,10 +892,7 @@ export const se_DescribeThesaurusCommand = async (
   input: DescribeThesaurusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DescribeThesaurus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeThesaurus");
   let body: any;
   body = JSON.stringify(se_DescribeThesaurusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1004,10 +905,7 @@ export const se_DisassociateEntitiesFromExperienceCommand = async (
   input: DisassociateEntitiesFromExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DisassociateEntitiesFromExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateEntitiesFromExperience");
   let body: any;
   body = JSON.stringify(se_DisassociateEntitiesFromExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1020,10 +918,7 @@ export const se_DisassociatePersonasFromEntitiesCommand = async (
   input: DisassociatePersonasFromEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.DisassociatePersonasFromEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociatePersonasFromEntities");
   let body: any;
   body = JSON.stringify(se_DisassociatePersonasFromEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1036,10 +931,7 @@ export const se_GetQuerySuggestionsCommand = async (
   input: GetQuerySuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.GetQuerySuggestions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQuerySuggestions");
   let body: any;
   body = JSON.stringify(se_GetQuerySuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,10 +944,7 @@ export const se_GetSnapshotsCommand = async (
   input: GetSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.GetSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSnapshots");
   let body: any;
   body = JSON.stringify(se_GetSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1068,10 +957,7 @@ export const se_ListAccessControlConfigurationsCommand = async (
   input: ListAccessControlConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListAccessControlConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccessControlConfigurations");
   let body: any;
   body = JSON.stringify(se_ListAccessControlConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1084,10 +970,7 @@ export const se_ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListDataSources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataSources");
   let body: any;
   body = JSON.stringify(se_ListDataSourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1100,10 +983,7 @@ export const se_ListDataSourceSyncJobsCommand = async (
   input: ListDataSourceSyncJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListDataSourceSyncJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataSourceSyncJobs");
   let body: any;
   body = JSON.stringify(se_ListDataSourceSyncJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1116,10 +996,7 @@ export const se_ListEntityPersonasCommand = async (
   input: ListEntityPersonasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListEntityPersonas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntityPersonas");
   let body: any;
   body = JSON.stringify(se_ListEntityPersonasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1132,10 +1009,7 @@ export const se_ListExperienceEntitiesCommand = async (
   input: ListExperienceEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListExperienceEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExperienceEntities");
   let body: any;
   body = JSON.stringify(se_ListExperienceEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1148,10 +1022,7 @@ export const se_ListExperiencesCommand = async (
   input: ListExperiencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListExperiences",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExperiences");
   let body: any;
   body = JSON.stringify(se_ListExperiencesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1164,10 +1035,7 @@ export const se_ListFaqsCommand = async (
   input: ListFaqsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListFaqs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFaqs");
   let body: any;
   body = JSON.stringify(se_ListFaqsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1180,10 +1048,7 @@ export const se_ListFeaturedResultsSetsCommand = async (
   input: ListFeaturedResultsSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListFeaturedResultsSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFeaturedResultsSets");
   let body: any;
   body = JSON.stringify(se_ListFeaturedResultsSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1196,10 +1061,7 @@ export const se_ListGroupsOlderThanOrderingIdCommand = async (
   input: ListGroupsOlderThanOrderingIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListGroupsOlderThanOrderingId",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroupsOlderThanOrderingId");
   let body: any;
   body = JSON.stringify(se_ListGroupsOlderThanOrderingIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1212,10 +1074,7 @@ export const se_ListIndicesCommand = async (
   input: ListIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListIndices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListIndices");
   let body: any;
   body = JSON.stringify(se_ListIndicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1228,10 +1087,7 @@ export const se_ListQuerySuggestionsBlockListsCommand = async (
   input: ListQuerySuggestionsBlockListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListQuerySuggestionsBlockLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQuerySuggestionsBlockLists");
   let body: any;
   body = JSON.stringify(se_ListQuerySuggestionsBlockListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1244,10 +1100,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1260,10 +1113,7 @@ export const se_ListThesauriCommand = async (
   input: ListThesauriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.ListThesauri",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListThesauri");
   let body: any;
   body = JSON.stringify(se_ListThesauriRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1276,10 +1126,7 @@ export const se_PutPrincipalMappingCommand = async (
   input: PutPrincipalMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.PutPrincipalMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPrincipalMapping");
   let body: any;
   body = JSON.stringify(se_PutPrincipalMappingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1289,10 +1136,7 @@ export const se_PutPrincipalMappingCommand = async (
  * serializeAws_json1_1QueryCommand
  */
 export const se_QueryCommand = async (input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.Query",
-  };
+  const headers: __HeaderBag = sharedHeaders("Query");
   let body: any;
   body = JSON.stringify(se_QueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1305,10 +1149,7 @@ export const se_StartDataSourceSyncJobCommand = async (
   input: StartDataSourceSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.StartDataSourceSyncJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDataSourceSyncJob");
   let body: any;
   body = JSON.stringify(se_StartDataSourceSyncJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1321,10 +1162,7 @@ export const se_StopDataSourceSyncJobCommand = async (
   input: StopDataSourceSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.StopDataSourceSyncJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopDataSourceSyncJob");
   let body: any;
   body = JSON.stringify(se_StopDataSourceSyncJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1337,10 +1175,7 @@ export const se_SubmitFeedbackCommand = async (
   input: SubmitFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.SubmitFeedback",
-  };
+  const headers: __HeaderBag = sharedHeaders("SubmitFeedback");
   let body: any;
   body = JSON.stringify(se_SubmitFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1353,10 +1188,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1369,10 +1201,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1385,10 +1214,7 @@ export const se_UpdateAccessControlConfigurationCommand = async (
   input: UpdateAccessControlConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateAccessControlConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccessControlConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1401,10 +1227,7 @@ export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDataSource");
   let body: any;
   body = JSON.stringify(se_UpdateDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1417,10 +1240,7 @@ export const se_UpdateExperienceCommand = async (
   input: UpdateExperienceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateExperience",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateExperience");
   let body: any;
   body = JSON.stringify(se_UpdateExperienceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1433,10 +1253,7 @@ export const se_UpdateFeaturedResultsSetCommand = async (
   input: UpdateFeaturedResultsSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateFeaturedResultsSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFeaturedResultsSet");
   let body: any;
   body = JSON.stringify(se_UpdateFeaturedResultsSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1449,10 +1266,7 @@ export const se_UpdateIndexCommand = async (
   input: UpdateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateIndex");
   let body: any;
   body = JSON.stringify(se_UpdateIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1465,10 +1279,7 @@ export const se_UpdateQuerySuggestionsBlockListCommand = async (
   input: UpdateQuerySuggestionsBlockListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateQuerySuggestionsBlockList");
   let body: any;
   body = JSON.stringify(se_UpdateQuerySuggestionsBlockListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1481,10 +1292,7 @@ export const se_UpdateQuerySuggestionsConfigCommand = async (
   input: UpdateQuerySuggestionsConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateQuerySuggestionsConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateQuerySuggestionsConfig");
   let body: any;
   body = JSON.stringify(se_UpdateQuerySuggestionsConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1497,10 +1305,7 @@ export const se_UpdateThesaurusCommand = async (
   input: UpdateThesaurusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSKendraFrontendService.UpdateThesaurus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateThesaurus");
   let body: any;
   body = JSON.stringify(se_UpdateThesaurusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13155,6 +12960,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSKendraFrontendService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

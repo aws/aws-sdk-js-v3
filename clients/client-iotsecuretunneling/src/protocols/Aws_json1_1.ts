@@ -65,10 +65,7 @@ export const se_CloseTunnelCommand = async (
   input: CloseTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.CloseTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CloseTunnel");
   let body: any;
   body = JSON.stringify(se_CloseTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -81,10 +78,7 @@ export const se_DescribeTunnelCommand = async (
   input: DescribeTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.DescribeTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTunnel");
   let body: any;
   body = JSON.stringify(se_DescribeTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -97,10 +91,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -113,10 +104,7 @@ export const se_ListTunnelsCommand = async (
   input: ListTunnelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.ListTunnels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTunnels");
   let body: any;
   body = JSON.stringify(se_ListTunnelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -129,10 +117,7 @@ export const se_OpenTunnelCommand = async (
   input: OpenTunnelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.OpenTunnel",
-  };
+  const headers: __HeaderBag = sharedHeaders("OpenTunnel");
   let body: any;
   body = JSON.stringify(se_OpenTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -145,10 +130,7 @@ export const se_RotateTunnelAccessTokenCommand = async (
   input: RotateTunnelAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.RotateTunnelAccessToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("RotateTunnelAccessToken");
   let body: any;
   body = JSON.stringify(se_RotateTunnelAccessTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -161,10 +143,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -177,10 +156,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IoTSecuredTunneling.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1003,6 +979,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `IoTSecuredTunneling.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

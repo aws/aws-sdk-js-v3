@@ -129,10 +129,7 @@ export const se_CreateParallelDataCommand = async (
   input: CreateParallelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.CreateParallelData",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateParallelData");
   let body: any;
   body = JSON.stringify(se_CreateParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -145,10 +142,7 @@ export const se_DeleteParallelDataCommand = async (
   input: DeleteParallelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.DeleteParallelData",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteParallelData");
   let body: any;
   body = JSON.stringify(se_DeleteParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -161,10 +155,7 @@ export const se_DeleteTerminologyCommand = async (
   input: DeleteTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.DeleteTerminology",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTerminology");
   let body: any;
   body = JSON.stringify(se_DeleteTerminologyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -177,10 +168,7 @@ export const se_DescribeTextTranslationJobCommand = async (
   input: DescribeTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.DescribeTextTranslationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTextTranslationJob");
   let body: any;
   body = JSON.stringify(se_DescribeTextTranslationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -193,10 +181,7 @@ export const se_GetParallelDataCommand = async (
   input: GetParallelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.GetParallelData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetParallelData");
   let body: any;
   body = JSON.stringify(se_GetParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -209,10 +194,7 @@ export const se_GetTerminologyCommand = async (
   input: GetTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.GetTerminology",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTerminology");
   let body: any;
   body = JSON.stringify(se_GetTerminologyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -225,10 +207,7 @@ export const se_ImportTerminologyCommand = async (
   input: ImportTerminologyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ImportTerminology",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportTerminology");
   let body: any;
   body = JSON.stringify(se_ImportTerminologyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -241,10 +220,7 @@ export const se_ListLanguagesCommand = async (
   input: ListLanguagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ListLanguages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLanguages");
   let body: any;
   body = JSON.stringify(se_ListLanguagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,10 +233,7 @@ export const se_ListParallelDataCommand = async (
   input: ListParallelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ListParallelData",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListParallelData");
   let body: any;
   body = JSON.stringify(se_ListParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +246,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +259,7 @@ export const se_ListTerminologiesCommand = async (
   input: ListTerminologiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ListTerminologies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTerminologies");
   let body: any;
   body = JSON.stringify(se_ListTerminologiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +272,7 @@ export const se_ListTextTranslationJobsCommand = async (
   input: ListTextTranslationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.ListTextTranslationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTextTranslationJobs");
   let body: any;
   body = JSON.stringify(se_ListTextTranslationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +285,7 @@ export const se_StartTextTranslationJobCommand = async (
   input: StartTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.StartTextTranslationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTextTranslationJob");
   let body: any;
   body = JSON.stringify(se_StartTextTranslationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +298,7 @@ export const se_StopTextTranslationJobCommand = async (
   input: StopTextTranslationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.StopTextTranslationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTextTranslationJob");
   let body: any;
   body = JSON.stringify(se_StopTextTranslationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +311,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +324,7 @@ export const se_TranslateTextCommand = async (
   input: TranslateTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.TranslateText",
-  };
+  const headers: __HeaderBag = sharedHeaders("TranslateText");
   let body: any;
   body = JSON.stringify(se_TranslateTextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +337,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +350,7 @@ export const se_UpdateParallelDataCommand = async (
   input: UpdateParallelDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShineFrontendService_20170701.UpdateParallelData",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateParallelData");
   let body: any;
   body = JSON.stringify(se_UpdateParallelDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2800,6 +2746,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSShineFrontendService_20170701.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

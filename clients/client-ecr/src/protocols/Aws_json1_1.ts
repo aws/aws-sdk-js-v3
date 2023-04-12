@@ -307,10 +307,7 @@ export const se_BatchCheckLayerAvailabilityCommand = async (
   input: BatchCheckLayerAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCheckLayerAvailability");
   let body: any;
   body = JSON.stringify(se_BatchCheckLayerAvailabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -323,10 +320,7 @@ export const se_BatchDeleteImageCommand = async (
   input: BatchDeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteImage");
   let body: any;
   body = JSON.stringify(se_BatchDeleteImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,10 +333,7 @@ export const se_BatchGetImageCommand = async (
   input: BatchGetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchGetImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetImage");
   let body: any;
   body = JSON.stringify(se_BatchGetImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -355,10 +346,7 @@ export const se_BatchGetRepositoryScanningConfigurationCommand = async (
   input: BatchGetRepositoryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchGetRepositoryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetRepositoryScanningConfiguration");
   let body: any;
   body = JSON.stringify(se_BatchGetRepositoryScanningConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -371,10 +359,7 @@ export const se_CompleteLayerUploadCommand = async (
   input: CompleteLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("CompleteLayerUpload");
   let body: any;
   body = JSON.stringify(se_CompleteLayerUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +372,7 @@ export const se_CreatePullThroughCacheRuleCommand = async (
   input: CreatePullThroughCacheRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CreatePullThroughCacheRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePullThroughCacheRule");
   let body: any;
   body = JSON.stringify(se_CreatePullThroughCacheRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +385,7 @@ export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CreateRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
   body = JSON.stringify(se_CreateRepositoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +398,7 @@ export const se_DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteLifecyclePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +411,7 @@ export const se_DeletePullThroughCacheRuleCommand = async (
   input: DeletePullThroughCacheRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeletePullThroughCacheRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePullThroughCacheRule");
   let body: any;
   body = JSON.stringify(se_DeletePullThroughCacheRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +424,7 @@ export const se_DeleteRegistryPolicyCommand = async (
   input: DeleteRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistryPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteRegistryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +437,7 @@ export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +450,7 @@ export const se_DeleteRepositoryPolicyCommand = async (
   input: DeleteRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +463,7 @@ export const se_DescribeImageReplicationStatusCommand = async (
   input: DescribeImageReplicationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageReplicationStatus");
   let body: any;
   body = JSON.stringify(se_DescribeImageReplicationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +476,7 @@ export const se_DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
   body = JSON.stringify(se_DescribeImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +489,7 @@ export const se_DescribeImageScanFindingsCommand = async (
   input: DescribeImageScanFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageScanFindings");
   let body: any;
   body = JSON.stringify(se_DescribeImageScanFindingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +502,7 @@ export const se_DescribePullThroughCacheRulesCommand = async (
   input: DescribePullThroughCacheRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePullThroughCacheRules");
   let body: any;
   body = JSON.stringify(se_DescribePullThroughCacheRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +515,7 @@ export const se_DescribeRegistryCommand = async (
   input: DescribeRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistry");
   let body: any;
   body = JSON.stringify(se_DescribeRegistryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +528,7 @@ export const se_DescribeRepositoriesCommand = async (
   input: DescribeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRepositories");
   let body: any;
   body = JSON.stringify(se_DescribeRepositoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +541,7 @@ export const se_GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAuthorizationToken");
   let body: any;
   body = JSON.stringify(se_GetAuthorizationTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +554,7 @@ export const se_GetDownloadUrlForLayerCommand = async (
   input: GetDownloadUrlForLayerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDownloadUrlForLayer");
   let body: any;
   body = JSON.stringify(se_GetDownloadUrlForLayerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +567,7 @@ export const se_GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_GetLifecyclePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +580,7 @@ export const se_GetLifecyclePolicyPreviewCommand = async (
   input: GetLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicyPreview");
   let body: any;
   body = JSON.stringify(se_GetLifecyclePolicyPreviewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +593,7 @@ export const se_GetRegistryPolicyCommand = async (
   input: GetRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistryPolicy");
   let body: any;
   body = JSON.stringify(se_GetRegistryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +606,7 @@ export const se_GetRegistryScanningConfigurationCommand = async (
   input: GetRegistryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistryScanningConfiguration");
   let body: any;
   body = JSON.stringify(se_GetRegistryScanningConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +619,7 @@ export const se_GetRepositoryPolicyCommand = async (
   input: GetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_GetRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +632,7 @@ export const se_InitiateLayerUploadCommand = async (
   input: InitiateLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("InitiateLayerUpload");
   let body: any;
   body = JSON.stringify(se_InitiateLayerUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +645,7 @@ export const se_ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImages");
   let body: any;
   body = JSON.stringify(se_ListImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +658,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +671,7 @@ export const se_PutImageCommand = async (
   input: PutImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImage");
   let body: any;
   body = JSON.stringify(se_PutImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +684,7 @@ export const se_PutImageScanningConfigurationCommand = async (
   input: PutImageScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImageScanningConfiguration");
   let body: any;
   body = JSON.stringify(se_PutImageScanningConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +697,7 @@ export const se_PutImageTagMutabilityCommand = async (
   input: PutImageTagMutabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImageTagMutability");
   let body: any;
   body = JSON.stringify(se_PutImageTagMutabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +710,7 @@ export const se_PutLifecyclePolicyCommand = async (
   input: PutLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_PutLifecyclePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +723,7 @@ export const se_PutRegistryPolicyCommand = async (
   input: PutRegistryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRegistryPolicy");
   let body: any;
   body = JSON.stringify(se_PutRegistryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +736,7 @@ export const se_PutRegistryScanningConfigurationCommand = async (
   input: PutRegistryScanningConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryScanningConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRegistryScanningConfiguration");
   let body: any;
   body = JSON.stringify(se_PutRegistryScanningConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +749,7 @@ export const se_PutReplicationConfigurationCommand = async (
   input: PutReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutReplicationConfiguration");
   let body: any;
   body = JSON.stringify(se_PutReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +762,7 @@ export const se_SetRepositoryPolicyCommand = async (
   input: SetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_SetRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,10 +775,7 @@ export const se_StartImageScanCommand = async (
   input: StartImageScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartImageScan",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImageScan");
   let body: any;
   body = JSON.stringify(se_StartImageScanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,10 +788,7 @@ export const se_StartLifecyclePolicyPreviewCommand = async (
   input: StartLifecyclePolicyPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartLifecyclePolicyPreview");
   let body: any;
   body = JSON.stringify(se_StartLifecyclePolicyPreviewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -915,10 +801,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -931,10 +814,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -947,10 +827,7 @@ export const se_UploadLayerPartCommand = async (
   input: UploadLayerPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart",
-  };
+  const headers: __HeaderBag = sharedHeaders("UploadLayerPart");
   let body: any;
   body = JSON.stringify(se_UploadLayerPartRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6526,6 +6403,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonEC2ContainerRegistry_V20150921.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -209,10 +209,7 @@ export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
   body = JSON.stringify(se_CreateDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -225,10 +222,7 @@ export const se_CreateInferenceSchedulerCommand = async (
   input: CreateInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_CreateInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -241,10 +235,7 @@ export const se_CreateLabelCommand = async (
   input: CreateLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLabel");
   let body: any;
   body = JSON.stringify(se_CreateLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,10 +248,7 @@ export const se_CreateLabelGroupCommand = async (
   input: CreateLabelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateLabelGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLabelGroup");
   let body: any;
   body = JSON.stringify(se_CreateLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +261,7 @@ export const se_CreateModelCommand = async (
   input: CreateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.CreateModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModel");
   let body: any;
   body = JSON.stringify(se_CreateModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +274,7 @@ export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
   body = JSON.stringify(se_DeleteDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +287,7 @@ export const se_DeleteInferenceSchedulerCommand = async (
   input: DeleteInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_DeleteInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +300,7 @@ export const se_DeleteLabelCommand = async (
   input: DeleteLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLabel");
   let body: any;
   body = JSON.stringify(se_DeleteLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +313,7 @@ export const se_DeleteLabelGroupCommand = async (
   input: DeleteLabelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteLabelGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLabelGroup");
   let body: any;
   body = JSON.stringify(se_DeleteLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +326,7 @@ export const se_DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DeleteModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModel");
   let body: any;
   body = JSON.stringify(se_DeleteModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +339,7 @@ export const se_DescribeDataIngestionJobCommand = async (
   input: DescribeDataIngestionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeDataIngestionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataIngestionJob");
   let body: any;
   body = JSON.stringify(se_DescribeDataIngestionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +352,7 @@ export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +365,7 @@ export const se_DescribeInferenceSchedulerCommand = async (
   input: DescribeInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_DescribeInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,10 +378,7 @@ export const se_DescribeLabelCommand = async (
   input: DescribeLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLabel");
   let body: any;
   body = JSON.stringify(se_DescribeLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +391,7 @@ export const se_DescribeLabelGroupCommand = async (
   input: DescribeLabelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeLabelGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLabelGroup");
   let body: any;
   body = JSON.stringify(se_DescribeLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -449,10 +404,7 @@ export const se_DescribeModelCommand = async (
   input: DescribeModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.DescribeModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModel");
   let body: any;
   body = JSON.stringify(se_DescribeModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,10 +417,7 @@ export const se_ListDataIngestionJobsCommand = async (
   input: ListDataIngestionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListDataIngestionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataIngestionJobs");
   let body: any;
   body = JSON.stringify(se_ListDataIngestionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -481,10 +430,7 @@ export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListDatasets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
   body = JSON.stringify(se_ListDatasetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,10 +443,7 @@ export const se_ListInferenceEventsCommand = async (
   input: ListInferenceEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListInferenceEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceEvents");
   let body: any;
   body = JSON.stringify(se_ListInferenceEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +456,7 @@ export const se_ListInferenceExecutionsCommand = async (
   input: ListInferenceExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListInferenceExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceExecutions");
   let body: any;
   body = JSON.stringify(se_ListInferenceExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +469,7 @@ export const se_ListInferenceSchedulersCommand = async (
   input: ListInferenceSchedulersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListInferenceSchedulers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceSchedulers");
   let body: any;
   body = JSON.stringify(se_ListInferenceSchedulersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -545,10 +482,7 @@ export const se_ListLabelGroupsCommand = async (
   input: ListLabelGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListLabelGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLabelGroups");
   let body: any;
   body = JSON.stringify(se_ListLabelGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,10 +495,7 @@ export const se_ListLabelsCommand = async (
   input: ListLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListLabels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLabels");
   let body: any;
   body = JSON.stringify(se_ListLabelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -577,10 +508,7 @@ export const se_ListModelsCommand = async (
   input: ListModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModels");
   let body: any;
   body = JSON.stringify(se_ListModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -593,10 +521,7 @@ export const se_ListSensorStatisticsCommand = async (
   input: ListSensorStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListSensorStatistics",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSensorStatistics");
   let body: any;
   body = JSON.stringify(se_ListSensorStatisticsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -609,10 +534,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -625,10 +547,7 @@ export const se_StartDataIngestionJobCommand = async (
   input: StartDataIngestionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.StartDataIngestionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDataIngestionJob");
   let body: any;
   body = JSON.stringify(se_StartDataIngestionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -641,10 +560,7 @@ export const se_StartInferenceSchedulerCommand = async (
   input: StartInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.StartInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_StartInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -657,10 +573,7 @@ export const se_StopInferenceSchedulerCommand = async (
   input: StopInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.StopInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_StopInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -673,10 +586,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -689,10 +599,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,10 +612,7 @@ export const se_UpdateInferenceSchedulerCommand = async (
   input: UpdateInferenceSchedulerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.UpdateInferenceScheduler",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInferenceScheduler");
   let body: any;
   body = JSON.stringify(se_UpdateInferenceSchedulerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -721,10 +625,7 @@ export const se_UpdateLabelGroupCommand = async (
   input: UpdateLabelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSLookoutEquipmentFrontendService.UpdateLabelGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLabelGroup");
   let body: any;
   body = JSON.stringify(se_UpdateLabelGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4555,6 +4456,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `AWSLookoutEquipmentFrontendService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

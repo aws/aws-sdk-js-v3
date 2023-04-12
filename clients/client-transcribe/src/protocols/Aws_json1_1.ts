@@ -277,10 +277,7 @@ export const se_CreateCallAnalyticsCategoryCommand = async (
   input: CreateCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCallAnalyticsCategory");
   let body: any;
   body = JSON.stringify(se_CreateCallAnalyticsCategoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -293,10 +290,7 @@ export const se_CreateLanguageModelCommand = async (
   input: CreateLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLanguageModel");
   let body: any;
   body = JSON.stringify(se_CreateLanguageModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -309,10 +303,7 @@ export const se_CreateMedicalVocabularyCommand = async (
   input: CreateMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMedicalVocabulary");
   let body: any;
   body = JSON.stringify(se_CreateMedicalVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -325,10 +316,7 @@ export const se_CreateVocabularyCommand = async (
   input: CreateVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVocabulary");
   let body: any;
   body = JSON.stringify(se_CreateVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -341,10 +329,7 @@ export const se_CreateVocabularyFilterCommand = async (
   input: CreateVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.CreateVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVocabularyFilter");
   let body: any;
   body = JSON.stringify(se_CreateVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -357,10 +342,7 @@ export const se_DeleteCallAnalyticsCategoryCommand = async (
   input: DeleteCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsCategory");
   let body: any;
   body = JSON.stringify(se_DeleteCallAnalyticsCategoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,10 +355,7 @@ export const se_DeleteCallAnalyticsJobCommand = async (
   input: DeleteCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCallAnalyticsJob");
   let body: any;
   body = JSON.stringify(se_DeleteCallAnalyticsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -389,10 +368,7 @@ export const se_DeleteLanguageModelCommand = async (
   input: DeleteLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLanguageModel");
   let body: any;
   body = JSON.stringify(se_DeleteLanguageModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -405,10 +381,7 @@ export const se_DeleteMedicalTranscriptionJobCommand = async (
   input: DeleteMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMedicalTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_DeleteMedicalTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -421,10 +394,7 @@ export const se_DeleteMedicalVocabularyCommand = async (
   input: DeleteMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMedicalVocabulary");
   let body: any;
   body = JSON.stringify(se_DeleteMedicalVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -437,10 +407,7 @@ export const se_DeleteTranscriptionJobCommand = async (
   input: DeleteTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_DeleteTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -453,10 +420,7 @@ export const se_DeleteVocabularyCommand = async (
   input: DeleteVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVocabulary");
   let body: any;
   body = JSON.stringify(se_DeleteVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -469,10 +433,7 @@ export const se_DeleteVocabularyFilterCommand = async (
   input: DeleteVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DeleteVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVocabularyFilter");
   let body: any;
   body = JSON.stringify(se_DeleteVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +446,7 @@ export const se_DescribeLanguageModelCommand = async (
   input: DescribeLanguageModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.DescribeLanguageModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLanguageModel");
   let body: any;
   body = JSON.stringify(se_DescribeLanguageModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +459,7 @@ export const se_GetCallAnalyticsCategoryCommand = async (
   input: GetCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsCategory");
   let body: any;
   body = JSON.stringify(se_GetCallAnalyticsCategoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +472,7 @@ export const se_GetCallAnalyticsJobCommand = async (
   input: GetCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsJob");
   let body: any;
   body = JSON.stringify(se_GetCallAnalyticsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -533,10 +485,7 @@ export const se_GetMedicalTranscriptionJobCommand = async (
   input: GetMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMedicalTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_GetMedicalTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -549,10 +498,7 @@ export const se_GetMedicalVocabularyCommand = async (
   input: GetMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMedicalVocabulary");
   let body: any;
   body = JSON.stringify(se_GetMedicalVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -565,10 +511,7 @@ export const se_GetTranscriptionJobCommand = async (
   input: GetTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_GetTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -581,10 +524,7 @@ export const se_GetVocabularyCommand = async (
   input: GetVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVocabulary");
   let body: any;
   body = JSON.stringify(se_GetVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,10 +537,7 @@ export const se_GetVocabularyFilterCommand = async (
   input: GetVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.GetVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVocabularyFilter");
   let body: any;
   body = JSON.stringify(se_GetVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -613,10 +550,7 @@ export const se_ListCallAnalyticsCategoriesCommand = async (
   input: ListCallAnalyticsCategoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListCallAnalyticsCategories",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsCategories");
   let body: any;
   body = JSON.stringify(se_ListCallAnalyticsCategoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -629,10 +563,7 @@ export const se_ListCallAnalyticsJobsCommand = async (
   input: ListCallAnalyticsJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListCallAnalyticsJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCallAnalyticsJobs");
   let body: any;
   body = JSON.stringify(se_ListCallAnalyticsJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -645,10 +576,7 @@ export const se_ListLanguageModelsCommand = async (
   input: ListLanguageModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListLanguageModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLanguageModels");
   let body: any;
   body = JSON.stringify(se_ListLanguageModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -661,10 +589,7 @@ export const se_ListMedicalTranscriptionJobsCommand = async (
   input: ListMedicalTranscriptionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListMedicalTranscriptionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMedicalTranscriptionJobs");
   let body: any;
   body = JSON.stringify(se_ListMedicalTranscriptionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -677,10 +602,7 @@ export const se_ListMedicalVocabulariesCommand = async (
   input: ListMedicalVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListMedicalVocabularies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMedicalVocabularies");
   let body: any;
   body = JSON.stringify(se_ListMedicalVocabulariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -693,10 +615,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -709,10 +628,7 @@ export const se_ListTranscriptionJobsCommand = async (
   input: ListTranscriptionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListTranscriptionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTranscriptionJobs");
   let body: any;
   body = JSON.stringify(se_ListTranscriptionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -725,10 +641,7 @@ export const se_ListVocabulariesCommand = async (
   input: ListVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListVocabularies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVocabularies");
   let body: any;
   body = JSON.stringify(se_ListVocabulariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -741,10 +654,7 @@ export const se_ListVocabularyFiltersCommand = async (
   input: ListVocabularyFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.ListVocabularyFilters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVocabularyFilters");
   let body: any;
   body = JSON.stringify(se_ListVocabularyFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -757,10 +667,7 @@ export const se_StartCallAnalyticsJobCommand = async (
   input: StartCallAnalyticsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartCallAnalyticsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartCallAnalyticsJob");
   let body: any;
   body = JSON.stringify(se_StartCallAnalyticsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -773,10 +680,7 @@ export const se_StartMedicalTranscriptionJobCommand = async (
   input: StartMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartMedicalTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMedicalTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_StartMedicalTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -789,10 +693,7 @@ export const se_StartTranscriptionJobCommand = async (
   input: StartTranscriptionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.StartTranscriptionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTranscriptionJob");
   let body: any;
   body = JSON.stringify(se_StartTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -805,10 +706,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -821,10 +719,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -837,10 +732,7 @@ export const se_UpdateCallAnalyticsCategoryCommand = async (
   input: UpdateCallAnalyticsCategoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateCallAnalyticsCategory",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCallAnalyticsCategory");
   let body: any;
   body = JSON.stringify(se_UpdateCallAnalyticsCategoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -853,10 +745,7 @@ export const se_UpdateMedicalVocabularyCommand = async (
   input: UpdateMedicalVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateMedicalVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMedicalVocabulary");
   let body: any;
   body = JSON.stringify(se_UpdateMedicalVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -869,10 +758,7 @@ export const se_UpdateVocabularyCommand = async (
   input: UpdateVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateVocabulary",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVocabulary");
   let body: any;
   body = JSON.stringify(se_UpdateVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -885,10 +771,7 @@ export const se_UpdateVocabularyFilterCommand = async (
   input: UpdateVocabularyFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Transcribe.UpdateVocabularyFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVocabularyFilter");
   let body: any;
   body = JSON.stringify(se_UpdateVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5286,6 +5169,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Transcribe.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -233,6 +233,84 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
 });
 
 /**
+ * When a string member does not contain a valid enum value,
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
+ */
+it("RestJsonMalformedEnumTraitString_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedEnum: testFunction as MalformedEnum<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedEnum",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "stringWithEnumTrait" : "ABC" }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/stringWithEnumTrait\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a string member does not contain a valid enum value,
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
+ */
+it("RestJsonMalformedEnumTraitString_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedEnum: testFunction as MalformedEnum<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedEnum",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "stringWithEnumTrait" : "XYZ" }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/stringWithEnumTrait' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/stringWithEnumTrait\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
  * When a list member value does not contain a valid enum value,
  * the response should be a 400 ValidationException. Internal-only
  * enum values are excluded from the response message.

@@ -197,10 +197,7 @@ export const se_DescribeEntitiesDetectionV2JobCommand = async (
   input: DescribeEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntitiesDetectionV2Job");
   let body: any;
   body = JSON.stringify(se_DescribeEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -213,10 +210,7 @@ export const se_DescribeICD10CMInferenceJobCommand = async (
   input: DescribeICD10CMInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DescribeICD10CMInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeICD10CMInferenceJob");
   let body: any;
   body = JSON.stringify(se_DescribeICD10CMInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -229,10 +223,7 @@ export const se_DescribePHIDetectionJobCommand = async (
   input: DescribePHIDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DescribePHIDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePHIDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribePHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -245,10 +236,7 @@ export const se_DescribeRxNormInferenceJobCommand = async (
   input: DescribeRxNormInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DescribeRxNormInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRxNormInferenceJob");
   let body: any;
   body = JSON.stringify(se_DescribeRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -261,10 +249,7 @@ export const se_DescribeSNOMEDCTInferenceJobCommand = async (
   input: DescribeSNOMEDCTInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DescribeSNOMEDCTInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSNOMEDCTInferenceJob");
   let body: any;
   body = JSON.stringify(se_DescribeSNOMEDCTInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -277,10 +262,7 @@ export const se_DetectEntitiesCommand = async (
   input: DetectEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DetectEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectEntities");
   let body: any;
   body = JSON.stringify(se_DetectEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -293,10 +275,7 @@ export const se_DetectEntitiesV2Command = async (
   input: DetectEntitiesV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DetectEntitiesV2",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectEntitiesV2");
   let body: any;
   body = JSON.stringify(se_DetectEntitiesV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -309,10 +288,7 @@ export const se_DetectPHICommand = async (
   input: DetectPHICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.DetectPHI",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectPHI");
   let body: any;
   body = JSON.stringify(se_DetectPHIRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -325,10 +301,7 @@ export const se_InferICD10CMCommand = async (
   input: InferICD10CMCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.InferICD10CM",
-  };
+  const headers: __HeaderBag = sharedHeaders("InferICD10CM");
   let body: any;
   body = JSON.stringify(se_InferICD10CMRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -341,10 +314,7 @@ export const se_InferRxNormCommand = async (
   input: InferRxNormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.InferRxNorm",
-  };
+  const headers: __HeaderBag = sharedHeaders("InferRxNorm");
   let body: any;
   body = JSON.stringify(se_InferRxNormRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -357,10 +327,7 @@ export const se_InferSNOMEDCTCommand = async (
   input: InferSNOMEDCTCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.InferSNOMEDCT",
-  };
+  const headers: __HeaderBag = sharedHeaders("InferSNOMEDCT");
   let body: any;
   body = JSON.stringify(se_InferSNOMEDCTRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,10 +340,7 @@ export const se_ListEntitiesDetectionV2JobsCommand = async (
   input: ListEntitiesDetectionV2JobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntitiesDetectionV2Jobs");
   let body: any;
   body = JSON.stringify(se_ListEntitiesDetectionV2JobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -389,10 +353,7 @@ export const se_ListICD10CMInferenceJobsCommand = async (
   input: ListICD10CMInferenceJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.ListICD10CMInferenceJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListICD10CMInferenceJobs");
   let body: any;
   body = JSON.stringify(se_ListICD10CMInferenceJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -405,10 +366,7 @@ export const se_ListPHIDetectionJobsCommand = async (
   input: ListPHIDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.ListPHIDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPHIDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListPHIDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -421,10 +379,7 @@ export const se_ListRxNormInferenceJobsCommand = async (
   input: ListRxNormInferenceJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.ListRxNormInferenceJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRxNormInferenceJobs");
   let body: any;
   body = JSON.stringify(se_ListRxNormInferenceJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -437,10 +392,7 @@ export const se_ListSNOMEDCTInferenceJobsCommand = async (
   input: ListSNOMEDCTInferenceJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.ListSNOMEDCTInferenceJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSNOMEDCTInferenceJobs");
   let body: any;
   body = JSON.stringify(se_ListSNOMEDCTInferenceJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -453,10 +405,7 @@ export const se_StartEntitiesDetectionV2JobCommand = async (
   input: StartEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StartEntitiesDetectionV2Job",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEntitiesDetectionV2Job");
   let body: any;
   body = JSON.stringify(se_StartEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -469,10 +418,7 @@ export const se_StartICD10CMInferenceJobCommand = async (
   input: StartICD10CMInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StartICD10CMInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartICD10CMInferenceJob");
   let body: any;
   body = JSON.stringify(se_StartICD10CMInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +431,7 @@ export const se_StartPHIDetectionJobCommand = async (
   input: StartPHIDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StartPHIDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartPHIDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartPHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +444,7 @@ export const se_StartRxNormInferenceJobCommand = async (
   input: StartRxNormInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StartRxNormInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartRxNormInferenceJob");
   let body: any;
   body = JSON.stringify(se_StartRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +457,7 @@ export const se_StartSNOMEDCTInferenceJobCommand = async (
   input: StartSNOMEDCTInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StartSNOMEDCTInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSNOMEDCTInferenceJob");
   let body: any;
   body = JSON.stringify(se_StartSNOMEDCTInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -533,10 +470,7 @@ export const se_StopEntitiesDetectionV2JobCommand = async (
   input: StopEntitiesDetectionV2JobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StopEntitiesDetectionV2Job",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEntitiesDetectionV2Job");
   let body: any;
   body = JSON.stringify(se_StopEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -549,10 +483,7 @@ export const se_StopICD10CMInferenceJobCommand = async (
   input: StopICD10CMInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StopICD10CMInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopICD10CMInferenceJob");
   let body: any;
   body = JSON.stringify(se_StopICD10CMInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -565,10 +496,7 @@ export const se_StopPHIDetectionJobCommand = async (
   input: StopPHIDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StopPHIDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopPHIDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopPHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -581,10 +509,7 @@ export const se_StopRxNormInferenceJobCommand = async (
   input: StopRxNormInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StopRxNormInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopRxNormInferenceJob");
   let body: any;
   body = JSON.stringify(se_StopRxNormInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,10 +522,7 @@ export const se_StopSNOMEDCTInferenceJobCommand = async (
   input: StopSNOMEDCTInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ComprehendMedical_20181030.StopSNOMEDCTInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopSNOMEDCTInferenceJob");
   let body: any;
   body = JSON.stringify(se_StopSNOMEDCTInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3534,6 +3456,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ComprehendMedical_20181030.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

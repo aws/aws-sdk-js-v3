@@ -308,10 +308,7 @@ export const se_AddCustomRoutingEndpointsCommand = async (
   input: AddCustomRoutingEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.AddCustomRoutingEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddCustomRoutingEndpoints");
   let body: any;
   body = JSON.stringify(se_AddCustomRoutingEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -324,10 +321,7 @@ export const se_AddEndpointsCommand = async (
   input: AddEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.AddEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddEndpoints");
   let body: any;
   body = JSON.stringify(se_AddEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -340,10 +334,7 @@ export const se_AdvertiseByoipCidrCommand = async (
   input: AdvertiseByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.AdvertiseByoipCidr",
-  };
+  const headers: __HeaderBag = sharedHeaders("AdvertiseByoipCidr");
   let body: any;
   body = JSON.stringify(se_AdvertiseByoipCidrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -356,10 +347,7 @@ export const se_AllowCustomRoutingTrafficCommand = async (
   input: AllowCustomRoutingTrafficCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllowCustomRoutingTraffic");
   let body: any;
   body = JSON.stringify(se_AllowCustomRoutingTrafficRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -372,10 +360,7 @@ export const se_CreateAcceleratorCommand = async (
   input: CreateAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccelerator");
   let body: any;
   body = JSON.stringify(se_CreateAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -388,10 +373,7 @@ export const se_CreateCustomRoutingAcceleratorCommand = async (
   input: CreateCustomRoutingAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomRoutingAccelerator");
   let body: any;
   body = JSON.stringify(se_CreateCustomRoutingAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -404,10 +386,7 @@ export const se_CreateCustomRoutingEndpointGroupCommand = async (
   input: CreateCustomRoutingEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomRoutingEndpointGroup");
   let body: any;
   body = JSON.stringify(se_CreateCustomRoutingEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -420,10 +399,7 @@ export const se_CreateCustomRoutingListenerCommand = async (
   input: CreateCustomRoutingListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomRoutingListener");
   let body: any;
   body = JSON.stringify(se_CreateCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -436,10 +412,7 @@ export const se_CreateEndpointGroupCommand = async (
   input: CreateEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpointGroup");
   let body: any;
   body = JSON.stringify(se_CreateEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -452,10 +425,7 @@ export const se_CreateListenerCommand = async (
   input: CreateListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.CreateListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateListener");
   let body: any;
   body = JSON.stringify(se_CreateListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -468,10 +438,7 @@ export const se_DeleteAcceleratorCommand = async (
   input: DeleteAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccelerator");
   let body: any;
   body = JSON.stringify(se_DeleteAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -484,10 +451,7 @@ export const se_DeleteCustomRoutingAcceleratorCommand = async (
   input: DeleteCustomRoutingAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingAccelerator");
   let body: any;
   body = JSON.stringify(se_DeleteCustomRoutingAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -500,10 +464,7 @@ export const se_DeleteCustomRoutingEndpointGroupCommand = async (
   input: DeleteCustomRoutingEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingEndpointGroup");
   let body: any;
   body = JSON.stringify(se_DeleteCustomRoutingEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -516,10 +477,7 @@ export const se_DeleteCustomRoutingListenerCommand = async (
   input: DeleteCustomRoutingListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomRoutingListener");
   let body: any;
   body = JSON.stringify(se_DeleteCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -532,10 +490,7 @@ export const se_DeleteEndpointGroupCommand = async (
   input: DeleteEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpointGroup");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -548,10 +503,7 @@ export const se_DeleteListenerCommand = async (
   input: DeleteListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeleteListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteListener");
   let body: any;
   body = JSON.stringify(se_DeleteListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -564,10 +516,7 @@ export const se_DenyCustomRoutingTrafficCommand = async (
   input: DenyCustomRoutingTrafficCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic",
-  };
+  const headers: __HeaderBag = sharedHeaders("DenyCustomRoutingTraffic");
   let body: any;
   body = JSON.stringify(se_DenyCustomRoutingTrafficRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -580,10 +529,7 @@ export const se_DeprovisionByoipCidrCommand = async (
   input: DeprovisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DeprovisionByoipCidr",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprovisionByoipCidr");
   let body: any;
   body = JSON.stringify(se_DeprovisionByoipCidrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -596,10 +542,7 @@ export const se_DescribeAcceleratorCommand = async (
   input: DescribeAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccelerator");
   let body: any;
   body = JSON.stringify(se_DescribeAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -612,10 +555,7 @@ export const se_DescribeAcceleratorAttributesCommand = async (
   input: DescribeAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAcceleratorAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -628,10 +568,7 @@ export const se_DescribeCustomRoutingAcceleratorCommand = async (
   input: DescribeCustomRoutingAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingAccelerator");
   let body: any;
   body = JSON.stringify(se_DescribeCustomRoutingAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -644,10 +581,7 @@ export const se_DescribeCustomRoutingAcceleratorAttributesCommand = async (
   input: DescribeCustomRoutingAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingAcceleratorAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeCustomRoutingAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -660,10 +594,7 @@ export const se_DescribeCustomRoutingEndpointGroupCommand = async (
   input: DescribeCustomRoutingEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingEndpointGroup");
   let body: any;
   body = JSON.stringify(se_DescribeCustomRoutingEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -676,10 +607,7 @@ export const se_DescribeCustomRoutingListenerCommand = async (
   input: DescribeCustomRoutingListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomRoutingListener");
   let body: any;
   body = JSON.stringify(se_DescribeCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -692,10 +620,7 @@ export const se_DescribeEndpointGroupCommand = async (
   input: DescribeEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpointGroup");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -708,10 +633,7 @@ export const se_DescribeListenerCommand = async (
   input: DescribeListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.DescribeListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeListener");
   let body: any;
   body = JSON.stringify(se_DescribeListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -724,10 +646,7 @@ export const se_ListAcceleratorsCommand = async (
   input: ListAcceleratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListAccelerators",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccelerators");
   let body: any;
   body = JSON.stringify(se_ListAcceleratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -740,10 +659,7 @@ export const se_ListByoipCidrsCommand = async (
   input: ListByoipCidrsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListByoipCidrs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListByoipCidrs");
   let body: any;
   body = JSON.stringify(se_ListByoipCidrsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -756,10 +672,7 @@ export const se_ListCustomRoutingAcceleratorsCommand = async (
   input: ListCustomRoutingAcceleratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingAccelerators",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomRoutingAccelerators");
   let body: any;
   body = JSON.stringify(se_ListCustomRoutingAcceleratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -772,10 +685,7 @@ export const se_ListCustomRoutingEndpointGroupsCommand = async (
   input: ListCustomRoutingEndpointGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomRoutingEndpointGroups");
   let body: any;
   body = JSON.stringify(se_ListCustomRoutingEndpointGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -788,10 +698,7 @@ export const se_ListCustomRoutingListenersCommand = async (
   input: ListCustomRoutingListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingListeners",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomRoutingListeners");
   let body: any;
   body = JSON.stringify(se_ListCustomRoutingListenersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -804,10 +711,7 @@ export const se_ListCustomRoutingPortMappingsCommand = async (
   input: ListCustomRoutingPortMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomRoutingPortMappings");
   let body: any;
   body = JSON.stringify(se_ListCustomRoutingPortMappingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -820,10 +724,7 @@ export const se_ListCustomRoutingPortMappingsByDestinationCommand = async (
   input: ListCustomRoutingPortMappingsByDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomRoutingPortMappingsByDestination");
   let body: any;
   body = JSON.stringify(se_ListCustomRoutingPortMappingsByDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -836,10 +737,7 @@ export const se_ListEndpointGroupsCommand = async (
   input: ListEndpointGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListEndpointGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpointGroups");
   let body: any;
   body = JSON.stringify(se_ListEndpointGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -852,10 +750,7 @@ export const se_ListListenersCommand = async (
   input: ListListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListListeners",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListListeners");
   let body: any;
   body = JSON.stringify(se_ListListenersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -868,10 +763,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -884,10 +776,7 @@ export const se_ProvisionByoipCidrCommand = async (
   input: ProvisionByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.ProvisionByoipCidr",
-  };
+  const headers: __HeaderBag = sharedHeaders("ProvisionByoipCidr");
   let body: any;
   body = JSON.stringify(se_ProvisionByoipCidrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -900,10 +789,7 @@ export const se_RemoveCustomRoutingEndpointsCommand = async (
   input: RemoveCustomRoutingEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveCustomRoutingEndpoints");
   let body: any;
   body = JSON.stringify(se_RemoveCustomRoutingEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -916,10 +802,7 @@ export const se_RemoveEndpointsCommand = async (
   input: RemoveEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.RemoveEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveEndpoints");
   let body: any;
   body = JSON.stringify(se_RemoveEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -932,10 +815,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -948,10 +828,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,10 +841,7 @@ export const se_UpdateAcceleratorCommand = async (
   input: UpdateAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccelerator");
   let body: any;
   body = JSON.stringify(se_UpdateAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -980,10 +854,7 @@ export const se_UpdateAcceleratorAttributesCommand = async (
   input: UpdateAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAcceleratorAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -996,10 +867,7 @@ export const se_UpdateCustomRoutingAcceleratorCommand = async (
   input: UpdateCustomRoutingAcceleratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingAccelerator");
   let body: any;
   body = JSON.stringify(se_UpdateCustomRoutingAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1012,10 +880,7 @@ export const se_UpdateCustomRoutingAcceleratorAttributesCommand = async (
   input: UpdateCustomRoutingAcceleratorAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingAcceleratorAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateCustomRoutingAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1028,10 +893,7 @@ export const se_UpdateCustomRoutingListenerCommand = async (
   input: UpdateCustomRoutingListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCustomRoutingListener");
   let body: any;
   body = JSON.stringify(se_UpdateCustomRoutingListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1044,10 +906,7 @@ export const se_UpdateEndpointGroupCommand = async (
   input: UpdateEndpointGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateEndpointGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpointGroup");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1060,10 +919,7 @@ export const se_UpdateListenerCommand = async (
   input: UpdateListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.UpdateListener",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateListener");
   let body: any;
   body = JSON.stringify(se_UpdateListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1076,10 +932,7 @@ export const se_WithdrawByoipCidrCommand = async (
   input: WithdrawByoipCidrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GlobalAccelerator_V20180706.WithdrawByoipCidr",
-  };
+  const headers: __HeaderBag = sharedHeaders("WithdrawByoipCidr");
   let body: any;
   body = JSON.stringify(se_WithdrawByoipCidrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6259,6 +6112,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `GlobalAccelerator_V20180706.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -358,10 +358,7 @@ export const se_AssociateApplicationFleetCommand = async (
   input: AssociateApplicationFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateApplicationFleet");
   let body: any;
   body = JSON.stringify(se_AssociateApplicationFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -374,10 +371,7 @@ export const se_AssociateApplicationToEntitlementCommand = async (
   input: AssociateApplicationToEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateApplicationToEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateApplicationToEntitlement");
   let body: any;
   body = JSON.stringify(se_AssociateApplicationToEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -390,10 +384,7 @@ export const se_AssociateFleetCommand = async (
   input: AssociateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.AssociateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFleet");
   let body: any;
   body = JSON.stringify(se_AssociateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -406,10 +397,7 @@ export const se_BatchAssociateUserStackCommand = async (
   input: BatchAssociateUserStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.BatchAssociateUserStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchAssociateUserStack");
   let body: any;
   body = JSON.stringify(se_BatchAssociateUserStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -422,10 +410,7 @@ export const se_BatchDisassociateUserStackCommand = async (
   input: BatchDisassociateUserStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.BatchDisassociateUserStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDisassociateUserStack");
   let body: any;
   body = JSON.stringify(se_BatchDisassociateUserStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -438,10 +423,7 @@ export const se_CopyImageCommand = async (
   input: CopyImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CopyImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyImage");
   let body: any;
   body = JSON.stringify(se_CopyImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -454,10 +436,7 @@ export const se_CreateAppBlockCommand = async (
   input: CreateAppBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateAppBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAppBlock");
   let body: any;
   body = JSON.stringify(se_CreateAppBlockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -470,10 +449,7 @@ export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
   body = JSON.stringify(se_CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -486,10 +462,7 @@ export const se_CreateDirectoryConfigCommand = async (
   input: CreateDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectoryConfig");
   let body: any;
   body = JSON.stringify(se_CreateDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -502,10 +475,7 @@ export const se_CreateEntitlementCommand = async (
   input: CreateEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEntitlement");
   let body: any;
   body = JSON.stringify(se_CreateEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -518,10 +488,7 @@ export const se_CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleet");
   let body: any;
   body = JSON.stringify(se_CreateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -534,10 +501,7 @@ export const se_CreateImageBuilderCommand = async (
   input: CreateImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImageBuilder");
   let body: any;
   body = JSON.stringify(se_CreateImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -550,10 +514,7 @@ export const se_CreateImageBuilderStreamingURLCommand = async (
   input: CreateImageBuilderStreamingURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImageBuilderStreamingURL");
   let body: any;
   body = JSON.stringify(se_CreateImageBuilderStreamingURLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -566,10 +527,7 @@ export const se_CreateStackCommand = async (
   input: CreateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStack");
   let body: any;
   body = JSON.stringify(se_CreateStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -582,10 +540,7 @@ export const se_CreateStreamingURLCommand = async (
   input: CreateStreamingURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateStreamingURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStreamingURL");
   let body: any;
   body = JSON.stringify(se_CreateStreamingURLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -598,10 +553,7 @@ export const se_CreateUpdatedImageCommand = async (
   input: CreateUpdatedImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUpdatedImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUpdatedImage");
   let body: any;
   body = JSON.stringify(se_CreateUpdatedImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -614,10 +566,7 @@ export const se_CreateUsageReportSubscriptionCommand = async (
   input: CreateUsageReportSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUsageReportSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUsageReportSubscription");
   let body: any;
   body = JSON.stringify(se_CreateUsageReportSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -630,10 +579,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
   body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -646,10 +592,7 @@ export const se_DeleteAppBlockCommand = async (
   input: DeleteAppBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteAppBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppBlock");
   let body: any;
   body = JSON.stringify(se_DeleteAppBlockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -662,10 +605,7 @@ export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -678,10 +618,7 @@ export const se_DeleteDirectoryConfigCommand = async (
   input: DeleteDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectoryConfig");
   let body: any;
   body = JSON.stringify(se_DeleteDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -694,10 +631,7 @@ export const se_DeleteEntitlementCommand = async (
   input: DeleteEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEntitlement");
   let body: any;
   body = JSON.stringify(se_DeleteEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -710,10 +644,7 @@ export const se_DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
   body = JSON.stringify(se_DeleteFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -726,10 +657,7 @@ export const se_DeleteImageCommand = async (
   input: DeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImage");
   let body: any;
   body = JSON.stringify(se_DeleteImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -742,10 +670,7 @@ export const se_DeleteImageBuilderCommand = async (
   input: DeleteImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImageBuilder");
   let body: any;
   body = JSON.stringify(se_DeleteImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -758,10 +683,7 @@ export const se_DeleteImagePermissionsCommand = async (
   input: DeleteImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImagePermissions");
   let body: any;
   body = JSON.stringify(se_DeleteImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -774,10 +696,7 @@ export const se_DeleteStackCommand = async (
   input: DeleteStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStack");
   let body: any;
   body = JSON.stringify(se_DeleteStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -790,10 +709,7 @@ export const se_DeleteUsageReportSubscriptionCommand = async (
   input: DeleteUsageReportSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteUsageReportSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUsageReportSubscription");
   let body: any;
   body = JSON.stringify(se_DeleteUsageReportSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -806,10 +722,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -822,10 +735,7 @@ export const se_DescribeAppBlocksCommand = async (
   input: DescribeAppBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeAppBlocks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAppBlocks");
   let body: any;
   body = JSON.stringify(se_DescribeAppBlocksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -838,10 +748,7 @@ export const se_DescribeApplicationFleetAssociationsCommand = async (
   input: DescribeApplicationFleetAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeApplicationFleetAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationFleetAssociations");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationFleetAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -854,10 +761,7 @@ export const se_DescribeApplicationsCommand = async (
   input: DescribeApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplications");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -870,10 +774,7 @@ export const se_DescribeDirectoryConfigsCommand = async (
   input: DescribeDirectoryConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectoryConfigs");
   let body: any;
   body = JSON.stringify(se_DescribeDirectoryConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -886,10 +787,7 @@ export const se_DescribeEntitlementsCommand = async (
   input: DescribeEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeEntitlements",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntitlements");
   let body: any;
   body = JSON.stringify(se_DescribeEntitlementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -902,10 +800,7 @@ export const se_DescribeFleetsCommand = async (
   input: DescribeFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleets");
   let body: any;
   body = JSON.stringify(se_DescribeFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -918,10 +813,7 @@ export const se_DescribeImageBuildersCommand = async (
   input: DescribeImageBuildersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImageBuilders",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageBuilders");
   let body: any;
   body = JSON.stringify(se_DescribeImageBuildersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -934,10 +826,7 @@ export const se_DescribeImagePermissionsCommand = async (
   input: DescribeImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImagePermissions");
   let body: any;
   body = JSON.stringify(se_DescribeImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -950,10 +839,7 @@ export const se_DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
   body = JSON.stringify(se_DescribeImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -966,10 +852,7 @@ export const se_DescribeSessionsCommand = async (
   input: DescribeSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSessions");
   let body: any;
   body = JSON.stringify(se_DescribeSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -982,10 +865,7 @@ export const se_DescribeStacksCommand = async (
   input: DescribeStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeStacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStacks");
   let body: any;
   body = JSON.stringify(se_DescribeStacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -998,10 +878,7 @@ export const se_DescribeUsageReportSubscriptionsCommand = async (
   input: DescribeUsageReportSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUsageReportSubscriptions");
   let body: any;
   body = JSON.stringify(se_DescribeUsageReportSubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1014,10 +891,7 @@ export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUsers");
   let body: any;
   body = JSON.stringify(se_DescribeUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1030,10 +904,7 @@ export const se_DescribeUserStackAssociationsCommand = async (
   input: DescribeUserStackAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DescribeUserStackAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserStackAssociations");
   let body: any;
   body = JSON.stringify(se_DescribeUserStackAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1046,10 +917,7 @@ export const se_DisableUserCommand = async (
   input: DisableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableUser");
   let body: any;
   body = JSON.stringify(se_DisableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1062,10 +930,7 @@ export const se_DisassociateApplicationFleetCommand = async (
   input: DisassociateApplicationFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateApplicationFleet");
   let body: any;
   body = JSON.stringify(se_DisassociateApplicationFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1078,10 +943,7 @@ export const se_DisassociateApplicationFromEntitlementCommand = async (
   input: DisassociateApplicationFromEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateApplicationFromEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateApplicationFromEntitlement");
   let body: any;
   body = JSON.stringify(se_DisassociateApplicationFromEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1094,10 +956,7 @@ export const se_DisassociateFleetCommand = async (
   input: DisassociateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.DisassociateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateFleet");
   let body: any;
   body = JSON.stringify(se_DisassociateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1110,10 +969,7 @@ export const se_EnableUserCommand = async (
   input: EnableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.EnableUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableUser");
   let body: any;
   body = JSON.stringify(se_EnableUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1126,10 +982,7 @@ export const se_ExpireSessionCommand = async (
   input: ExpireSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ExpireSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExpireSession");
   let body: any;
   body = JSON.stringify(se_ExpireSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1142,10 +995,7 @@ export const se_ListAssociatedFleetsCommand = async (
   input: ListAssociatedFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListAssociatedFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociatedFleets");
   let body: any;
   body = JSON.stringify(se_ListAssociatedFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1158,10 +1008,7 @@ export const se_ListAssociatedStacksCommand = async (
   input: ListAssociatedStacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListAssociatedStacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociatedStacks");
   let body: any;
   body = JSON.stringify(se_ListAssociatedStacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1174,10 +1021,7 @@ export const se_ListEntitledApplicationsCommand = async (
   input: ListEntitledApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListEntitledApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntitledApplications");
   let body: any;
   body = JSON.stringify(se_ListEntitledApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1190,10 +1034,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1206,10 +1047,7 @@ export const se_StartFleetCommand = async (
   input: StartFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StartFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFleet");
   let body: any;
   body = JSON.stringify(se_StartFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1222,10 +1060,7 @@ export const se_StartImageBuilderCommand = async (
   input: StartImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StartImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImageBuilder");
   let body: any;
   body = JSON.stringify(se_StartImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1238,10 +1073,7 @@ export const se_StopFleetCommand = async (
   input: StopFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StopFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopFleet");
   let body: any;
   body = JSON.stringify(se_StopFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1254,10 +1086,7 @@ export const se_StopImageBuilderCommand = async (
   input: StopImageBuilderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.StopImageBuilder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopImageBuilder");
   let body: any;
   body = JSON.stringify(se_StopImageBuilderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1270,10 +1099,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1286,10 +1112,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1302,10 +1125,7 @@ export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1318,10 +1138,7 @@ export const se_UpdateDirectoryConfigCommand = async (
   input: UpdateDirectoryConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateDirectoryConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDirectoryConfig");
   let body: any;
   body = JSON.stringify(se_UpdateDirectoryConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1334,10 +1151,7 @@ export const se_UpdateEntitlementCommand = async (
   input: UpdateEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateEntitlement",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEntitlement");
   let body: any;
   body = JSON.stringify(se_UpdateEntitlementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1350,10 +1164,7 @@ export const se_UpdateFleetCommand = async (
   input: UpdateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleet");
   let body: any;
   body = JSON.stringify(se_UpdateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1366,10 +1177,7 @@ export const se_UpdateImagePermissionsCommand = async (
   input: UpdateImagePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateImagePermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateImagePermissions");
   let body: any;
   body = JSON.stringify(se_UpdateImagePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1382,10 +1190,7 @@ export const se_UpdateStackCommand = async (
   input: UpdateStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PhotonAdminProxyService.UpdateStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStack");
   let body: any;
   body = JSON.stringify(se_UpdateStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8264,6 +8069,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `PhotonAdminProxyService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

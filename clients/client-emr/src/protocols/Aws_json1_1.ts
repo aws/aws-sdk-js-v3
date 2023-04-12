@@ -376,10 +376,7 @@ export const se_AddInstanceFleetCommand = async (
   input: AddInstanceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.AddInstanceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddInstanceFleet");
   let body: any;
   body = JSON.stringify(se_AddInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,10 +389,7 @@ export const se_AddInstanceGroupsCommand = async (
   input: AddInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.AddInstanceGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddInstanceGroups");
   let body: any;
   body = JSON.stringify(se_AddInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +402,7 @@ export const se_AddJobFlowStepsCommand = async (
   input: AddJobFlowStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.AddJobFlowSteps",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddJobFlowSteps");
   let body: any;
   body = JSON.stringify(se_AddJobFlowStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +415,7 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.AddTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
   body = JSON.stringify(se_AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +428,7 @@ export const se_CancelStepsCommand = async (
   input: CancelStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.CancelSteps",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelSteps");
   let body: any;
   body = JSON.stringify(se_CancelStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +441,7 @@ export const se_CreateSecurityConfigurationCommand = async (
   input: CreateSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.CreateSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +454,7 @@ export const se_CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.CreateStudio",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStudio");
   let body: any;
   body = JSON.stringify(se_CreateStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,10 +467,7 @@ export const se_CreateStudioSessionMappingCommand = async (
   input: CreateStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.CreateStudioSessionMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStudioSessionMapping");
   let body: any;
   body = JSON.stringify(se_CreateStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,10 +480,7 @@ export const se_DeleteSecurityConfigurationCommand = async (
   input: DeleteSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DeleteSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -520,10 +493,7 @@ export const se_DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DeleteStudio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStudio");
   let body: any;
   body = JSON.stringify(se_DeleteStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -536,10 +506,7 @@ export const se_DeleteStudioSessionMappingCommand = async (
   input: DeleteStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DeleteStudioSessionMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStudioSessionMapping");
   let body: any;
   body = JSON.stringify(se_DeleteStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,10 +519,7 @@ export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCluster");
   let body: any;
   body = JSON.stringify(se_DescribeClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -568,10 +532,7 @@ export const se_DescribeJobFlowsCommand = async (
   input: DescribeJobFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeJobFlows",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeJobFlows");
   let body: any;
   body = JSON.stringify(se_DescribeJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,10 +545,7 @@ export const se_DescribeNotebookExecutionCommand = async (
   input: DescribeNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeNotebookExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNotebookExecution");
   let body: any;
   body = JSON.stringify(se_DescribeNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -600,10 +558,7 @@ export const se_DescribeReleaseLabelCommand = async (
   input: DescribeReleaseLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeReleaseLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReleaseLabel");
   let body: any;
   body = JSON.stringify(se_DescribeReleaseLabelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,10 +571,7 @@ export const se_DescribeSecurityConfigurationCommand = async (
   input: DescribeSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +584,7 @@ export const se_DescribeStepCommand = async (
   input: DescribeStepCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeStep",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStep");
   let body: any;
   body = JSON.stringify(se_DescribeStepInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -648,10 +597,7 @@ export const se_DescribeStudioCommand = async (
   input: DescribeStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.DescribeStudio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStudio");
   let body: any;
   body = JSON.stringify(se_DescribeStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -664,10 +610,7 @@ export const se_GetAutoTerminationPolicyCommand = async (
   input: GetAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.GetAutoTerminationPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAutoTerminationPolicy");
   let body: any;
   body = JSON.stringify(se_GetAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -680,10 +623,7 @@ export const se_GetBlockPublicAccessConfigurationCommand = async (
   input: GetBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.GetBlockPublicAccessConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlockPublicAccessConfiguration");
   let body: any;
   body = JSON.stringify(se_GetBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -696,10 +636,7 @@ export const se_GetClusterSessionCredentialsCommand = async (
   input: GetClusterSessionCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.GetClusterSessionCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetClusterSessionCredentials");
   let body: any;
   body = JSON.stringify(se_GetClusterSessionCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,10 +649,7 @@ export const se_GetManagedScalingPolicyCommand = async (
   input: GetManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.GetManagedScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetManagedScalingPolicy");
   let body: any;
   body = JSON.stringify(se_GetManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -728,10 +662,7 @@ export const se_GetStudioSessionMappingCommand = async (
   input: GetStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.GetStudioSessionMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStudioSessionMapping");
   let body: any;
   body = JSON.stringify(se_GetStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,10 +675,7 @@ export const se_ListBootstrapActionsCommand = async (
   input: ListBootstrapActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListBootstrapActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBootstrapActions");
   let body: any;
   body = JSON.stringify(se_ListBootstrapActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -760,10 +688,7 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListClusters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListClusters");
   let body: any;
   body = JSON.stringify(se_ListClustersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -776,10 +701,7 @@ export const se_ListInstanceFleetsCommand = async (
   input: ListInstanceFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListInstanceFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstanceFleets");
   let body: any;
   body = JSON.stringify(se_ListInstanceFleetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -792,10 +714,7 @@ export const se_ListInstanceGroupsCommand = async (
   input: ListInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListInstanceGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstanceGroups");
   let body: any;
   body = JSON.stringify(se_ListInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -808,10 +727,7 @@ export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
   body = JSON.stringify(se_ListInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -824,10 +740,7 @@ export const se_ListNotebookExecutionsCommand = async (
   input: ListNotebookExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListNotebookExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNotebookExecutions");
   let body: any;
   body = JSON.stringify(se_ListNotebookExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -840,10 +753,7 @@ export const se_ListReleaseLabelsCommand = async (
   input: ListReleaseLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListReleaseLabels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReleaseLabels");
   let body: any;
   body = JSON.stringify(se_ListReleaseLabelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -856,10 +766,7 @@ export const se_ListSecurityConfigurationsCommand = async (
   input: ListSecurityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListSecurityConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecurityConfigurations");
   let body: any;
   body = JSON.stringify(se_ListSecurityConfigurationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,10 +779,7 @@ export const se_ListStepsCommand = async (
   input: ListStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListSteps",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSteps");
   let body: any;
   body = JSON.stringify(se_ListStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -888,10 +792,7 @@ export const se_ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListStudios",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStudios");
   let body: any;
   body = JSON.stringify(se_ListStudiosInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -904,10 +805,7 @@ export const se_ListStudioSessionMappingsCommand = async (
   input: ListStudioSessionMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ListStudioSessionMappings",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStudioSessionMappings");
   let body: any;
   body = JSON.stringify(se_ListStudioSessionMappingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -920,10 +818,7 @@ export const se_ModifyClusterCommand = async (
   input: ModifyClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ModifyCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyCluster");
   let body: any;
   body = JSON.stringify(se_ModifyClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -936,10 +831,7 @@ export const se_ModifyInstanceFleetCommand = async (
   input: ModifyInstanceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ModifyInstanceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyInstanceFleet");
   let body: any;
   body = JSON.stringify(se_ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -952,10 +844,7 @@ export const se_ModifyInstanceGroupsCommand = async (
   input: ModifyInstanceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.ModifyInstanceGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyInstanceGroups");
   let body: any;
   body = JSON.stringify(se_ModifyInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -968,10 +857,7 @@ export const se_PutAutoScalingPolicyCommand = async (
   input: PutAutoScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.PutAutoScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAutoScalingPolicy");
   let body: any;
   body = JSON.stringify(se_PutAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -984,10 +870,7 @@ export const se_PutAutoTerminationPolicyCommand = async (
   input: PutAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.PutAutoTerminationPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAutoTerminationPolicy");
   let body: any;
   body = JSON.stringify(se_PutAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1000,10 +883,7 @@ export const se_PutBlockPublicAccessConfigurationCommand = async (
   input: PutBlockPublicAccessConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.PutBlockPublicAccessConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutBlockPublicAccessConfiguration");
   let body: any;
   body = JSON.stringify(se_PutBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1016,10 +896,7 @@ export const se_PutManagedScalingPolicyCommand = async (
   input: PutManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.PutManagedScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutManagedScalingPolicy");
   let body: any;
   body = JSON.stringify(se_PutManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1032,10 +909,7 @@ export const se_RemoveAutoScalingPolicyCommand = async (
   input: RemoveAutoScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.RemoveAutoScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveAutoScalingPolicy");
   let body: any;
   body = JSON.stringify(se_RemoveAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1048,10 +922,7 @@ export const se_RemoveAutoTerminationPolicyCommand = async (
   input: RemoveAutoTerminationPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.RemoveAutoTerminationPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveAutoTerminationPolicy");
   let body: any;
   body = JSON.stringify(se_RemoveAutoTerminationPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1064,10 +935,7 @@ export const se_RemoveManagedScalingPolicyCommand = async (
   input: RemoveManagedScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.RemoveManagedScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveManagedScalingPolicy");
   let body: any;
   body = JSON.stringify(se_RemoveManagedScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1080,10 +948,7 @@ export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.RemoveTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTags");
   let body: any;
   body = JSON.stringify(se_RemoveTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1096,10 +961,7 @@ export const se_RunJobFlowCommand = async (
   input: RunJobFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.RunJobFlow",
-  };
+  const headers: __HeaderBag = sharedHeaders("RunJobFlow");
   let body: any;
   body = JSON.stringify(se_RunJobFlowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1112,10 +974,7 @@ export const se_SetTerminationProtectionCommand = async (
   input: SetTerminationProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.SetTerminationProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetTerminationProtection");
   let body: any;
   body = JSON.stringify(se_SetTerminationProtectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1128,10 +987,7 @@ export const se_SetVisibleToAllUsersCommand = async (
   input: SetVisibleToAllUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.SetVisibleToAllUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetVisibleToAllUsers");
   let body: any;
   body = JSON.stringify(se_SetVisibleToAllUsersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1144,10 +1000,7 @@ export const se_StartNotebookExecutionCommand = async (
   input: StartNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.StartNotebookExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartNotebookExecution");
   let body: any;
   body = JSON.stringify(se_StartNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1160,10 +1013,7 @@ export const se_StopNotebookExecutionCommand = async (
   input: StopNotebookExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.StopNotebookExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopNotebookExecution");
   let body: any;
   body = JSON.stringify(se_StopNotebookExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1176,10 +1026,7 @@ export const se_TerminateJobFlowsCommand = async (
   input: TerminateJobFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.TerminateJobFlows",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateJobFlows");
   let body: any;
   body = JSON.stringify(se_TerminateJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1192,10 +1039,7 @@ export const se_UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.UpdateStudio",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStudio");
   let body: any;
   body = JSON.stringify(se_UpdateStudioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1208,10 +1052,7 @@ export const se_UpdateStudioSessionMappingCommand = async (
   input: UpdateStudioSessionMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ElasticMapReduce.UpdateStudioSessionMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStudioSessionMapping");
   let body: any;
   body = JSON.stringify(se_UpdateStudioSessionMappingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7756,6 +7597,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ElasticMapReduce.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

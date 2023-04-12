@@ -72,10 +72,7 @@ export const se_DescribeReportCreationCommand = async (
   input: DescribeReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReportCreation");
   let body: any;
   body = JSON.stringify(se_DescribeReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -88,10 +85,7 @@ export const se_GetComplianceSummaryCommand = async (
   input: GetComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceSummary");
   let body: any;
   body = JSON.stringify(se_GetComplianceSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -104,10 +98,7 @@ export const se_GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResources");
   let body: any;
   body = JSON.stringify(se_GetResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -120,10 +111,7 @@ export const se_GetTagKeysCommand = async (
   input: GetTagKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetTagKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTagKeys");
   let body: any;
   body = JSON.stringify(se_GetTagKeysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -136,10 +124,7 @@ export const se_GetTagValuesCommand = async (
   input: GetTagValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetTagValues",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTagValues");
   let body: any;
   body = JSON.stringify(se_GetTagValuesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -152,10 +137,7 @@ export const se_StartReportCreationCommand = async (
   input: StartReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartReportCreation");
   let body: any;
   body = JSON.stringify(se_StartReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -168,10 +150,7 @@ export const se_TagResourcesCommand = async (
   input: TagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.TagResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResources");
   let body: any;
   body = JSON.stringify(se_TagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,10 +163,7 @@ export const se_UntagResourcesCommand = async (
   input: UntagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ResourceGroupsTaggingAPI_20170126.UntagResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResources");
   let body: any;
   body = JSON.stringify(se_UntagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1285,6 +1261,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ResourceGroupsTaggingAPI_20170126.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

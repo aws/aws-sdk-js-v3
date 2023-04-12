@@ -188,10 +188,7 @@ export const se_CreateHttpNamespaceCommand = async (
   input: CreateHttpNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreateHttpNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHttpNamespace");
   let body: any;
   body = JSON.stringify(se_CreateHttpNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -204,10 +201,7 @@ export const se_CreatePrivateDnsNamespaceCommand = async (
   input: CreatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePrivateDnsNamespace");
   let body: any;
   body = JSON.stringify(se_CreatePrivateDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -220,10 +214,7 @@ export const se_CreatePublicDnsNamespaceCommand = async (
   input: CreatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreatePublicDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePublicDnsNamespace");
   let body: any;
   body = JSON.stringify(se_CreatePublicDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -236,10 +227,7 @@ export const se_CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.CreateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
   body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -252,10 +240,7 @@ export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeleteNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
   body = JSON.stringify(se_DeleteNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -268,10 +253,7 @@ export const se_DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeleteService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
   body = JSON.stringify(se_DeleteServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -284,10 +266,7 @@ export const se_DeregisterInstanceCommand = async (
   input: DeregisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DeregisterInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterInstance");
   let body: any;
   body = JSON.stringify(se_DeregisterInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -300,10 +279,7 @@ export const se_DiscoverInstancesCommand = async (
   input: DiscoverInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.DiscoverInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DiscoverInstances");
   let body: any;
   body = JSON.stringify(se_DiscoverInstancesRequest(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -323,10 +299,7 @@ export const se_GetInstanceCommand = async (
   input: GetInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstance");
   let body: any;
   body = JSON.stringify(se_GetInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,10 +312,7 @@ export const se_GetInstancesHealthStatusCommand = async (
   input: GetInstancesHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetInstancesHealthStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstancesHealthStatus");
   let body: any;
   body = JSON.stringify(se_GetInstancesHealthStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -355,10 +325,7 @@ export const se_GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamespace");
   let body: any;
   body = JSON.stringify(se_GetNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -371,10 +338,7 @@ export const se_GetOperationCommand = async (
   input: GetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperation");
   let body: any;
   body = JSON.stringify(se_GetOperationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +351,7 @@ export const se_GetServiceCommand = async (
   input: GetServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.GetService",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetService");
   let body: any;
   body = JSON.stringify(se_GetServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +364,7 @@ export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
   body = JSON.stringify(se_ListInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +377,7 @@ export const se_ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListNamespaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNamespaces");
   let body: any;
   body = JSON.stringify(se_ListNamespacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +390,7 @@ export const se_ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOperations");
   let body: any;
   body = JSON.stringify(se_ListOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +403,7 @@ export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
   body = JSON.stringify(se_ListServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +416,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +429,7 @@ export const se_RegisterInstanceCommand = async (
   input: RegisterInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.RegisterInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterInstance");
   let body: any;
   body = JSON.stringify(se_RegisterInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +442,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +455,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +468,7 @@ export const se_UpdateHttpNamespaceCommand = async (
   input: UpdateHttpNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateHttpNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHttpNamespace");
   let body: any;
   body = JSON.stringify(se_UpdateHttpNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +481,7 @@ export const se_UpdateInstanceCustomHealthStatusCommand = async (
   input: UpdateInstanceCustomHealthStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInstanceCustomHealthStatus");
   let body: any;
   body = JSON.stringify(se_UpdateInstanceCustomHealthStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +494,7 @@ export const se_UpdatePrivateDnsNamespaceCommand = async (
   input: UpdatePrivateDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePrivateDnsNamespace");
   let body: any;
   body = JSON.stringify(se_UpdatePrivateDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +507,7 @@ export const se_UpdatePublicDnsNamespaceCommand = async (
   input: UpdatePublicDnsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdatePublicDnsNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePublicDnsNamespace");
   let body: any;
   body = JSON.stringify(se_UpdatePublicDnsNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +520,7 @@ export const se_UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53AutoNaming_v20170314.UpdateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
   body = JSON.stringify(se_UpdateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3628,6 +3550,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Route53AutoNaming_v20170314.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

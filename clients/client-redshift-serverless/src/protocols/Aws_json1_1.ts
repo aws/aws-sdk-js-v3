@@ -209,10 +209,7 @@ export const se_ConvertRecoveryPointToSnapshotCommand = async (
   input: ConvertRecoveryPointToSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ConvertRecoveryPointToSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConvertRecoveryPointToSnapshot");
   let body: any;
   body = JSON.stringify(se_ConvertRecoveryPointToSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -225,10 +222,7 @@ export const se_CreateEndpointAccessCommand = async (
   input: CreateEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpointAccess");
   let body: any;
   body = JSON.stringify(se_CreateEndpointAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -241,10 +235,7 @@ export const se_CreateNamespaceCommand = async (
   input: CreateNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNamespace");
   let body: any;
   body = JSON.stringify(se_CreateNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,10 +248,7 @@ export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +261,7 @@ export const se_CreateUsageLimitCommand = async (
   input: CreateUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUsageLimit");
   let body: any;
   body = JSON.stringify(se_CreateUsageLimitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +274,7 @@ export const se_CreateWorkgroupCommand = async (
   input: CreateWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.CreateWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkgroup");
   let body: any;
   body = JSON.stringify(se_CreateWorkgroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +287,7 @@ export const se_DeleteEndpointAccessCommand = async (
   input: DeleteEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpointAccess");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +300,7 @@ export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
   body = JSON.stringify(se_DeleteNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +313,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +326,7 @@ export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +339,7 @@ export const se_DeleteUsageLimitCommand = async (
   input: DeleteUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUsageLimit");
   let body: any;
   body = JSON.stringify(se_DeleteUsageLimitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +352,7 @@ export const se_DeleteWorkgroupCommand = async (
   input: DeleteWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.DeleteWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkgroup");
   let body: any;
   body = JSON.stringify(se_DeleteWorkgroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +365,7 @@ export const se_GetCredentialsCommand = async (
   input: GetCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCredentials");
   let body: any;
   body = JSON.stringify(se_GetCredentialsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,10 +378,7 @@ export const se_GetEndpointAccessCommand = async (
   input: GetEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEndpointAccess");
   let body: any;
   body = JSON.stringify(se_GetEndpointAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +391,7 @@ export const se_GetNamespaceCommand = async (
   input: GetNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamespace");
   let body: any;
   body = JSON.stringify(se_GetNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -449,10 +404,7 @@ export const se_GetRecoveryPointCommand = async (
   input: GetRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetRecoveryPoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecoveryPoint");
   let body: any;
   body = JSON.stringify(se_GetRecoveryPointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,10 +417,7 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
   body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -481,10 +430,7 @@ export const se_GetSnapshotCommand = async (
   input: GetSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSnapshot");
   let body: any;
   body = JSON.stringify(se_GetSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,10 +443,7 @@ export const se_GetTableRestoreStatusCommand = async (
   input: GetTableRestoreStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetTableRestoreStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTableRestoreStatus");
   let body: any;
   body = JSON.stringify(se_GetTableRestoreStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +456,7 @@ export const se_GetUsageLimitCommand = async (
   input: GetUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUsageLimit");
   let body: any;
   body = JSON.stringify(se_GetUsageLimitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +469,7 @@ export const se_GetWorkgroupCommand = async (
   input: GetWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.GetWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkgroup");
   let body: any;
   body = JSON.stringify(se_GetWorkgroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -545,10 +482,7 @@ export const se_ListEndpointAccessCommand = async (
   input: ListEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpointAccess");
   let body: any;
   body = JSON.stringify(se_ListEndpointAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,10 +495,7 @@ export const se_ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListNamespaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNamespaces");
   let body: any;
   body = JSON.stringify(se_ListNamespacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -577,10 +508,7 @@ export const se_ListRecoveryPointsCommand = async (
   input: ListRecoveryPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListRecoveryPoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecoveryPoints");
   let body: any;
   body = JSON.stringify(se_ListRecoveryPointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -593,10 +521,7 @@ export const se_ListSnapshotsCommand = async (
   input: ListSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSnapshots");
   let body: any;
   body = JSON.stringify(se_ListSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -609,10 +534,7 @@ export const se_ListTableRestoreStatusCommand = async (
   input: ListTableRestoreStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListTableRestoreStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTableRestoreStatus");
   let body: any;
   body = JSON.stringify(se_ListTableRestoreStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -625,10 +547,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -641,10 +560,7 @@ export const se_ListUsageLimitsCommand = async (
   input: ListUsageLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListUsageLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsageLimits");
   let body: any;
   body = JSON.stringify(se_ListUsageLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -657,10 +573,7 @@ export const se_ListWorkgroupsCommand = async (
   input: ListWorkgroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.ListWorkgroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkgroups");
   let body: any;
   body = JSON.stringify(se_ListWorkgroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -673,10 +586,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -689,10 +599,7 @@ export const se_RestoreFromRecoveryPointCommand = async (
   input: RestoreFromRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreFromRecoveryPoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreFromRecoveryPoint");
   let body: any;
   body = JSON.stringify(se_RestoreFromRecoveryPointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,10 +612,7 @@ export const se_RestoreFromSnapshotCommand = async (
   input: RestoreFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreFromSnapshot");
   let body: any;
   body = JSON.stringify(se_RestoreFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -721,10 +625,7 @@ export const se_RestoreTableFromSnapshotCommand = async (
   input: RestoreTableFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.RestoreTableFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreTableFromSnapshot");
   let body: any;
   body = JSON.stringify(se_RestoreTableFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -737,10 +638,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -753,10 +651,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -769,10 +664,7 @@ export const se_UpdateEndpointAccessCommand = async (
   input: UpdateEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateEndpointAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpointAccess");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -785,10 +677,7 @@ export const se_UpdateNamespaceCommand = async (
   input: UpdateNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNamespace");
   let body: any;
   body = JSON.stringify(se_UpdateNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -801,10 +690,7 @@ export const se_UpdateSnapshotCommand = async (
   input: UpdateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSnapshot");
   let body: any;
   body = JSON.stringify(se_UpdateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -817,10 +703,7 @@ export const se_UpdateUsageLimitCommand = async (
   input: UpdateUsageLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateUsageLimit",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUsageLimit");
   let body: any;
   body = JSON.stringify(se_UpdateUsageLimitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -833,10 +716,7 @@ export const se_UpdateWorkgroupCommand = async (
   input: UpdateWorkgroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftServerless.UpdateWorkgroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkgroup");
   let body: any;
   body = JSON.stringify(se_UpdateWorkgroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4828,6 +4708,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `RedshiftServerless.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

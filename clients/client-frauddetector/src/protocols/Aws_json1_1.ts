@@ -390,10 +390,7 @@ export const se_BatchCreateVariableCommand = async (
   input: BatchCreateVariableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.BatchCreateVariable",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCreateVariable");
   let body: any;
   body = JSON.stringify(se_BatchCreateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -406,10 +403,7 @@ export const se_BatchGetVariableCommand = async (
   input: BatchGetVariableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.BatchGetVariable",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetVariable");
   let body: any;
   body = JSON.stringify(se_BatchGetVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -422,10 +416,7 @@ export const se_CancelBatchImportJobCommand = async (
   input: CancelBatchImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CancelBatchImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelBatchImportJob");
   let body: any;
   body = JSON.stringify(se_CancelBatchImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -438,10 +429,7 @@ export const se_CancelBatchPredictionJobCommand = async (
   input: CancelBatchPredictionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CancelBatchPredictionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelBatchPredictionJob");
   let body: any;
   body = JSON.stringify(se_CancelBatchPredictionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -454,10 +442,7 @@ export const se_CreateBatchImportJobCommand = async (
   input: CreateBatchImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateBatchImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchImportJob");
   let body: any;
   body = JSON.stringify(se_CreateBatchImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -470,10 +455,7 @@ export const se_CreateBatchPredictionJobCommand = async (
   input: CreateBatchPredictionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateBatchPredictionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchPredictionJob");
   let body: any;
   body = JSON.stringify(se_CreateBatchPredictionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -486,10 +468,7 @@ export const se_CreateDetectorVersionCommand = async (
   input: CreateDetectorVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateDetectorVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDetectorVersion");
   let body: any;
   body = JSON.stringify(se_CreateDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -502,10 +481,7 @@ export const se_CreateListCommand = async (
   input: CreateListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateList",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateList");
   let body: any;
   body = JSON.stringify(se_CreateListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -518,10 +494,7 @@ export const se_CreateModelCommand = async (
   input: CreateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModel");
   let body: any;
   body = JSON.stringify(se_CreateModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -534,10 +507,7 @@ export const se_CreateModelVersionCommand = async (
   input: CreateModelVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateModelVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelVersion");
   let body: any;
   body = JSON.stringify(se_CreateModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -550,10 +520,7 @@ export const se_CreateRuleCommand = async (
   input: CreateRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRule");
   let body: any;
   body = JSON.stringify(se_CreateRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -566,10 +533,7 @@ export const se_CreateVariableCommand = async (
   input: CreateVariableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.CreateVariable",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVariable");
   let body: any;
   body = JSON.stringify(se_CreateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -582,10 +546,7 @@ export const se_DeleteBatchImportJobCommand = async (
   input: DeleteBatchImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteBatchImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBatchImportJob");
   let body: any;
   body = JSON.stringify(se_DeleteBatchImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -598,10 +559,7 @@ export const se_DeleteBatchPredictionJobCommand = async (
   input: DeleteBatchPredictionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteBatchPredictionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBatchPredictionJob");
   let body: any;
   body = JSON.stringify(se_DeleteBatchPredictionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -614,10 +572,7 @@ export const se_DeleteDetectorCommand = async (
   input: DeleteDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteDetector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDetector");
   let body: any;
   body = JSON.stringify(se_DeleteDetectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -630,10 +585,7 @@ export const se_DeleteDetectorVersionCommand = async (
   input: DeleteDetectorVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteDetectorVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDetectorVersion");
   let body: any;
   body = JSON.stringify(se_DeleteDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -646,10 +598,7 @@ export const se_DeleteEntityTypeCommand = async (
   input: DeleteEntityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEntityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEntityType");
   let body: any;
   body = JSON.stringify(se_DeleteEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -662,10 +611,7 @@ export const se_DeleteEventCommand = async (
   input: DeleteEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEvent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEvent");
   let body: any;
   body = JSON.stringify(se_DeleteEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -678,10 +624,7 @@ export const se_DeleteEventsByEventTypeCommand = async (
   input: DeleteEventsByEventTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEventsByEventType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventsByEventType");
   let body: any;
   body = JSON.stringify(se_DeleteEventsByEventTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -694,10 +637,7 @@ export const se_DeleteEventTypeCommand = async (
   input: DeleteEventTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEventType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventType");
   let body: any;
   body = JSON.stringify(se_DeleteEventTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -710,10 +650,7 @@ export const se_DeleteExternalModelCommand = async (
   input: DeleteExternalModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteExternalModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteExternalModel");
   let body: any;
   body = JSON.stringify(se_DeleteExternalModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -726,10 +663,7 @@ export const se_DeleteLabelCommand = async (
   input: DeleteLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLabel");
   let body: any;
   body = JSON.stringify(se_DeleteLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -742,10 +676,7 @@ export const se_DeleteListCommand = async (
   input: DeleteListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteList");
   let body: any;
   body = JSON.stringify(se_DeleteListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -758,10 +689,7 @@ export const se_DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModel");
   let body: any;
   body = JSON.stringify(se_DeleteModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -774,10 +702,7 @@ export const se_DeleteModelVersionCommand = async (
   input: DeleteModelVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteModelVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelVersion");
   let body: any;
   body = JSON.stringify(se_DeleteModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -790,10 +715,7 @@ export const se_DeleteOutcomeCommand = async (
   input: DeleteOutcomeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteOutcome",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOutcome");
   let body: any;
   body = JSON.stringify(se_DeleteOutcomeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -806,10 +728,7 @@ export const se_DeleteRuleCommand = async (
   input: DeleteRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRule");
   let body: any;
   body = JSON.stringify(se_DeleteRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -822,10 +741,7 @@ export const se_DeleteVariableCommand = async (
   input: DeleteVariableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DeleteVariable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVariable");
   let body: any;
   body = JSON.stringify(se_DeleteVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -838,10 +754,7 @@ export const se_DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DescribeDetector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDetector");
   let body: any;
   body = JSON.stringify(se_DescribeDetectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -854,10 +767,7 @@ export const se_DescribeModelVersionsCommand = async (
   input: DescribeModelVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.DescribeModelVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelVersions");
   let body: any;
   body = JSON.stringify(se_DescribeModelVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -870,10 +780,7 @@ export const se_GetBatchImportJobsCommand = async (
   input: GetBatchImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetBatchImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBatchImportJobs");
   let body: any;
   body = JSON.stringify(se_GetBatchImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -886,10 +793,7 @@ export const se_GetBatchPredictionJobsCommand = async (
   input: GetBatchPredictionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetBatchPredictionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBatchPredictionJobs");
   let body: any;
   body = JSON.stringify(se_GetBatchPredictionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -902,10 +806,7 @@ export const se_GetDeleteEventsByEventTypeStatusCommand = async (
   input: GetDeleteEventsByEventTypeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDeleteEventsByEventTypeStatus");
   let body: any;
   body = JSON.stringify(se_GetDeleteEventsByEventTypeStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -918,10 +819,7 @@ export const se_GetDetectorsCommand = async (
   input: GetDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetDetectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDetectors");
   let body: any;
   body = JSON.stringify(se_GetDetectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -934,10 +832,7 @@ export const se_GetDetectorVersionCommand = async (
   input: GetDetectorVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetDetectorVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDetectorVersion");
   let body: any;
   body = JSON.stringify(se_GetDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -950,10 +845,7 @@ export const se_GetEntityTypesCommand = async (
   input: GetEntityTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetEntityTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEntityTypes");
   let body: any;
   body = JSON.stringify(se_GetEntityTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -966,10 +858,7 @@ export const se_GetEventCommand = async (
   input: GetEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetEvent",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEvent");
   let body: any;
   body = JSON.stringify(se_GetEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -982,10 +871,7 @@ export const se_GetEventPredictionCommand = async (
   input: GetEventPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetEventPrediction",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEventPrediction");
   let body: any;
   body = JSON.stringify(se_GetEventPredictionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -998,10 +884,7 @@ export const se_GetEventPredictionMetadataCommand = async (
   input: GetEventPredictionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetEventPredictionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEventPredictionMetadata");
   let body: any;
   body = JSON.stringify(se_GetEventPredictionMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1014,10 +897,7 @@ export const se_GetEventTypesCommand = async (
   input: GetEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetEventTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEventTypes");
   let body: any;
   body = JSON.stringify(se_GetEventTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1030,10 +910,7 @@ export const se_GetExternalModelsCommand = async (
   input: GetExternalModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetExternalModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetExternalModels");
   let body: any;
   body = JSON.stringify(se_GetExternalModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1046,10 +923,7 @@ export const se_GetKMSEncryptionKeyCommand = async (
   input: GetKMSEncryptionKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetKMSEncryptionKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKMSEncryptionKey");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1061,10 +935,7 @@ export const se_GetLabelsCommand = async (
   input: GetLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetLabels",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLabels");
   let body: any;
   body = JSON.stringify(se_GetLabelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1077,10 +948,7 @@ export const se_GetListElementsCommand = async (
   input: GetListElementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetListElements",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetListElements");
   let body: any;
   body = JSON.stringify(se_GetListElementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1093,10 +961,7 @@ export const se_GetListsMetadataCommand = async (
   input: GetListsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetListsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetListsMetadata");
   let body: any;
   body = JSON.stringify(se_GetListsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1109,10 +974,7 @@ export const se_GetModelsCommand = async (
   input: GetModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetModels");
   let body: any;
   body = JSON.stringify(se_GetModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1125,10 +987,7 @@ export const se_GetModelVersionCommand = async (
   input: GetModelVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetModelVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetModelVersion");
   let body: any;
   body = JSON.stringify(se_GetModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1141,10 +1000,7 @@ export const se_GetOutcomesCommand = async (
   input: GetOutcomesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetOutcomes",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOutcomes");
   let body: any;
   body = JSON.stringify(se_GetOutcomesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1157,10 +1013,7 @@ export const se_GetRulesCommand = async (
   input: GetRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRules");
   let body: any;
   body = JSON.stringify(se_GetRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1173,10 +1026,7 @@ export const se_GetVariablesCommand = async (
   input: GetVariablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.GetVariables",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVariables");
   let body: any;
   body = JSON.stringify(se_GetVariablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1189,10 +1039,7 @@ export const se_ListEventPredictionsCommand = async (
   input: ListEventPredictionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.ListEventPredictions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventPredictions");
   let body: any;
   body = JSON.stringify(se_ListEventPredictionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1205,10 +1052,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1221,10 +1065,7 @@ export const se_PutDetectorCommand = async (
   input: PutDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutDetector",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutDetector");
   let body: any;
   body = JSON.stringify(se_PutDetectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1237,10 +1078,7 @@ export const se_PutEntityTypeCommand = async (
   input: PutEntityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutEntityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEntityType");
   let body: any;
   body = JSON.stringify(se_PutEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1253,10 +1091,7 @@ export const se_PutEventTypeCommand = async (
   input: PutEventTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutEventType",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEventType");
   let body: any;
   body = JSON.stringify(se_PutEventTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1269,10 +1104,7 @@ export const se_PutExternalModelCommand = async (
   input: PutExternalModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutExternalModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutExternalModel");
   let body: any;
   body = JSON.stringify(se_PutExternalModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1285,10 +1117,7 @@ export const se_PutKMSEncryptionKeyCommand = async (
   input: PutKMSEncryptionKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutKMSEncryptionKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutKMSEncryptionKey");
   let body: any;
   body = JSON.stringify(se_PutKMSEncryptionKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1301,10 +1130,7 @@ export const se_PutLabelCommand = async (
   input: PutLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLabel");
   let body: any;
   body = JSON.stringify(se_PutLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1317,10 +1143,7 @@ export const se_PutOutcomeCommand = async (
   input: PutOutcomeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.PutOutcome",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutOutcome");
   let body: any;
   body = JSON.stringify(se_PutOutcomeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1333,10 +1156,7 @@ export const se_SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.SendEvent",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendEvent");
   let body: any;
   body = JSON.stringify(se_SendEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1349,10 +1169,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1365,10 +1182,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1381,10 +1195,7 @@ export const se_UpdateDetectorVersionCommand = async (
   input: UpdateDetectorVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDetectorVersion");
   let body: any;
   body = JSON.stringify(se_UpdateDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1397,10 +1208,7 @@ export const se_UpdateDetectorVersionMetadataCommand = async (
   input: UpdateDetectorVersionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDetectorVersionMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateDetectorVersionMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1413,10 +1221,7 @@ export const se_UpdateDetectorVersionStatusCommand = async (
   input: UpdateDetectorVersionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDetectorVersionStatus");
   let body: any;
   body = JSON.stringify(se_UpdateDetectorVersionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1429,10 +1234,7 @@ export const se_UpdateEventLabelCommand = async (
   input: UpdateEventLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateEventLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEventLabel");
   let body: any;
   body = JSON.stringify(se_UpdateEventLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1445,10 +1247,7 @@ export const se_UpdateListCommand = async (
   input: UpdateListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateList",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateList");
   let body: any;
   body = JSON.stringify(se_UpdateListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1461,10 +1260,7 @@ export const se_UpdateModelCommand = async (
   input: UpdateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModel");
   let body: any;
   body = JSON.stringify(se_UpdateModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1477,10 +1273,7 @@ export const se_UpdateModelVersionCommand = async (
   input: UpdateModelVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModelVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModelVersion");
   let body: any;
   body = JSON.stringify(se_UpdateModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1493,10 +1286,7 @@ export const se_UpdateModelVersionStatusCommand = async (
   input: UpdateModelVersionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModelVersionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModelVersionStatus");
   let body: any;
   body = JSON.stringify(se_UpdateModelVersionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1509,10 +1299,7 @@ export const se_UpdateRuleMetadataCommand = async (
   input: UpdateRuleMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateRuleMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuleMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateRuleMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1525,10 +1312,7 @@ export const se_UpdateRuleVersionCommand = async (
   input: UpdateRuleVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateRuleVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuleVersion");
   let body: any;
   body = JSON.stringify(se_UpdateRuleVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1541,10 +1325,7 @@ export const se_UpdateVariableCommand = async (
   input: UpdateVariableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHawksNestServiceFacade.UpdateVariable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVariable");
   let body: any;
   body = JSON.stringify(se_UpdateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9514,6 +9295,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSHawksNestServiceFacade.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

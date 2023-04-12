@@ -223,10 +223,7 @@ export const se_AcceptPageCommand = async (
   input: AcceptPageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.AcceptPage",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptPage");
   let body: any;
   body = JSON.stringify(se_AcceptPageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -239,10 +236,7 @@ export const se_ActivateContactChannelCommand = async (
   input: ActivateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ActivateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("ActivateContactChannel");
   let body: any;
   body = JSON.stringify(se_ActivateContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -255,10 +249,7 @@ export const se_CreateContactCommand = async (
   input: CreateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContact");
   let body: any;
   body = JSON.stringify(se_CreateContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -271,10 +262,7 @@ export const se_CreateContactChannelCommand = async (
   input: CreateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContactChannel");
   let body: any;
   body = JSON.stringify(se_CreateContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -287,10 +275,7 @@ export const se_CreateRotationCommand = async (
   input: CreateRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRotation");
   let body: any;
   body = JSON.stringify(se_CreateRotationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -303,10 +288,7 @@ export const se_CreateRotationOverrideCommand = async (
   input: CreateRotationOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.CreateRotationOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRotationOverride");
   let body: any;
   body = JSON.stringify(se_CreateRotationOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -319,10 +301,7 @@ export const se_DeactivateContactChannelCommand = async (
   input: DeactivateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeactivateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeactivateContactChannel");
   let body: any;
   body = JSON.stringify(se_DeactivateContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -335,10 +314,7 @@ export const se_DeleteContactCommand = async (
   input: DeleteContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContact");
   let body: any;
   body = JSON.stringify(se_DeleteContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -351,10 +327,7 @@ export const se_DeleteContactChannelCommand = async (
   input: DeleteContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContactChannel");
   let body: any;
   body = JSON.stringify(se_DeleteContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -367,10 +340,7 @@ export const se_DeleteRotationCommand = async (
   input: DeleteRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRotation");
   let body: any;
   body = JSON.stringify(se_DeleteRotationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -383,10 +353,7 @@ export const se_DeleteRotationOverrideCommand = async (
   input: DeleteRotationOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DeleteRotationOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRotationOverride");
   let body: any;
   body = JSON.stringify(se_DeleteRotationOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -399,10 +366,7 @@ export const se_DescribeEngagementCommand = async (
   input: DescribeEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DescribeEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEngagement");
   let body: any;
   body = JSON.stringify(se_DescribeEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -415,10 +379,7 @@ export const se_DescribePageCommand = async (
   input: DescribePageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.DescribePage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePage");
   let body: any;
   body = JSON.stringify(se_DescribePageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -431,10 +392,7 @@ export const se_GetContactCommand = async (
   input: GetContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContact");
   let body: any;
   body = JSON.stringify(se_GetContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -447,10 +405,7 @@ export const se_GetContactChannelCommand = async (
   input: GetContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactChannel");
   let body: any;
   body = JSON.stringify(se_GetContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -463,10 +418,7 @@ export const se_GetContactPolicyCommand = async (
   input: GetContactPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetContactPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactPolicy");
   let body: any;
   body = JSON.stringify(se_GetContactPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -479,10 +431,7 @@ export const se_GetRotationCommand = async (
   input: GetRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRotation");
   let body: any;
   body = JSON.stringify(se_GetRotationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -495,10 +444,7 @@ export const se_GetRotationOverrideCommand = async (
   input: GetRotationOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.GetRotationOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRotationOverride");
   let body: any;
   body = JSON.stringify(se_GetRotationOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -511,10 +457,7 @@ export const se_ListContactChannelsCommand = async (
   input: ListContactChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListContactChannels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContactChannels");
   let body: any;
   body = JSON.stringify(se_ListContactChannelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -527,10 +470,7 @@ export const se_ListContactsCommand = async (
   input: ListContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListContacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContacts");
   let body: any;
   body = JSON.stringify(se_ListContactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -543,10 +483,7 @@ export const se_ListEngagementsCommand = async (
   input: ListEngagementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListEngagements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEngagements");
   let body: any;
   body = JSON.stringify(se_ListEngagementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -559,10 +496,7 @@ export const se_ListPageReceiptsCommand = async (
   input: ListPageReceiptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPageReceipts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPageReceipts");
   let body: any;
   body = JSON.stringify(se_ListPageReceiptsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -575,10 +509,7 @@ export const se_ListPageResolutionsCommand = async (
   input: ListPageResolutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPageResolutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPageResolutions");
   let body: any;
   body = JSON.stringify(se_ListPageResolutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -591,10 +522,7 @@ export const se_ListPagesByContactCommand = async (
   input: ListPagesByContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPagesByContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPagesByContact");
   let body: any;
   body = JSON.stringify(se_ListPagesByContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -607,10 +535,7 @@ export const se_ListPagesByEngagementCommand = async (
   input: ListPagesByEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPagesByEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPagesByEngagement");
   let body: any;
   body = JSON.stringify(se_ListPagesByEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -623,10 +548,7 @@ export const se_ListPreviewRotationShiftsCommand = async (
   input: ListPreviewRotationShiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListPreviewRotationShifts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPreviewRotationShifts");
   let body: any;
   body = JSON.stringify(se_ListPreviewRotationShiftsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -639,10 +561,7 @@ export const se_ListRotationOverridesCommand = async (
   input: ListRotationOverridesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListRotationOverrides",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRotationOverrides");
   let body: any;
   body = JSON.stringify(se_ListRotationOverridesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -655,10 +574,7 @@ export const se_ListRotationsCommand = async (
   input: ListRotationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListRotations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRotations");
   let body: any;
   body = JSON.stringify(se_ListRotationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -671,10 +587,7 @@ export const se_ListRotationShiftsCommand = async (
   input: ListRotationShiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListRotationShifts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRotationShifts");
   let body: any;
   body = JSON.stringify(se_ListRotationShiftsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -687,10 +600,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -703,10 +613,7 @@ export const se_PutContactPolicyCommand = async (
   input: PutContactPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.PutContactPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutContactPolicy");
   let body: any;
   body = JSON.stringify(se_PutContactPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -719,10 +626,7 @@ export const se_SendActivationCodeCommand = async (
   input: SendActivationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.SendActivationCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendActivationCode");
   let body: any;
   body = JSON.stringify(se_SendActivationCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -735,10 +639,7 @@ export const se_StartEngagementCommand = async (
   input: StartEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.StartEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEngagement");
   let body: any;
   body = JSON.stringify(se_StartEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -751,10 +652,7 @@ export const se_StopEngagementCommand = async (
   input: StopEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.StopEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEngagement");
   let body: any;
   body = JSON.stringify(se_StopEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -767,10 +665,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -783,10 +678,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -799,10 +691,7 @@ export const se_UpdateContactCommand = async (
   input: UpdateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UpdateContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContact");
   let body: any;
   body = JSON.stringify(se_UpdateContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -815,10 +704,7 @@ export const se_UpdateContactChannelCommand = async (
   input: UpdateContactChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UpdateContactChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContactChannel");
   let body: any;
   body = JSON.stringify(se_UpdateContactChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -831,10 +717,7 @@ export const se_UpdateRotationCommand = async (
   input: UpdateRotationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SSMContacts.UpdateRotation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRotation");
   let body: any;
   body = JSON.stringify(se_UpdateRotationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5194,6 +5077,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `SSMContacts.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

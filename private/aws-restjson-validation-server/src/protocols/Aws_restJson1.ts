@@ -112,6 +112,9 @@ export const deserializeMalformedEnumRequest = async (
   if (data.string != null) {
     contents.string = __expectString(data.string);
   }
+  if (data.stringWithEnumTrait != null) {
+    contents.stringWithEnumTrait = __expectString(data.stringWithEnumTrait);
+  }
   if (data.union != null) {
     contents.union = de_EnumUnion(__expectUnion(data.union), context);
   }

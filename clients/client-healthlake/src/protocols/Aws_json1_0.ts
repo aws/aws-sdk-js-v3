@@ -102,10 +102,7 @@ export const se_CreateFHIRDatastoreCommand = async (
   input: CreateFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.CreateFHIRDatastore",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFHIRDatastore");
   let body: any;
   body = JSON.stringify(se_CreateFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -118,10 +115,7 @@ export const se_DeleteFHIRDatastoreCommand = async (
   input: DeleteFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.DeleteFHIRDatastore",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFHIRDatastore");
   let body: any;
   body = JSON.stringify(se_DeleteFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -134,10 +128,7 @@ export const se_DescribeFHIRDatastoreCommand = async (
   input: DescribeFHIRDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.DescribeFHIRDatastore",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFHIRDatastore");
   let body: any;
   body = JSON.stringify(se_DescribeFHIRDatastoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -150,10 +141,7 @@ export const se_DescribeFHIRExportJobCommand = async (
   input: DescribeFHIRExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.DescribeFHIRExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFHIRExportJob");
   let body: any;
   body = JSON.stringify(se_DescribeFHIRExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,10 +154,7 @@ export const se_DescribeFHIRImportJobCommand = async (
   input: DescribeFHIRImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.DescribeFHIRImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFHIRImportJob");
   let body: any;
   body = JSON.stringify(se_DescribeFHIRImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -182,10 +167,7 @@ export const se_ListFHIRDatastoresCommand = async (
   input: ListFHIRDatastoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.ListFHIRDatastores",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFHIRDatastores");
   let body: any;
   body = JSON.stringify(se_ListFHIRDatastoresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -198,10 +180,7 @@ export const se_ListFHIRExportJobsCommand = async (
   input: ListFHIRExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.ListFHIRExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFHIRExportJobs");
   let body: any;
   body = JSON.stringify(se_ListFHIRExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -214,10 +193,7 @@ export const se_ListFHIRImportJobsCommand = async (
   input: ListFHIRImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.ListFHIRImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFHIRImportJobs");
   let body: any;
   body = JSON.stringify(se_ListFHIRImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -230,10 +206,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -246,10 +219,7 @@ export const se_StartFHIRExportJobCommand = async (
   input: StartFHIRExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.StartFHIRExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFHIRExportJob");
   let body: any;
   body = JSON.stringify(se_StartFHIRExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -262,10 +232,7 @@ export const se_StartFHIRImportJobCommand = async (
   input: StartFHIRImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.StartFHIRImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFHIRImportJob");
   let body: any;
   body = JSON.stringify(se_StartFHIRImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -278,10 +245,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -294,10 +258,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "HealthLake.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1805,6 +1766,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `HealthLake.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

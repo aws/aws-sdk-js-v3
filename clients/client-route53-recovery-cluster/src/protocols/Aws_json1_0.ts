@@ -59,10 +59,7 @@ export const se_GetRoutingControlStateCommand = async (
   input: GetRoutingControlStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ToggleCustomerAPI.GetRoutingControlState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRoutingControlState");
   let body: any;
   body = JSON.stringify(se_GetRoutingControlStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -75,10 +72,7 @@ export const se_ListRoutingControlsCommand = async (
   input: ListRoutingControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ToggleCustomerAPI.ListRoutingControls",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRoutingControls");
   let body: any;
   body = JSON.stringify(se_ListRoutingControlsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -91,10 +85,7 @@ export const se_UpdateRoutingControlStateCommand = async (
   input: UpdateRoutingControlStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ToggleCustomerAPI.UpdateRoutingControlState",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRoutingControlState");
   let body: any;
   body = JSON.stringify(se_UpdateRoutingControlStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -107,10 +98,7 @@ export const se_UpdateRoutingControlStatesCommand = async (
   input: UpdateRoutingControlStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ToggleCustomerAPI.UpdateRoutingControlStates",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRoutingControlStates");
   let body: any;
   body = JSON.stringify(se_UpdateRoutingControlStatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -802,6 +790,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `ToggleCustomerAPI.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

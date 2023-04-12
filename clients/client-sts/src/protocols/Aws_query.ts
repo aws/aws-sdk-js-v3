@@ -72,9 +72,7 @@ export const se_AssumeRoleCommand = async (
   input: AssumeRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleRequest(input, context),
@@ -91,9 +89,7 @@ export const se_AssumeRoleWithSAMLCommand = async (
   input: AssumeRoleWithSAMLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleWithSAMLRequest(input, context),
@@ -110,9 +106,7 @@ export const se_AssumeRoleWithWebIdentityCommand = async (
   input: AssumeRoleWithWebIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleWithWebIdentityRequest(input, context),
@@ -129,9 +123,7 @@ export const se_DecodeAuthorizationMessageCommand = async (
   input: DecodeAuthorizationMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecodeAuthorizationMessageRequest(input, context),
@@ -148,9 +140,7 @@ export const se_GetAccessKeyInfoCommand = async (
   input: GetAccessKeyInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccessKeyInfoRequest(input, context),
@@ -167,9 +157,7 @@ export const se_GetCallerIdentityCommand = async (
   input: GetCallerIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetCallerIdentityRequest(input, context),
@@ -186,9 +174,7 @@ export const se_GetFederationTokenCommand = async (
   input: GetFederationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetFederationTokenRequest(input, context),
@@ -205,9 +191,7 @@ export const se_GetSessionTokenCommand = async (
   input: GetSessionTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSessionTokenRequest(input, context),
@@ -1396,6 +1380,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

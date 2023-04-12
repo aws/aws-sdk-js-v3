@@ -103,10 +103,7 @@ export const se_CreateEnvironmentEC2Command = async (
   input: CreateEnvironmentEC2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironmentEC2");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentEC2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -119,10 +116,7 @@ export const se_CreateEnvironmentMembershipCommand = async (
   input: CreateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironmentMembership");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -135,10 +129,7 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironment");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -151,10 +142,7 @@ export const se_DeleteEnvironmentMembershipCommand = async (
   input: DeleteEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentMembership");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -167,10 +155,7 @@ export const se_DescribeEnvironmentMembershipsCommand = async (
   input: DescribeEnvironmentMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEnvironmentMemberships");
   let body: any;
   body = JSON.stringify(se_DescribeEnvironmentMembershipsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -183,10 +168,7 @@ export const se_DescribeEnvironmentsCommand = async (
   input: DescribeEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEnvironments");
   let body: any;
   body = JSON.stringify(se_DescribeEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -199,10 +181,7 @@ export const se_DescribeEnvironmentStatusCommand = async (
   input: DescribeEnvironmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEnvironmentStatus");
   let body: any;
   body = JSON.stringify(se_DescribeEnvironmentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -215,10 +194,7 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.ListEnvironments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironments");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -231,10 +207,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -247,10 +220,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -263,10 +233,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -279,10 +246,7 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironment");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -295,10 +259,7 @@ export const se_UpdateEnvironmentMembershipCommand = async (
   input: UpdateEnvironmentMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentMembership");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1809,6 +1770,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSCloud9WorkspaceManagementService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

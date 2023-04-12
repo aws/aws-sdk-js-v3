@@ -94,16 +94,34 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
-
-        // AWS JSON RPC protocols use a combination of the service and operation shape names,
-        // separated by a '.' character, for the target header.
+    protected void writeRequestHeaders(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
-        String target = serviceShape.getId().getName(serviceShape) + "." + operation.getId().getName(serviceShape);
-        writer.write("'x-amz-target': $S,", target);
+        String operationName = operation.getId().getName(serviceShape);
+        if (AwsProtocolUtils.includeUnsignedPayloadSigV4Header(operation)) {
+            writer.openBlock("const headers: __HeaderBag = { ", " }", () -> {
+                AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+                writer.write("...sharedHeaders($S)", operationName);
+            });
+        } else {
+            writer.write("const headers: __HeaderBag = sharedHeaders($S)", operationName);
+        }
+    }
+
+    @Override
+    protected void writeSharedRequestHeaders(GenerationContext context) {
+        ServiceShape serviceShape = context.getService();
+        TypeScriptWriter writer = context.getWriter();
+        writer.addImport("HeaderBag", "__HeaderBag", "@aws-sdk/types");
+        String targetHeader = serviceShape.getId().getName(serviceShape) + ".${operation}";
+        writer.openBlock("function sharedHeaders(operation: string): __HeaderBag { return {", "}};",
+                () -> {
+                    writer.write("'content-type': $S,", getDocumentContentType());
+                    // AWS JSON RPC protocols use a combination of the service and operation shape names,
+                    // separated by a '.' character, for the target header.
+                    writer.write("'x-amz-target': `$L`,", targetHeader);
+                }
+        );
     }
 
     @Override

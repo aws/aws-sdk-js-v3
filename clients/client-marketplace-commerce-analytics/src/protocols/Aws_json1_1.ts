@@ -33,10 +33,7 @@ export const se_GenerateDataSetCommand = async (
   input: GenerateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateDataSet");
   let body: any;
   body = JSON.stringify(se_GenerateDataSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -49,10 +46,7 @@ export const se_StartSupportDataExportCommand = async (
   input: StartSupportDataExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSupportDataExport");
   let body: any;
   body = JSON.stringify(se_StartSupportDataExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -291,6 +285,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `MarketplaceCommerceAnalytics20150701.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

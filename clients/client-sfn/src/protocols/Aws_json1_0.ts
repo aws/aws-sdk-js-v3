@@ -197,10 +197,7 @@ export const se_CreateActivityCommand = async (
   input: CreateActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.CreateActivity",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateActivity");
   let body: any;
   body = JSON.stringify(se_CreateActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -213,10 +210,7 @@ export const se_CreateStateMachineCommand = async (
   input: CreateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.CreateStateMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStateMachine");
   let body: any;
   body = JSON.stringify(se_CreateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -229,10 +223,7 @@ export const se_DeleteActivityCommand = async (
   input: DeleteActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DeleteActivity",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteActivity");
   let body: any;
   body = JSON.stringify(se_DeleteActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -245,10 +236,7 @@ export const se_DeleteStateMachineCommand = async (
   input: DeleteStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DeleteStateMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStateMachine");
   let body: any;
   body = JSON.stringify(se_DeleteStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -261,10 +249,7 @@ export const se_DescribeActivityCommand = async (
   input: DescribeActivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DescribeActivity",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeActivity");
   let body: any;
   body = JSON.stringify(se_DescribeActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -277,10 +262,7 @@ export const se_DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DescribeExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExecution");
   let body: any;
   body = JSON.stringify(se_DescribeExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -293,10 +275,7 @@ export const se_DescribeMapRunCommand = async (
   input: DescribeMapRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DescribeMapRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMapRun");
   let body: any;
   body = JSON.stringify(se_DescribeMapRunInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -309,10 +288,7 @@ export const se_DescribeStateMachineCommand = async (
   input: DescribeStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DescribeStateMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStateMachine");
   let body: any;
   body = JSON.stringify(se_DescribeStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -325,10 +301,7 @@ export const se_DescribeStateMachineForExecutionCommand = async (
   input: DescribeStateMachineForExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.DescribeStateMachineForExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStateMachineForExecution");
   let body: any;
   body = JSON.stringify(se_DescribeStateMachineForExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -341,10 +314,7 @@ export const se_GetActivityTaskCommand = async (
   input: GetActivityTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.GetActivityTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetActivityTask");
   let body: any;
   body = JSON.stringify(se_GetActivityTaskInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -357,10 +327,7 @@ export const se_GetExecutionHistoryCommand = async (
   input: GetExecutionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.GetExecutionHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetExecutionHistory");
   let body: any;
   body = JSON.stringify(se_GetExecutionHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,10 +340,7 @@ export const se_ListActivitiesCommand = async (
   input: ListActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.ListActivities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListActivities");
   let body: any;
   body = JSON.stringify(se_ListActivitiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -389,10 +353,7 @@ export const se_ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.ListExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExecutions");
   let body: any;
   body = JSON.stringify(se_ListExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -405,10 +366,7 @@ export const se_ListMapRunsCommand = async (
   input: ListMapRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.ListMapRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMapRuns");
   let body: any;
   body = JSON.stringify(se_ListMapRunsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -421,10 +379,7 @@ export const se_ListStateMachinesCommand = async (
   input: ListStateMachinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.ListStateMachines",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStateMachines");
   let body: any;
   body = JSON.stringify(se_ListStateMachinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -437,10 +392,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -453,10 +405,7 @@ export const se_SendTaskFailureCommand = async (
   input: SendTaskFailureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.SendTaskFailure",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTaskFailure");
   let body: any;
   body = JSON.stringify(se_SendTaskFailureInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -469,10 +418,7 @@ export const se_SendTaskHeartbeatCommand = async (
   input: SendTaskHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.SendTaskHeartbeat",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTaskHeartbeat");
   let body: any;
   body = JSON.stringify(se_SendTaskHeartbeatInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +431,7 @@ export const se_SendTaskSuccessCommand = async (
   input: SendTaskSuccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.SendTaskSuccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTaskSuccess");
   let body: any;
   body = JSON.stringify(se_SendTaskSuccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +444,7 @@ export const se_StartExecutionCommand = async (
   input: StartExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.StartExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartExecution");
   let body: any;
   body = JSON.stringify(se_StartExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +457,7 @@ export const se_StartSyncExecutionCommand = async (
   input: StartSyncExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.StartSyncExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSyncExecution");
   let body: any;
   body = JSON.stringify(se_StartSyncExecutionInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -540,10 +477,7 @@ export const se_StopExecutionCommand = async (
   input: StopExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.StopExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopExecution");
   let body: any;
   body = JSON.stringify(se_StopExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -556,10 +490,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -572,10 +503,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -588,10 +516,7 @@ export const se_UpdateMapRunCommand = async (
   input: UpdateMapRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.UpdateMapRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMapRun");
   let body: any;
   body = JSON.stringify(se_UpdateMapRunInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -604,10 +529,7 @@ export const se_UpdateStateMachineCommand = async (
   input: UpdateStateMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AWSStepFunctions.UpdateStateMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStateMachine");
   let body: any;
   body = JSON.stringify(se_UpdateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4154,6 +4076,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `AWSStepFunctions.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

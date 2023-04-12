@@ -78,10 +78,7 @@ export const se_BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.BatchExecuteStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchExecuteStatement");
   let body: any;
   body = JSON.stringify(se_BatchExecuteStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -94,10 +91,7 @@ export const se_CancelStatementCommand = async (
   input: CancelStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.CancelStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelStatement");
   let body: any;
   body = JSON.stringify(se_CancelStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -110,10 +104,7 @@ export const se_DescribeStatementCommand = async (
   input: DescribeStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.DescribeStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStatement");
   let body: any;
   body = JSON.stringify(se_DescribeStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -126,10 +117,7 @@ export const se_DescribeTableCommand = async (
   input: DescribeTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.DescribeTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTable");
   let body: any;
   body = JSON.stringify(se_DescribeTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -142,10 +130,7 @@ export const se_ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ExecuteStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteStatement");
   let body: any;
   body = JSON.stringify(se_ExecuteStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -158,10 +143,7 @@ export const se_GetStatementResultCommand = async (
   input: GetStatementResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.GetStatementResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStatementResult");
   let body: any;
   body = JSON.stringify(se_GetStatementResultRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -174,10 +156,7 @@ export const se_ListDatabasesCommand = async (
   input: ListDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
   body = JSON.stringify(se_ListDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -190,10 +169,7 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemas");
   let body: any;
   body = JSON.stringify(se_ListSchemasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -206,10 +182,7 @@ export const se_ListStatementsCommand = async (
   input: ListStatementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListStatements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStatements");
   let body: any;
   body = JSON.stringify(se_ListStatementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -222,10 +195,7 @@ export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "RedshiftData.ListTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
   body = JSON.stringify(se_ListTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1567,6 +1537,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `RedshiftData.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

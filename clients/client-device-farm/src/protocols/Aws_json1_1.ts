@@ -422,10 +422,7 @@ export const se_CreateDevicePoolCommand = async (
   input: CreateDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateDevicePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDevicePool");
   let body: any;
   body = JSON.stringify(se_CreateDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -438,10 +435,7 @@ export const se_CreateInstanceProfileCommand = async (
   input: CreateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateInstanceProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInstanceProfile");
   let body: any;
   body = JSON.stringify(se_CreateInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -454,10 +448,7 @@ export const se_CreateNetworkProfileCommand = async (
   input: CreateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateNetworkProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNetworkProfile");
   let body: any;
   body = JSON.stringify(se_CreateNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -470,10 +461,7 @@ export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
   body = JSON.stringify(se_CreateProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -486,10 +474,7 @@ export const se_CreateRemoteAccessSessionCommand = async (
   input: CreateRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateRemoteAccessSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRemoteAccessSession");
   let body: any;
   body = JSON.stringify(se_CreateRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -502,10 +487,7 @@ export const se_CreateTestGridProjectCommand = async (
   input: CreateTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateTestGridProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTestGridProject");
   let body: any;
   body = JSON.stringify(se_CreateTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -518,10 +500,7 @@ export const se_CreateTestGridUrlCommand = async (
   input: CreateTestGridUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateTestGridUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTestGridUrl");
   let body: any;
   body = JSON.stringify(se_CreateTestGridUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -534,10 +513,7 @@ export const se_CreateUploadCommand = async (
   input: CreateUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUpload");
   let body: any;
   body = JSON.stringify(se_CreateUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -550,10 +526,7 @@ export const se_CreateVPCEConfigurationCommand = async (
   input: CreateVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.CreateVPCEConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVPCEConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -566,10 +539,7 @@ export const se_DeleteDevicePoolCommand = async (
   input: DeleteDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteDevicePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDevicePool");
   let body: any;
   body = JSON.stringify(se_DeleteDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -582,10 +552,7 @@ export const se_DeleteInstanceProfileCommand = async (
   input: DeleteInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteInstanceProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInstanceProfile");
   let body: any;
   body = JSON.stringify(se_DeleteInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -598,10 +565,7 @@ export const se_DeleteNetworkProfileCommand = async (
   input: DeleteNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteNetworkProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNetworkProfile");
   let body: any;
   body = JSON.stringify(se_DeleteNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -614,10 +578,7 @@ export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
   body = JSON.stringify(se_DeleteProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -630,10 +591,7 @@ export const se_DeleteRemoteAccessSessionCommand = async (
   input: DeleteRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteRemoteAccessSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRemoteAccessSession");
   let body: any;
   body = JSON.stringify(se_DeleteRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -646,10 +604,7 @@ export const se_DeleteRunCommand = async (
   input: DeleteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRun");
   let body: any;
   body = JSON.stringify(se_DeleteRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -662,10 +617,7 @@ export const se_DeleteTestGridProjectCommand = async (
   input: DeleteTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteTestGridProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTestGridProject");
   let body: any;
   body = JSON.stringify(se_DeleteTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -678,10 +630,7 @@ export const se_DeleteUploadCommand = async (
   input: DeleteUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUpload");
   let body: any;
   body = JSON.stringify(se_DeleteUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -694,10 +643,7 @@ export const se_DeleteVPCEConfigurationCommand = async (
   input: DeleteVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.DeleteVPCEConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVPCEConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -710,10 +656,7 @@ export const se_GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetAccountSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
   body = JSON.stringify(se_GetAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -726,10 +669,7 @@ export const se_GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevice");
   let body: any;
   body = JSON.stringify(se_GetDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -742,10 +682,7 @@ export const se_GetDeviceInstanceCommand = async (
   input: GetDeviceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetDeviceInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDeviceInstance");
   let body: any;
   body = JSON.stringify(se_GetDeviceInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -758,10 +695,7 @@ export const se_GetDevicePoolCommand = async (
   input: GetDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetDevicePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevicePool");
   let body: any;
   body = JSON.stringify(se_GetDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -774,10 +708,7 @@ export const se_GetDevicePoolCompatibilityCommand = async (
   input: GetDevicePoolCompatibilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetDevicePoolCompatibility",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevicePoolCompatibility");
   let body: any;
   body = JSON.stringify(se_GetDevicePoolCompatibilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -790,10 +721,7 @@ export const se_GetInstanceProfileCommand = async (
   input: GetInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetInstanceProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceProfile");
   let body: any;
   body = JSON.stringify(se_GetInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +731,7 @@ export const se_GetInstanceProfileCommand = async (
  * serializeAws_json1_1GetJobCommand
  */
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJob");
   let body: any;
   body = JSON.stringify(se_GetJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +744,7 @@ export const se_GetNetworkProfileCommand = async (
   input: GetNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetNetworkProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNetworkProfile");
   let body: any;
   body = JSON.stringify(se_GetNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +757,7 @@ export const se_GetOfferingStatusCommand = async (
   input: GetOfferingStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetOfferingStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOfferingStatus");
   let body: any;
   body = JSON.stringify(se_GetOfferingStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +770,7 @@ export const se_GetProjectCommand = async (
   input: GetProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetProject");
   let body: any;
   body = JSON.stringify(se_GetProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +783,7 @@ export const se_GetRemoteAccessSessionCommand = async (
   input: GetRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetRemoteAccessSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRemoteAccessSession");
   let body: any;
   body = JSON.stringify(se_GetRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -880,10 +793,7 @@ export const se_GetRemoteAccessSessionCommand = async (
  * serializeAws_json1_1GetRunCommand
  */
 export const se_GetRunCommand = async (input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRun");
   let body: any;
   body = JSON.stringify(se_GetRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -896,10 +806,7 @@ export const se_GetSuiteCommand = async (
   input: GetSuiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetSuite",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSuite");
   let body: any;
   body = JSON.stringify(se_GetSuiteRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -912,10 +819,7 @@ export const se_GetTestCommand = async (
   input: GetTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetTest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTest");
   let body: any;
   body = JSON.stringify(se_GetTestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -928,10 +832,7 @@ export const se_GetTestGridProjectCommand = async (
   input: GetTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetTestGridProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTestGridProject");
   let body: any;
   body = JSON.stringify(se_GetTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -944,10 +845,7 @@ export const se_GetTestGridSessionCommand = async (
   input: GetTestGridSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetTestGridSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTestGridSession");
   let body: any;
   body = JSON.stringify(se_GetTestGridSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -960,10 +858,7 @@ export const se_GetUploadCommand = async (
   input: GetUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUpload");
   let body: any;
   body = JSON.stringify(se_GetUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -976,10 +871,7 @@ export const se_GetVPCEConfigurationCommand = async (
   input: GetVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.GetVPCEConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVPCEConfiguration");
   let body: any;
   body = JSON.stringify(se_GetVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -992,10 +884,7 @@ export const se_InstallToRemoteAccessSessionCommand = async (
   input: InstallToRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.InstallToRemoteAccessSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("InstallToRemoteAccessSession");
   let body: any;
   body = JSON.stringify(se_InstallToRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1008,10 +897,7 @@ export const se_ListArtifactsCommand = async (
   input: ListArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListArtifacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListArtifacts");
   let body: any;
   body = JSON.stringify(se_ListArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1024,10 +910,7 @@ export const se_ListDeviceInstancesCommand = async (
   input: ListDeviceInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListDeviceInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDeviceInstances");
   let body: any;
   body = JSON.stringify(se_ListDeviceInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1040,10 +923,7 @@ export const se_ListDevicePoolsCommand = async (
   input: ListDevicePoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListDevicePools",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDevicePools");
   let body: any;
   body = JSON.stringify(se_ListDevicePoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1056,10 +936,7 @@ export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDevices");
   let body: any;
   body = JSON.stringify(se_ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1072,10 +949,7 @@ export const se_ListInstanceProfilesCommand = async (
   input: ListInstanceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListInstanceProfiles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstanceProfiles");
   let body: any;
   body = JSON.stringify(se_ListInstanceProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1088,10 +962,7 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListJobs");
   let body: any;
   body = JSON.stringify(se_ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1104,10 +975,7 @@ export const se_ListNetworkProfilesCommand = async (
   input: ListNetworkProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListNetworkProfiles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNetworkProfiles");
   let body: any;
   body = JSON.stringify(se_ListNetworkProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1120,10 +988,7 @@ export const se_ListOfferingPromotionsCommand = async (
   input: ListOfferingPromotionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListOfferingPromotions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOfferingPromotions");
   let body: any;
   body = JSON.stringify(se_ListOfferingPromotionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1136,10 +1001,7 @@ export const se_ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListOfferings",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOfferings");
   let body: any;
   body = JSON.stringify(se_ListOfferingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1152,10 +1014,7 @@ export const se_ListOfferingTransactionsCommand = async (
   input: ListOfferingTransactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListOfferingTransactions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOfferingTransactions");
   let body: any;
   body = JSON.stringify(se_ListOfferingTransactionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1168,10 +1027,7 @@ export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
   body = JSON.stringify(se_ListProjectsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1184,10 +1040,7 @@ export const se_ListRemoteAccessSessionsCommand = async (
   input: ListRemoteAccessSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListRemoteAccessSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRemoteAccessSessions");
   let body: any;
   body = JSON.stringify(se_ListRemoteAccessSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1200,10 +1053,7 @@ export const se_ListRunsCommand = async (
   input: ListRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRuns");
   let body: any;
   body = JSON.stringify(se_ListRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1216,10 +1066,7 @@ export const se_ListSamplesCommand = async (
   input: ListSamplesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListSamples",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSamples");
   let body: any;
   body = JSON.stringify(se_ListSamplesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,10 +1079,7 @@ export const se_ListSuitesCommand = async (
   input: ListSuitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListSuites",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSuites");
   let body: any;
   body = JSON.stringify(se_ListSuitesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1248,10 +1092,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1264,10 +1105,7 @@ export const se_ListTestGridProjectsCommand = async (
   input: ListTestGridProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTestGridProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTestGridProjects");
   let body: any;
   body = JSON.stringify(se_ListTestGridProjectsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1280,10 +1118,7 @@ export const se_ListTestGridSessionActionsCommand = async (
   input: ListTestGridSessionActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTestGridSessionActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTestGridSessionActions");
   let body: any;
   body = JSON.stringify(se_ListTestGridSessionActionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1296,10 +1131,7 @@ export const se_ListTestGridSessionArtifactsCommand = async (
   input: ListTestGridSessionArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTestGridSessionArtifacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTestGridSessionArtifacts");
   let body: any;
   body = JSON.stringify(se_ListTestGridSessionArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1312,10 +1144,7 @@ export const se_ListTestGridSessionsCommand = async (
   input: ListTestGridSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTestGridSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTestGridSessions");
   let body: any;
   body = JSON.stringify(se_ListTestGridSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1328,10 +1157,7 @@ export const se_ListTestsCommand = async (
   input: ListTestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListTests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTests");
   let body: any;
   body = JSON.stringify(se_ListTestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1344,10 +1170,7 @@ export const se_ListUniqueProblemsCommand = async (
   input: ListUniqueProblemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListUniqueProblems",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUniqueProblems");
   let body: any;
   body = JSON.stringify(se_ListUniqueProblemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1360,10 +1183,7 @@ export const se_ListUploadsCommand = async (
   input: ListUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListUploads",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUploads");
   let body: any;
   body = JSON.stringify(se_ListUploadsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1376,10 +1196,7 @@ export const se_ListVPCEConfigurationsCommand = async (
   input: ListVPCEConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ListVPCEConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVPCEConfigurations");
   let body: any;
   body = JSON.stringify(se_ListVPCEConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1392,10 +1209,7 @@ export const se_PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.PurchaseOffering",
-  };
+  const headers: __HeaderBag = sharedHeaders("PurchaseOffering");
   let body: any;
   body = JSON.stringify(se_PurchaseOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1408,10 +1222,7 @@ export const se_RenewOfferingCommand = async (
   input: RenewOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.RenewOffering",
-  };
+  const headers: __HeaderBag = sharedHeaders("RenewOffering");
   let body: any;
   body = JSON.stringify(se_RenewOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1424,10 +1235,7 @@ export const se_ScheduleRunCommand = async (
   input: ScheduleRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.ScheduleRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("ScheduleRun");
   let body: any;
   body = JSON.stringify(se_ScheduleRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1440,10 +1248,7 @@ export const se_StopJobCommand = async (
   input: StopJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.StopJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopJob");
   let body: any;
   body = JSON.stringify(se_StopJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1456,10 +1261,7 @@ export const se_StopRemoteAccessSessionCommand = async (
   input: StopRemoteAccessSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.StopRemoteAccessSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopRemoteAccessSession");
   let body: any;
   body = JSON.stringify(se_StopRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1472,10 +1274,7 @@ export const se_StopRunCommand = async (
   input: StopRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.StopRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopRun");
   let body: any;
   body = JSON.stringify(se_StopRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1488,10 +1287,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1504,10 +1300,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1520,10 +1313,7 @@ export const se_UpdateDeviceInstanceCommand = async (
   input: UpdateDeviceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateDeviceInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDeviceInstance");
   let body: any;
   body = JSON.stringify(se_UpdateDeviceInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1536,10 +1326,7 @@ export const se_UpdateDevicePoolCommand = async (
   input: UpdateDevicePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateDevicePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDevicePool");
   let body: any;
   body = JSON.stringify(se_UpdateDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1552,10 +1339,7 @@ export const se_UpdateInstanceProfileCommand = async (
   input: UpdateInstanceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateInstanceProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInstanceProfile");
   let body: any;
   body = JSON.stringify(se_UpdateInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1568,10 +1352,7 @@ export const se_UpdateNetworkProfileCommand = async (
   input: UpdateNetworkProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateNetworkProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNetworkProfile");
   let body: any;
   body = JSON.stringify(se_UpdateNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1584,10 +1365,7 @@ export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
   body = JSON.stringify(se_UpdateProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1600,10 +1378,7 @@ export const se_UpdateTestGridProjectCommand = async (
   input: UpdateTestGridProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateTestGridProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTestGridProject");
   let body: any;
   body = JSON.stringify(se_UpdateTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1616,10 +1391,7 @@ export const se_UpdateUploadCommand = async (
   input: UpdateUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUpload");
   let body: any;
   body = JSON.stringify(se_UpdateUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1632,10 +1404,7 @@ export const se_UpdateVPCEConfigurationCommand = async (
   input: UpdateVPCEConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DeviceFarm_20150623.UpdateVPCEConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVPCEConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9525,6 +9294,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `DeviceFarm_20150623.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

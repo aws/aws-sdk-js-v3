@@ -317,10 +317,7 @@ export const se_CreateAnomalyMonitorCommand = async (
   input: CreateAnomalyMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.CreateAnomalyMonitor",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAnomalyMonitor");
   let body: any;
   body = JSON.stringify(se_CreateAnomalyMonitorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +330,7 @@ export const se_CreateAnomalySubscriptionCommand = async (
   input: CreateAnomalySubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.CreateAnomalySubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAnomalySubscription");
   let body: any;
   body = JSON.stringify(se_CreateAnomalySubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +343,7 @@ export const se_CreateCostCategoryDefinitionCommand = async (
   input: CreateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.CreateCostCategoryDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCostCategoryDefinition");
   let body: any;
   body = JSON.stringify(se_CreateCostCategoryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +356,7 @@ export const se_DeleteAnomalyMonitorCommand = async (
   input: DeleteAnomalyMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.DeleteAnomalyMonitor",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAnomalyMonitor");
   let body: any;
   body = JSON.stringify(se_DeleteAnomalyMonitorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +369,7 @@ export const se_DeleteAnomalySubscriptionCommand = async (
   input: DeleteAnomalySubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.DeleteAnomalySubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAnomalySubscription");
   let body: any;
   body = JSON.stringify(se_DeleteAnomalySubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +382,7 @@ export const se_DeleteCostCategoryDefinitionCommand = async (
   input: DeleteCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.DeleteCostCategoryDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCostCategoryDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteCostCategoryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +395,7 @@ export const se_DescribeCostCategoryDefinitionCommand = async (
   input: DescribeCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.DescribeCostCategoryDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCostCategoryDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeCostCategoryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +408,7 @@ export const se_GetAnomaliesCommand = async (
   input: GetAnomaliesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetAnomalies",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAnomalies");
   let body: any;
   body = JSON.stringify(se_GetAnomaliesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +421,7 @@ export const se_GetAnomalyMonitorsCommand = async (
   input: GetAnomalyMonitorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetAnomalyMonitors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAnomalyMonitors");
   let body: any;
   body = JSON.stringify(se_GetAnomalyMonitorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +434,7 @@ export const se_GetAnomalySubscriptionsCommand = async (
   input: GetAnomalySubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetAnomalySubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAnomalySubscriptions");
   let body: any;
   body = JSON.stringify(se_GetAnomalySubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +447,7 @@ export const se_GetCostAndUsageCommand = async (
   input: GetCostAndUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetCostAndUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCostAndUsage");
   let body: any;
   body = JSON.stringify(se_GetCostAndUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +460,7 @@ export const se_GetCostAndUsageWithResourcesCommand = async (
   input: GetCostAndUsageWithResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetCostAndUsageWithResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCostAndUsageWithResources");
   let body: any;
   body = JSON.stringify(se_GetCostAndUsageWithResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +473,7 @@ export const se_GetCostCategoriesCommand = async (
   input: GetCostCategoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetCostCategories",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCostCategories");
   let body: any;
   body = JSON.stringify(se_GetCostCategoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +486,7 @@ export const se_GetCostForecastCommand = async (
   input: GetCostForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetCostForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCostForecast");
   let body: any;
   body = JSON.stringify(se_GetCostForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +499,7 @@ export const se_GetDimensionValuesCommand = async (
   input: GetDimensionValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetDimensionValues",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDimensionValues");
   let body: any;
   body = JSON.stringify(se_GetDimensionValuesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +512,7 @@ export const se_GetReservationCoverageCommand = async (
   input: GetReservationCoverageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetReservationCoverage",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReservationCoverage");
   let body: any;
   body = JSON.stringify(se_GetReservationCoverageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +525,7 @@ export const se_GetReservationPurchaseRecommendationCommand = async (
   input: GetReservationPurchaseRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetReservationPurchaseRecommendation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReservationPurchaseRecommendation");
   let body: any;
   body = JSON.stringify(se_GetReservationPurchaseRecommendationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,10 +538,7 @@ export const se_GetReservationUtilizationCommand = async (
   input: GetReservationUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetReservationUtilization",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReservationUtilization");
   let body: any;
   body = JSON.stringify(se_GetReservationUtilizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -605,10 +551,7 @@ export const se_GetRightsizingRecommendationCommand = async (
   input: GetRightsizingRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetRightsizingRecommendation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRightsizingRecommendation");
   let body: any;
   body = JSON.stringify(se_GetRightsizingRecommendationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,10 +564,7 @@ export const se_GetSavingsPlansCoverageCommand = async (
   input: GetSavingsPlansCoverageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetSavingsPlansCoverage",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSavingsPlansCoverage");
   let body: any;
   body = JSON.stringify(se_GetSavingsPlansCoverageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -637,10 +577,7 @@ export const se_GetSavingsPlansPurchaseRecommendationCommand = async (
   input: GetSavingsPlansPurchaseRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSavingsPlansPurchaseRecommendation");
   let body: any;
   body = JSON.stringify(se_GetSavingsPlansPurchaseRecommendationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -653,10 +590,7 @@ export const se_GetSavingsPlansUtilizationCommand = async (
   input: GetSavingsPlansUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetSavingsPlansUtilization",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSavingsPlansUtilization");
   let body: any;
   body = JSON.stringify(se_GetSavingsPlansUtilizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -669,10 +603,7 @@ export const se_GetSavingsPlansUtilizationDetailsCommand = async (
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSavingsPlansUtilizationDetails");
   let body: any;
   body = JSON.stringify(se_GetSavingsPlansUtilizationDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -685,10 +616,7 @@ export const se_GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTags");
   let body: any;
   body = JSON.stringify(se_GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -701,10 +629,7 @@ export const se_GetUsageForecastCommand = async (
   input: GetUsageForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.GetUsageForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUsageForecast");
   let body: any;
   body = JSON.stringify(se_GetUsageForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -717,10 +642,7 @@ export const se_ListCostAllocationTagsCommand = async (
   input: ListCostAllocationTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.ListCostAllocationTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCostAllocationTags");
   let body: any;
   body = JSON.stringify(se_ListCostAllocationTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +655,7 @@ export const se_ListCostCategoryDefinitionsCommand = async (
   input: ListCostCategoryDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.ListCostCategoryDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCostCategoryDefinitions");
   let body: any;
   body = JSON.stringify(se_ListCostCategoryDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,10 +668,7 @@ export const se_ListSavingsPlansPurchaseRecommendationGenerationCommand = async 
   input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSavingsPlansPurchaseRecommendationGeneration");
   let body: any;
   body = JSON.stringify(se_ListSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -765,10 +681,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,10 +694,7 @@ export const se_ProvideAnomalyFeedbackCommand = async (
   input: ProvideAnomalyFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.ProvideAnomalyFeedback",
-  };
+  const headers: __HeaderBag = sharedHeaders("ProvideAnomalyFeedback");
   let body: any;
   body = JSON.stringify(se_ProvideAnomalyFeedbackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -797,10 +707,7 @@ export const se_StartSavingsPlansPurchaseRecommendationGenerationCommand = async
   input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSavingsPlansPurchaseRecommendationGeneration");
   let body: any;
   body = JSON.stringify(se_StartSavingsPlansPurchaseRecommendationGenerationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -813,10 +720,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -829,10 +733,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -845,10 +746,7 @@ export const se_UpdateAnomalyMonitorCommand = async (
   input: UpdateAnomalyMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.UpdateAnomalyMonitor",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAnomalyMonitor");
   let body: any;
   body = JSON.stringify(se_UpdateAnomalyMonitorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -861,10 +759,7 @@ export const se_UpdateAnomalySubscriptionCommand = async (
   input: UpdateAnomalySubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.UpdateAnomalySubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAnomalySubscription");
   let body: any;
   body = JSON.stringify(se_UpdateAnomalySubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -877,10 +772,7 @@ export const se_UpdateCostAllocationTagsStatusCommand = async (
   input: UpdateCostAllocationTagsStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.UpdateCostAllocationTagsStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCostAllocationTagsStatus");
   let body: any;
   body = JSON.stringify(se_UpdateCostAllocationTagsStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -893,10 +785,7 @@ export const se_UpdateCostCategoryDefinitionCommand = async (
   input: UpdateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSInsightsIndexService.UpdateCostCategoryDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCostCategoryDefinition");
   let body: any;
   body = JSON.stringify(se_UpdateCostCategoryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6438,6 +6327,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSInsightsIndexService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -90,6 +90,20 @@ export type EnumString = (typeof EnumString)[keyof typeof EnumString];
 
 /**
  * @public
+ * @enum
+ */
+export const EnumTraitString = {
+  ABC: "abc",
+  DEF: "def",
+  GHI: "ghi",
+} as const;
+/**
+ * @public
+ */
+export type EnumTraitString = (typeof EnumTraitString)[keyof typeof EnumTraitString];
+
+/**
+ * @public
  */
 export type EnumUnion = EnumUnion.FirstMember | EnumUnion.SecondMember | EnumUnion.$UnknownMember;
 
@@ -168,6 +182,7 @@ export namespace EnumUnion {
  */
 export interface MalformedEnumInput {
   string?: EnumString | string;
+  stringWithEnumTrait?: EnumTraitString | string;
   list?: (EnumString | string)[];
   map?: Record<string, EnumString | string>;
   union?: EnumUnion;
@@ -176,6 +191,7 @@ export interface MalformedEnumInput {
 export namespace MalformedEnumInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
+    stringWithEnumTrait?: __MultiConstraintValidator<string>;
     list?: __MultiConstraintValidator<Iterable<string>>;
     map?: __MultiConstraintValidator<Record<string, EnumString | string>>;
     union?: __MultiConstraintValidator<EnumUnion>;
@@ -192,6 +208,12 @@ export namespace MalformedEnumInput {
           case "string": {
             memberValidators["string"] = new __CompositeValidator<string>([
               new __EnumValidator(["abc", "def", "ghi", "jkl"], ["abc", "def"]),
+            ]);
+            break;
+          }
+          case "stringWithEnumTrait": {
+            memberValidators["stringWithEnumTrait"] = new __CompositeValidator<string>([
+              new __EnumValidator(["abc", "def", "ghi"], ["abc", "def"]),
             ]);
             break;
           }
@@ -223,6 +245,7 @@ export namespace MalformedEnumInput {
     }
     return [
       ...getMemberValidator("string").validate(obj.string, `${path}/string`),
+      ...getMemberValidator("stringWithEnumTrait").validate(obj.stringWithEnumTrait, `${path}/stringWithEnumTrait`),
       ...getMemberValidator("list").validate(obj.list, `${path}/list`),
       ...getMemberValidator("map").validate(obj.map, `${path}/map`),
       ...getMemberValidator("union").validate(obj.union, `${path}/union`),

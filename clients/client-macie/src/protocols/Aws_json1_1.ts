@@ -65,10 +65,7 @@ export const se_AssociateMemberAccountCommand = async (
   input: AssociateMemberAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.AssociateMemberAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateMemberAccount");
   let body: any;
   body = JSON.stringify(se_AssociateMemberAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -81,10 +78,7 @@ export const se_AssociateS3ResourcesCommand = async (
   input: AssociateS3ResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.AssociateS3Resources",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateS3Resources");
   let body: any;
   body = JSON.stringify(se_AssociateS3ResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -97,10 +91,7 @@ export const se_DisassociateMemberAccountCommand = async (
   input: DisassociateMemberAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.DisassociateMemberAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateMemberAccount");
   let body: any;
   body = JSON.stringify(se_DisassociateMemberAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -113,10 +104,7 @@ export const se_DisassociateS3ResourcesCommand = async (
   input: DisassociateS3ResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.DisassociateS3Resources",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateS3Resources");
   let body: any;
   body = JSON.stringify(se_DisassociateS3ResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -129,10 +117,7 @@ export const se_ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.ListMemberAccounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMemberAccounts");
   let body: any;
   body = JSON.stringify(se_ListMemberAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -145,10 +130,7 @@ export const se_ListS3ResourcesCommand = async (
   input: ListS3ResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.ListS3Resources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListS3Resources");
   let body: any;
   body = JSON.stringify(se_ListS3ResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -161,10 +143,7 @@ export const se_UpdateS3ResourcesCommand = async (
   input: UpdateS3ResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MacieService.UpdateS3Resources",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateS3Resources");
   let body: any;
   body = JSON.stringify(se_UpdateS3ResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,6 +967,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `MacieService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

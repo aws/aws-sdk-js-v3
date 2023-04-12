@@ -1172,10 +1172,7 @@ export const se_BatchCreatePartitionCommand = async (
   input: BatchCreatePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchCreatePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCreatePartition");
   let body: any;
   body = JSON.stringify(se_BatchCreatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1188,10 +1185,7 @@ export const se_BatchDeleteConnectionCommand = async (
   input: BatchDeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchDeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteConnection");
   let body: any;
   body = JSON.stringify(se_BatchDeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1204,10 +1198,7 @@ export const se_BatchDeletePartitionCommand = async (
   input: BatchDeletePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchDeletePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeletePartition");
   let body: any;
   body = JSON.stringify(se_BatchDeletePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1220,10 +1211,7 @@ export const se_BatchDeleteTableCommand = async (
   input: BatchDeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchDeleteTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteTable");
   let body: any;
   body = JSON.stringify(se_BatchDeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1236,10 +1224,7 @@ export const se_BatchDeleteTableVersionCommand = async (
   input: BatchDeleteTableVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchDeleteTableVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteTableVersion");
   let body: any;
   body = JSON.stringify(se_BatchDeleteTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1252,10 +1237,7 @@ export const se_BatchGetBlueprintsCommand = async (
   input: BatchGetBlueprintsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetBlueprints",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetBlueprints");
   let body: any;
   body = JSON.stringify(se_BatchGetBlueprintsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1268,10 +1250,7 @@ export const se_BatchGetCrawlersCommand = async (
   input: BatchGetCrawlersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetCrawlers",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetCrawlers");
   let body: any;
   body = JSON.stringify(se_BatchGetCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1284,10 +1263,7 @@ export const se_BatchGetCustomEntityTypesCommand = async (
   input: BatchGetCustomEntityTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetCustomEntityTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetCustomEntityTypes");
   let body: any;
   body = JSON.stringify(se_BatchGetCustomEntityTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1300,10 +1276,7 @@ export const se_BatchGetDataQualityResultCommand = async (
   input: BatchGetDataQualityResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetDataQualityResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetDataQualityResult");
   let body: any;
   body = JSON.stringify(se_BatchGetDataQualityResultRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1316,10 +1289,7 @@ export const se_BatchGetDevEndpointsCommand = async (
   input: BatchGetDevEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetDevEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetDevEndpoints");
   let body: any;
   body = JSON.stringify(se_BatchGetDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1332,10 +1302,7 @@ export const se_BatchGetJobsCommand = async (
   input: BatchGetJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetJobs");
   let body: any;
   body = JSON.stringify(se_BatchGetJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1348,10 +1315,7 @@ export const se_BatchGetPartitionCommand = async (
   input: BatchGetPartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetPartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetPartition");
   let body: any;
   body = JSON.stringify(se_BatchGetPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1364,10 +1328,7 @@ export const se_BatchGetTriggersCommand = async (
   input: BatchGetTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetTriggers");
   let body: any;
   body = JSON.stringify(se_BatchGetTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1380,10 +1341,7 @@ export const se_BatchGetWorkflowsCommand = async (
   input: BatchGetWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchGetWorkflows",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetWorkflows");
   let body: any;
   body = JSON.stringify(se_BatchGetWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1396,10 +1354,7 @@ export const se_BatchStopJobRunCommand = async (
   input: BatchStopJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchStopJobRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchStopJobRun");
   let body: any;
   body = JSON.stringify(se_BatchStopJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1412,10 +1367,7 @@ export const se_BatchUpdatePartitionCommand = async (
   input: BatchUpdatePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.BatchUpdatePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchUpdatePartition");
   let body: any;
   body = JSON.stringify(se_BatchUpdatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1428,10 +1380,7 @@ export const se_CancelDataQualityRuleRecommendationRunCommand = async (
   input: CancelDataQualityRuleRecommendationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CancelDataQualityRuleRecommendationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelDataQualityRuleRecommendationRun");
   let body: any;
   body = JSON.stringify(se_CancelDataQualityRuleRecommendationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1444,10 +1393,7 @@ export const se_CancelDataQualityRulesetEvaluationRunCommand = async (
   input: CancelDataQualityRulesetEvaluationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CancelDataQualityRulesetEvaluationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelDataQualityRulesetEvaluationRun");
   let body: any;
   body = JSON.stringify(se_CancelDataQualityRulesetEvaluationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1460,10 +1406,7 @@ export const se_CancelMLTaskRunCommand = async (
   input: CancelMLTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CancelMLTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelMLTaskRun");
   let body: any;
   body = JSON.stringify(se_CancelMLTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1476,10 +1419,7 @@ export const se_CancelStatementCommand = async (
   input: CancelStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CancelStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelStatement");
   let body: any;
   body = JSON.stringify(se_CancelStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1492,10 +1432,7 @@ export const se_CheckSchemaVersionValidityCommand = async (
   input: CheckSchemaVersionValidityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CheckSchemaVersionValidity",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckSchemaVersionValidity");
   let body: any;
   body = JSON.stringify(se_CheckSchemaVersionValidityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1508,10 +1445,7 @@ export const se_CreateBlueprintCommand = async (
   input: CreateBlueprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateBlueprint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBlueprint");
   let body: any;
   body = JSON.stringify(se_CreateBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1524,10 +1458,7 @@ export const se_CreateClassifierCommand = async (
   input: CreateClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateClassifier");
   let body: any;
   body = JSON.stringify(se_CreateClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1540,10 +1471,7 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
   body = JSON.stringify(se_CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1556,10 +1484,7 @@ export const se_CreateCrawlerCommand = async (
   input: CreateCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCrawler");
   let body: any;
   body = JSON.stringify(se_CreateCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1572,10 +1497,7 @@ export const se_CreateCustomEntityTypeCommand = async (
   input: CreateCustomEntityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateCustomEntityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomEntityType");
   let body: any;
   body = JSON.stringify(se_CreateCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1588,10 +1510,7 @@ export const se_CreateDatabaseCommand = async (
   input: CreateDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatabase");
   let body: any;
   body = JSON.stringify(se_CreateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1604,10 +1523,7 @@ export const se_CreateDataQualityRulesetCommand = async (
   input: CreateDataQualityRulesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateDataQualityRuleset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataQualityRuleset");
   let body: any;
   body = JSON.stringify(se_CreateDataQualityRulesetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1620,10 +1536,7 @@ export const se_CreateDevEndpointCommand = async (
   input: CreateDevEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateDevEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDevEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1636,10 +1549,7 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateJob");
   let body: any;
   body = JSON.stringify(se_CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1652,10 +1562,7 @@ export const se_CreateMLTransformCommand = async (
   input: CreateMLTransformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateMLTransform",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMLTransform");
   let body: any;
   body = JSON.stringify(se_CreateMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1668,10 +1575,7 @@ export const se_CreatePartitionCommand = async (
   input: CreatePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreatePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePartition");
   let body: any;
   body = JSON.stringify(se_CreatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1684,10 +1588,7 @@ export const se_CreatePartitionIndexCommand = async (
   input: CreatePartitionIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreatePartitionIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePartitionIndex");
   let body: any;
   body = JSON.stringify(se_CreatePartitionIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1700,10 +1601,7 @@ export const se_CreateRegistryCommand = async (
   input: CreateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRegistry");
   let body: any;
   body = JSON.stringify(se_CreateRegistryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1716,10 +1614,7 @@ export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSchema");
   let body: any;
   body = JSON.stringify(se_CreateSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1732,10 +1627,7 @@ export const se_CreateScriptCommand = async (
   input: CreateScriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateScript",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateScript");
   let body: any;
   body = JSON.stringify(se_CreateScriptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1748,10 +1640,7 @@ export const se_CreateSecurityConfigurationCommand = async (
   input: CreateSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1764,10 +1653,7 @@ export const se_CreateSessionCommand = async (
   input: CreateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSession");
   let body: any;
   body = JSON.stringify(se_CreateSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1780,10 +1666,7 @@ export const se_CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
   body = JSON.stringify(se_CreateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1796,10 +1679,7 @@ export const se_CreateTriggerCommand = async (
   input: CreateTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrigger");
   let body: any;
   body = JSON.stringify(se_CreateTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1812,10 +1692,7 @@ export const se_CreateUserDefinedFunctionCommand = async (
   input: CreateUserDefinedFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateUserDefinedFunction",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserDefinedFunction");
   let body: any;
   body = JSON.stringify(se_CreateUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1828,10 +1705,7 @@ export const se_CreateWorkflowCommand = async (
   input: CreateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.CreateWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkflow");
   let body: any;
   body = JSON.stringify(se_CreateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1844,10 +1718,7 @@ export const se_DeleteBlueprintCommand = async (
   input: DeleteBlueprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteBlueprint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBlueprint");
   let body: any;
   body = JSON.stringify(se_DeleteBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1860,10 +1731,7 @@ export const se_DeleteClassifierCommand = async (
   input: DeleteClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteClassifier");
   let body: any;
   body = JSON.stringify(se_DeleteClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1876,10 +1744,7 @@ export const se_DeleteColumnStatisticsForPartitionCommand = async (
   input: DeleteColumnStatisticsForPartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteColumnStatisticsForPartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteColumnStatisticsForPartition");
   let body: any;
   body = JSON.stringify(se_DeleteColumnStatisticsForPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1892,10 +1757,7 @@ export const se_DeleteColumnStatisticsForTableCommand = async (
   input: DeleteColumnStatisticsForTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteColumnStatisticsForTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteColumnStatisticsForTable");
   let body: any;
   body = JSON.stringify(se_DeleteColumnStatisticsForTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1908,10 +1770,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1924,10 +1783,7 @@ export const se_DeleteCrawlerCommand = async (
   input: DeleteCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCrawler");
   let body: any;
   body = JSON.stringify(se_DeleteCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1940,10 +1796,7 @@ export const se_DeleteCustomEntityTypeCommand = async (
   input: DeleteCustomEntityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteCustomEntityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomEntityType");
   let body: any;
   body = JSON.stringify(se_DeleteCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1956,10 +1809,7 @@ export const se_DeleteDatabaseCommand = async (
   input: DeleteDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatabase");
   let body: any;
   body = JSON.stringify(se_DeleteDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1972,10 +1822,7 @@ export const se_DeleteDataQualityRulesetCommand = async (
   input: DeleteDataQualityRulesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteDataQualityRuleset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataQualityRuleset");
   let body: any;
   body = JSON.stringify(se_DeleteDataQualityRulesetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1988,10 +1835,7 @@ export const se_DeleteDevEndpointCommand = async (
   input: DeleteDevEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteDevEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDevEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2004,10 +1848,7 @@ export const se_DeleteJobCommand = async (
   input: DeleteJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteJob");
   let body: any;
   body = JSON.stringify(se_DeleteJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2020,10 +1861,7 @@ export const se_DeleteMLTransformCommand = async (
   input: DeleteMLTransformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteMLTransform",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMLTransform");
   let body: any;
   body = JSON.stringify(se_DeleteMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2036,10 +1874,7 @@ export const se_DeletePartitionCommand = async (
   input: DeletePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeletePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePartition");
   let body: any;
   body = JSON.stringify(se_DeletePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2052,10 +1887,7 @@ export const se_DeletePartitionIndexCommand = async (
   input: DeletePartitionIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeletePartitionIndex",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePartitionIndex");
   let body: any;
   body = JSON.stringify(se_DeletePartitionIndexRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2068,10 +1900,7 @@ export const se_DeleteRegistryCommand = async (
   input: DeleteRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRegistry");
   let body: any;
   body = JSON.stringify(se_DeleteRegistryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2084,10 +1913,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2100,10 +1926,7 @@ export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSchema");
   let body: any;
   body = JSON.stringify(se_DeleteSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2116,10 +1939,7 @@ export const se_DeleteSchemaVersionsCommand = async (
   input: DeleteSchemaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteSchemaVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSchemaVersions");
   let body: any;
   body = JSON.stringify(se_DeleteSchemaVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2132,10 +1952,7 @@ export const se_DeleteSecurityConfigurationCommand = async (
   input: DeleteSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2148,10 +1965,7 @@ export const se_DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSession");
   let body: any;
   body = JSON.stringify(se_DeleteSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2164,10 +1978,7 @@ export const se_DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
   body = JSON.stringify(se_DeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2180,10 +1991,7 @@ export const se_DeleteTableVersionCommand = async (
   input: DeleteTableVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteTableVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTableVersion");
   let body: any;
   body = JSON.stringify(se_DeleteTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2196,10 +2004,7 @@ export const se_DeleteTriggerCommand = async (
   input: DeleteTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTrigger");
   let body: any;
   body = JSON.stringify(se_DeleteTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2212,10 +2017,7 @@ export const se_DeleteUserDefinedFunctionCommand = async (
   input: DeleteUserDefinedFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteUserDefinedFunction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserDefinedFunction");
   let body: any;
   body = JSON.stringify(se_DeleteUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2228,10 +2030,7 @@ export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.DeleteWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkflow");
   let body: any;
   body = JSON.stringify(se_DeleteWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2244,10 +2043,7 @@ export const se_GetBlueprintCommand = async (
   input: GetBlueprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetBlueprint",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlueprint");
   let body: any;
   body = JSON.stringify(se_GetBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2260,10 +2056,7 @@ export const se_GetBlueprintRunCommand = async (
   input: GetBlueprintRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetBlueprintRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlueprintRun");
   let body: any;
   body = JSON.stringify(se_GetBlueprintRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2276,10 +2069,7 @@ export const se_GetBlueprintRunsCommand = async (
   input: GetBlueprintRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetBlueprintRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlueprintRuns");
   let body: any;
   body = JSON.stringify(se_GetBlueprintRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2292,10 +2082,7 @@ export const se_GetCatalogImportStatusCommand = async (
   input: GetCatalogImportStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetCatalogImportStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCatalogImportStatus");
   let body: any;
   body = JSON.stringify(se_GetCatalogImportStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2308,10 +2095,7 @@ export const se_GetClassifierCommand = async (
   input: GetClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetClassifier");
   let body: any;
   body = JSON.stringify(se_GetClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2324,10 +2108,7 @@ export const se_GetClassifiersCommand = async (
   input: GetClassifiersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetClassifiers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetClassifiers");
   let body: any;
   body = JSON.stringify(se_GetClassifiersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2340,10 +2121,7 @@ export const se_GetColumnStatisticsForPartitionCommand = async (
   input: GetColumnStatisticsForPartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetColumnStatisticsForPartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetColumnStatisticsForPartition");
   let body: any;
   body = JSON.stringify(se_GetColumnStatisticsForPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2356,10 +2134,7 @@ export const se_GetColumnStatisticsForTableCommand = async (
   input: GetColumnStatisticsForTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetColumnStatisticsForTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetColumnStatisticsForTable");
   let body: any;
   body = JSON.stringify(se_GetColumnStatisticsForTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2372,10 +2147,7 @@ export const se_GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConnection");
   let body: any;
   body = JSON.stringify(se_GetConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2388,10 +2160,7 @@ export const se_GetConnectionsCommand = async (
   input: GetConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConnections");
   let body: any;
   body = JSON.stringify(se_GetConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2404,10 +2173,7 @@ export const se_GetCrawlerCommand = async (
   input: GetCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCrawler");
   let body: any;
   body = JSON.stringify(se_GetCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2420,10 +2186,7 @@ export const se_GetCrawlerMetricsCommand = async (
   input: GetCrawlerMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetCrawlerMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCrawlerMetrics");
   let body: any;
   body = JSON.stringify(se_GetCrawlerMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2436,10 +2199,7 @@ export const se_GetCrawlersCommand = async (
   input: GetCrawlersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetCrawlers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCrawlers");
   let body: any;
   body = JSON.stringify(se_GetCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2452,10 +2212,7 @@ export const se_GetCustomEntityTypeCommand = async (
   input: GetCustomEntityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetCustomEntityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCustomEntityType");
   let body: any;
   body = JSON.stringify(se_GetCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2468,10 +2225,7 @@ export const se_GetDatabaseCommand = async (
   input: GetDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDatabase");
   let body: any;
   body = JSON.stringify(se_GetDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2484,10 +2238,7 @@ export const se_GetDatabasesCommand = async (
   input: GetDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDatabases");
   let body: any;
   body = JSON.stringify(se_GetDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2500,10 +2251,7 @@ export const se_GetDataCatalogEncryptionSettingsCommand = async (
   input: GetDataCatalogEncryptionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataCatalogEncryptionSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataCatalogEncryptionSettings");
   let body: any;
   body = JSON.stringify(se_GetDataCatalogEncryptionSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2516,10 +2264,7 @@ export const se_GetDataflowGraphCommand = async (
   input: GetDataflowGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataflowGraph",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataflowGraph");
   let body: any;
   body = JSON.stringify(se_GetDataflowGraphRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2532,10 +2277,7 @@ export const se_GetDataQualityResultCommand = async (
   input: GetDataQualityResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataQualityResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityResult");
   let body: any;
   body = JSON.stringify(se_GetDataQualityResultRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2548,10 +2290,7 @@ export const se_GetDataQualityRuleRecommendationRunCommand = async (
   input: GetDataQualityRuleRecommendationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataQualityRuleRecommendationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityRuleRecommendationRun");
   let body: any;
   body = JSON.stringify(se_GetDataQualityRuleRecommendationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2564,10 +2303,7 @@ export const se_GetDataQualityRulesetCommand = async (
   input: GetDataQualityRulesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataQualityRuleset",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityRuleset");
   let body: any;
   body = JSON.stringify(se_GetDataQualityRulesetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2580,10 +2316,7 @@ export const se_GetDataQualityRulesetEvaluationRunCommand = async (
   input: GetDataQualityRulesetEvaluationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDataQualityRulesetEvaluationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataQualityRulesetEvaluationRun");
   let body: any;
   body = JSON.stringify(se_GetDataQualityRulesetEvaluationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2596,10 +2329,7 @@ export const se_GetDevEndpointCommand = async (
   input: GetDevEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDevEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevEndpoint");
   let body: any;
   body = JSON.stringify(se_GetDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2612,10 +2342,7 @@ export const se_GetDevEndpointsCommand = async (
   input: GetDevEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetDevEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDevEndpoints");
   let body: any;
   body = JSON.stringify(se_GetDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2625,10 +2352,7 @@ export const se_GetDevEndpointsCommand = async (
  * serializeAws_json1_1GetJobCommand
  */
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJob");
   let body: any;
   body = JSON.stringify(se_GetJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2641,10 +2365,7 @@ export const se_GetJobBookmarkCommand = async (
   input: GetJobBookmarkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetJobBookmark",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobBookmark");
   let body: any;
   body = JSON.stringify(se_GetJobBookmarkRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2657,10 +2378,7 @@ export const se_GetJobRunCommand = async (
   input: GetJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetJobRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobRun");
   let body: any;
   body = JSON.stringify(se_GetJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2673,10 +2391,7 @@ export const se_GetJobRunsCommand = async (
   input: GetJobRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetJobRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobRuns");
   let body: any;
   body = JSON.stringify(se_GetJobRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2689,10 +2404,7 @@ export const se_GetJobsCommand = async (
   input: GetJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobs");
   let body: any;
   body = JSON.stringify(se_GetJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2705,10 +2417,7 @@ export const se_GetMappingCommand = async (
   input: GetMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetMapping",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMapping");
   let body: any;
   body = JSON.stringify(se_GetMappingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2721,10 +2430,7 @@ export const se_GetMLTaskRunCommand = async (
   input: GetMLTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetMLTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMLTaskRun");
   let body: any;
   body = JSON.stringify(se_GetMLTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2737,10 +2443,7 @@ export const se_GetMLTaskRunsCommand = async (
   input: GetMLTaskRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetMLTaskRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMLTaskRuns");
   let body: any;
   body = JSON.stringify(se_GetMLTaskRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2753,10 +2456,7 @@ export const se_GetMLTransformCommand = async (
   input: GetMLTransformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetMLTransform",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMLTransform");
   let body: any;
   body = JSON.stringify(se_GetMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2769,10 +2469,7 @@ export const se_GetMLTransformsCommand = async (
   input: GetMLTransformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetMLTransforms",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMLTransforms");
   let body: any;
   body = JSON.stringify(se_GetMLTransformsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2785,10 +2482,7 @@ export const se_GetPartitionCommand = async (
   input: GetPartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetPartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPartition");
   let body: any;
   body = JSON.stringify(se_GetPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2801,10 +2495,7 @@ export const se_GetPartitionIndexesCommand = async (
   input: GetPartitionIndexesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetPartitionIndexes",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPartitionIndexes");
   let body: any;
   body = JSON.stringify(se_GetPartitionIndexesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2817,10 +2508,7 @@ export const se_GetPartitionsCommand = async (
   input: GetPartitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetPartitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPartitions");
   let body: any;
   body = JSON.stringify(se_GetPartitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2833,10 +2521,7 @@ export const se_GetPlanCommand = async (
   input: GetPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPlan");
   let body: any;
   body = JSON.stringify(se_GetPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2849,10 +2534,7 @@ export const se_GetRegistryCommand = async (
   input: GetRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistry");
   let body: any;
   body = JSON.stringify(se_GetRegistryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2865,10 +2547,7 @@ export const se_GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetResourcePolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicies");
   let body: any;
   body = JSON.stringify(se_GetResourcePoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2881,10 +2560,7 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
   body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2897,10 +2573,7 @@ export const se_GetSchemaCommand = async (
   input: GetSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSchema");
   let body: any;
   body = JSON.stringify(se_GetSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2913,10 +2586,7 @@ export const se_GetSchemaByDefinitionCommand = async (
   input: GetSchemaByDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSchemaByDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSchemaByDefinition");
   let body: any;
   body = JSON.stringify(se_GetSchemaByDefinitionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2929,10 +2599,7 @@ export const se_GetSchemaVersionCommand = async (
   input: GetSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSchemaVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSchemaVersion");
   let body: any;
   body = JSON.stringify(se_GetSchemaVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2945,10 +2612,7 @@ export const se_GetSchemaVersionsDiffCommand = async (
   input: GetSchemaVersionsDiffCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSchemaVersionsDiff",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSchemaVersionsDiff");
   let body: any;
   body = JSON.stringify(se_GetSchemaVersionsDiffInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2961,10 +2625,7 @@ export const se_GetSecurityConfigurationCommand = async (
   input: GetSecurityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSecurityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSecurityConfiguration");
   let body: any;
   body = JSON.stringify(se_GetSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2977,10 +2638,7 @@ export const se_GetSecurityConfigurationsCommand = async (
   input: GetSecurityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSecurityConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSecurityConfigurations");
   let body: any;
   body = JSON.stringify(se_GetSecurityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2993,10 +2651,7 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSession");
   let body: any;
   body = JSON.stringify(se_GetSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3009,10 +2664,7 @@ export const se_GetStatementCommand = async (
   input: GetStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStatement");
   let body: any;
   body = JSON.stringify(se_GetStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3025,10 +2677,7 @@ export const se_GetTableCommand = async (
   input: GetTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTable");
   let body: any;
   body = JSON.stringify(se_GetTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3041,10 +2690,7 @@ export const se_GetTablesCommand = async (
   input: GetTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTables");
   let body: any;
   body = JSON.stringify(se_GetTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3057,10 +2703,7 @@ export const se_GetTableVersionCommand = async (
   input: GetTableVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTableVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTableVersion");
   let body: any;
   body = JSON.stringify(se_GetTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3073,10 +2716,7 @@ export const se_GetTableVersionsCommand = async (
   input: GetTableVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTableVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTableVersions");
   let body: any;
   body = JSON.stringify(se_GetTableVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3089,10 +2729,7 @@ export const se_GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTags");
   let body: any;
   body = JSON.stringify(se_GetTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3105,10 +2742,7 @@ export const se_GetTriggerCommand = async (
   input: GetTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTrigger");
   let body: any;
   body = JSON.stringify(se_GetTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3121,10 +2755,7 @@ export const se_GetTriggersCommand = async (
   input: GetTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTriggers");
   let body: any;
   body = JSON.stringify(se_GetTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3137,10 +2768,7 @@ export const se_GetUnfilteredPartitionMetadataCommand = async (
   input: GetUnfilteredPartitionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetUnfilteredPartitionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUnfilteredPartitionMetadata");
   let body: any;
   body = JSON.stringify(se_GetUnfilteredPartitionMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3153,10 +2781,7 @@ export const se_GetUnfilteredPartitionsMetadataCommand = async (
   input: GetUnfilteredPartitionsMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetUnfilteredPartitionsMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUnfilteredPartitionsMetadata");
   let body: any;
   body = JSON.stringify(se_GetUnfilteredPartitionsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3169,10 +2794,7 @@ export const se_GetUnfilteredTableMetadataCommand = async (
   input: GetUnfilteredTableMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetUnfilteredTableMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUnfilteredTableMetadata");
   let body: any;
   body = JSON.stringify(se_GetUnfilteredTableMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3185,10 +2807,7 @@ export const se_GetUserDefinedFunctionCommand = async (
   input: GetUserDefinedFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetUserDefinedFunction",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUserDefinedFunction");
   let body: any;
   body = JSON.stringify(se_GetUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3201,10 +2820,7 @@ export const se_GetUserDefinedFunctionsCommand = async (
   input: GetUserDefinedFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetUserDefinedFunctions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUserDefinedFunctions");
   let body: any;
   body = JSON.stringify(se_GetUserDefinedFunctionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3217,10 +2833,7 @@ export const se_GetWorkflowCommand = async (
   input: GetWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkflow");
   let body: any;
   body = JSON.stringify(se_GetWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3233,10 +2846,7 @@ export const se_GetWorkflowRunCommand = async (
   input: GetWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetWorkflowRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkflowRun");
   let body: any;
   body = JSON.stringify(se_GetWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3249,10 +2859,7 @@ export const se_GetWorkflowRunPropertiesCommand = async (
   input: GetWorkflowRunPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetWorkflowRunProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkflowRunProperties");
   let body: any;
   body = JSON.stringify(se_GetWorkflowRunPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3265,10 +2872,7 @@ export const se_GetWorkflowRunsCommand = async (
   input: GetWorkflowRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.GetWorkflowRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkflowRuns");
   let body: any;
   body = JSON.stringify(se_GetWorkflowRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3281,10 +2885,7 @@ export const se_ImportCatalogToGlueCommand = async (
   input: ImportCatalogToGlueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ImportCatalogToGlue",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCatalogToGlue");
   let body: any;
   body = JSON.stringify(se_ImportCatalogToGlueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3297,10 +2898,7 @@ export const se_ListBlueprintsCommand = async (
   input: ListBlueprintsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListBlueprints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBlueprints");
   let body: any;
   body = JSON.stringify(se_ListBlueprintsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3313,10 +2911,7 @@ export const se_ListCrawlersCommand = async (
   input: ListCrawlersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListCrawlers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCrawlers");
   let body: any;
   body = JSON.stringify(se_ListCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3329,10 +2924,7 @@ export const se_ListCrawlsCommand = async (
   input: ListCrawlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListCrawls",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCrawls");
   let body: any;
   body = JSON.stringify(se_ListCrawlsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3345,10 +2937,7 @@ export const se_ListCustomEntityTypesCommand = async (
   input: ListCustomEntityTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListCustomEntityTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomEntityTypes");
   let body: any;
   body = JSON.stringify(se_ListCustomEntityTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3361,10 +2950,7 @@ export const se_ListDataQualityResultsCommand = async (
   input: ListDataQualityResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListDataQualityResults",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityResults");
   let body: any;
   body = JSON.stringify(se_ListDataQualityResultsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3377,10 +2963,7 @@ export const se_ListDataQualityRuleRecommendationRunsCommand = async (
   input: ListDataQualityRuleRecommendationRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListDataQualityRuleRecommendationRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityRuleRecommendationRuns");
   let body: any;
   body = JSON.stringify(se_ListDataQualityRuleRecommendationRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3393,10 +2976,7 @@ export const se_ListDataQualityRulesetEvaluationRunsCommand = async (
   input: ListDataQualityRulesetEvaluationRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListDataQualityRulesetEvaluationRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityRulesetEvaluationRuns");
   let body: any;
   body = JSON.stringify(se_ListDataQualityRulesetEvaluationRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3409,10 +2989,7 @@ export const se_ListDataQualityRulesetsCommand = async (
   input: ListDataQualityRulesetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListDataQualityRulesets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityRulesets");
   let body: any;
   body = JSON.stringify(se_ListDataQualityRulesetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3425,10 +3002,7 @@ export const se_ListDevEndpointsCommand = async (
   input: ListDevEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListDevEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDevEndpoints");
   let body: any;
   body = JSON.stringify(se_ListDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3441,10 +3015,7 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListJobs");
   let body: any;
   body = JSON.stringify(se_ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3457,10 +3028,7 @@ export const se_ListMLTransformsCommand = async (
   input: ListMLTransformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListMLTransforms",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMLTransforms");
   let body: any;
   body = JSON.stringify(se_ListMLTransformsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3473,10 +3041,7 @@ export const se_ListRegistriesCommand = async (
   input: ListRegistriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListRegistries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRegistries");
   let body: any;
   body = JSON.stringify(se_ListRegistriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3489,10 +3054,7 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemas");
   let body: any;
   body = JSON.stringify(se_ListSchemasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3505,10 +3067,7 @@ export const se_ListSchemaVersionsCommand = async (
   input: ListSchemaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListSchemaVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemaVersions");
   let body: any;
   body = JSON.stringify(se_ListSchemaVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3521,10 +3080,7 @@ export const se_ListSessionsCommand = async (
   input: ListSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSessions");
   let body: any;
   body = JSON.stringify(se_ListSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3537,10 +3093,7 @@ export const se_ListStatementsCommand = async (
   input: ListStatementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListStatements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStatements");
   let body: any;
   body = JSON.stringify(se_ListStatementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3553,10 +3106,7 @@ export const se_ListTriggersCommand = async (
   input: ListTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTriggers");
   let body: any;
   body = JSON.stringify(se_ListTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3569,10 +3119,7 @@ export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ListWorkflows",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkflows");
   let body: any;
   body = JSON.stringify(se_ListWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3585,10 +3132,7 @@ export const se_PutDataCatalogEncryptionSettingsCommand = async (
   input: PutDataCatalogEncryptionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.PutDataCatalogEncryptionSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutDataCatalogEncryptionSettings");
   let body: any;
   body = JSON.stringify(se_PutDataCatalogEncryptionSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3601,10 +3145,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3617,10 +3158,7 @@ export const se_PutSchemaVersionMetadataCommand = async (
   input: PutSchemaVersionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.PutSchemaVersionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutSchemaVersionMetadata");
   let body: any;
   body = JSON.stringify(se_PutSchemaVersionMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3633,10 +3171,7 @@ export const se_PutWorkflowRunPropertiesCommand = async (
   input: PutWorkflowRunPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.PutWorkflowRunProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutWorkflowRunProperties");
   let body: any;
   body = JSON.stringify(se_PutWorkflowRunPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3649,10 +3184,7 @@ export const se_QuerySchemaVersionMetadataCommand = async (
   input: QuerySchemaVersionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.QuerySchemaVersionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("QuerySchemaVersionMetadata");
   let body: any;
   body = JSON.stringify(se_QuerySchemaVersionMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3665,10 +3197,7 @@ export const se_RegisterSchemaVersionCommand = async (
   input: RegisterSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.RegisterSchemaVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterSchemaVersion");
   let body: any;
   body = JSON.stringify(se_RegisterSchemaVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3681,10 +3210,7 @@ export const se_RemoveSchemaVersionMetadataCommand = async (
   input: RemoveSchemaVersionMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.RemoveSchemaVersionMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveSchemaVersionMetadata");
   let body: any;
   body = JSON.stringify(se_RemoveSchemaVersionMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3697,10 +3223,7 @@ export const se_ResetJobBookmarkCommand = async (
   input: ResetJobBookmarkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ResetJobBookmark",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetJobBookmark");
   let body: any;
   body = JSON.stringify(se_ResetJobBookmarkRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3713,10 +3236,7 @@ export const se_ResumeWorkflowRunCommand = async (
   input: ResumeWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.ResumeWorkflowRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResumeWorkflowRun");
   let body: any;
   body = JSON.stringify(se_ResumeWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3729,10 +3249,7 @@ export const se_RunStatementCommand = async (
   input: RunStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.RunStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("RunStatement");
   let body: any;
   body = JSON.stringify(se_RunStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3745,10 +3262,7 @@ export const se_SearchTablesCommand = async (
   input: SearchTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.SearchTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchTables");
   let body: any;
   body = JSON.stringify(se_SearchTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3761,10 +3275,7 @@ export const se_StartBlueprintRunCommand = async (
   input: StartBlueprintRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartBlueprintRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartBlueprintRun");
   let body: any;
   body = JSON.stringify(se_StartBlueprintRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3777,10 +3288,7 @@ export const se_StartCrawlerCommand = async (
   input: StartCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartCrawler");
   let body: any;
   body = JSON.stringify(se_StartCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3793,10 +3301,7 @@ export const se_StartCrawlerScheduleCommand = async (
   input: StartCrawlerScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartCrawlerSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartCrawlerSchedule");
   let body: any;
   body = JSON.stringify(se_StartCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3809,10 +3314,7 @@ export const se_StartDataQualityRuleRecommendationRunCommand = async (
   input: StartDataQualityRuleRecommendationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartDataQualityRuleRecommendationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDataQualityRuleRecommendationRun");
   let body: any;
   body = JSON.stringify(se_StartDataQualityRuleRecommendationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3825,10 +3327,7 @@ export const se_StartDataQualityRulesetEvaluationRunCommand = async (
   input: StartDataQualityRulesetEvaluationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartDataQualityRulesetEvaluationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDataQualityRulesetEvaluationRun");
   let body: any;
   body = JSON.stringify(se_StartDataQualityRulesetEvaluationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3841,10 +3340,7 @@ export const se_StartExportLabelsTaskRunCommand = async (
   input: StartExportLabelsTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartExportLabelsTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartExportLabelsTaskRun");
   let body: any;
   body = JSON.stringify(se_StartExportLabelsTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3857,10 +3353,7 @@ export const se_StartImportLabelsTaskRunCommand = async (
   input: StartImportLabelsTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartImportLabelsTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImportLabelsTaskRun");
   let body: any;
   body = JSON.stringify(se_StartImportLabelsTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3873,10 +3366,7 @@ export const se_StartJobRunCommand = async (
   input: StartJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartJobRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartJobRun");
   let body: any;
   body = JSON.stringify(se_StartJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3889,10 +3379,7 @@ export const se_StartMLEvaluationTaskRunCommand = async (
   input: StartMLEvaluationTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartMLEvaluationTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMLEvaluationTaskRun");
   let body: any;
   body = JSON.stringify(se_StartMLEvaluationTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3905,10 +3392,7 @@ export const se_StartMLLabelingSetGenerationTaskRunCommand = async (
   input: StartMLLabelingSetGenerationTaskRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartMLLabelingSetGenerationTaskRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMLLabelingSetGenerationTaskRun");
   let body: any;
   body = JSON.stringify(se_StartMLLabelingSetGenerationTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3921,10 +3405,7 @@ export const se_StartTriggerCommand = async (
   input: StartTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTrigger");
   let body: any;
   body = JSON.stringify(se_StartTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3937,10 +3418,7 @@ export const se_StartWorkflowRunCommand = async (
   input: StartWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StartWorkflowRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartWorkflowRun");
   let body: any;
   body = JSON.stringify(se_StartWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3953,10 +3431,7 @@ export const se_StopCrawlerCommand = async (
   input: StopCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StopCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopCrawler");
   let body: any;
   body = JSON.stringify(se_StopCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3969,10 +3444,7 @@ export const se_StopCrawlerScheduleCommand = async (
   input: StopCrawlerScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StopCrawlerSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopCrawlerSchedule");
   let body: any;
   body = JSON.stringify(se_StopCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3985,10 +3457,7 @@ export const se_StopSessionCommand = async (
   input: StopSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StopSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopSession");
   let body: any;
   body = JSON.stringify(se_StopSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4001,10 +3470,7 @@ export const se_StopTriggerCommand = async (
   input: StopTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StopTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTrigger");
   let body: any;
   body = JSON.stringify(se_StopTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4017,10 +3483,7 @@ export const se_StopWorkflowRunCommand = async (
   input: StopWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.StopWorkflowRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopWorkflowRun");
   let body: any;
   body = JSON.stringify(se_StopWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4033,10 +3496,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4049,10 +3509,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4065,10 +3522,7 @@ export const se_UpdateBlueprintCommand = async (
   input: UpdateBlueprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateBlueprint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBlueprint");
   let body: any;
   body = JSON.stringify(se_UpdateBlueprintRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4081,10 +3535,7 @@ export const se_UpdateClassifierCommand = async (
   input: UpdateClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateClassifier");
   let body: any;
   body = JSON.stringify(se_UpdateClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4097,10 +3548,7 @@ export const se_UpdateColumnStatisticsForPartitionCommand = async (
   input: UpdateColumnStatisticsForPartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateColumnStatisticsForPartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateColumnStatisticsForPartition");
   let body: any;
   body = JSON.stringify(se_UpdateColumnStatisticsForPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4113,10 +3561,7 @@ export const se_UpdateColumnStatisticsForTableCommand = async (
   input: UpdateColumnStatisticsForTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateColumnStatisticsForTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateColumnStatisticsForTable");
   let body: any;
   body = JSON.stringify(se_UpdateColumnStatisticsForTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4129,10 +3574,7 @@ export const se_UpdateConnectionCommand = async (
   input: UpdateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnection");
   let body: any;
   body = JSON.stringify(se_UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4145,10 +3587,7 @@ export const se_UpdateCrawlerCommand = async (
   input: UpdateCrawlerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateCrawler",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCrawler");
   let body: any;
   body = JSON.stringify(se_UpdateCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4161,10 +3600,7 @@ export const se_UpdateCrawlerScheduleCommand = async (
   input: UpdateCrawlerScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateCrawlerSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCrawlerSchedule");
   let body: any;
   body = JSON.stringify(se_UpdateCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4177,10 +3613,7 @@ export const se_UpdateDatabaseCommand = async (
   input: UpdateDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDatabase");
   let body: any;
   body = JSON.stringify(se_UpdateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4193,10 +3626,7 @@ export const se_UpdateDataQualityRulesetCommand = async (
   input: UpdateDataQualityRulesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateDataQualityRuleset",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDataQualityRuleset");
   let body: any;
   body = JSON.stringify(se_UpdateDataQualityRulesetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4209,10 +3639,7 @@ export const se_UpdateDevEndpointCommand = async (
   input: UpdateDevEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateDevEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDevEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4225,10 +3652,7 @@ export const se_UpdateJobCommand = async (
   input: UpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateJob");
   let body: any;
   body = JSON.stringify(se_UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4241,10 +3665,7 @@ export const se_UpdateJobFromSourceControlCommand = async (
   input: UpdateJobFromSourceControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateJobFromSourceControl",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateJobFromSourceControl");
   let body: any;
   body = JSON.stringify(se_UpdateJobFromSourceControlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4257,10 +3678,7 @@ export const se_UpdateMLTransformCommand = async (
   input: UpdateMLTransformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateMLTransform",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMLTransform");
   let body: any;
   body = JSON.stringify(se_UpdateMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4273,10 +3691,7 @@ export const se_UpdatePartitionCommand = async (
   input: UpdatePartitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdatePartition",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePartition");
   let body: any;
   body = JSON.stringify(se_UpdatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4289,10 +3704,7 @@ export const se_UpdateRegistryCommand = async (
   input: UpdateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateRegistry",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRegistry");
   let body: any;
   body = JSON.stringify(se_UpdateRegistryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4305,10 +3717,7 @@ export const se_UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSchema");
   let body: any;
   body = JSON.stringify(se_UpdateSchemaInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4321,10 +3730,7 @@ export const se_UpdateSourceControlFromJobCommand = async (
   input: UpdateSourceControlFromJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateSourceControlFromJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSourceControlFromJob");
   let body: any;
   body = JSON.stringify(se_UpdateSourceControlFromJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4337,10 +3743,7 @@ export const se_UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
   body = JSON.stringify(se_UpdateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4353,10 +3756,7 @@ export const se_UpdateTriggerCommand = async (
   input: UpdateTriggerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateTrigger",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrigger");
   let body: any;
   body = JSON.stringify(se_UpdateTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4369,10 +3769,7 @@ export const se_UpdateUserDefinedFunctionCommand = async (
   input: UpdateUserDefinedFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateUserDefinedFunction",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserDefinedFunction");
   let body: any;
   body = JSON.stringify(se_UpdateUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4385,10 +3782,7 @@ export const se_UpdateWorkflowCommand = async (
   input: UpdateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSGlue.UpdateWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkflow");
   let body: any;
   body = JSON.stringify(se_UpdateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -30913,6 +30307,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSGlue.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

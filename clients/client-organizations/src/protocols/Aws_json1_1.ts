@@ -322,10 +322,7 @@ export const se_AcceptHandshakeCommand = async (
   input: AcceptHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.AcceptHandshake",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptHandshake");
   let body: any;
   body = JSON.stringify(se_AcceptHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,10 +335,7 @@ export const se_AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.AttachPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachPolicy");
   let body: any;
   body = JSON.stringify(se_AttachPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -354,10 +348,7 @@ export const se_CancelHandshakeCommand = async (
   input: CancelHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CancelHandshake",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelHandshake");
   let body: any;
   body = JSON.stringify(se_CancelHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -370,10 +361,7 @@ export const se_CloseAccountCommand = async (
   input: CloseAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CloseAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("CloseAccount");
   let body: any;
   body = JSON.stringify(se_CloseAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,10 +374,7 @@ export const se_CreateAccountCommand = async (
   input: CreateAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CreateAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccount");
   let body: any;
   body = JSON.stringify(se_CreateAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -402,10 +387,7 @@ export const se_CreateGovCloudAccountCommand = async (
   input: CreateGovCloudAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CreateGovCloudAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGovCloudAccount");
   let body: any;
   body = JSON.stringify(se_CreateGovCloudAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -418,10 +400,7 @@ export const se_CreateOrganizationCommand = async (
   input: CreateOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CreateOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOrganization");
   let body: any;
   body = JSON.stringify(se_CreateOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -434,10 +413,7 @@ export const se_CreateOrganizationalUnitCommand = async (
   input: CreateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CreateOrganizationalUnit",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOrganizationalUnit");
   let body: any;
   body = JSON.stringify(se_CreateOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,10 +426,7 @@ export const se_CreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.CreatePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePolicy");
   let body: any;
   body = JSON.stringify(se_CreatePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -466,10 +439,7 @@ export const se_DeclineHandshakeCommand = async (
   input: DeclineHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeclineHandshake",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeclineHandshake");
   let body: any;
   body = JSON.stringify(se_DeclineHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -482,10 +452,7 @@ export const se_DeleteOrganizationCommand = async (
   input: DeleteOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeleteOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -497,10 +464,7 @@ export const se_DeleteOrganizationalUnitCommand = async (
   input: DeleteOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeleteOrganizationalUnit",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOrganizationalUnit");
   let body: any;
   body = JSON.stringify(se_DeleteOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +477,7 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeletePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePolicy");
   let body: any;
   body = JSON.stringify(se_DeletePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +490,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -544,10 +502,7 @@ export const se_DeregisterDelegatedAdministratorCommand = async (
   input: DeregisterDelegatedAdministratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterDelegatedAdministrator");
   let body: any;
   body = JSON.stringify(se_DeregisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -560,10 +515,7 @@ export const se_DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccount");
   let body: any;
   body = JSON.stringify(se_DescribeAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -576,10 +528,7 @@ export const se_DescribeCreateAccountStatusCommand = async (
   input: DescribeCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeCreateAccountStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCreateAccountStatus");
   let body: any;
   body = JSON.stringify(se_DescribeCreateAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -592,10 +541,7 @@ export const se_DescribeEffectivePolicyCommand = async (
   input: DescribeEffectivePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeEffectivePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEffectivePolicy");
   let body: any;
   body = JSON.stringify(se_DescribeEffectivePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -608,10 +554,7 @@ export const se_DescribeHandshakeCommand = async (
   input: DescribeHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeHandshake",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHandshake");
   let body: any;
   body = JSON.stringify(se_DescribeHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -624,10 +567,7 @@ export const se_DescribeOrganizationCommand = async (
   input: DescribeOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -639,10 +579,7 @@ export const se_DescribeOrganizationalUnitCommand = async (
   input: DescribeOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeOrganizationalUnit",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganizationalUnit");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -655,10 +592,7 @@ export const se_DescribePolicyCommand = async (
   input: DescribePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePolicy");
   let body: any;
   body = JSON.stringify(se_DescribePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -671,10 +605,7 @@ export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DescribeResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -686,10 +617,7 @@ export const se_DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DetachPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachPolicy");
   let body: any;
   body = JSON.stringify(se_DetachPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -702,10 +630,7 @@ export const se_DisableAWSServiceAccessCommand = async (
   input: DisableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DisableAWSServiceAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableAWSServiceAccess");
   let body: any;
   body = JSON.stringify(se_DisableAWSServiceAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -718,10 +643,7 @@ export const se_DisablePolicyTypeCommand = async (
   input: DisablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.DisablePolicyType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisablePolicyType");
   let body: any;
   body = JSON.stringify(se_DisablePolicyTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -734,10 +656,7 @@ export const se_EnableAllFeaturesCommand = async (
   input: EnableAllFeaturesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.EnableAllFeatures",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableAllFeatures");
   let body: any;
   body = JSON.stringify(se_EnableAllFeaturesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -750,10 +669,7 @@ export const se_EnableAWSServiceAccessCommand = async (
   input: EnableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.EnableAWSServiceAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableAWSServiceAccess");
   let body: any;
   body = JSON.stringify(se_EnableAWSServiceAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -766,10 +682,7 @@ export const se_EnablePolicyTypeCommand = async (
   input: EnablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.EnablePolicyType",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnablePolicyType");
   let body: any;
   body = JSON.stringify(se_EnablePolicyTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -782,10 +695,7 @@ export const se_InviteAccountToOrganizationCommand = async (
   input: InviteAccountToOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.InviteAccountToOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("InviteAccountToOrganization");
   let body: any;
   body = JSON.stringify(se_InviteAccountToOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -798,10 +708,7 @@ export const se_LeaveOrganizationCommand = async (
   input: LeaveOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.LeaveOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("LeaveOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -813,10 +720,7 @@ export const se_ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListAccounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccounts");
   let body: any;
   body = JSON.stringify(se_ListAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -829,10 +733,7 @@ export const se_ListAccountsForParentCommand = async (
   input: ListAccountsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListAccountsForParent",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccountsForParent");
   let body: any;
   body = JSON.stringify(se_ListAccountsForParentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -845,10 +746,7 @@ export const se_ListAWSServiceAccessForOrganizationCommand = async (
   input: ListAWSServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAWSServiceAccessForOrganization");
   let body: any;
   body = JSON.stringify(se_ListAWSServiceAccessForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -861,10 +759,7 @@ export const se_ListChildrenCommand = async (
   input: ListChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListChildren",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListChildren");
   let body: any;
   body = JSON.stringify(se_ListChildrenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -877,10 +772,7 @@ export const se_ListCreateAccountStatusCommand = async (
   input: ListCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListCreateAccountStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCreateAccountStatus");
   let body: any;
   body = JSON.stringify(se_ListCreateAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -893,10 +785,7 @@ export const se_ListDelegatedAdministratorsCommand = async (
   input: ListDelegatedAdministratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListDelegatedAdministrators",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDelegatedAdministrators");
   let body: any;
   body = JSON.stringify(se_ListDelegatedAdministratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -909,10 +798,7 @@ export const se_ListDelegatedServicesForAccountCommand = async (
   input: ListDelegatedServicesForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListDelegatedServicesForAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDelegatedServicesForAccount");
   let body: any;
   body = JSON.stringify(se_ListDelegatedServicesForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -925,10 +811,7 @@ export const se_ListHandshakesForAccountCommand = async (
   input: ListHandshakesForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHandshakesForAccount");
   let body: any;
   body = JSON.stringify(se_ListHandshakesForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -941,10 +824,7 @@ export const se_ListHandshakesForOrganizationCommand = async (
   input: ListHandshakesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHandshakesForOrganization");
   let body: any;
   body = JSON.stringify(se_ListHandshakesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -957,10 +837,7 @@ export const se_ListOrganizationalUnitsForParentCommand = async (
   input: ListOrganizationalUnitsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOrganizationalUnitsForParent");
   let body: any;
   body = JSON.stringify(se_ListOrganizationalUnitsForParentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -973,10 +850,7 @@ export const se_ListParentsCommand = async (
   input: ListParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListParents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListParents");
   let body: any;
   body = JSON.stringify(se_ListParentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -989,10 +863,7 @@ export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPolicies");
   let body: any;
   body = JSON.stringify(se_ListPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1005,10 +876,7 @@ export const se_ListPoliciesForTargetCommand = async (
   input: ListPoliciesForTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListPoliciesForTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPoliciesForTarget");
   let body: any;
   body = JSON.stringify(se_ListPoliciesForTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1021,10 +889,7 @@ export const se_ListRootsCommand = async (
   input: ListRootsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListRoots",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRoots");
   let body: any;
   body = JSON.stringify(se_ListRootsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1037,10 +902,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1053,10 +915,7 @@ export const se_ListTargetsForPolicyCommand = async (
   input: ListTargetsForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.ListTargetsForPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTargetsForPolicy");
   let body: any;
   body = JSON.stringify(se_ListTargetsForPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1069,10 +928,7 @@ export const se_MoveAccountCommand = async (
   input: MoveAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.MoveAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("MoveAccount");
   let body: any;
   body = JSON.stringify(se_MoveAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1085,10 +941,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1101,10 +954,7 @@ export const se_RegisterDelegatedAdministratorCommand = async (
   input: RegisterDelegatedAdministratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.RegisterDelegatedAdministrator",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterDelegatedAdministrator");
   let body: any;
   body = JSON.stringify(se_RegisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1117,10 +967,7 @@ export const se_RemoveAccountFromOrganizationCommand = async (
   input: RemoveAccountFromOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.RemoveAccountFromOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveAccountFromOrganization");
   let body: any;
   body = JSON.stringify(se_RemoveAccountFromOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1133,10 +980,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1149,10 +993,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1165,10 +1006,7 @@ export const se_UpdateOrganizationalUnitCommand = async (
   input: UpdateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.UpdateOrganizationalUnit",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateOrganizationalUnit");
   let body: any;
   body = JSON.stringify(se_UpdateOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1181,10 +1019,7 @@ export const se_UpdatePolicyCommand = async (
   input: UpdatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrganizationsV20161128.UpdatePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePolicy");
   let body: any;
   body = JSON.stringify(se_UpdatePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7713,6 +7548,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSOrganizationsV20161128.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

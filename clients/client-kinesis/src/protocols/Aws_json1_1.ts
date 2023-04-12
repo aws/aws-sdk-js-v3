@@ -175,10 +175,7 @@ export const se_AddTagsToStreamCommand = async (
   input: AddTagsToStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.AddTagsToStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTagsToStream");
   let body: any;
   body = JSON.stringify(se_AddTagsToStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -191,10 +188,7 @@ export const se_CreateStreamCommand = async (
   input: CreateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.CreateStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStream");
   let body: any;
   body = JSON.stringify(se_CreateStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -207,10 +201,7 @@ export const se_DecreaseStreamRetentionPeriodCommand = async (
   input: DecreaseStreamRetentionPeriodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DecreaseStreamRetentionPeriod",
-  };
+  const headers: __HeaderBag = sharedHeaders("DecreaseStreamRetentionPeriod");
   let body: any;
   body = JSON.stringify(se_DecreaseStreamRetentionPeriodInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -223,10 +214,7 @@ export const se_DeleteStreamCommand = async (
   input: DeleteStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DeleteStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStream");
   let body: any;
   body = JSON.stringify(se_DeleteStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -239,10 +227,7 @@ export const se_DeregisterStreamConsumerCommand = async (
   input: DeregisterStreamConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DeregisterStreamConsumer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterStreamConsumer");
   let body: any;
   body = JSON.stringify(se_DeregisterStreamConsumerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -255,10 +240,7 @@ export const se_DescribeLimitsCommand = async (
   input: DescribeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DescribeLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLimits");
   let body: any;
   body = JSON.stringify(se_DescribeLimitsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -271,10 +253,7 @@ export const se_DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DescribeStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStream");
   let body: any;
   body = JSON.stringify(se_DescribeStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -287,10 +266,7 @@ export const se_DescribeStreamConsumerCommand = async (
   input: DescribeStreamConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DescribeStreamConsumer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStreamConsumer");
   let body: any;
   body = JSON.stringify(se_DescribeStreamConsumerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -303,10 +279,7 @@ export const se_DescribeStreamSummaryCommand = async (
   input: DescribeStreamSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DescribeStreamSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStreamSummary");
   let body: any;
   body = JSON.stringify(se_DescribeStreamSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -319,10 +292,7 @@ export const se_DisableEnhancedMonitoringCommand = async (
   input: DisableEnhancedMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.DisableEnhancedMonitoring",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableEnhancedMonitoring");
   let body: any;
   body = JSON.stringify(se_DisableEnhancedMonitoringInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -335,10 +305,7 @@ export const se_EnableEnhancedMonitoringCommand = async (
   input: EnableEnhancedMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.EnableEnhancedMonitoring",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableEnhancedMonitoring");
   let body: any;
   body = JSON.stringify(se_EnableEnhancedMonitoringInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -351,10 +318,7 @@ export const se_GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.GetRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecords");
   let body: any;
   body = JSON.stringify(se_GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -367,10 +331,7 @@ export const se_GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.GetShardIterator",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetShardIterator");
   let body: any;
   body = JSON.stringify(se_GetShardIteratorInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -383,10 +344,7 @@ export const se_IncreaseStreamRetentionPeriodCommand = async (
   input: IncreaseStreamRetentionPeriodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.IncreaseStreamRetentionPeriod",
-  };
+  const headers: __HeaderBag = sharedHeaders("IncreaseStreamRetentionPeriod");
   let body: any;
   body = JSON.stringify(se_IncreaseStreamRetentionPeriodInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -399,10 +357,7 @@ export const se_ListShardsCommand = async (
   input: ListShardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.ListShards",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListShards");
   let body: any;
   body = JSON.stringify(se_ListShardsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -415,10 +370,7 @@ export const se_ListStreamConsumersCommand = async (
   input: ListStreamConsumersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.ListStreamConsumers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStreamConsumers");
   let body: any;
   body = JSON.stringify(se_ListStreamConsumersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -431,10 +383,7 @@ export const se_ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.ListStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStreams");
   let body: any;
   body = JSON.stringify(se_ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -447,10 +396,7 @@ export const se_ListTagsForStreamCommand = async (
   input: ListTagsForStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.ListTagsForStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForStream");
   let body: any;
   body = JSON.stringify(se_ListTagsForStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -463,10 +409,7 @@ export const se_MergeShardsCommand = async (
   input: MergeShardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.MergeShards",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergeShards");
   let body: any;
   body = JSON.stringify(se_MergeShardsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -479,10 +422,7 @@ export const se_PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.PutRecord",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRecord");
   let body: any;
   body = JSON.stringify(se_PutRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -495,10 +435,7 @@ export const se_PutRecordsCommand = async (
   input: PutRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.PutRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRecords");
   let body: any;
   body = JSON.stringify(se_PutRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -511,10 +448,7 @@ export const se_RegisterStreamConsumerCommand = async (
   input: RegisterStreamConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.RegisterStreamConsumer",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterStreamConsumer");
   let body: any;
   body = JSON.stringify(se_RegisterStreamConsumerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -527,10 +461,7 @@ export const se_RemoveTagsFromStreamCommand = async (
   input: RemoveTagsFromStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.RemoveTagsFromStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTagsFromStream");
   let body: any;
   body = JSON.stringify(se_RemoveTagsFromStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -543,10 +474,7 @@ export const se_SplitShardCommand = async (
   input: SplitShardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.SplitShard",
-  };
+  const headers: __HeaderBag = sharedHeaders("SplitShard");
   let body: any;
   body = JSON.stringify(se_SplitShardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -559,10 +487,7 @@ export const se_StartStreamEncryptionCommand = async (
   input: StartStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.StartStreamEncryption",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartStreamEncryption");
   let body: any;
   body = JSON.stringify(se_StartStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -575,10 +500,7 @@ export const se_StopStreamEncryptionCommand = async (
   input: StopStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.StopStreamEncryption",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopStreamEncryption");
   let body: any;
   body = JSON.stringify(se_StopStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -591,10 +513,7 @@ export const se_SubscribeToShardCommand = async (
   input: SubscribeToShardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.SubscribeToShard",
-  };
+  const headers: __HeaderBag = sharedHeaders("SubscribeToShard");
   let body: any;
   body = JSON.stringify(se_SubscribeToShardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -607,10 +526,7 @@ export const se_UpdateShardCountCommand = async (
   input: UpdateShardCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.UpdateShardCount",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateShardCount");
   let body: any;
   body = JSON.stringify(se_UpdateShardCountInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -623,10 +539,7 @@ export const se_UpdateStreamModeCommand = async (
   input: UpdateStreamModeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Kinesis_20131202.UpdateStreamMode",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStreamMode");
   let body: any;
   body = JSON.stringify(se_UpdateStreamModeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3896,6 +3809,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Kinesis_20131202.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

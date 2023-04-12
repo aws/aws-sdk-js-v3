@@ -372,10 +372,7 @@ export const se_AssociateWebACLCommand = async (
   input: AssociateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.AssociateWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateWebACL");
   let body: any;
   body = JSON.stringify(se_AssociateWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -388,10 +385,7 @@ export const se_CheckCapacityCommand = async (
   input: CheckCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.CheckCapacity",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckCapacity");
   let body: any;
   body = JSON.stringify(se_CheckCapacityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -404,10 +398,7 @@ export const se_CreateIPSetCommand = async (
   input: CreateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.CreateIPSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateIPSet");
   let body: any;
   body = JSON.stringify(se_CreateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -420,10 +411,7 @@ export const se_CreateRegexPatternSetCommand = async (
   input: CreateRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.CreateRegexPatternSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRegexPatternSet");
   let body: any;
   body = JSON.stringify(se_CreateRegexPatternSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -436,10 +424,7 @@ export const se_CreateRuleGroupCommand = async (
   input: CreateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.CreateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRuleGroup");
   let body: any;
   body = JSON.stringify(se_CreateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -452,10 +437,7 @@ export const se_CreateWebACLCommand = async (
   input: CreateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.CreateWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWebACL");
   let body: any;
   body = JSON.stringify(se_CreateWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -468,10 +450,7 @@ export const se_DeleteFirewallManagerRuleGroupsCommand = async (
   input: DeleteFirewallManagerRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteFirewallManagerRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallManagerRuleGroups");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallManagerRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -484,10 +463,7 @@ export const se_DeleteIPSetCommand = async (
   input: DeleteIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteIPSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteIPSet");
   let body: any;
   body = JSON.stringify(se_DeleteIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -500,10 +476,7 @@ export const se_DeleteLoggingConfigurationCommand = async (
   input: DeleteLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLoggingConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteLoggingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -516,10 +489,7 @@ export const se_DeletePermissionPolicyCommand = async (
   input: DeletePermissionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeletePermissionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePermissionPolicy");
   let body: any;
   body = JSON.stringify(se_DeletePermissionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -532,10 +502,7 @@ export const se_DeleteRegexPatternSetCommand = async (
   input: DeleteRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteRegexPatternSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRegexPatternSet");
   let body: any;
   body = JSON.stringify(se_DeleteRegexPatternSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -548,10 +515,7 @@ export const se_DeleteRuleGroupCommand = async (
   input: DeleteRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRuleGroup");
   let body: any;
   body = JSON.stringify(se_DeleteRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -564,10 +528,7 @@ export const se_DeleteWebACLCommand = async (
   input: DeleteWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DeleteWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWebACL");
   let body: any;
   body = JSON.stringify(se_DeleteWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -580,10 +541,7 @@ export const se_DescribeManagedRuleGroupCommand = async (
   input: DescribeManagedRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DescribeManagedRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeManagedRuleGroup");
   let body: any;
   body = JSON.stringify(se_DescribeManagedRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -596,10 +554,7 @@ export const se_DisassociateWebACLCommand = async (
   input: DisassociateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.DisassociateWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateWebACL");
   let body: any;
   body = JSON.stringify(se_DisassociateWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -612,10 +567,7 @@ export const se_GenerateMobileSdkReleaseUrlCommand = async (
   input: GenerateMobileSdkReleaseUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GenerateMobileSdkReleaseUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateMobileSdkReleaseUrl");
   let body: any;
   body = JSON.stringify(se_GenerateMobileSdkReleaseUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -628,10 +580,7 @@ export const se_GetIPSetCommand = async (
   input: GetIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetIPSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetIPSet");
   let body: any;
   body = JSON.stringify(se_GetIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -644,10 +593,7 @@ export const se_GetLoggingConfigurationCommand = async (
   input: GetLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoggingConfiguration");
   let body: any;
   body = JSON.stringify(se_GetLoggingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -660,10 +606,7 @@ export const se_GetManagedRuleSetCommand = async (
   input: GetManagedRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetManagedRuleSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetManagedRuleSet");
   let body: any;
   body = JSON.stringify(se_GetManagedRuleSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -676,10 +619,7 @@ export const se_GetMobileSdkReleaseCommand = async (
   input: GetMobileSdkReleaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetMobileSdkRelease",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMobileSdkRelease");
   let body: any;
   body = JSON.stringify(se_GetMobileSdkReleaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -692,10 +632,7 @@ export const se_GetPermissionPolicyCommand = async (
   input: GetPermissionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetPermissionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPermissionPolicy");
   let body: any;
   body = JSON.stringify(se_GetPermissionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -708,10 +645,7 @@ export const se_GetRateBasedStatementManagedKeysCommand = async (
   input: GetRateBasedStatementManagedKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetRateBasedStatementManagedKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRateBasedStatementManagedKeys");
   let body: any;
   body = JSON.stringify(se_GetRateBasedStatementManagedKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -724,10 +658,7 @@ export const se_GetRegexPatternSetCommand = async (
   input: GetRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetRegexPatternSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegexPatternSet");
   let body: any;
   body = JSON.stringify(se_GetRegexPatternSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -740,10 +671,7 @@ export const se_GetRuleGroupCommand = async (
   input: GetRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRuleGroup");
   let body: any;
   body = JSON.stringify(se_GetRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -756,10 +684,7 @@ export const se_GetSampledRequestsCommand = async (
   input: GetSampledRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetSampledRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSampledRequests");
   let body: any;
   body = JSON.stringify(se_GetSampledRequestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -772,10 +697,7 @@ export const se_GetWebACLCommand = async (
   input: GetWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWebACL");
   let body: any;
   body = JSON.stringify(se_GetWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -788,10 +710,7 @@ export const se_GetWebACLForResourceCommand = async (
   input: GetWebACLForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.GetWebACLForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWebACLForResource");
   let body: any;
   body = JSON.stringify(se_GetWebACLForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -804,10 +723,7 @@ export const se_ListAvailableManagedRuleGroupsCommand = async (
   input: ListAvailableManagedRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListAvailableManagedRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailableManagedRuleGroups");
   let body: any;
   body = JSON.stringify(se_ListAvailableManagedRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -820,10 +736,7 @@ export const se_ListAvailableManagedRuleGroupVersionsCommand = async (
   input: ListAvailableManagedRuleGroupVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListAvailableManagedRuleGroupVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailableManagedRuleGroupVersions");
   let body: any;
   body = JSON.stringify(se_ListAvailableManagedRuleGroupVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -836,10 +749,7 @@ export const se_ListIPSetsCommand = async (
   input: ListIPSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListIPSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListIPSets");
   let body: any;
   body = JSON.stringify(se_ListIPSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -852,10 +762,7 @@ export const se_ListLoggingConfigurationsCommand = async (
   input: ListLoggingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListLoggingConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLoggingConfigurations");
   let body: any;
   body = JSON.stringify(se_ListLoggingConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -868,10 +775,7 @@ export const se_ListManagedRuleSetsCommand = async (
   input: ListManagedRuleSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListManagedRuleSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListManagedRuleSets");
   let body: any;
   body = JSON.stringify(se_ListManagedRuleSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -884,10 +788,7 @@ export const se_ListMobileSdkReleasesCommand = async (
   input: ListMobileSdkReleasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListMobileSdkReleases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMobileSdkReleases");
   let body: any;
   body = JSON.stringify(se_ListMobileSdkReleasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -900,10 +801,7 @@ export const se_ListRegexPatternSetsCommand = async (
   input: ListRegexPatternSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListRegexPatternSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRegexPatternSets");
   let body: any;
   body = JSON.stringify(se_ListRegexPatternSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -916,10 +814,7 @@ export const se_ListResourcesForWebACLCommand = async (
   input: ListResourcesForWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListResourcesForWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourcesForWebACL");
   let body: any;
   body = JSON.stringify(se_ListResourcesForWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -932,10 +827,7 @@ export const se_ListRuleGroupsCommand = async (
   input: ListRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRuleGroups");
   let body: any;
   body = JSON.stringify(se_ListRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -948,10 +840,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,10 +853,7 @@ export const se_ListWebACLsCommand = async (
   input: ListWebACLsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.ListWebACLs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWebACLs");
   let body: any;
   body = JSON.stringify(se_ListWebACLsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -980,10 +866,7 @@ export const se_PutLoggingConfigurationCommand = async (
   input: PutLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.PutLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLoggingConfiguration");
   let body: any;
   body = JSON.stringify(se_PutLoggingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -996,10 +879,7 @@ export const se_PutManagedRuleSetVersionsCommand = async (
   input: PutManagedRuleSetVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.PutManagedRuleSetVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutManagedRuleSetVersions");
   let body: any;
   body = JSON.stringify(se_PutManagedRuleSetVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1012,10 +892,7 @@ export const se_PutPermissionPolicyCommand = async (
   input: PutPermissionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.PutPermissionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPermissionPolicy");
   let body: any;
   body = JSON.stringify(se_PutPermissionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1028,10 +905,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1044,10 +918,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1060,10 +931,7 @@ export const se_UpdateIPSetCommand = async (
   input: UpdateIPSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UpdateIPSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateIPSet");
   let body: any;
   body = JSON.stringify(se_UpdateIPSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1076,10 +944,7 @@ export const se_UpdateManagedRuleSetVersionExpiryDateCommand = async (
   input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UpdateManagedRuleSetVersionExpiryDate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateManagedRuleSetVersionExpiryDate");
   let body: any;
   body = JSON.stringify(se_UpdateManagedRuleSetVersionExpiryDateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1092,10 +957,7 @@ export const se_UpdateRegexPatternSetCommand = async (
   input: UpdateRegexPatternSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UpdateRegexPatternSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRegexPatternSet");
   let body: any;
   body = JSON.stringify(se_UpdateRegexPatternSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1108,10 +970,7 @@ export const se_UpdateRuleGroupCommand = async (
   input: UpdateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UpdateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuleGroup");
   let body: any;
   body = JSON.stringify(se_UpdateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1124,10 +983,7 @@ export const se_UpdateWebACLCommand = async (
   input: UpdateWebACLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSWAF_20190729.UpdateWebACL",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWebACL");
   let body: any;
   body = JSON.stringify(se_UpdateWebACLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8900,6 +8756,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSWAF_20190729.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

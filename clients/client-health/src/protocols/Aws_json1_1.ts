@@ -118,10 +118,7 @@ export const se_DescribeAffectedAccountsForOrganizationCommand = async (
   input: DescribeAffectedAccountsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeAffectedAccountsForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAffectedAccountsForOrganization");
   let body: any;
   body = JSON.stringify(se_DescribeAffectedAccountsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -134,10 +131,7 @@ export const se_DescribeAffectedEntitiesCommand = async (
   input: DescribeAffectedEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAffectedEntities");
   let body: any;
   body = JSON.stringify(se_DescribeAffectedEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -150,10 +144,7 @@ export const se_DescribeAffectedEntitiesForOrganizationCommand = async (
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAffectedEntitiesForOrganization");
   let body: any;
   body = JSON.stringify(se_DescribeAffectedEntitiesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,10 +157,7 @@ export const se_DescribeEntityAggregatesCommand = async (
   input: DescribeEntityAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEntityAggregates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntityAggregates");
   let body: any;
   body = JSON.stringify(se_DescribeEntityAggregatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -182,10 +170,7 @@ export const se_DescribeEventAggregatesCommand = async (
   input: DescribeEventAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEventAggregates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventAggregates");
   let body: any;
   body = JSON.stringify(se_DescribeEventAggregatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -198,10 +183,7 @@ export const se_DescribeEventDetailsCommand = async (
   input: DescribeEventDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEventDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventDetails");
   let body: any;
   body = JSON.stringify(se_DescribeEventDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -214,10 +196,7 @@ export const se_DescribeEventDetailsForOrganizationCommand = async (
   input: DescribeEventDetailsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEventDetailsForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventDetailsForOrganization");
   let body: any;
   body = JSON.stringify(se_DescribeEventDetailsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -230,10 +209,7 @@ export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
   body = JSON.stringify(se_DescribeEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -246,10 +222,7 @@ export const se_DescribeEventsForOrganizationCommand = async (
   input: DescribeEventsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEventsForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventsForOrganization");
   let body: any;
   body = JSON.stringify(se_DescribeEventsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -262,10 +235,7 @@ export const se_DescribeEventTypesCommand = async (
   input: DescribeEventTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeEventTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventTypes");
   let body: any;
   body = JSON.stringify(se_DescribeEventTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -278,10 +248,7 @@ export const se_DescribeHealthServiceStatusForOrganizationCommand = async (
   input: DescribeHealthServiceStatusForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHealthServiceStatusForOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -293,10 +260,7 @@ export const se_DisableHealthServiceAccessForOrganizationCommand = async (
   input: DisableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.DisableHealthServiceAccessForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableHealthServiceAccessForOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -308,10 +272,7 @@ export const se_EnableHealthServiceAccessForOrganizationCommand = async (
   input: EnableHealthServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSHealth_20160804.EnableHealthServiceAccessForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableHealthServiceAccessForOrganization");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2008,6 +1969,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSHealth_20160804.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

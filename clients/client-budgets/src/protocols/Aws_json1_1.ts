@@ -157,10 +157,7 @@ export const se_CreateBudgetCommand = async (
   input: CreateBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.CreateBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBudget");
   let body: any;
   body = JSON.stringify(se_CreateBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -173,10 +170,7 @@ export const se_CreateBudgetActionCommand = async (
   input: CreateBudgetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.CreateBudgetAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBudgetAction");
   let body: any;
   body = JSON.stringify(se_CreateBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -189,10 +183,7 @@ export const se_CreateNotificationCommand = async (
   input: CreateNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.CreateNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNotification");
   let body: any;
   body = JSON.stringify(se_CreateNotificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -205,10 +196,7 @@ export const se_CreateSubscriberCommand = async (
   input: CreateSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.CreateSubscriber",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSubscriber");
   let body: any;
   body = JSON.stringify(se_CreateSubscriberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -221,10 +209,7 @@ export const se_DeleteBudgetCommand = async (
   input: DeleteBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DeleteBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBudget");
   let body: any;
   body = JSON.stringify(se_DeleteBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -237,10 +222,7 @@ export const se_DeleteBudgetActionCommand = async (
   input: DeleteBudgetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DeleteBudgetAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBudgetAction");
   let body: any;
   body = JSON.stringify(se_DeleteBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -253,10 +235,7 @@ export const se_DeleteNotificationCommand = async (
   input: DeleteNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DeleteNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNotification");
   let body: any;
   body = JSON.stringify(se_DeleteNotificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -269,10 +248,7 @@ export const se_DeleteSubscriberCommand = async (
   input: DeleteSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DeleteSubscriber",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSubscriber");
   let body: any;
   body = JSON.stringify(se_DeleteSubscriberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -285,10 +261,7 @@ export const se_DescribeBudgetCommand = async (
   input: DescribeBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudget");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -301,10 +274,7 @@ export const se_DescribeBudgetActionCommand = async (
   input: DescribeBudgetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetAction");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +287,7 @@ export const se_DescribeBudgetActionHistoriesCommand = async (
   input: DescribeBudgetActionHistoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetActionHistories");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetActionHistoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +300,7 @@ export const se_DescribeBudgetActionsForAccountCommand = async (
   input: DescribeBudgetActionsForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetActionsForAccount");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetActionsForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +313,7 @@ export const se_DescribeBudgetActionsForBudgetCommand = async (
   input: DescribeBudgetActionsForBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetActionsForBudget");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetActionsForBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +326,7 @@ export const se_DescribeBudgetNotificationsForAccountCommand = async (
   input: DescribeBudgetNotificationsForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetNotificationsForAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetNotificationsForAccount");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetNotificationsForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +339,7 @@ export const se_DescribeBudgetPerformanceHistoryCommand = async (
   input: DescribeBudgetPerformanceHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgetPerformanceHistory");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetPerformanceHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +352,7 @@ export const se_DescribeBudgetsCommand = async (
   input: DescribeBudgetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBudgets");
   let body: any;
   body = JSON.stringify(se_DescribeBudgetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +365,7 @@ export const se_DescribeNotificationsForBudgetCommand = async (
   input: DescribeNotificationsForBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeNotificationsForBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNotificationsForBudget");
   let body: any;
   body = JSON.stringify(se_DescribeNotificationsForBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +378,7 @@ export const se_DescribeSubscribersForNotificationCommand = async (
   input: DescribeSubscribersForNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.DescribeSubscribersForNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSubscribersForNotification");
   let body: any;
   body = JSON.stringify(se_DescribeSubscribersForNotificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +391,7 @@ export const se_ExecuteBudgetActionCommand = async (
   input: ExecuteBudgetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.ExecuteBudgetAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteBudgetAction");
   let body: any;
   body = JSON.stringify(se_ExecuteBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +404,7 @@ export const se_UpdateBudgetCommand = async (
   input: UpdateBudgetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.UpdateBudget",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBudget");
   let body: any;
   body = JSON.stringify(se_UpdateBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +417,7 @@ export const se_UpdateBudgetActionCommand = async (
   input: UpdateBudgetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.UpdateBudgetAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBudgetAction");
   let body: any;
   body = JSON.stringify(se_UpdateBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +430,7 @@ export const se_UpdateNotificationCommand = async (
   input: UpdateNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.UpdateNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotification");
   let body: any;
   body = JSON.stringify(se_UpdateNotificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +443,7 @@ export const se_UpdateSubscriberCommand = async (
   input: UpdateSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSBudgetServiceGateway.UpdateSubscriber",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubscriber");
   let body: any;
   body = JSON.stringify(se_UpdateSubscriberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3555,6 +3486,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSBudgetServiceGateway.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

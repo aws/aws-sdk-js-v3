@@ -174,10 +174,7 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.AddTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
   body = JSON.stringify(se_AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -190,10 +187,7 @@ export const se_CreateBatchPredictionCommand = async (
   input: CreateBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateBatchPrediction",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchPrediction");
   let body: any;
   body = JSON.stringify(se_CreateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -206,10 +200,7 @@ export const se_CreateDataSourceFromRDSCommand = async (
   input: CreateDataSourceFromRDSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateDataSourceFromRDS",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromRDS");
   let body: any;
   body = JSON.stringify(se_CreateDataSourceFromRDSInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -222,10 +213,7 @@ export const se_CreateDataSourceFromRedshiftCommand = async (
   input: CreateDataSourceFromRedshiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateDataSourceFromRedshift",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromRedshift");
   let body: any;
   body = JSON.stringify(se_CreateDataSourceFromRedshiftInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -238,10 +226,7 @@ export const se_CreateDataSourceFromS3Command = async (
   input: CreateDataSourceFromS3CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateDataSourceFromS3",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataSourceFromS3");
   let body: any;
   body = JSON.stringify(se_CreateDataSourceFromS3Input(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -254,10 +239,7 @@ export const se_CreateEvaluationCommand = async (
   input: CreateEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEvaluation");
   let body: any;
   body = JSON.stringify(se_CreateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -270,10 +252,7 @@ export const se_CreateMLModelCommand = async (
   input: CreateMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateMLModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMLModel");
   let body: any;
   body = JSON.stringify(se_CreateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -286,10 +265,7 @@ export const se_CreateRealtimeEndpointCommand = async (
   input: CreateRealtimeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.CreateRealtimeEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRealtimeEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -302,10 +278,7 @@ export const se_DeleteBatchPredictionCommand = async (
   input: DeleteBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteBatchPrediction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBatchPrediction");
   let body: any;
   body = JSON.stringify(se_DeleteBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,10 +291,7 @@ export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataSource");
   let body: any;
   body = JSON.stringify(se_DeleteDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -334,10 +304,7 @@ export const se_DeleteEvaluationCommand = async (
   input: DeleteEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEvaluation");
   let body: any;
   body = JSON.stringify(se_DeleteEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -350,10 +317,7 @@ export const se_DeleteMLModelCommand = async (
   input: DeleteMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteMLModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMLModel");
   let body: any;
   body = JSON.stringify(se_DeleteMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -366,10 +330,7 @@ export const se_DeleteRealtimeEndpointCommand = async (
   input: DeleteRealtimeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteRealtimeEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRealtimeEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,10 +343,7 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DeleteTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTags");
   let body: any;
   body = JSON.stringify(se_DeleteTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,10 +356,7 @@ export const se_DescribeBatchPredictionsCommand = async (
   input: DescribeBatchPredictionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DescribeBatchPredictions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchPredictions");
   let body: any;
   body = JSON.stringify(se_DescribeBatchPredictionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -414,10 +369,7 @@ export const se_DescribeDataSourcesCommand = async (
   input: DescribeDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DescribeDataSources",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataSources");
   let body: any;
   body = JSON.stringify(se_DescribeDataSourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -430,10 +382,7 @@ export const se_DescribeEvaluationsCommand = async (
   input: DescribeEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DescribeEvaluations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvaluations");
   let body: any;
   body = JSON.stringify(se_DescribeEvaluationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -446,10 +395,7 @@ export const se_DescribeMLModelsCommand = async (
   input: DescribeMLModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DescribeMLModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMLModels");
   let body: any;
   body = JSON.stringify(se_DescribeMLModelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,10 +408,7 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.DescribeTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
   body = JSON.stringify(se_DescribeTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -478,10 +421,7 @@ export const se_GetBatchPredictionCommand = async (
   input: GetBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.GetBatchPrediction",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBatchPrediction");
   let body: any;
   body = JSON.stringify(se_GetBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,10 +434,7 @@ export const se_GetDataSourceCommand = async (
   input: GetDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.GetDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataSource");
   let body: any;
   body = JSON.stringify(se_GetDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -510,10 +447,7 @@ export const se_GetEvaluationCommand = async (
   input: GetEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.GetEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEvaluation");
   let body: any;
   body = JSON.stringify(se_GetEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,10 +460,7 @@ export const se_GetMLModelCommand = async (
   input: GetMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.GetMLModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMLModel");
   let body: any;
   body = JSON.stringify(se_GetMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -542,10 +473,7 @@ export const se_PredictCommand = async (
   input: PredictCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.Predict",
-  };
+  const headers: __HeaderBag = sharedHeaders("Predict");
   let body: any;
   body = JSON.stringify(se_PredictInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -558,10 +486,7 @@ export const se_UpdateBatchPredictionCommand = async (
   input: UpdateBatchPredictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.UpdateBatchPrediction",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBatchPrediction");
   let body: any;
   body = JSON.stringify(se_UpdateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,10 +499,7 @@ export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.UpdateDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDataSource");
   let body: any;
   body = JSON.stringify(se_UpdateDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -590,10 +512,7 @@ export const se_UpdateEvaluationCommand = async (
   input: UpdateEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.UpdateEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEvaluation");
   let body: any;
   body = JSON.stringify(se_UpdateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,10 +525,7 @@ export const se_UpdateMLModelCommand = async (
   input: UpdateMLModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonML_20141212.UpdateMLModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMLModel");
   let body: any;
   body = JSON.stringify(se_UpdateMLModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3567,6 +3483,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonML_20141212.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -480,9 +480,7 @@ export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsToResourceMessage(input, context),
@@ -499,9 +497,7 @@ export const se_AuthorizeCacheSecurityGroupIngressCommand = async (
   input: AuthorizeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AuthorizeCacheSecurityGroupIngressMessage(input, context),
@@ -518,9 +514,7 @@ export const se_BatchApplyUpdateActionCommand = async (
   input: BatchApplyUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchApplyUpdateActionMessage(input, context),
@@ -537,9 +531,7 @@ export const se_BatchStopUpdateActionCommand = async (
   input: BatchStopUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchStopUpdateActionMessage(input, context),
@@ -556,9 +548,7 @@ export const se_CompleteMigrationCommand = async (
   input: CompleteMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CompleteMigrationMessage(input, context),
@@ -575,9 +565,7 @@ export const se_CopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopySnapshotMessage(input, context),
@@ -594,9 +582,7 @@ export const se_CreateCacheClusterCommand = async (
   input: CreateCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheClusterMessage(input, context),
@@ -613,9 +599,7 @@ export const se_CreateCacheParameterGroupCommand = async (
   input: CreateCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheParameterGroupMessage(input, context),
@@ -632,9 +616,7 @@ export const se_CreateCacheSecurityGroupCommand = async (
   input: CreateCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheSecurityGroupMessage(input, context),
@@ -651,9 +633,7 @@ export const se_CreateCacheSubnetGroupCommand = async (
   input: CreateCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheSubnetGroupMessage(input, context),
@@ -670,9 +650,7 @@ export const se_CreateGlobalReplicationGroupCommand = async (
   input: CreateGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGlobalReplicationGroupMessage(input, context),
@@ -689,9 +667,7 @@ export const se_CreateReplicationGroupCommand = async (
   input: CreateReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReplicationGroupMessage(input, context),
@@ -708,9 +684,7 @@ export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateSnapshotMessage(input, context),
@@ -727,9 +701,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserMessage(input, context),
@@ -746,9 +718,7 @@ export const se_CreateUserGroupCommand = async (
   input: CreateUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserGroupMessage(input, context),
@@ -765,9 +735,7 @@ export const se_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
@@ -784,9 +752,7 @@ export const se_DecreaseReplicaCountCommand = async (
   input: DecreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecreaseReplicaCountMessage(input, context),
@@ -803,9 +769,7 @@ export const se_DeleteCacheClusterCommand = async (
   input: DeleteCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheClusterMessage(input, context),
@@ -822,9 +786,7 @@ export const se_DeleteCacheParameterGroupCommand = async (
   input: DeleteCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheParameterGroupMessage(input, context),
@@ -841,9 +803,7 @@ export const se_DeleteCacheSecurityGroupCommand = async (
   input: DeleteCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheSecurityGroupMessage(input, context),
@@ -860,9 +820,7 @@ export const se_DeleteCacheSubnetGroupCommand = async (
   input: DeleteCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheSubnetGroupMessage(input, context),
@@ -879,9 +837,7 @@ export const se_DeleteGlobalReplicationGroupCommand = async (
   input: DeleteGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGlobalReplicationGroupMessage(input, context),
@@ -898,9 +854,7 @@ export const se_DeleteReplicationGroupCommand = async (
   input: DeleteReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReplicationGroupMessage(input, context),
@@ -917,9 +871,7 @@ export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSnapshotMessage(input, context),
@@ -936,9 +888,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserMessage(input, context),
@@ -955,9 +905,7 @@ export const se_DeleteUserGroupCommand = async (
   input: DeleteUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserGroupMessage(input, context),
@@ -974,9 +922,7 @@ export const se_DescribeCacheClustersCommand = async (
   input: DescribeCacheClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheClustersMessage(input, context),
@@ -993,9 +939,7 @@ export const se_DescribeCacheEngineVersionsCommand = async (
   input: DescribeCacheEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheEngineVersionsMessage(input, context),
@@ -1012,9 +956,7 @@ export const se_DescribeCacheParameterGroupsCommand = async (
   input: DescribeCacheParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheParameterGroupsMessage(input, context),
@@ -1031,9 +973,7 @@ export const se_DescribeCacheParametersCommand = async (
   input: DescribeCacheParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheParametersMessage(input, context),
@@ -1050,9 +990,7 @@ export const se_DescribeCacheSecurityGroupsCommand = async (
   input: DescribeCacheSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheSecurityGroupsMessage(input, context),
@@ -1069,9 +1007,7 @@ export const se_DescribeCacheSubnetGroupsCommand = async (
   input: DescribeCacheSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheSubnetGroupsMessage(input, context),
@@ -1088,9 +1024,7 @@ export const se_DescribeEngineDefaultParametersCommand = async (
   input: DescribeEngineDefaultParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEngineDefaultParametersMessage(input, context),
@@ -1107,9 +1041,7 @@ export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventsMessage(input, context),
@@ -1126,9 +1058,7 @@ export const se_DescribeGlobalReplicationGroupsCommand = async (
   input: DescribeGlobalReplicationGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeGlobalReplicationGroupsMessage(input, context),
@@ -1145,9 +1075,7 @@ export const se_DescribeReplicationGroupsCommand = async (
   input: DescribeReplicationGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReplicationGroupsMessage(input, context),
@@ -1164,9 +1092,7 @@ export const se_DescribeReservedCacheNodesCommand = async (
   input: DescribeReservedCacheNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedCacheNodesMessage(input, context),
@@ -1183,9 +1109,7 @@ export const se_DescribeReservedCacheNodesOfferingsCommand = async (
   input: DescribeReservedCacheNodesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedCacheNodesOfferingsMessage(input, context),
@@ -1202,9 +1126,7 @@ export const se_DescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeServiceUpdatesMessage(input, context),
@@ -1221,9 +1143,7 @@ export const se_DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeSnapshotsMessage(input, context),
@@ -1240,9 +1160,7 @@ export const se_DescribeUpdateActionsCommand = async (
   input: DescribeUpdateActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUpdateActionsMessage(input, context),
@@ -1259,9 +1177,7 @@ export const se_DescribeUserGroupsCommand = async (
   input: DescribeUserGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUserGroupsMessage(input, context),
@@ -1278,9 +1194,7 @@ export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUsersMessage(input, context),
@@ -1297,9 +1211,7 @@ export const se_DisassociateGlobalReplicationGroupCommand = async (
   input: DisassociateGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DisassociateGlobalReplicationGroupMessage(input, context),
@@ -1316,9 +1228,7 @@ export const se_FailoverGlobalReplicationGroupCommand = async (
   input: FailoverGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_FailoverGlobalReplicationGroupMessage(input, context),
@@ -1335,9 +1245,7 @@ export const se_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_IncreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
@@ -1354,9 +1262,7 @@ export const se_IncreaseReplicaCountCommand = async (
   input: IncreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_IncreaseReplicaCountMessage(input, context),
@@ -1373,9 +1279,7 @@ export const se_ListAllowedNodeTypeModificationsCommand = async (
   input: ListAllowedNodeTypeModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAllowedNodeTypeModificationsMessage(input, context),
@@ -1392,9 +1296,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceMessage(input, context),
@@ -1411,9 +1313,7 @@ export const se_ModifyCacheClusterCommand = async (
   input: ModifyCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheClusterMessage(input, context),
@@ -1430,9 +1330,7 @@ export const se_ModifyCacheParameterGroupCommand = async (
   input: ModifyCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheParameterGroupMessage(input, context),
@@ -1449,9 +1347,7 @@ export const se_ModifyCacheSubnetGroupCommand = async (
   input: ModifyCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheSubnetGroupMessage(input, context),
@@ -1468,9 +1364,7 @@ export const se_ModifyGlobalReplicationGroupCommand = async (
   input: ModifyGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyGlobalReplicationGroupMessage(input, context),
@@ -1487,9 +1381,7 @@ export const se_ModifyReplicationGroupCommand = async (
   input: ModifyReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyReplicationGroupMessage(input, context),
@@ -1506,9 +1398,7 @@ export const se_ModifyReplicationGroupShardConfigurationCommand = async (
   input: ModifyReplicationGroupShardConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyReplicationGroupShardConfigurationMessage(input, context),
@@ -1525,9 +1415,7 @@ export const se_ModifyUserCommand = async (
   input: ModifyUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyUserMessage(input, context),
@@ -1544,9 +1432,7 @@ export const se_ModifyUserGroupCommand = async (
   input: ModifyUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyUserGroupMessage(input, context),
@@ -1563,9 +1449,7 @@ export const se_PurchaseReservedCacheNodesOfferingCommand = async (
   input: PurchaseReservedCacheNodesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PurchaseReservedCacheNodesOfferingMessage(input, context),
@@ -1582,9 +1466,7 @@ export const se_RebalanceSlotsInGlobalReplicationGroupCommand = async (
   input: RebalanceSlotsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebalanceSlotsInGlobalReplicationGroupMessage(input, context),
@@ -1601,9 +1483,7 @@ export const se_RebootCacheClusterCommand = async (
   input: RebootCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebootCacheClusterMessage(input, context),
@@ -1620,9 +1500,7 @@ export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsFromResourceMessage(input, context),
@@ -1639,9 +1517,7 @@ export const se_ResetCacheParameterGroupCommand = async (
   input: ResetCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetCacheParameterGroupMessage(input, context),
@@ -1658,9 +1534,7 @@ export const se_RevokeCacheSecurityGroupIngressCommand = async (
   input: RevokeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RevokeCacheSecurityGroupIngressMessage(input, context),
@@ -1677,9 +1551,7 @@ export const se_StartMigrationCommand = async (
   input: StartMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartMigrationMessage(input, context),
@@ -1696,9 +1568,7 @@ export const se_TestFailoverCommand = async (
   input: TestFailoverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestFailoverMessage(input, context),
@@ -13519,6 +13389,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

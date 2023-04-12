@@ -38,10 +38,7 @@ export const se_GetEntitlementsCommand = async (
   input: GetEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMPEntitlementService.GetEntitlements",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEntitlements");
   let body: any;
   body = JSON.stringify(se_GetEntitlementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -308,6 +305,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSMPEntitlementService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

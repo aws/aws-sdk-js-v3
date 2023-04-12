@@ -120,10 +120,7 @@ export const se_AddAttachmentsToSetCommand = async (
   input: AddAttachmentsToSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.AddAttachmentsToSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddAttachmentsToSet");
   let body: any;
   body = JSON.stringify(se_AddAttachmentsToSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -136,10 +133,7 @@ export const se_AddCommunicationToCaseCommand = async (
   input: AddCommunicationToCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.AddCommunicationToCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddCommunicationToCase");
   let body: any;
   body = JSON.stringify(se_AddCommunicationToCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -152,10 +146,7 @@ export const se_CreateCaseCommand = async (
   input: CreateCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.CreateCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCase");
   let body: any;
   body = JSON.stringify(se_CreateCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -168,10 +159,7 @@ export const se_DescribeAttachmentCommand = async (
   input: DescribeAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeAttachment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAttachment");
   let body: any;
   body = JSON.stringify(se_DescribeAttachmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,10 +172,7 @@ export const se_DescribeCasesCommand = async (
   input: DescribeCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeCases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCases");
   let body: any;
   body = JSON.stringify(se_DescribeCasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -200,10 +185,7 @@ export const se_DescribeCommunicationsCommand = async (
   input: DescribeCommunicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeCommunications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCommunications");
   let body: any;
   body = JSON.stringify(se_DescribeCommunicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -216,10 +198,7 @@ export const se_DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServices");
   let body: any;
   body = JSON.stringify(se_DescribeServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -232,10 +211,7 @@ export const se_DescribeSeverityLevelsCommand = async (
   input: DescribeSeverityLevelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeSeverityLevels",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSeverityLevels");
   let body: any;
   body = JSON.stringify(se_DescribeSeverityLevelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,10 +224,7 @@ export const se_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
   input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckRefreshStatuses");
   let body: any;
   body = JSON.stringify(se_DescribeTrustedAdvisorCheckRefreshStatusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -264,10 +237,7 @@ export const se_DescribeTrustedAdvisorCheckResultCommand = async (
   input: DescribeTrustedAdvisorCheckResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckResult");
   let body: any;
   body = JSON.stringify(se_DescribeTrustedAdvisorCheckResultRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -280,10 +250,7 @@ export const se_DescribeTrustedAdvisorChecksCommand = async (
   input: DescribeTrustedAdvisorChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorChecks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorChecks");
   let body: any;
   body = JSON.stringify(se_DescribeTrustedAdvisorChecksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -296,10 +263,7 @@ export const se_DescribeTrustedAdvisorCheckSummariesCommand = async (
   input: DescribeTrustedAdvisorCheckSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedAdvisorCheckSummaries");
   let body: any;
   body = JSON.stringify(se_DescribeTrustedAdvisorCheckSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -312,10 +276,7 @@ export const se_RefreshTrustedAdvisorCheckCommand = async (
   input: RefreshTrustedAdvisorCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.RefreshTrustedAdvisorCheck",
-  };
+  const headers: __HeaderBag = sharedHeaders("RefreshTrustedAdvisorCheck");
   let body: any;
   body = JSON.stringify(se_RefreshTrustedAdvisorCheckRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -328,10 +289,7 @@ export const se_ResolveCaseCommand = async (
   input: ResolveCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSupport_20130415.ResolveCase",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResolveCase");
   let body: any;
   body = JSON.stringify(se_ResolveCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2079,6 +2037,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSSupport_20130415.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

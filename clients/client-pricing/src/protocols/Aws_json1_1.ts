@@ -52,10 +52,7 @@ export const se_DescribeServicesCommand = async (
   input: DescribeServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPriceListService.DescribeServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServices");
   let body: any;
   body = JSON.stringify(se_DescribeServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -68,10 +65,7 @@ export const se_GetAttributeValuesCommand = async (
   input: GetAttributeValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPriceListService.GetAttributeValues",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAttributeValues");
   let body: any;
   body = JSON.stringify(se_GetAttributeValuesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -84,10 +78,7 @@ export const se_GetPriceListFileUrlCommand = async (
   input: GetPriceListFileUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPriceListService.GetPriceListFileUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPriceListFileUrl");
   let body: any;
   body = JSON.stringify(se_GetPriceListFileUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -100,10 +91,7 @@ export const se_GetProductsCommand = async (
   input: GetProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPriceListService.GetProducts",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetProducts");
   let body: any;
   body = JSON.stringify(se_GetProductsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -116,10 +104,7 @@ export const se_ListPriceListsCommand = async (
   input: ListPriceListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPriceListService.ListPriceLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPriceLists");
   let body: any;
   body = JSON.stringify(se_ListPriceListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,6 +852,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSPriceListService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

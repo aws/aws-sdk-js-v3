@@ -112,10 +112,7 @@ export const se_AssociateNodeCommand = async (
   input: AssociateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.AssociateNode",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateNode");
   let body: any;
   body = JSON.stringify(se_AssociateNodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -128,10 +125,7 @@ export const se_CreateBackupCommand = async (
   input: CreateBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.CreateBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBackup");
   let body: any;
   body = JSON.stringify(se_CreateBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -144,10 +138,7 @@ export const se_CreateServerCommand = async (
   input: CreateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.CreateServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServer");
   let body: any;
   body = JSON.stringify(se_CreateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -160,10 +151,7 @@ export const se_DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DeleteBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBackup");
   let body: any;
   body = JSON.stringify(se_DeleteBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -176,10 +164,7 @@ export const se_DeleteServerCommand = async (
   input: DeleteServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DeleteServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServer");
   let body: any;
   body = JSON.stringify(se_DeleteServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -192,10 +177,7 @@ export const se_DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeAccountAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeAccountAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -208,10 +190,7 @@ export const se_DescribeBackupsCommand = async (
   input: DescribeBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeBackups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBackups");
   let body: any;
   body = JSON.stringify(se_DescribeBackupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -224,10 +203,7 @@ export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
   body = JSON.stringify(se_DescribeEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,10 +216,7 @@ export const se_DescribeNodeAssociationStatusCommand = async (
   input: DescribeNodeAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNodeAssociationStatus");
   let body: any;
   body = JSON.stringify(se_DescribeNodeAssociationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -256,10 +229,7 @@ export const se_DescribeServersCommand = async (
   input: DescribeServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeServers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServers");
   let body: any;
   body = JSON.stringify(se_DescribeServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -272,10 +242,7 @@ export const se_DisassociateNodeCommand = async (
   input: DisassociateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.DisassociateNode",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateNode");
   let body: any;
   body = JSON.stringify(se_DisassociateNodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -288,10 +255,7 @@ export const se_ExportServerEngineAttributeCommand = async (
   input: ExportServerEngineAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportServerEngineAttribute");
   let body: any;
   body = JSON.stringify(se_ExportServerEngineAttributeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -304,10 +268,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -320,10 +281,7 @@ export const se_RestoreServerCommand = async (
   input: RestoreServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.RestoreServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreServer");
   let body: any;
   body = JSON.stringify(se_RestoreServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -336,10 +294,7 @@ export const se_StartMaintenanceCommand = async (
   input: StartMaintenanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.StartMaintenance",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMaintenance");
   let body: any;
   body = JSON.stringify(se_StartMaintenanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,10 +307,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -368,10 +320,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -384,10 +333,7 @@ export const se_UpdateServerCommand = async (
   input: UpdateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.UpdateServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServer");
   let body: any;
   body = JSON.stringify(se_UpdateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,10 +346,7 @@ export const se_UpdateServerEngineAttributesCommand = async (
   input: UpdateServerEngineAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServerEngineAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateServerEngineAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2285,6 +2228,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `OpsWorksCM_V2016_11_01.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

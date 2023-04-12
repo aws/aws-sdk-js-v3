@@ -639,10 +639,7 @@ export const se_AssociateApprovalRuleTemplateWithRepositoryCommand = async (
   input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateApprovalRuleTemplateWithRepository");
   let body: any;
   body = JSON.stringify(se_AssociateApprovalRuleTemplateWithRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -655,10 +652,7 @@ export const se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand = asyn
   input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchAssociateApprovalRuleTemplateWithRepositories");
   let body: any;
   body = JSON.stringify(se_BatchAssociateApprovalRuleTemplateWithRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -671,10 +665,7 @@ export const se_BatchDescribeMergeConflictsCommand = async (
   input: BatchDescribeMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.BatchDescribeMergeConflicts",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDescribeMergeConflicts");
   let body: any;
   body = JSON.stringify(se_BatchDescribeMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -687,10 +678,7 @@ export const se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand = a
   input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDisassociateApprovalRuleTemplateFromRepositories");
   let body: any;
   body = JSON.stringify(se_BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -703,10 +691,7 @@ export const se_BatchGetCommitsCommand = async (
   input: BatchGetCommitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.BatchGetCommits",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetCommits");
   let body: any;
   body = JSON.stringify(se_BatchGetCommitsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -719,10 +704,7 @@ export const se_BatchGetRepositoriesCommand = async (
   input: BatchGetRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.BatchGetRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetRepositories");
   let body: any;
   body = JSON.stringify(se_BatchGetRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -735,10 +717,7 @@ export const se_CreateApprovalRuleTemplateCommand = async (
   input: CreateApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreateApprovalRuleTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApprovalRuleTemplate");
   let body: any;
   body = JSON.stringify(se_CreateApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -751,10 +730,7 @@ export const se_CreateBranchCommand = async (
   input: CreateBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreateBranch",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBranch");
   let body: any;
   body = JSON.stringify(se_CreateBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -767,10 +743,7 @@ export const se_CreateCommitCommand = async (
   input: CreateCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreateCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCommit");
   let body: any;
   body = JSON.stringify(se_CreateCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -783,10 +756,7 @@ export const se_CreatePullRequestCommand = async (
   input: CreatePullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreatePullRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePullRequest");
   let body: any;
   body = JSON.stringify(se_CreatePullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -799,10 +769,7 @@ export const se_CreatePullRequestApprovalRuleCommand = async (
   input: CreatePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreatePullRequestApprovalRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePullRequestApprovalRule");
   let body: any;
   body = JSON.stringify(se_CreatePullRequestApprovalRuleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -815,10 +782,7 @@ export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreateRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
   body = JSON.stringify(se_CreateRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -831,10 +795,7 @@ export const se_CreateUnreferencedMergeCommitCommand = async (
   input: CreateUnreferencedMergeCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.CreateUnreferencedMergeCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUnreferencedMergeCommit");
   let body: any;
   body = JSON.stringify(se_CreateUnreferencedMergeCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -847,10 +808,7 @@ export const se_DeleteApprovalRuleTemplateCommand = async (
   input: DeleteApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeleteApprovalRuleTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApprovalRuleTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -863,10 +821,7 @@ export const se_DeleteBranchCommand = async (
   input: DeleteBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeleteBranch",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBranch");
   let body: any;
   body = JSON.stringify(se_DeleteBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -879,10 +834,7 @@ export const se_DeleteCommentContentCommand = async (
   input: DeleteCommentContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeleteCommentContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCommentContent");
   let body: any;
   body = JSON.stringify(se_DeleteCommentContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -895,10 +847,7 @@ export const se_DeleteFileCommand = async (
   input: DeleteFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeleteFile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFile");
   let body: any;
   body = JSON.stringify(se_DeleteFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -911,10 +860,7 @@ export const se_DeletePullRequestApprovalRuleCommand = async (
   input: DeletePullRequestApprovalRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeletePullRequestApprovalRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePullRequestApprovalRule");
   let body: any;
   body = JSON.stringify(se_DeletePullRequestApprovalRuleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -927,10 +873,7 @@ export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DeleteRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -943,10 +886,7 @@ export const se_DescribeMergeConflictsCommand = async (
   input: DescribeMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DescribeMergeConflicts",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMergeConflicts");
   let body: any;
   body = JSON.stringify(se_DescribeMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -959,10 +899,7 @@ export const se_DescribePullRequestEventsCommand = async (
   input: DescribePullRequestEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DescribePullRequestEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePullRequestEvents");
   let body: any;
   body = JSON.stringify(se_DescribePullRequestEventsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -975,10 +912,7 @@ export const se_DisassociateApprovalRuleTemplateFromRepositoryCommand = async (
   input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateApprovalRuleTemplateFromRepository");
   let body: any;
   body = JSON.stringify(se_DisassociateApprovalRuleTemplateFromRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -991,10 +925,7 @@ export const se_EvaluatePullRequestApprovalRulesCommand = async (
   input: EvaluatePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.EvaluatePullRequestApprovalRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("EvaluatePullRequestApprovalRules");
   let body: any;
   body = JSON.stringify(se_EvaluatePullRequestApprovalRulesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1007,10 +938,7 @@ export const se_GetApprovalRuleTemplateCommand = async (
   input: GetApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetApprovalRuleTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetApprovalRuleTemplate");
   let body: any;
   body = JSON.stringify(se_GetApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1023,10 +951,7 @@ export const se_GetBlobCommand = async (
   input: GetBlobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetBlob",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlob");
   let body: any;
   body = JSON.stringify(se_GetBlobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1039,10 +964,7 @@ export const se_GetBranchCommand = async (
   input: GetBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetBranch",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBranch");
   let body: any;
   body = JSON.stringify(se_GetBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1055,10 +977,7 @@ export const se_GetCommentCommand = async (
   input: GetCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetComment",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComment");
   let body: any;
   body = JSON.stringify(se_GetCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1071,10 +990,7 @@ export const se_GetCommentReactionsCommand = async (
   input: GetCommentReactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetCommentReactions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCommentReactions");
   let body: any;
   body = JSON.stringify(se_GetCommentReactionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1087,10 +1003,7 @@ export const se_GetCommentsForComparedCommitCommand = async (
   input: GetCommentsForComparedCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetCommentsForComparedCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCommentsForComparedCommit");
   let body: any;
   body = JSON.stringify(se_GetCommentsForComparedCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1103,10 +1016,7 @@ export const se_GetCommentsForPullRequestCommand = async (
   input: GetCommentsForPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetCommentsForPullRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCommentsForPullRequest");
   let body: any;
   body = JSON.stringify(se_GetCommentsForPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1119,10 +1029,7 @@ export const se_GetCommitCommand = async (
   input: GetCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCommit");
   let body: any;
   body = JSON.stringify(se_GetCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1135,10 +1042,7 @@ export const se_GetDifferencesCommand = async (
   input: GetDifferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetDifferences",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDifferences");
   let body: any;
   body = JSON.stringify(se_GetDifferencesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1151,10 +1055,7 @@ export const se_GetFileCommand = async (
   input: GetFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetFile",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFile");
   let body: any;
   body = JSON.stringify(se_GetFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1167,10 +1068,7 @@ export const se_GetFolderCommand = async (
   input: GetFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetFolder",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFolder");
   let body: any;
   body = JSON.stringify(se_GetFolderInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1183,10 +1081,7 @@ export const se_GetMergeCommitCommand = async (
   input: GetMergeCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetMergeCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMergeCommit");
   let body: any;
   body = JSON.stringify(se_GetMergeCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1199,10 +1094,7 @@ export const se_GetMergeConflictsCommand = async (
   input: GetMergeConflictsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetMergeConflicts",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMergeConflicts");
   let body: any;
   body = JSON.stringify(se_GetMergeConflictsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1215,10 +1107,7 @@ export const se_GetMergeOptionsCommand = async (
   input: GetMergeOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetMergeOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMergeOptions");
   let body: any;
   body = JSON.stringify(se_GetMergeOptionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1231,10 +1120,7 @@ export const se_GetPullRequestCommand = async (
   input: GetPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetPullRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPullRequest");
   let body: any;
   body = JSON.stringify(se_GetPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1247,10 +1133,7 @@ export const se_GetPullRequestApprovalStatesCommand = async (
   input: GetPullRequestApprovalStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetPullRequestApprovalStates",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPullRequestApprovalStates");
   let body: any;
   body = JSON.stringify(se_GetPullRequestApprovalStatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1263,10 +1146,7 @@ export const se_GetPullRequestOverrideStateCommand = async (
   input: GetPullRequestOverrideStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetPullRequestOverrideState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPullRequestOverrideState");
   let body: any;
   body = JSON.stringify(se_GetPullRequestOverrideStateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1279,10 +1159,7 @@ export const se_GetRepositoryCommand = async (
   input: GetRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepository");
   let body: any;
   body = JSON.stringify(se_GetRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1295,10 +1172,7 @@ export const se_GetRepositoryTriggersCommand = async (
   input: GetRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.GetRepositoryTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositoryTriggers");
   let body: any;
   body = JSON.stringify(se_GetRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1311,10 +1185,7 @@ export const se_ListApprovalRuleTemplatesCommand = async (
   input: ListApprovalRuleTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListApprovalRuleTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApprovalRuleTemplates");
   let body: any;
   body = JSON.stringify(se_ListApprovalRuleTemplatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1327,10 +1198,7 @@ export const se_ListAssociatedApprovalRuleTemplatesForRepositoryCommand = async 
   input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociatedApprovalRuleTemplatesForRepository");
   let body: any;
   body = JSON.stringify(se_ListAssociatedApprovalRuleTemplatesForRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1343,10 +1211,7 @@ export const se_ListBranchesCommand = async (
   input: ListBranchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListBranches",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBranches");
   let body: any;
   body = JSON.stringify(se_ListBranchesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1359,10 +1224,7 @@ export const se_ListPullRequestsCommand = async (
   input: ListPullRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListPullRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPullRequests");
   let body: any;
   body = JSON.stringify(se_ListPullRequestsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1375,10 +1237,7 @@ export const se_ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRepositories");
   let body: any;
   body = JSON.stringify(se_ListRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1391,10 +1250,7 @@ export const se_ListRepositoriesForApprovalRuleTemplateCommand = async (
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRepositoriesForApprovalRuleTemplate");
   let body: any;
   body = JSON.stringify(se_ListRepositoriesForApprovalRuleTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1407,10 +1263,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1423,10 +1276,7 @@ export const se_MergeBranchesByFastForwardCommand = async (
   input: MergeBranchesByFastForwardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergeBranchesByFastForward",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergeBranchesByFastForward");
   let body: any;
   body = JSON.stringify(se_MergeBranchesByFastForwardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1439,10 +1289,7 @@ export const se_MergeBranchesBySquashCommand = async (
   input: MergeBranchesBySquashCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergeBranchesBySquash",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergeBranchesBySquash");
   let body: any;
   body = JSON.stringify(se_MergeBranchesBySquashInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1455,10 +1302,7 @@ export const se_MergeBranchesByThreeWayCommand = async (
   input: MergeBranchesByThreeWayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergeBranchesByThreeWay",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergeBranchesByThreeWay");
   let body: any;
   body = JSON.stringify(se_MergeBranchesByThreeWayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1471,10 +1315,7 @@ export const se_MergePullRequestByFastForwardCommand = async (
   input: MergePullRequestByFastForwardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergePullRequestByFastForward",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergePullRequestByFastForward");
   let body: any;
   body = JSON.stringify(se_MergePullRequestByFastForwardInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1487,10 +1328,7 @@ export const se_MergePullRequestBySquashCommand = async (
   input: MergePullRequestBySquashCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergePullRequestBySquash",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergePullRequestBySquash");
   let body: any;
   body = JSON.stringify(se_MergePullRequestBySquashInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1503,10 +1341,7 @@ export const se_MergePullRequestByThreeWayCommand = async (
   input: MergePullRequestByThreeWayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.MergePullRequestByThreeWay",
-  };
+  const headers: __HeaderBag = sharedHeaders("MergePullRequestByThreeWay");
   let body: any;
   body = JSON.stringify(se_MergePullRequestByThreeWayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1519,10 +1354,7 @@ export const se_OverridePullRequestApprovalRulesCommand = async (
   input: OverridePullRequestApprovalRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.OverridePullRequestApprovalRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("OverridePullRequestApprovalRules");
   let body: any;
   body = JSON.stringify(se_OverridePullRequestApprovalRulesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1535,10 +1367,7 @@ export const se_PostCommentForComparedCommitCommand = async (
   input: PostCommentForComparedCommitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PostCommentForComparedCommit",
-  };
+  const headers: __HeaderBag = sharedHeaders("PostCommentForComparedCommit");
   let body: any;
   body = JSON.stringify(se_PostCommentForComparedCommitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1551,10 +1380,7 @@ export const se_PostCommentForPullRequestCommand = async (
   input: PostCommentForPullRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PostCommentForPullRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("PostCommentForPullRequest");
   let body: any;
   body = JSON.stringify(se_PostCommentForPullRequestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1567,10 +1393,7 @@ export const se_PostCommentReplyCommand = async (
   input: PostCommentReplyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PostCommentReply",
-  };
+  const headers: __HeaderBag = sharedHeaders("PostCommentReply");
   let body: any;
   body = JSON.stringify(se_PostCommentReplyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1583,10 +1406,7 @@ export const se_PutCommentReactionCommand = async (
   input: PutCommentReactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PutCommentReaction",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutCommentReaction");
   let body: any;
   body = JSON.stringify(se_PutCommentReactionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1599,10 +1419,7 @@ export const se_PutFileCommand = async (
   input: PutFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PutFile",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutFile");
   let body: any;
   body = JSON.stringify(se_PutFileInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1615,10 +1432,7 @@ export const se_PutRepositoryTriggersCommand = async (
   input: PutRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.PutRepositoryTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRepositoryTriggers");
   let body: any;
   body = JSON.stringify(se_PutRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1631,10 +1445,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1647,10 +1458,7 @@ export const se_TestRepositoryTriggersCommand = async (
   input: TestRepositoryTriggersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.TestRepositoryTriggers",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestRepositoryTriggers");
   let body: any;
   body = JSON.stringify(se_TestRepositoryTriggersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1663,10 +1471,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1679,10 +1484,7 @@ export const se_UpdateApprovalRuleTemplateContentCommand = async (
   input: UpdateApprovalRuleTemplateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateContent");
   let body: any;
   body = JSON.stringify(se_UpdateApprovalRuleTemplateContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1695,10 +1497,7 @@ export const se_UpdateApprovalRuleTemplateDescriptionCommand = async (
   input: UpdateApprovalRuleTemplateDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateDescription");
   let body: any;
   body = JSON.stringify(se_UpdateApprovalRuleTemplateDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1711,10 +1510,7 @@ export const se_UpdateApprovalRuleTemplateNameCommand = async (
   input: UpdateApprovalRuleTemplateNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateApprovalRuleTemplateName",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApprovalRuleTemplateName");
   let body: any;
   body = JSON.stringify(se_UpdateApprovalRuleTemplateNameInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1727,10 +1523,7 @@ export const se_UpdateCommentCommand = async (
   input: UpdateCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateComment",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComment");
   let body: any;
   body = JSON.stringify(se_UpdateCommentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1743,10 +1536,7 @@ export const se_UpdateDefaultBranchCommand = async (
   input: UpdateDefaultBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateDefaultBranch",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDefaultBranch");
   let body: any;
   body = JSON.stringify(se_UpdateDefaultBranchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1759,10 +1549,7 @@ export const se_UpdatePullRequestApprovalRuleContentCommand = async (
   input: UpdatePullRequestApprovalRuleContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePullRequestApprovalRuleContent");
   let body: any;
   body = JSON.stringify(se_UpdatePullRequestApprovalRuleContentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1775,10 +1562,7 @@ export const se_UpdatePullRequestApprovalStateCommand = async (
   input: UpdatePullRequestApprovalStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdatePullRequestApprovalState",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePullRequestApprovalState");
   let body: any;
   body = JSON.stringify(se_UpdatePullRequestApprovalStateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1791,10 +1575,7 @@ export const se_UpdatePullRequestDescriptionCommand = async (
   input: UpdatePullRequestDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdatePullRequestDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePullRequestDescription");
   let body: any;
   body = JSON.stringify(se_UpdatePullRequestDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1807,10 +1588,7 @@ export const se_UpdatePullRequestStatusCommand = async (
   input: UpdatePullRequestStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdatePullRequestStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePullRequestStatus");
   let body: any;
   body = JSON.stringify(se_UpdatePullRequestStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1823,10 +1601,7 @@ export const se_UpdatePullRequestTitleCommand = async (
   input: UpdatePullRequestTitleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdatePullRequestTitle",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePullRequestTitle");
   let body: any;
   body = JSON.stringify(se_UpdatePullRequestTitleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1839,10 +1614,7 @@ export const se_UpdateRepositoryDescriptionCommand = async (
   input: UpdateRepositoryDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateRepositoryDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRepositoryDescription");
   let body: any;
   body = JSON.stringify(se_UpdateRepositoryDescriptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1855,10 +1627,7 @@ export const se_UpdateRepositoryNameCommand = async (
   input: UpdateRepositoryNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeCommit_20150413.UpdateRepositoryName",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRepositoryName");
   let body: any;
   body = JSON.stringify(se_UpdateRepositoryNameInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -16690,6 +16459,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CodeCommit_20150413.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

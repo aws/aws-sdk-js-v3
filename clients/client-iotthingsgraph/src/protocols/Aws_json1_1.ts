@@ -222,10 +222,7 @@ export const se_AssociateEntityToThingCommand = async (
   input: AssociateEntityToThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.AssociateEntityToThing",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateEntityToThing");
   let body: any;
   body = JSON.stringify(se_AssociateEntityToThingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -238,10 +235,7 @@ export const se_CreateFlowTemplateCommand = async (
   input: CreateFlowTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.CreateFlowTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFlowTemplate");
   let body: any;
   body = JSON.stringify(se_CreateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -254,10 +248,7 @@ export const se_CreateSystemInstanceCommand = async (
   input: CreateSystemInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.CreateSystemInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSystemInstance");
   let body: any;
   body = JSON.stringify(se_CreateSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -270,10 +261,7 @@ export const se_CreateSystemTemplateCommand = async (
   input: CreateSystemTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.CreateSystemTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSystemTemplate");
   let body: any;
   body = JSON.stringify(se_CreateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -286,10 +274,7 @@ export const se_DeleteFlowTemplateCommand = async (
   input: DeleteFlowTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeleteFlowTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFlowTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -302,10 +287,7 @@ export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeleteNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamespace");
   let body: any;
   body = JSON.stringify(se_DeleteNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,10 +300,7 @@ export const se_DeleteSystemInstanceCommand = async (
   input: DeleteSystemInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeleteSystemInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSystemInstance");
   let body: any;
   body = JSON.stringify(se_DeleteSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -334,10 +313,7 @@ export const se_DeleteSystemTemplateCommand = async (
   input: DeleteSystemTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeleteSystemTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSystemTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -350,10 +326,7 @@ export const se_DeploySystemInstanceCommand = async (
   input: DeploySystemInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeploySystemInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeploySystemInstance");
   let body: any;
   body = JSON.stringify(se_DeploySystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -366,10 +339,7 @@ export const se_DeprecateFlowTemplateCommand = async (
   input: DeprecateFlowTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeprecateFlowTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprecateFlowTemplate");
   let body: any;
   body = JSON.stringify(se_DeprecateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,10 +352,7 @@ export const se_DeprecateSystemTemplateCommand = async (
   input: DeprecateSystemTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DeprecateSystemTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprecateSystemTemplate");
   let body: any;
   body = JSON.stringify(se_DeprecateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,10 +365,7 @@ export const se_DescribeNamespaceCommand = async (
   input: DescribeNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DescribeNamespace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNamespace");
   let body: any;
   body = JSON.stringify(se_DescribeNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -414,10 +378,7 @@ export const se_DissociateEntityFromThingCommand = async (
   input: DissociateEntityFromThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.DissociateEntityFromThing",
-  };
+  const headers: __HeaderBag = sharedHeaders("DissociateEntityFromThing");
   let body: any;
   body = JSON.stringify(se_DissociateEntityFromThingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -430,10 +391,7 @@ export const se_GetEntitiesCommand = async (
   input: GetEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEntities");
   let body: any;
   body = JSON.stringify(se_GetEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -446,10 +404,7 @@ export const se_GetFlowTemplateCommand = async (
   input: GetFlowTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetFlowTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFlowTemplate");
   let body: any;
   body = JSON.stringify(se_GetFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,10 +417,7 @@ export const se_GetFlowTemplateRevisionsCommand = async (
   input: GetFlowTemplateRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetFlowTemplateRevisions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFlowTemplateRevisions");
   let body: any;
   body = JSON.stringify(se_GetFlowTemplateRevisionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -478,10 +430,7 @@ export const se_GetNamespaceDeletionStatusCommand = async (
   input: GetNamespaceDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamespaceDeletionStatus");
   let body: any;
   body = JSON.stringify(se_GetNamespaceDeletionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,10 +443,7 @@ export const se_GetSystemInstanceCommand = async (
   input: GetSystemInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetSystemInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSystemInstance");
   let body: any;
   body = JSON.stringify(se_GetSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -510,10 +456,7 @@ export const se_GetSystemTemplateCommand = async (
   input: GetSystemTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetSystemTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSystemTemplate");
   let body: any;
   body = JSON.stringify(se_GetSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,10 +469,7 @@ export const se_GetSystemTemplateRevisionsCommand = async (
   input: GetSystemTemplateRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetSystemTemplateRevisions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSystemTemplateRevisions");
   let body: any;
   body = JSON.stringify(se_GetSystemTemplateRevisionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -542,10 +482,7 @@ export const se_GetUploadStatusCommand = async (
   input: GetUploadStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.GetUploadStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetUploadStatus");
   let body: any;
   body = JSON.stringify(se_GetUploadStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -558,10 +495,7 @@ export const se_ListFlowExecutionMessagesCommand = async (
   input: ListFlowExecutionMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.ListFlowExecutionMessages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFlowExecutionMessages");
   let body: any;
   body = JSON.stringify(se_ListFlowExecutionMessagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,10 +508,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -590,10 +521,7 @@ export const se_SearchEntitiesCommand = async (
   input: SearchEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchEntities");
   let body: any;
   body = JSON.stringify(se_SearchEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,10 +534,7 @@ export const se_SearchFlowExecutionsCommand = async (
   input: SearchFlowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchFlowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchFlowExecutions");
   let body: any;
   body = JSON.stringify(se_SearchFlowExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -622,10 +547,7 @@ export const se_SearchFlowTemplatesCommand = async (
   input: SearchFlowTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchFlowTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchFlowTemplates");
   let body: any;
   body = JSON.stringify(se_SearchFlowTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -638,10 +560,7 @@ export const se_SearchSystemInstancesCommand = async (
   input: SearchSystemInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchSystemInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchSystemInstances");
   let body: any;
   body = JSON.stringify(se_SearchSystemInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -654,10 +573,7 @@ export const se_SearchSystemTemplatesCommand = async (
   input: SearchSystemTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchSystemTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchSystemTemplates");
   let body: any;
   body = JSON.stringify(se_SearchSystemTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -670,10 +586,7 @@ export const se_SearchThingsCommand = async (
   input: SearchThingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.SearchThings",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchThings");
   let body: any;
   body = JSON.stringify(se_SearchThingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -686,10 +599,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -702,10 +612,7 @@ export const se_UndeploySystemInstanceCommand = async (
   input: UndeploySystemInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.UndeploySystemInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("UndeploySystemInstance");
   let body: any;
   body = JSON.stringify(se_UndeploySystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -718,10 +625,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -734,10 +638,7 @@ export const se_UpdateFlowTemplateCommand = async (
   input: UpdateFlowTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.UpdateFlowTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFlowTemplate");
   let body: any;
   body = JSON.stringify(se_UpdateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -750,10 +651,7 @@ export const se_UpdateSystemTemplateCommand = async (
   input: UpdateSystemTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.UpdateSystemTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSystemTemplate");
   let body: any;
   body = JSON.stringify(se_UpdateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -766,10 +664,7 @@ export const se_UploadEntityDefinitionsCommand = async (
   input: UploadEntityDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "IotThingsGraphFrontEndService.UploadEntityDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("UploadEntityDefinitions");
   let body: any;
   body = JSON.stringify(se_UploadEntityDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4178,6 +4073,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `IotThingsGraphFrontEndService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
