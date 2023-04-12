@@ -531,7 +531,10 @@ export class GroundStation extends GroundStationClient {
 
   /**
    * @public
-   * <p>Gets the latest configuration information for a registered agent.</p>
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p>Gets the latest configuration information for a registered agent.</p>
    */
   public getAgentConfiguration(
     args: GetAgentConfigurationCommandInput,
@@ -979,7 +982,10 @@ export class GroundStation extends GroundStationClient {
 
   /**
    * @public
-   * <p>Registers a new agent with AWS Groundstation.</p>
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p> Registers a new agent with AWS Ground Station. </p>
    */
   public registerAgent(
     args: RegisterAgentCommandInput,
@@ -1105,7 +1111,10 @@ export class GroundStation extends GroundStationClient {
 
   /**
    * @public
-   * <p>Update the status of the agent.</p>
+   * <note>
+   *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+   *          </note>
+   *          <p>Update the status of the agent.</p>
    */
   public updateAgentStatus(
     args: UpdateAgentStatusCommandInput,

@@ -95,6 +95,7 @@ import {
   AntennaDownlinkDemodDecodeConfig,
   AntennaUplinkConfig,
   AwsGroundStationAgentEndpoint,
+  CapabilityHealthReason,
   ComponentStatusData,
   ComponentVersion,
   ConfigDetails,
@@ -3143,19 +3144,29 @@ const de_ResourceNotFoundExceptionRes = async (
 };
 
 /**
+ * serializeAws_restJson1AgentCpuCoresList
+ */
+const se_AgentCpuCoresList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+/**
  * serializeAws_restJson1AgentDetails
  */
 const se_AgentDetails = (input: AgentDetails, context: __SerdeContext): any => {
   return {
+    ...(input.agentCpuCores != null && { agentCpuCores: se_AgentCpuCoresList(input.agentCpuCores, context) }),
     ...(input.agentVersion != null && { agentVersion: input.agentVersion }),
     ...(input.componentVersions != null && {
       componentVersions: se_ComponentVersionList(input.componentVersions, context),
     }),
     ...(input.instanceId != null && { instanceId: input.instanceId }),
     ...(input.instanceType != null && { instanceType: input.instanceType }),
-    ...(input.reservedCpuCores != null && {
-      reservedCpuCores: se_ReservedCpuCoresList(input.reservedCpuCores, context),
-    }),
+    ...(input.reservedCpuCores != null && { reservedCpuCores: se_AgentCpuCoresList(input.reservedCpuCores, context) }),
   };
 };
 
@@ -3219,6 +3230,17 @@ const se_AwsGroundStationAgentEndpoint = (input: AwsGroundStationAgentEndpoint, 
  * serializeAws_restJson1CapabilityArnList
  */
 const se_CapabilityArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+/**
+ * serializeAws_restJson1CapabilityHealthReasonList
+ */
+const se_CapabilityHealthReasonList = (input: (CapabilityHealthReason | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3395,6 +3417,8 @@ const se_EndpointDetails = (input: EndpointDetails, context: __SerdeContext): an
       awsGroundStationAgentEndpoint: se_AwsGroundStationAgentEndpoint(input.awsGroundStationAgentEndpoint, context),
     }),
     ...(input.endpoint != null && { endpoint: se_DataflowEndpoint(input.endpoint, context) }),
+    ...(input.healthReasons != null && { healthReasons: se_CapabilityHealthReasonList(input.healthReasons, context) }),
+    ...(input.healthStatus != null && { healthStatus: input.healthStatus }),
     ...(input.securityDetails != null && { securityDetails: se_SecurityDetails(input.securityDetails, context) }),
   };
 };
@@ -3512,17 +3536,6 @@ const se_RangedSocketAddress = (input: RangedSocketAddress, context: __SerdeCont
     ...(input.name != null && { name: input.name }),
     ...(input.portRange != null && { portRange: se_IntegerRange(input.portRange, context) }),
   };
-};
-
-/**
- * serializeAws_restJson1ReservedCpuCoresList
- */
-const se_ReservedCpuCoresList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
 };
 
 /**
@@ -3778,6 +3791,21 @@ const de_AwsGroundStationAgentEndpoint = (output: any, context: __SerdeContext):
       output.ingressAddress != null ? de_RangedConnectionDetails(output.ingressAddress, context) : undefined,
     name: __expectString(output.name),
   } as any;
+};
+
+/**
+ * deserializeAws_restJson1CapabilityHealthReasonList
+ */
+const de_CapabilityHealthReasonList = (output: any, context: __SerdeContext): (CapabilityHealthReason | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**
@@ -4092,6 +4120,9 @@ const de_EndpointDetails = (output: any, context: __SerdeContext): EndpointDetai
         ? de_AwsGroundStationAgentEndpoint(output.awsGroundStationAgentEndpoint, context)
         : undefined,
     endpoint: output.endpoint != null ? de_DataflowEndpoint(output.endpoint, context) : undefined,
+    healthReasons:
+      output.healthReasons != null ? de_CapabilityHealthReasonList(output.healthReasons, context) : undefined,
+    healthStatus: __expectString(output.healthStatus),
     securityDetails: output.securityDetails != null ? de_SecurityDetails(output.securityDetails, context) : undefined,
   } as any;
 };

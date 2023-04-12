@@ -102,28 +102,13 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
- * @enum
- */
-export const ComponentType = {
-  DIGITIZER: "DIGITIZER",
-  LAMINAR_FLOW: "LAMINAR_FLOW",
-  PRISM: "PRISM",
-} as const;
-
-/**
- * @public
- */
-export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
-
-/**
- * @public
  * <p>Version information for agent components.</p>
  */
 export interface ComponentVersion {
   /**
    * <p>Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: string | undefined;
 
   /**
    * <p>List of versions.</p>
@@ -152,9 +137,17 @@ export interface AgentDetails {
   instanceType: string | undefined;
 
   /**
-   * <p>Number of Cpu cores reserved for agent.</p>
+   * <note>
+   *             <p>This field should not be used. Use agentCpuCores instead.</p>
+   *          </note>
+   *          <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>
    */
-  reservedCpuCores: number[] | undefined;
+  reservedCpuCores?: number[];
+
+  /**
+   * <p>List of CPU cores reserved for the agent.</p>
+   */
+  agentCpuCores?: number[];
 
   /**
    * <p>List of versions being used by agent components.</p>
@@ -188,7 +181,7 @@ export interface DiscoveryData {
  */
 export interface RegisterAgentRequest {
   /**
-   * <p>Data for associating and agent with the capabilities it is managing.</p>
+   * <p>Data for associating an agent with the capabilities it is managing.</p>
    */
   discoveryData: DiscoveryData | undefined;
 
@@ -248,7 +241,7 @@ export interface ComponentStatusData {
   /**
    * <p>The Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: string | undefined;
 
   /**
    * <p>Capability ARN of the component.</p>
@@ -728,6 +721,39 @@ export interface ContactIdResponse {
    */
   contactId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityHealth = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilityHealth = (typeof CapabilityHealth)[keyof typeof CapabilityHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityHealthReason = {
+  DATAPLANE_FAILURE: "DATAPLANE_FAILURE",
+  HEALTHY: "HEALTHY",
+  INITIALIZING_DATAPLANE: "INITIALIZING_DATAPLANE",
+  INVALID_IP_OWNERSHIP: "INVALID_IP_OWNERSHIP",
+  NOT_AUTHORIZED_TO_CREATE_SLR: "NOT_AUTHORIZED_TO_CREATE_SLR",
+  NO_REGISTERED_AGENT: "NO_REGISTERED_AGENT",
+  UNVERIFIED_IP_OWNERSHIP: "UNVERIFIED_IP_OWNERSHIP",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilityHealthReason = (typeof CapabilityHealthReason)[keyof typeof CapabilityHealthReason];
 
 /**
  * @public
@@ -1288,6 +1314,16 @@ export interface EndpointDetails {
    * <p>An agent endpoint.</p>
    */
   awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
+
+  /**
+   * <p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   */
+  healthStatus?: CapabilityHealth | string;
+
+  /**
+   * <p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   */
+  healthReasons?: (CapabilityHealthReason | string)[];
 }
 
 /**
@@ -1760,12 +1796,12 @@ export interface CreateDataflowEndpointGroupRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
    */
   contactPostPassDurationSeconds?: number;
 }
@@ -2135,12 +2171,12 @@ export interface GetDataflowEndpointGroupResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>
+   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>
+   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
    */
   contactPostPassDurationSeconds?: number;
 }

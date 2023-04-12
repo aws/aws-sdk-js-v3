@@ -32,7 +32,10 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
 
 /**
  * @public
- * <p>Registers a new agent with AWS Groundstation.</p>
+ * <note>
+ *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+ *          </note>
+ *          <p> Registers a new agent with AWS Ground Station. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +58,10 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  *     agentVersion: "STRING_VALUE", // required
  *     instanceId: "STRING_VALUE", // required
  *     instanceType: "STRING_VALUE", // required
- *     reservedCpuCores: [ // ReservedCpuCoresList // required
+ *     reservedCpuCores: [ // AgentCpuCoresList
+ *       Number("int"),
+ *     ],
+ *     agentCpuCores: [
  *       Number("int"),
  *     ],
  *     componentVersions: [ // ComponentVersionList // required

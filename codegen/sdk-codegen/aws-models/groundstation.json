@@ -33,6 +33,18 @@
         }
       }
     },
+    "com.amazonaws.groundstation#AgentCpuCoresList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#Integer"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
     "com.amazonaws.groundstation#AgentDetails": {
       "type": "structure",
       "members": {
@@ -58,10 +70,15 @@
           }
         },
         "reservedCpuCores": {
-          "target": "com.amazonaws.groundstation#ReservedCpuCoresList",
+          "target": "com.amazonaws.groundstation#AgentCpuCoresList",
           "traits": {
-            "smithy.api#documentation": "<p>Number of Cpu cores reserved for agent.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<note>\n            <p>This field should not be used. Use agentCpuCores instead.</p>\n         </note>\n         <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>"
+          }
+        },
+        "agentCpuCores": {
+          "target": "com.amazonaws.groundstation#AgentCpuCoresList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of CPU cores reserved for the agent.</p>"
           }
         },
         "componentVersions": {
@@ -380,11 +397,73 @@
         }
       }
     },
+    "com.amazonaws.groundstation#CapabilityHealth": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "UNHEALTHY",
+            "name": "UNHEALTHY"
+          },
+          {
+            "value": "HEALTHY",
+            "name": "HEALTHY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityHealthReason": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NO_REGISTERED_AGENT",
+            "name": "NO_REGISTERED_AGENT"
+          },
+          {
+            "value": "INVALID_IP_OWNERSHIP",
+            "name": "INVALID_IP_OWNERSHIP"
+          },
+          {
+            "value": "NOT_AUTHORIZED_TO_CREATE_SLR",
+            "name": "NOT_AUTHORIZED_TO_CREATE_SLR"
+          },
+          {
+            "value": "UNVERIFIED_IP_OWNERSHIP",
+            "name": "UNVERIFIED_IP_OWNERSHIP"
+          },
+          {
+            "value": "INITIALIZING_DATAPLANE",
+            "name": "INITIALIZING_DATAPLANE"
+          },
+          {
+            "value": "DATAPLANE_FAILURE",
+            "name": "DATAPLANE_FAILURE"
+          },
+          {
+            "value": "HEALTHY",
+            "name": "HEALTHY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.groundstation#CapabilityHealthReasonList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#CapabilityHealthReason"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
     "com.amazonaws.groundstation#ComponentStatusData": {
       "type": "structure",
       "members": {
         "componentType": {
-          "target": "com.amazonaws.groundstation#ComponentType",
+          "target": "com.amazonaws.groundstation#ComponentTypeString",
           "traits": {
             "smithy.api#documentation": "<p>The Component type.</p>",
             "smithy.api#required": {}
@@ -444,35 +523,22 @@
       },
       "traits": {
         "smithy.api#length": {
-          "min": 1,
+          "min": 0,
           "max": 20
         }
       }
     },
-    "com.amazonaws.groundstation#ComponentType": {
+    "com.amazonaws.groundstation#ComponentTypeString": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LAMINAR_FLOW",
-            "name": "LAMINAR_FLOW"
-          },
-          {
-            "value": "PRISM",
-            "name": "PRISM"
-          },
-          {
-            "value": "DIGITIZER",
-            "name": "DIGITIZER"
-          }
-        ]
+        "smithy.api#pattern": "^[a-zA-Z0-9_]{1,64}$"
       }
     },
     "com.amazonaws.groundstation#ComponentVersion": {
       "type": "structure",
       "members": {
         "componentType": {
-          "target": "com.amazonaws.groundstation#ComponentType",
+          "target": "com.amazonaws.groundstation#ComponentTypeString",
           "traits": {
             "smithy.api#documentation": "<p>Component type.</p>",
             "smithy.api#required": {}
@@ -1035,13 +1101,13 @@
         "contactPrePassDurationSeconds": {
           "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>"
+            "smithy.api#documentation": "<p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>"
           }
         },
         "contactPostPassDurationSeconds": {
           "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>"
+            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>"
           }
         }
       },
@@ -2103,6 +2169,18 @@
           "traits": {
             "smithy.api#documentation": "<p>An agent endpoint.</p>"
           }
+        },
+        "healthStatus": {
+          "target": "com.amazonaws.groundstation#CapabilityHealth",
+          "traits": {
+            "smithy.api#documentation": "<p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>"
+          }
+        },
+        "healthReasons": {
+          "target": "com.amazonaws.groundstation#CapabilityHealthReasonList",
+          "traits": {
+            "smithy.api#documentation": "<p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -2513,7 +2591,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the latest configuration information for a registered agent.</p>",
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p>Gets the latest configuration information for a registered agent.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/agent/{agentId}/configuration"
@@ -2725,13 +2803,13 @@
         "contactPrePassDurationSeconds": {
           "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time, in seconds, prior to contact start for the contact to remain in a <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>PREPASS</code> state.</p>"
+            "smithy.api#documentation": "<p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>"
           }
         },
         "contactPostPassDurationSeconds": {
           "target": "com.amazonaws.groundstation#DataflowEndpointGroupDurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code> state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code> state.</p>"
+            "smithy.api#documentation": "<p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>"
           }
         }
       },
@@ -3105,7 +3183,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -3134,15 +3212,67 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
               "type": "tree",
               "rules": [
                 {
@@ -3151,7 +3281,7 @@
                       "fn": "isSet",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "Region"
                         }
                       ]
                     }
@@ -3161,22 +3291,157 @@
                     {
                       "conditions": [
                         {
-                          "fn": "booleanEquals",
+                          "fn": "aws.partition",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -3189,82 +3454,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://groundstation.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -3272,7 +3507,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://groundstation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "url": "https://groundstation.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -3281,144 +3516,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://groundstation-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://groundstation.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": "https://groundstation.{Region}.{PartitionResult#dnsSuffix}",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -3426,58 +3530,6 @@
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "UseDualStack": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-gov-east-1"
-              }
-            },
             {
               "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -3492,55 +3544,16 @@
               }
             },
             {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation.us-west-2.amazonaws.com"
+                  "url": "https://groundstation.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
                 "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "sa-east-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "eu-north-1"
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -3557,16 +3570,29 @@
               }
             },
             {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation.me-south-1.amazonaws.com"
+                  "url": "https://groundstation.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
                 "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "me-south-1"
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -3583,55 +3609,29 @@
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation.us-east-2.amazonaws.com"
+                  "url": "https://groundstation.me-south-1.amazonaws.com"
                 }
               },
               "params": {
                 "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-east-2"
+                "Region": "me-south-1"
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://groundstation-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.eu-central-1.amazonaws.com"
+                  "url": "https://groundstation.sa-east-1.amazonaws.com"
                 }
               },
               "params": {
                 "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "ap-northeast-2"
+                "Region": "sa-east-1"
               }
             },
             {
@@ -3661,6 +3661,58 @@
               }
             },
             {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -3684,32 +3736,6 @@
                 "UseFIPS": false,
                 "UseDualStack": true,
                 "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://groundstation.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Region": "us-iso-east-1"
               }
             },
             {
@@ -3765,6 +3791,117 @@
               }
             },
             {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://groundstation.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -3774,6 +3911,17 @@
               "params": {
                 "UseFIPS": true,
                 "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-isob-east-1"
               }
             },
@@ -3791,7 +3939,7 @@
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -3801,6 +3949,19 @@
                 "UseFIPS": false,
                 "UseDualStack": false,
                 "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3826,6 +3987,12 @@
                 "UseDualStack": true,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -4922,7 +5089,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Registers a new agent with AWS Groundstation.</p>",
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p> Registers a new agent with AWS Ground Station. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/agent"
@@ -4935,7 +5102,7 @@
         "discoveryData": {
           "target": "com.amazonaws.groundstation#DiscoveryData",
           "traits": {
-            "smithy.api#documentation": "<p>Data for associating and agent with the capabilities it is managing.</p>",
+            "smithy.api#documentation": "<p>Data for associating an agent with the capabilities it is managing.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5033,18 +5200,6 @@
       },
       "traits": {
         "smithy.api#documentation": "<p/>"
-      }
-    },
-    "com.amazonaws.groundstation#ReservedCpuCoresList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#Integer"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        }
       }
     },
     "com.amazonaws.groundstation#ResourceLimitExceededException": {
@@ -5698,7 +5853,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Update the status of the agent.</p>",
+        "smithy.api#documentation": "<note>\n            <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>\n         </note>\n         <p>Update the status of the agent.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/agent/{agentId}"

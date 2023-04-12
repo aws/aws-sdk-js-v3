@@ -32,7 +32,10 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
 
 /**
  * @public
- * <p>Update the status of the agent.</p>
+ * <note>
+ *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
+ *          </note>
+ *          <p>Update the status of the agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

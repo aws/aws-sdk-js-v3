@@ -89,6 +89,10 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *         agentStatus: "STRING_VALUE",
  *         auditResults: "STRING_VALUE",
  *       },
+ *       healthStatus: "STRING_VALUE",
+ *       healthReasons: [ // CapabilityHealthReasonList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   tags: { // TagsMap
