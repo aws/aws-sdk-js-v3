@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
+
+
+### Features
+
+* **client-groundstation:** AWS Ground Station Wideband DigIF GA Release ([90bc06f](https://github.com/aws/aws-sdk-js-v3/commit/90bc06f915487030b3bedf1bb3bacbcdf9eb9478))
+* **client:** reduce generated HTTP request header code size ([#4594](https://github.com/aws/aws-sdk-js-v3/issues/4594)) ([fe91123](https://github.com/aws/aws-sdk-js-v3/commit/fe91123411499b5932b406fb813e69f4a0d36503))
+* **clients:** update client endpoints as of 2023-04-12 ([4d94d61](https://github.com/aws/aws-sdk-js-v3/commit/4d94d61c960eefdf4fa3e2b50221b64b199fc7fa))
+
+
+
+
+
 # [3.311.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.310.0...v3.311.0) (2023-04-11)
 
 
