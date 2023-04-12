@@ -270,10 +270,7 @@ export const se_AssociateAdminAccountCommand = async (
   input: AssociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.AssociateAdminAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateAdminAccount");
   let body: any;
   body = JSON.stringify(se_AssociateAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -286,10 +283,7 @@ export const se_AssociateThirdPartyFirewallCommand = async (
   input: AssociateThirdPartyFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.AssociateThirdPartyFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateThirdPartyFirewall");
   let body: any;
   body = JSON.stringify(se_AssociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -302,10 +296,7 @@ export const se_BatchAssociateResourceCommand = async (
   input: BatchAssociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.BatchAssociateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchAssociateResource");
   let body: any;
   body = JSON.stringify(se_BatchAssociateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,10 +309,7 @@ export const se_BatchDisassociateResourceCommand = async (
   input: BatchDisassociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.BatchDisassociateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDisassociateResource");
   let body: any;
   body = JSON.stringify(se_BatchDisassociateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -334,10 +322,7 @@ export const se_DeleteAppsListCommand = async (
   input: DeleteAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DeleteAppsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppsList");
   let body: any;
   body = JSON.stringify(se_DeleteAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -350,10 +335,7 @@ export const se_DeleteNotificationChannelCommand = async (
   input: DeleteNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DeleteNotificationChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNotificationChannel");
   let body: any;
   body = JSON.stringify(se_DeleteNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -366,10 +348,7 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DeletePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePolicy");
   let body: any;
   body = JSON.stringify(se_DeletePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,10 +361,7 @@ export const se_DeleteProtocolsListCommand = async (
   input: DeleteProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DeleteProtocolsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProtocolsList");
   let body: any;
   body = JSON.stringify(se_DeleteProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,10 +374,7 @@ export const se_DeleteResourceSetCommand = async (
   input: DeleteResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DeleteResourceSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourceSet");
   let body: any;
   body = JSON.stringify(se_DeleteResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -414,10 +387,7 @@ export const se_DisassociateAdminAccountCommand = async (
   input: DisassociateAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DisassociateAdminAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateAdminAccount");
   let body: any;
   body = JSON.stringify(se_DisassociateAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -430,10 +400,7 @@ export const se_DisassociateThirdPartyFirewallCommand = async (
   input: DisassociateThirdPartyFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.DisassociateThirdPartyFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateThirdPartyFirewall");
   let body: any;
   body = JSON.stringify(se_DisassociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -446,10 +413,7 @@ export const se_GetAdminAccountCommand = async (
   input: GetAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetAdminAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAdminAccount");
   let body: any;
   body = JSON.stringify(se_GetAdminAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,10 +426,7 @@ export const se_GetAppsListCommand = async (
   input: GetAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetAppsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAppsList");
   let body: any;
   body = JSON.stringify(se_GetAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -478,10 +439,7 @@ export const se_GetComplianceDetailCommand = async (
   input: GetComplianceDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetComplianceDetail",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceDetail");
   let body: any;
   body = JSON.stringify(se_GetComplianceDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,10 +452,7 @@ export const se_GetNotificationChannelCommand = async (
   input: GetNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetNotificationChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNotificationChannel");
   let body: any;
   body = JSON.stringify(se_GetNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -510,10 +465,7 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPolicy");
   let body: any;
   body = JSON.stringify(se_GetPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,10 +478,7 @@ export const se_GetProtectionStatusCommand = async (
   input: GetProtectionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetProtectionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetProtectionStatus");
   let body: any;
   body = JSON.stringify(se_GetProtectionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -542,10 +491,7 @@ export const se_GetProtocolsListCommand = async (
   input: GetProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetProtocolsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetProtocolsList");
   let body: any;
   body = JSON.stringify(se_GetProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -558,10 +504,7 @@ export const se_GetResourceSetCommand = async (
   input: GetResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetResourceSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceSet");
   let body: any;
   body = JSON.stringify(se_GetResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,10 +517,7 @@ export const se_GetThirdPartyFirewallAssociationStatusCommand = async (
   input: GetThirdPartyFirewallAssociationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetThirdPartyFirewallAssociationStatus");
   let body: any;
   body = JSON.stringify(se_GetThirdPartyFirewallAssociationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -590,10 +530,7 @@ export const se_GetViolationDetailsCommand = async (
   input: GetViolationDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.GetViolationDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetViolationDetails");
   let body: any;
   body = JSON.stringify(se_GetViolationDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,10 +543,7 @@ export const se_ListAppsListsCommand = async (
   input: ListAppsListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListAppsLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAppsLists");
   let body: any;
   body = JSON.stringify(se_ListAppsListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -622,10 +556,7 @@ export const se_ListComplianceStatusCommand = async (
   input: ListComplianceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListComplianceStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComplianceStatus");
   let body: any;
   body = JSON.stringify(se_ListComplianceStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -638,10 +569,7 @@ export const se_ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListDiscoveredResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDiscoveredResources");
   let body: any;
   body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -654,10 +582,7 @@ export const se_ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListMemberAccounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMemberAccounts");
   let body: any;
   body = JSON.stringify(se_ListMemberAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -670,10 +595,7 @@ export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPolicies");
   let body: any;
   body = JSON.stringify(se_ListPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -686,10 +608,7 @@ export const se_ListProtocolsListsCommand = async (
   input: ListProtocolsListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListProtocolsLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProtocolsLists");
   let body: any;
   body = JSON.stringify(se_ListProtocolsListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -702,10 +621,7 @@ export const se_ListResourceSetResourcesCommand = async (
   input: ListResourceSetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListResourceSetResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceSetResources");
   let body: any;
   body = JSON.stringify(se_ListResourceSetResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -718,10 +634,7 @@ export const se_ListResourceSetsCommand = async (
   input: ListResourceSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListResourceSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceSets");
   let body: any;
   body = JSON.stringify(se_ListResourceSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -734,10 +647,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -750,10 +660,7 @@ export const se_ListThirdPartyFirewallFirewallPoliciesCommand = async (
   input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListThirdPartyFirewallFirewallPolicies");
   let body: any;
   body = JSON.stringify(se_ListThirdPartyFirewallFirewallPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -766,10 +673,7 @@ export const se_PutAppsListCommand = async (
   input: PutAppsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.PutAppsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAppsList");
   let body: any;
   body = JSON.stringify(se_PutAppsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -782,10 +686,7 @@ export const se_PutNotificationChannelCommand = async (
   input: PutNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.PutNotificationChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutNotificationChannel");
   let body: any;
   body = JSON.stringify(se_PutNotificationChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -798,10 +699,7 @@ export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.PutPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPolicy");
   let body: any;
   body = JSON.stringify(se_PutPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -814,10 +712,7 @@ export const se_PutProtocolsListCommand = async (
   input: PutProtocolsListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.PutProtocolsList",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutProtocolsList");
   let body: any;
   body = JSON.stringify(se_PutProtocolsListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -830,10 +725,7 @@ export const se_PutResourceSetCommand = async (
   input: PutResourceSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.PutResourceSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourceSet");
   let body: any;
   body = JSON.stringify(se_PutResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -846,10 +738,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -862,10 +751,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSFMS_20180101.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5892,6 +5778,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSFMS_20180101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

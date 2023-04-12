@@ -273,10 +273,7 @@ export const se_AssociateFirewallPolicyCommand = async (
   input: AssociateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.AssociateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFirewallPolicy");
   let body: any;
   body = JSON.stringify(se_AssociateFirewallPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +286,7 @@ export const se_AssociateSubnetsCommand = async (
   input: AssociateSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.AssociateSubnets",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateSubnets");
   let body: any;
   body = JSON.stringify(se_AssociateSubnetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +299,7 @@ export const se_CreateFirewallCommand = async (
   input: CreateFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewall");
   let body: any;
   body = JSON.stringify(se_CreateFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +312,7 @@ export const se_CreateFirewallPolicyCommand = async (
   input: CreateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewallPolicy");
   let body: any;
   body = JSON.stringify(se_CreateFirewallPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +325,7 @@ export const se_CreateRuleGroupCommand = async (
   input: CreateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRuleGroup");
   let body: any;
   body = JSON.stringify(se_CreateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +338,7 @@ export const se_CreateTLSInspectionConfigurationCommand = async (
   input: CreateTLSInspectionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateTLSInspectionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTLSInspectionConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +351,7 @@ export const se_DeleteFirewallCommand = async (
   input: DeleteFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewall");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +364,7 @@ export const se_DeleteFirewallPolicyCommand = async (
   input: DeleteFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteFirewallPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +377,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,10 +390,7 @@ export const se_DeleteRuleGroupCommand = async (
   input: DeleteRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRuleGroup");
   let body: any;
   body = JSON.stringify(se_DeleteRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +403,7 @@ export const se_DeleteTLSInspectionConfigurationCommand = async (
   input: DeleteTLSInspectionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteTLSInspectionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTLSInspectionConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -449,10 +416,7 @@ export const se_DescribeFirewallCommand = async (
   input: DescribeFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFirewall");
   let body: any;
   body = JSON.stringify(se_DescribeFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,10 +429,7 @@ export const se_DescribeFirewallPolicyCommand = async (
   input: DescribeFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFirewallPolicy");
   let body: any;
   body = JSON.stringify(se_DescribeFirewallPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -481,10 +442,7 @@ export const se_DescribeLoggingConfigurationCommand = async (
   input: DescribeLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLoggingConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeLoggingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,10 +455,7 @@ export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DescribeResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +468,7 @@ export const se_DescribeRuleGroupCommand = async (
   input: DescribeRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRuleGroup");
   let body: any;
   body = JSON.stringify(se_DescribeRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +481,7 @@ export const se_DescribeRuleGroupMetadataCommand = async (
   input: DescribeRuleGroupMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroupMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRuleGroupMetadata");
   let body: any;
   body = JSON.stringify(se_DescribeRuleGroupMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -545,10 +494,7 @@ export const se_DescribeTLSInspectionConfigurationCommand = async (
   input: DescribeTLSInspectionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeTLSInspectionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTLSInspectionConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,10 +507,7 @@ export const se_DisassociateSubnetsCommand = async (
   input: DisassociateSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DisassociateSubnets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateSubnets");
   let body: any;
   body = JSON.stringify(se_DisassociateSubnetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -577,10 +520,7 @@ export const se_ListFirewallPoliciesCommand = async (
   input: ListFirewallPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListFirewallPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallPolicies");
   let body: any;
   body = JSON.stringify(se_ListFirewallPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -593,10 +533,7 @@ export const se_ListFirewallsCommand = async (
   input: ListFirewallsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListFirewalls",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewalls");
   let body: any;
   body = JSON.stringify(se_ListFirewallsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -609,10 +546,7 @@ export const se_ListRuleGroupsCommand = async (
   input: ListRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRuleGroups");
   let body: any;
   body = JSON.stringify(se_ListRuleGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -625,10 +559,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -641,10 +572,7 @@ export const se_ListTLSInspectionConfigurationsCommand = async (
   input: ListTLSInspectionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListTLSInspectionConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTLSInspectionConfigurations");
   let body: any;
   body = JSON.stringify(se_ListTLSInspectionConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -657,10 +585,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -673,10 +598,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -689,10 +611,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -705,10 +624,7 @@ export const se_UpdateFirewallDeleteProtectionCommand = async (
   input: UpdateFirewallDeleteProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDeleteProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallDeleteProtection");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallDeleteProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -721,10 +637,7 @@ export const se_UpdateFirewallDescriptionCommand = async (
   input: UpdateFirewallDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallDescription");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallDescriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -737,10 +650,7 @@ export const se_UpdateFirewallEncryptionConfigurationCommand = async (
   input: UpdateFirewallEncryptionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallEncryptionConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallEncryptionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -753,10 +663,7 @@ export const se_UpdateFirewallPolicyCommand = async (
   input: UpdateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallPolicy");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -769,10 +676,7 @@ export const se_UpdateFirewallPolicyChangeProtectionCommand = async (
   input: UpdateFirewallPolicyChangeProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallPolicyChangeProtection");
   let body: any;
   body = JSON.stringify(se_UpdateFirewallPolicyChangeProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -785,10 +689,7 @@ export const se_UpdateLoggingConfigurationCommand = async (
   input: UpdateLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLoggingConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateLoggingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -801,10 +702,7 @@ export const se_UpdateRuleGroupCommand = async (
   input: UpdateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuleGroup");
   let body: any;
   body = JSON.stringify(se_UpdateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -817,10 +715,7 @@ export const se_UpdateSubnetChangeProtectionCommand = async (
   input: UpdateSubnetChangeProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateSubnetChangeProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubnetChangeProtection");
   let body: any;
   body = JSON.stringify(se_UpdateSubnetChangeProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -833,10 +728,7 @@ export const se_UpdateTLSInspectionConfigurationCommand = async (
   input: UpdateTLSInspectionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateTLSInspectionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTLSInspectionConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6185,6 +6077,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `NetworkFirewall_20201112.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

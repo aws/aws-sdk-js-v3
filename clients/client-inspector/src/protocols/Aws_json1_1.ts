@@ -257,10 +257,7 @@ export const se_AddAttributesToFindingsCommand = async (
   input: AddAttributesToFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.AddAttributesToFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddAttributesToFindings");
   let body: any;
   body = JSON.stringify(se_AddAttributesToFindingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +270,7 @@ export const se_CreateAssessmentTargetCommand = async (
   input: CreateAssessmentTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.CreateAssessmentTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAssessmentTarget");
   let body: any;
   body = JSON.stringify(se_CreateAssessmentTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +283,7 @@ export const se_CreateAssessmentTemplateCommand = async (
   input: CreateAssessmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.CreateAssessmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAssessmentTemplate");
   let body: any;
   body = JSON.stringify(se_CreateAssessmentTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +296,7 @@ export const se_CreateExclusionsPreviewCommand = async (
   input: CreateExclusionsPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.CreateExclusionsPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateExclusionsPreview");
   let body: any;
   body = JSON.stringify(se_CreateExclusionsPreviewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +309,7 @@ export const se_CreateResourceGroupCommand = async (
   input: CreateResourceGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.CreateResourceGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResourceGroup");
   let body: any;
   body = JSON.stringify(se_CreateResourceGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +322,7 @@ export const se_DeleteAssessmentRunCommand = async (
   input: DeleteAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DeleteAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAssessmentRun");
   let body: any;
   body = JSON.stringify(se_DeleteAssessmentRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -353,10 +335,7 @@ export const se_DeleteAssessmentTargetCommand = async (
   input: DeleteAssessmentTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DeleteAssessmentTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAssessmentTarget");
   let body: any;
   body = JSON.stringify(se_DeleteAssessmentTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -369,10 +348,7 @@ export const se_DeleteAssessmentTemplateCommand = async (
   input: DeleteAssessmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DeleteAssessmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAssessmentTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteAssessmentTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -385,10 +361,7 @@ export const se_DescribeAssessmentRunsCommand = async (
   input: DescribeAssessmentRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeAssessmentRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssessmentRuns");
   let body: any;
   body = JSON.stringify(se_DescribeAssessmentRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -401,10 +374,7 @@ export const se_DescribeAssessmentTargetsCommand = async (
   input: DescribeAssessmentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeAssessmentTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssessmentTargets");
   let body: any;
   body = JSON.stringify(se_DescribeAssessmentTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -417,10 +387,7 @@ export const se_DescribeAssessmentTemplatesCommand = async (
   input: DescribeAssessmentTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeAssessmentTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAssessmentTemplates");
   let body: any;
   body = JSON.stringify(se_DescribeAssessmentTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +400,7 @@ export const se_DescribeCrossAccountAccessRoleCommand = async (
   input: DescribeCrossAccountAccessRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeCrossAccountAccessRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCrossAccountAccessRole");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -448,10 +412,7 @@ export const se_DescribeExclusionsCommand = async (
   input: DescribeExclusionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeExclusions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExclusions");
   let body: any;
   body = JSON.stringify(se_DescribeExclusionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -464,10 +425,7 @@ export const se_DescribeFindingsCommand = async (
   input: DescribeFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFindings");
   let body: any;
   body = JSON.stringify(se_DescribeFindingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -480,10 +438,7 @@ export const se_DescribeResourceGroupsCommand = async (
   input: DescribeResourceGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeResourceGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourceGroups");
   let body: any;
   body = JSON.stringify(se_DescribeResourceGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -496,10 +451,7 @@ export const se_DescribeRulesPackagesCommand = async (
   input: DescribeRulesPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.DescribeRulesPackages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRulesPackages");
   let body: any;
   body = JSON.stringify(se_DescribeRulesPackagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -512,10 +464,7 @@ export const se_GetAssessmentReportCommand = async (
   input: GetAssessmentReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.GetAssessmentReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAssessmentReport");
   let body: any;
   body = JSON.stringify(se_GetAssessmentReportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -528,10 +477,7 @@ export const se_GetExclusionsPreviewCommand = async (
   input: GetExclusionsPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.GetExclusionsPreview",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetExclusionsPreview");
   let body: any;
   body = JSON.stringify(se_GetExclusionsPreviewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -544,10 +490,7 @@ export const se_GetTelemetryMetadataCommand = async (
   input: GetTelemetryMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.GetTelemetryMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTelemetryMetadata");
   let body: any;
   body = JSON.stringify(se_GetTelemetryMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -560,10 +503,7 @@ export const se_ListAssessmentRunAgentsCommand = async (
   input: ListAssessmentRunAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListAssessmentRunAgents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssessmentRunAgents");
   let body: any;
   body = JSON.stringify(se_ListAssessmentRunAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -576,10 +516,7 @@ export const se_ListAssessmentRunsCommand = async (
   input: ListAssessmentRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListAssessmentRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssessmentRuns");
   let body: any;
   body = JSON.stringify(se_ListAssessmentRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -592,10 +529,7 @@ export const se_ListAssessmentTargetsCommand = async (
   input: ListAssessmentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListAssessmentTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssessmentTargets");
   let body: any;
   body = JSON.stringify(se_ListAssessmentTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -608,10 +542,7 @@ export const se_ListAssessmentTemplatesCommand = async (
   input: ListAssessmentTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListAssessmentTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssessmentTemplates");
   let body: any;
   body = JSON.stringify(se_ListAssessmentTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -624,10 +555,7 @@ export const se_ListEventSubscriptionsCommand = async (
   input: ListEventSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListEventSubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventSubscriptions");
   let body: any;
   body = JSON.stringify(se_ListEventSubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -640,10 +568,7 @@ export const se_ListExclusionsCommand = async (
   input: ListExclusionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListExclusions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExclusions");
   let body: any;
   body = JSON.stringify(se_ListExclusionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -656,10 +581,7 @@ export const se_ListFindingsCommand = async (
   input: ListFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFindings");
   let body: any;
   body = JSON.stringify(se_ListFindingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -672,10 +594,7 @@ export const se_ListRulesPackagesCommand = async (
   input: ListRulesPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListRulesPackages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRulesPackages");
   let body: any;
   body = JSON.stringify(se_ListRulesPackagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -688,10 +607,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -704,10 +620,7 @@ export const se_PreviewAgentsCommand = async (
   input: PreviewAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.PreviewAgents",
-  };
+  const headers: __HeaderBag = sharedHeaders("PreviewAgents");
   let body: any;
   body = JSON.stringify(se_PreviewAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -720,10 +633,7 @@ export const se_RegisterCrossAccountAccessRoleCommand = async (
   input: RegisterCrossAccountAccessRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.RegisterCrossAccountAccessRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterCrossAccountAccessRole");
   let body: any;
   body = JSON.stringify(se_RegisterCrossAccountAccessRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -736,10 +646,7 @@ export const se_RemoveAttributesFromFindingsCommand = async (
   input: RemoveAttributesFromFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.RemoveAttributesFromFindings",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveAttributesFromFindings");
   let body: any;
   body = JSON.stringify(se_RemoveAttributesFromFindingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -752,10 +659,7 @@ export const se_SetTagsForResourceCommand = async (
   input: SetTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.SetTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetTagsForResource");
   let body: any;
   body = JSON.stringify(se_SetTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -768,10 +672,7 @@ export const se_StartAssessmentRunCommand = async (
   input: StartAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.StartAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartAssessmentRun");
   let body: any;
   body = JSON.stringify(se_StartAssessmentRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -784,10 +685,7 @@ export const se_StopAssessmentRunCommand = async (
   input: StopAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.StopAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopAssessmentRun");
   let body: any;
   body = JSON.stringify(se_StopAssessmentRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -800,10 +698,7 @@ export const se_SubscribeToEventCommand = async (
   input: SubscribeToEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.SubscribeToEvent",
-  };
+  const headers: __HeaderBag = sharedHeaders("SubscribeToEvent");
   let body: any;
   body = JSON.stringify(se_SubscribeToEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -816,10 +711,7 @@ export const se_UnsubscribeFromEventCommand = async (
   input: UnsubscribeFromEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.UnsubscribeFromEvent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UnsubscribeFromEvent");
   let body: any;
   body = JSON.stringify(se_UnsubscribeFromEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -832,10 +724,7 @@ export const se_UpdateAssessmentTargetCommand = async (
   input: UpdateAssessmentTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "InspectorService.UpdateAssessmentTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAssessmentTarget");
   let body: any;
   body = JSON.stringify(se_UpdateAssessmentTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5177,6 +5066,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `InspectorService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

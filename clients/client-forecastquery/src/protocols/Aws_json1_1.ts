@@ -40,10 +40,7 @@ export const se_QueryForecastCommand = async (
   input: QueryForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecastRuntime.QueryForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("QueryForecast");
   let body: any;
   body = JSON.stringify(se_QueryForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -56,10 +53,7 @@ export const se_QueryWhatIfForecastCommand = async (
   input: QueryWhatIfForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecastRuntime.QueryWhatIfForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("QueryWhatIfForecast");
   let body: any;
   body = JSON.stringify(se_QueryWhatIfForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,6 +450,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonForecastRuntime.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

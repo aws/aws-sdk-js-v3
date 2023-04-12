@@ -74,10 +74,7 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.EmptyInputAndEmptyOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("EmptyInputAndEmptyOutput");
   let body: any;
   body = JSON.stringify(se_EmptyInputAndEmptyOutputInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -90,10 +87,7 @@ export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.EndpointOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EndpointOperation");
   const body = "{}";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -112,10 +106,7 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.EndpointWithHostLabelOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation");
   let body: any;
   body = JSON.stringify(se_EndpointWithHostLabelOperationInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -139,10 +130,7 @@ export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.GreetingWithErrors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GreetingWithErrors");
   let body: any;
   body = JSON.stringify(se_GreetingWithErrorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -155,10 +143,7 @@ export const se_HostWithPathOperationCommand = async (
   input: HostWithPathOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.HostWithPathOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("HostWithPathOperation");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -170,10 +155,7 @@ export const se_JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.JsonUnions",
-  };
+  const headers: __HeaderBag = sharedHeaders("JsonUnions");
   let body: any;
   body = JSON.stringify(se_JsonUnionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -186,10 +168,7 @@ export const se_NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.NoInputAndNoOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("NoInputAndNoOutput");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -201,10 +180,7 @@ export const se_NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.NoInputAndOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("NoInputAndOutput");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -216,10 +192,7 @@ export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "JsonRpc10.SimpleScalarProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("SimpleScalarProperties");
   let body: any;
   body = JSON.stringify(se_SimpleScalarPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -937,6 +910,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `JsonRpc10.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

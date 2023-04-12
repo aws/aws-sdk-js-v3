@@ -112,10 +112,7 @@ export const se_CreateContainerCommand = async (
   input: CreateContainerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.CreateContainer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContainer");
   let body: any;
   body = JSON.stringify(se_CreateContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -128,10 +125,7 @@ export const se_DeleteContainerCommand = async (
   input: DeleteContainerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DeleteContainer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContainer");
   let body: any;
   body = JSON.stringify(se_DeleteContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -144,10 +138,7 @@ export const se_DeleteContainerPolicyCommand = async (
   input: DeleteContainerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DeleteContainerPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContainerPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -160,10 +151,7 @@ export const se_DeleteCorsPolicyCommand = async (
   input: DeleteCorsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DeleteCorsPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCorsPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteCorsPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -176,10 +164,7 @@ export const se_DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DeleteLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -192,10 +177,7 @@ export const se_DeleteMetricPolicyCommand = async (
   input: DeleteMetricPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DeleteMetricPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMetricPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteMetricPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -208,10 +190,7 @@ export const se_DescribeContainerCommand = async (
   input: DescribeContainerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.DescribeContainer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeContainer");
   let body: any;
   body = JSON.stringify(se_DescribeContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -224,10 +203,7 @@ export const se_GetContainerPolicyCommand = async (
   input: GetContainerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.GetContainerPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerPolicy");
   let body: any;
   body = JSON.stringify(se_GetContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,10 +216,7 @@ export const se_GetCorsPolicyCommand = async (
   input: GetCorsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.GetCorsPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCorsPolicy");
   let body: any;
   body = JSON.stringify(se_GetCorsPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -256,10 +229,7 @@ export const se_GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.GetLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_GetLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -272,10 +242,7 @@ export const se_GetMetricPolicyCommand = async (
   input: GetMetricPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.GetMetricPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMetricPolicy");
   let body: any;
   body = JSON.stringify(se_GetMetricPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -288,10 +255,7 @@ export const se_ListContainersCommand = async (
   input: ListContainersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.ListContainers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContainers");
   let body: any;
   body = JSON.stringify(se_ListContainersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -304,10 +268,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -320,10 +281,7 @@ export const se_PutContainerPolicyCommand = async (
   input: PutContainerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.PutContainerPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutContainerPolicy");
   let body: any;
   body = JSON.stringify(se_PutContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -336,10 +294,7 @@ export const se_PutCorsPolicyCommand = async (
   input: PutCorsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.PutCorsPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutCorsPolicy");
   let body: any;
   body = JSON.stringify(se_PutCorsPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,10 +307,7 @@ export const se_PutLifecyclePolicyCommand = async (
   input: PutLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.PutLifecyclePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLifecyclePolicy");
   let body: any;
   body = JSON.stringify(se_PutLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -368,10 +320,7 @@ export const se_PutMetricPolicyCommand = async (
   input: PutMetricPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.PutMetricPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutMetricPolicy");
   let body: any;
   body = JSON.stringify(se_PutMetricPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -384,10 +333,7 @@ export const se_StartAccessLoggingCommand = async (
   input: StartAccessLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.StartAccessLogging",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartAccessLogging");
   let body: any;
   body = JSON.stringify(se_StartAccessLoggingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,10 +346,7 @@ export const se_StopAccessLoggingCommand = async (
   input: StopAccessLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.StopAccessLogging",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopAccessLogging");
   let body: any;
   body = JSON.stringify(se_StopAccessLoggingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -416,10 +359,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -432,10 +372,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MediaStore_20170901.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2435,6 +2372,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `MediaStore_20170901.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

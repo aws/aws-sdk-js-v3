@@ -92,10 +92,7 @@ export const se_CreateKeyspaceCommand = async (
   input: CreateKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.CreateKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateKeyspace");
   let body: any;
   body = JSON.stringify(se_CreateKeyspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -108,10 +105,7 @@ export const se_CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.CreateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
   body = JSON.stringify(se_CreateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -124,10 +118,7 @@ export const se_DeleteKeyspaceCommand = async (
   input: DeleteKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.DeleteKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteKeyspace");
   let body: any;
   body = JSON.stringify(se_DeleteKeyspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -140,10 +131,7 @@ export const se_DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.DeleteTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
   body = JSON.stringify(se_DeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -156,10 +144,7 @@ export const se_GetKeyspaceCommand = async (
   input: GetKeyspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.GetKeyspace",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyspace");
   let body: any;
   body = JSON.stringify(se_GetKeyspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -172,10 +157,7 @@ export const se_GetTableCommand = async (
   input: GetTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.GetTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTable");
   let body: any;
   body = JSON.stringify(se_GetTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -188,10 +170,7 @@ export const se_ListKeyspacesCommand = async (
   input: ListKeyspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListKeyspaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListKeyspaces");
   let body: any;
   body = JSON.stringify(se_ListKeyspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -204,10 +183,7 @@ export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
   body = JSON.stringify(se_ListTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -220,10 +196,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -236,10 +209,7 @@ export const se_RestoreTableCommand = async (
   input: RestoreTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.RestoreTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreTable");
   let body: any;
   body = JSON.stringify(se_RestoreTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -252,10 +222,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -268,10 +235,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -284,10 +248,7 @@ export const se_UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "KeyspacesService.UpdateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
   body = JSON.stringify(se_UpdateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2004,6 +1965,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `KeyspacesService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

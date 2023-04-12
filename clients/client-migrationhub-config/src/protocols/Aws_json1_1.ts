@@ -50,10 +50,7 @@ export const se_CreateHomeRegionControlCommand = async (
   input: CreateHomeRegionControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHomeRegionControl");
   let body: any;
   body = JSON.stringify(se_CreateHomeRegionControlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -66,10 +63,7 @@ export const se_DescribeHomeRegionControlsCommand = async (
   input: DescribeHomeRegionControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHomeRegionControls");
   let body: any;
   body = JSON.stringify(se_DescribeHomeRegionControlsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -82,10 +76,7 @@ export const se_GetHomeRegionCommand = async (
   input: GetHomeRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHubMultiAccountService.GetHomeRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHomeRegion");
   let body: any;
   body = JSON.stringify(se_GetHomeRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,6 +565,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSMigrationHubMultiAccountService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

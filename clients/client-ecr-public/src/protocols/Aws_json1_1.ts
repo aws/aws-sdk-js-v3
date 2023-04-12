@@ -176,10 +176,7 @@ export const se_BatchCheckLayerAvailabilityCommand = async (
   input: BatchCheckLayerAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.BatchCheckLayerAvailability",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCheckLayerAvailability");
   let body: any;
   body = JSON.stringify(se_BatchCheckLayerAvailabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -192,10 +189,7 @@ export const se_BatchDeleteImageCommand = async (
   input: BatchDeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.BatchDeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteImage");
   let body: any;
   body = JSON.stringify(se_BatchDeleteImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -208,10 +202,7 @@ export const se_CompleteLayerUploadCommand = async (
   input: CompleteLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.CompleteLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("CompleteLayerUpload");
   let body: any;
   body = JSON.stringify(se_CompleteLayerUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -224,10 +215,7 @@ export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.CreateRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
   body = JSON.stringify(se_CreateRepositoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,10 +228,7 @@ export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DeleteRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -256,10 +241,7 @@ export const se_DeleteRepositoryPolicyCommand = async (
   input: DeleteRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DeleteRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -272,10 +254,7 @@ export const se_DescribeImagesCommand = async (
   input: DescribeImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DescribeImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImages");
   let body: any;
   body = JSON.stringify(se_DescribeImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -288,10 +267,7 @@ export const se_DescribeImageTagsCommand = async (
   input: DescribeImageTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DescribeImageTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageTags");
   let body: any;
   body = JSON.stringify(se_DescribeImageTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -304,10 +280,7 @@ export const se_DescribeRegistriesCommand = async (
   input: DescribeRegistriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DescribeRegistries",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRegistries");
   let body: any;
   body = JSON.stringify(se_DescribeRegistriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -320,10 +293,7 @@ export const se_DescribeRepositoriesCommand = async (
   input: DescribeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.DescribeRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRepositories");
   let body: any;
   body = JSON.stringify(se_DescribeRepositoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -336,10 +306,7 @@ export const se_GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.GetAuthorizationToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAuthorizationToken");
   let body: any;
   body = JSON.stringify(se_GetAuthorizationTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,10 +319,7 @@ export const se_GetRegistryCatalogDataCommand = async (
   input: GetRegistryCatalogDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.GetRegistryCatalogData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegistryCatalogData");
   let body: any;
   body = JSON.stringify(se_GetRegistryCatalogDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -368,10 +332,7 @@ export const se_GetRepositoryCatalogDataCommand = async (
   input: GetRepositoryCatalogDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.GetRepositoryCatalogData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositoryCatalogData");
   let body: any;
   body = JSON.stringify(se_GetRepositoryCatalogDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -384,10 +345,7 @@ export const se_GetRepositoryPolicyCommand = async (
   input: GetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.GetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_GetRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,10 +358,7 @@ export const se_InitiateLayerUploadCommand = async (
   input: InitiateLayerUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.InitiateLayerUpload",
-  };
+  const headers: __HeaderBag = sharedHeaders("InitiateLayerUpload");
   let body: any;
   body = JSON.stringify(se_InitiateLayerUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -416,10 +371,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -432,10 +384,7 @@ export const se_PutImageCommand = async (
   input: PutImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.PutImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutImage");
   let body: any;
   body = JSON.stringify(se_PutImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -448,10 +397,7 @@ export const se_PutRegistryCatalogDataCommand = async (
   input: PutRegistryCatalogDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.PutRegistryCatalogData",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRegistryCatalogData");
   let body: any;
   body = JSON.stringify(se_PutRegistryCatalogDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -464,10 +410,7 @@ export const se_PutRepositoryCatalogDataCommand = async (
   input: PutRepositoryCatalogDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.PutRepositoryCatalogData",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRepositoryCatalogData");
   let body: any;
   body = JSON.stringify(se_PutRepositoryCatalogDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -480,10 +423,7 @@ export const se_SetRepositoryPolicyCommand = async (
   input: SetRepositoryPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.SetRepositoryPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetRepositoryPolicy");
   let body: any;
   body = JSON.stringify(se_SetRepositoryPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -496,10 +436,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -512,10 +449,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -528,10 +462,7 @@ export const se_UploadLayerPartCommand = async (
   input: UploadLayerPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SpencerFrontendService.UploadLayerPart",
-  };
+  const headers: __HeaderBag = sharedHeaders("UploadLayerPart");
   let body: any;
   body = JSON.stringify(se_UploadLayerPartRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3558,6 +3489,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `SpencerFrontendService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

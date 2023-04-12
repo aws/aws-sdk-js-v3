@@ -232,10 +232,7 @@ export const se_AcceptQualificationRequestCommand = async (
   input: AcceptQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.AcceptQualificationRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptQualificationRequest");
   let body: any;
   body = JSON.stringify(se_AcceptQualificationRequestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,10 +245,7 @@ export const se_ApproveAssignmentCommand = async (
   input: ApproveAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ApproveAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("ApproveAssignment");
   let body: any;
   body = JSON.stringify(se_ApproveAssignmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -264,10 +258,7 @@ export const se_AssociateQualificationWithWorkerCommand = async (
   input: AssociateQualificationWithWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateQualificationWithWorker");
   let body: any;
   body = JSON.stringify(se_AssociateQualificationWithWorkerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -280,10 +271,7 @@ export const se_CreateAdditionalAssignmentsForHITCommand = async (
   input: CreateAdditionalAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAdditionalAssignmentsForHIT");
   let body: any;
   body = JSON.stringify(se_CreateAdditionalAssignmentsForHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -296,10 +284,7 @@ export const se_CreateHITCommand = async (
   input: CreateHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHIT");
   let body: any;
   body = JSON.stringify(se_CreateHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -312,10 +297,7 @@ export const se_CreateHITTypeCommand = async (
   input: CreateHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHITType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHITType");
   let body: any;
   body = JSON.stringify(se_CreateHITTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -328,10 +310,7 @@ export const se_CreateHITWithHITTypeCommand = async (
   input: CreateHITWithHITTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateHITWithHITType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHITWithHITType");
   let body: any;
   body = JSON.stringify(se_CreateHITWithHITTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -344,10 +323,7 @@ export const se_CreateQualificationTypeCommand = async (
   input: CreateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateQualificationType");
   let body: any;
   body = JSON.stringify(se_CreateQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -360,10 +336,7 @@ export const se_CreateWorkerBlockCommand = async (
   input: CreateWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.CreateWorkerBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkerBlock");
   let body: any;
   body = JSON.stringify(se_CreateWorkerBlockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -376,10 +349,7 @@ export const se_DeleteHITCommand = async (
   input: DeleteHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHIT");
   let body: any;
   body = JSON.stringify(se_DeleteHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,10 +362,7 @@ export const se_DeleteQualificationTypeCommand = async (
   input: DeleteQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteQualificationType");
   let body: any;
   body = JSON.stringify(se_DeleteQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +375,7 @@ export const se_DeleteWorkerBlockCommand = async (
   input: DeleteWorkerBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DeleteWorkerBlock",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkerBlock");
   let body: any;
   body = JSON.stringify(se_DeleteWorkerBlockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +388,7 @@ export const se_DisassociateQualificationFromWorkerCommand = async (
   input: DisassociateQualificationFromWorkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateQualificationFromWorker");
   let body: any;
   body = JSON.stringify(se_DisassociateQualificationFromWorkerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +401,7 @@ export const se_GetAccountBalanceCommand = async (
   input: GetAccountBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetAccountBalance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountBalance");
   let body: any;
   body = JSON.stringify(se_GetAccountBalanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +414,7 @@ export const se_GetAssignmentCommand = async (
   input: GetAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAssignment");
   let body: any;
   body = JSON.stringify(se_GetAssignmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +427,7 @@ export const se_GetFileUploadURLCommand = async (
   input: GetFileUploadURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetFileUploadURL",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFileUploadURL");
   let body: any;
   body = JSON.stringify(se_GetFileUploadURLRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +437,7 @@ export const se_GetFileUploadURLCommand = async (
  * serializeAws_json1_1GetHITCommand
  */
 export const se_GetHITCommand = async (input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHIT");
   let body: any;
   body = JSON.stringify(se_GetHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +450,7 @@ export const se_GetQualificationScoreCommand = async (
   input: GetQualificationScoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetQualificationScore",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQualificationScore");
   let body: any;
   body = JSON.stringify(se_GetQualificationScoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +463,7 @@ export const se_GetQualificationTypeCommand = async (
   input: GetQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.GetQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQualificationType");
   let body: any;
   body = JSON.stringify(se_GetQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -533,10 +476,7 @@ export const se_ListAssignmentsForHITCommand = async (
   input: ListAssignmentsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListAssignmentsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssignmentsForHIT");
   let body: any;
   body = JSON.stringify(se_ListAssignmentsForHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -549,10 +489,7 @@ export const se_ListBonusPaymentsCommand = async (
   input: ListBonusPaymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListBonusPayments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBonusPayments");
   let body: any;
   body = JSON.stringify(se_ListBonusPaymentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -565,10 +502,7 @@ export const se_ListHITsCommand = async (
   input: ListHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListHITs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHITs");
   let body: any;
   body = JSON.stringify(se_ListHITsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -581,10 +515,7 @@ export const se_ListHITsForQualificationTypeCommand = async (
   input: ListHITsForQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListHITsForQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHITsForQualificationType");
   let body: any;
   body = JSON.stringify(se_ListHITsForQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,10 +528,7 @@ export const se_ListQualificationRequestsCommand = async (
   input: ListQualificationRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListQualificationRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQualificationRequests");
   let body: any;
   body = JSON.stringify(se_ListQualificationRequestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -613,10 +541,7 @@ export const se_ListQualificationTypesCommand = async (
   input: ListQualificationTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListQualificationTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQualificationTypes");
   let body: any;
   body = JSON.stringify(se_ListQualificationTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -629,10 +554,7 @@ export const se_ListReviewableHITsCommand = async (
   input: ListReviewableHITsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListReviewableHITs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReviewableHITs");
   let body: any;
   body = JSON.stringify(se_ListReviewableHITsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -645,10 +567,7 @@ export const se_ListReviewPolicyResultsForHITCommand = async (
   input: ListReviewPolicyResultsForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReviewPolicyResultsForHIT");
   let body: any;
   body = JSON.stringify(se_ListReviewPolicyResultsForHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -661,10 +580,7 @@ export const se_ListWorkerBlocksCommand = async (
   input: ListWorkerBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListWorkerBlocks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkerBlocks");
   let body: any;
   body = JSON.stringify(se_ListWorkerBlocksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -677,10 +593,7 @@ export const se_ListWorkersWithQualificationTypeCommand = async (
   input: ListWorkersWithQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkersWithQualificationType");
   let body: any;
   body = JSON.stringify(se_ListWorkersWithQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -693,10 +606,7 @@ export const se_NotifyWorkersCommand = async (
   input: NotifyWorkersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.NotifyWorkers",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyWorkers");
   let body: any;
   body = JSON.stringify(se_NotifyWorkersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -709,10 +619,7 @@ export const se_RejectAssignmentCommand = async (
   input: RejectAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.RejectAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectAssignment");
   let body: any;
   body = JSON.stringify(se_RejectAssignmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -725,10 +632,7 @@ export const se_RejectQualificationRequestCommand = async (
   input: RejectQualificationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.RejectQualificationRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectQualificationRequest");
   let body: any;
   body = JSON.stringify(se_RejectQualificationRequestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -741,10 +645,7 @@ export const se_SendBonusCommand = async (
   input: SendBonusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.SendBonus",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendBonus");
   let body: any;
   body = JSON.stringify(se_SendBonusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -757,10 +658,7 @@ export const se_SendTestEventNotificationCommand = async (
   input: SendTestEventNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.SendTestEventNotification",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTestEventNotification");
   let body: any;
   body = JSON.stringify(se_SendTestEventNotificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -773,10 +671,7 @@ export const se_UpdateExpirationForHITCommand = async (
   input: UpdateExpirationForHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateExpirationForHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateExpirationForHIT");
   let body: any;
   body = JSON.stringify(se_UpdateExpirationForHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -789,10 +684,7 @@ export const se_UpdateHITReviewStatusCommand = async (
   input: UpdateHITReviewStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateHITReviewStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHITReviewStatus");
   let body: any;
   body = JSON.stringify(se_UpdateHITReviewStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -805,10 +697,7 @@ export const se_UpdateHITTypeOfHITCommand = async (
   input: UpdateHITTypeOfHITCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHITTypeOfHIT");
   let body: any;
   body = JSON.stringify(se_UpdateHITTypeOfHITRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -821,10 +710,7 @@ export const se_UpdateNotificationSettingsCommand = async (
   input: UpdateNotificationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateNotificationSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotificationSettings");
   let body: any;
   body = JSON.stringify(se_UpdateNotificationSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -837,10 +723,7 @@ export const se_UpdateQualificationTypeCommand = async (
   input: UpdateQualificationTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "MTurkRequesterServiceV20170117.UpdateQualificationType",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateQualificationType");
   let body: any;
   body = JSON.stringify(se_UpdateQualificationTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4461,6 +4344,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `MTurkRequesterServiceV20170117.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

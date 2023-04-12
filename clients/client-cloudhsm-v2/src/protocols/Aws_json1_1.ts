@@ -88,10 +88,7 @@ export const se_CopyBackupToRegionCommand = async (
   input: CopyBackupToRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.CopyBackupToRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyBackupToRegion");
   let body: any;
   body = JSON.stringify(se_CopyBackupToRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -104,10 +101,7 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.CreateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCluster");
   let body: any;
   body = JSON.stringify(se_CreateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -120,10 +114,7 @@ export const se_CreateHsmCommand = async (
   input: CreateHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.CreateHsm",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHsm");
   let body: any;
   body = JSON.stringify(se_CreateHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -136,10 +127,7 @@ export const se_DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.DeleteBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBackup");
   let body: any;
   body = JSON.stringify(se_DeleteBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -152,10 +140,7 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.DeleteCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCluster");
   let body: any;
   body = JSON.stringify(se_DeleteClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -168,10 +153,7 @@ export const se_DeleteHsmCommand = async (
   input: DeleteHsmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.DeleteHsm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHsm");
   let body: any;
   body = JSON.stringify(se_DeleteHsmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,10 +166,7 @@ export const se_DescribeBackupsCommand = async (
   input: DescribeBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.DescribeBackups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBackups");
   let body: any;
   body = JSON.stringify(se_DescribeBackupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -200,10 +179,7 @@ export const se_DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.DescribeClusters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClusters");
   let body: any;
   body = JSON.stringify(se_DescribeClustersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -216,10 +192,7 @@ export const se_InitializeClusterCommand = async (
   input: InitializeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.InitializeCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("InitializeCluster");
   let body: any;
   body = JSON.stringify(se_InitializeClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -232,10 +205,7 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
   body = JSON.stringify(se_ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,10 +218,7 @@ export const se_ModifyBackupAttributesCommand = async (
   input: ModifyBackupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.ModifyBackupAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyBackupAttributes");
   let body: any;
   body = JSON.stringify(se_ModifyBackupAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -264,10 +231,7 @@ export const se_ModifyClusterCommand = async (
   input: ModifyClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.ModifyCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyCluster");
   let body: any;
   body = JSON.stringify(se_ModifyClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -280,10 +244,7 @@ export const se_RestoreBackupCommand = async (
   input: RestoreBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.RestoreBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreBackup");
   let body: any;
   body = JSON.stringify(se_RestoreBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -296,10 +257,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -312,10 +270,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "BaldrApiService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1997,6 +1952,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `BaldrApiService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

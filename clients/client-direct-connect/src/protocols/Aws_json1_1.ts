@@ -360,10 +360,7 @@ export const se_AcceptDirectConnectGatewayAssociationProposalCommand = async (
   input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AcceptDirectConnectGatewayAssociationProposal",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptDirectConnectGatewayAssociationProposal");
   let body: any;
   body = JSON.stringify(se_AcceptDirectConnectGatewayAssociationProposalRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -376,10 +373,7 @@ export const se_AllocateConnectionOnInterconnectCommand = async (
   input: AllocateConnectionOnInterconnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AllocateConnectionOnInterconnect",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocateConnectionOnInterconnect");
   let body: any;
   body = JSON.stringify(se_AllocateConnectionOnInterconnectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,10 +386,7 @@ export const se_AllocateHostedConnectionCommand = async (
   input: AllocateHostedConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AllocateHostedConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocateHostedConnection");
   let body: any;
   body = JSON.stringify(se_AllocateHostedConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +399,7 @@ export const se_AllocatePrivateVirtualInterfaceCommand = async (
   input: AllocatePrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AllocatePrivateVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocatePrivateVirtualInterface");
   let body: any;
   body = JSON.stringify(se_AllocatePrivateVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +412,7 @@ export const se_AllocatePublicVirtualInterfaceCommand = async (
   input: AllocatePublicVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AllocatePublicVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocatePublicVirtualInterface");
   let body: any;
   body = JSON.stringify(se_AllocatePublicVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +425,7 @@ export const se_AllocateTransitVirtualInterfaceCommand = async (
   input: AllocateTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AllocateTransitVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocateTransitVirtualInterface");
   let body: any;
   body = JSON.stringify(se_AllocateTransitVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +438,7 @@ export const se_AssociateConnectionWithLagCommand = async (
   input: AssociateConnectionWithLagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AssociateConnectionWithLag",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateConnectionWithLag");
   let body: any;
   body = JSON.stringify(se_AssociateConnectionWithLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +451,7 @@ export const se_AssociateHostedConnectionCommand = async (
   input: AssociateHostedConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AssociateHostedConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateHostedConnection");
   let body: any;
   body = JSON.stringify(se_AssociateHostedConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,10 +464,7 @@ export const se_AssociateMacSecKeyCommand = async (
   input: AssociateMacSecKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AssociateMacSecKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateMacSecKey");
   let body: any;
   body = JSON.stringify(se_AssociateMacSecKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,10 +477,7 @@ export const se_AssociateVirtualInterfaceCommand = async (
   input: AssociateVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.AssociateVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateVirtualInterface");
   let body: any;
   body = JSON.stringify(se_AssociateVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -520,10 +490,7 @@ export const se_ConfirmConnectionCommand = async (
   input: ConfirmConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ConfirmConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmConnection");
   let body: any;
   body = JSON.stringify(se_ConfirmConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -536,10 +503,7 @@ export const se_ConfirmCustomerAgreementCommand = async (
   input: ConfirmCustomerAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ConfirmCustomerAgreement",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmCustomerAgreement");
   let body: any;
   body = JSON.stringify(se_ConfirmCustomerAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,10 +516,7 @@ export const se_ConfirmPrivateVirtualInterfaceCommand = async (
   input: ConfirmPrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ConfirmPrivateVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmPrivateVirtualInterface");
   let body: any;
   body = JSON.stringify(se_ConfirmPrivateVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -568,10 +529,7 @@ export const se_ConfirmPublicVirtualInterfaceCommand = async (
   input: ConfirmPublicVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ConfirmPublicVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmPublicVirtualInterface");
   let body: any;
   body = JSON.stringify(se_ConfirmPublicVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,10 +542,7 @@ export const se_ConfirmTransitVirtualInterfaceCommand = async (
   input: ConfirmTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ConfirmTransitVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConfirmTransitVirtualInterface");
   let body: any;
   body = JSON.stringify(se_ConfirmTransitVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -600,10 +555,7 @@ export const se_CreateBGPPeerCommand = async (
   input: CreateBGPPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateBGPPeer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBGPPeer");
   let body: any;
   body = JSON.stringify(se_CreateBGPPeerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,10 +568,7 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
   body = JSON.stringify(se_CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +581,7 @@ export const se_CreateDirectConnectGatewayCommand = async (
   input: CreateDirectConnectGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateDirectConnectGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGateway");
   let body: any;
   body = JSON.stringify(se_CreateDirectConnectGatewayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -648,10 +594,7 @@ export const se_CreateDirectConnectGatewayAssociationCommand = async (
   input: CreateDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateDirectConnectGatewayAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGatewayAssociation");
   let body: any;
   body = JSON.stringify(se_CreateDirectConnectGatewayAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -664,10 +607,7 @@ export const se_CreateDirectConnectGatewayAssociationProposalCommand = async (
   input: CreateDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateDirectConnectGatewayAssociationProposal",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectConnectGatewayAssociationProposal");
   let body: any;
   body = JSON.stringify(se_CreateDirectConnectGatewayAssociationProposalRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -680,10 +620,7 @@ export const se_CreateInterconnectCommand = async (
   input: CreateInterconnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateInterconnect",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInterconnect");
   let body: any;
   body = JSON.stringify(se_CreateInterconnectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -696,10 +633,7 @@ export const se_CreateLagCommand = async (
   input: CreateLagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateLag",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLag");
   let body: any;
   body = JSON.stringify(se_CreateLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,10 +646,7 @@ export const se_CreatePrivateVirtualInterfaceCommand = async (
   input: CreatePrivateVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreatePrivateVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePrivateVirtualInterface");
   let body: any;
   body = JSON.stringify(se_CreatePrivateVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -728,10 +659,7 @@ export const se_CreatePublicVirtualInterfaceCommand = async (
   input: CreatePublicVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreatePublicVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePublicVirtualInterface");
   let body: any;
   body = JSON.stringify(se_CreatePublicVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,10 +672,7 @@ export const se_CreateTransitVirtualInterfaceCommand = async (
   input: CreateTransitVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.CreateTransitVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTransitVirtualInterface");
   let body: any;
   body = JSON.stringify(se_CreateTransitVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -760,10 +685,7 @@ export const se_DeleteBGPPeerCommand = async (
   input: DeleteBGPPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteBGPPeer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBGPPeer");
   let body: any;
   body = JSON.stringify(se_DeleteBGPPeerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -776,10 +698,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -792,10 +711,7 @@ export const se_DeleteDirectConnectGatewayCommand = async (
   input: DeleteDirectConnectGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteDirectConnectGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGateway");
   let body: any;
   body = JSON.stringify(se_DeleteDirectConnectGatewayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -808,10 +724,7 @@ export const se_DeleteDirectConnectGatewayAssociationCommand = async (
   input: DeleteDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteDirectConnectGatewayAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGatewayAssociation");
   let body: any;
   body = JSON.stringify(se_DeleteDirectConnectGatewayAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -824,10 +737,7 @@ export const se_DeleteDirectConnectGatewayAssociationProposalCommand = async (
   input: DeleteDirectConnectGatewayAssociationProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteDirectConnectGatewayAssociationProposal",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectConnectGatewayAssociationProposal");
   let body: any;
   body = JSON.stringify(se_DeleteDirectConnectGatewayAssociationProposalRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -840,10 +750,7 @@ export const se_DeleteInterconnectCommand = async (
   input: DeleteInterconnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteInterconnect",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInterconnect");
   let body: any;
   body = JSON.stringify(se_DeleteInterconnectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -856,10 +763,7 @@ export const se_DeleteLagCommand = async (
   input: DeleteLagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteLag",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLag");
   let body: any;
   body = JSON.stringify(se_DeleteLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,10 +776,7 @@ export const se_DeleteVirtualInterfaceCommand = async (
   input: DeleteVirtualInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DeleteVirtualInterface",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVirtualInterface");
   let body: any;
   body = JSON.stringify(se_DeleteVirtualInterfaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -888,10 +789,7 @@ export const se_DescribeConnectionLoaCommand = async (
   input: DescribeConnectionLoaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeConnectionLoa",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnectionLoa");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionLoaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -904,10 +802,7 @@ export const se_DescribeConnectionsCommand = async (
   input: DescribeConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnections");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -920,10 +815,7 @@ export const se_DescribeConnectionsOnInterconnectCommand = async (
   input: DescribeConnectionsOnInterconnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeConnectionsOnInterconnect",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnectionsOnInterconnect");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionsOnInterconnectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -936,10 +828,7 @@ export const se_DescribeCustomerMetadataCommand = async (
   input: DescribeCustomerMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeCustomerMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCustomerMetadata");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -951,10 +840,7 @@ export const se_DescribeDirectConnectGatewayAssociationProposalsCommand = async 
   input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAssociationProposals",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAssociationProposals");
   let body: any;
   body = JSON.stringify(se_DescribeDirectConnectGatewayAssociationProposalsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -967,10 +853,7 @@ export const se_DescribeDirectConnectGatewayAssociationsCommand = async (
   input: DescribeDirectConnectGatewayAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAssociations");
   let body: any;
   body = JSON.stringify(se_DescribeDirectConnectGatewayAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -983,10 +866,7 @@ export const se_DescribeDirectConnectGatewayAttachmentsCommand = async (
   input: DescribeDirectConnectGatewayAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAttachments",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGatewayAttachments");
   let body: any;
   body = JSON.stringify(se_DescribeDirectConnectGatewayAttachmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -999,10 +879,7 @@ export const se_DescribeDirectConnectGatewaysCommand = async (
   input: DescribeDirectConnectGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeDirectConnectGateways",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectConnectGateways");
   let body: any;
   body = JSON.stringify(se_DescribeDirectConnectGatewaysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1015,10 +892,7 @@ export const se_DescribeHostedConnectionsCommand = async (
   input: DescribeHostedConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeHostedConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHostedConnections");
   let body: any;
   body = JSON.stringify(se_DescribeHostedConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1031,10 +905,7 @@ export const se_DescribeInterconnectLoaCommand = async (
   input: DescribeInterconnectLoaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeInterconnectLoa",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInterconnectLoa");
   let body: any;
   body = JSON.stringify(se_DescribeInterconnectLoaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1047,10 +918,7 @@ export const se_DescribeInterconnectsCommand = async (
   input: DescribeInterconnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeInterconnects",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInterconnects");
   let body: any;
   body = JSON.stringify(se_DescribeInterconnectsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1063,10 +931,7 @@ export const se_DescribeLagsCommand = async (
   input: DescribeLagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeLags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLags");
   let body: any;
   body = JSON.stringify(se_DescribeLagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1079,10 +944,7 @@ export const se_DescribeLoaCommand = async (
   input: DescribeLoaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeLoa",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLoa");
   let body: any;
   body = JSON.stringify(se_DescribeLoaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1095,10 +957,7 @@ export const se_DescribeLocationsCommand = async (
   input: DescribeLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeLocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLocations");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1110,10 +969,7 @@ export const se_DescribeRouterConfigurationCommand = async (
   input: DescribeRouterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeRouterConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRouterConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeRouterConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1126,10 +982,7 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
   body = JSON.stringify(se_DescribeTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1142,10 +995,7 @@ export const se_DescribeVirtualGatewaysCommand = async (
   input: DescribeVirtualGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeVirtualGateways",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVirtualGateways");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1157,10 +1007,7 @@ export const se_DescribeVirtualInterfacesCommand = async (
   input: DescribeVirtualInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DescribeVirtualInterfaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVirtualInterfaces");
   let body: any;
   body = JSON.stringify(se_DescribeVirtualInterfacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1173,10 +1020,7 @@ export const se_DisassociateConnectionFromLagCommand = async (
   input: DisassociateConnectionFromLagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DisassociateConnectionFromLag",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateConnectionFromLag");
   let body: any;
   body = JSON.stringify(se_DisassociateConnectionFromLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1189,10 +1033,7 @@ export const se_DisassociateMacSecKeyCommand = async (
   input: DisassociateMacSecKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.DisassociateMacSecKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateMacSecKey");
   let body: any;
   body = JSON.stringify(se_DisassociateMacSecKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1205,10 +1046,7 @@ export const se_ListVirtualInterfaceTestHistoryCommand = async (
   input: ListVirtualInterfaceTestHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.ListVirtualInterfaceTestHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVirtualInterfaceTestHistory");
   let body: any;
   body = JSON.stringify(se_ListVirtualInterfaceTestHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1221,10 +1059,7 @@ export const se_StartBgpFailoverTestCommand = async (
   input: StartBgpFailoverTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.StartBgpFailoverTest",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartBgpFailoverTest");
   let body: any;
   body = JSON.stringify(se_StartBgpFailoverTestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1237,10 +1072,7 @@ export const se_StopBgpFailoverTestCommand = async (
   input: StopBgpFailoverTestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.StopBgpFailoverTest",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopBgpFailoverTest");
   let body: any;
   body = JSON.stringify(se_StopBgpFailoverTestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1253,10 +1085,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1269,10 +1098,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1285,10 +1111,7 @@ export const se_UpdateConnectionCommand = async (
   input: UpdateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UpdateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnection");
   let body: any;
   body = JSON.stringify(se_UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1301,10 +1124,7 @@ export const se_UpdateDirectConnectGatewayCommand = async (
   input: UpdateDirectConnectGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UpdateDirectConnectGateway",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDirectConnectGateway");
   let body: any;
   body = JSON.stringify(se_UpdateDirectConnectGatewayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1317,10 +1137,7 @@ export const se_UpdateDirectConnectGatewayAssociationCommand = async (
   input: UpdateDirectConnectGatewayAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UpdateDirectConnectGatewayAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDirectConnectGatewayAssociation");
   let body: any;
   body = JSON.stringify(se_UpdateDirectConnectGatewayAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1333,10 +1150,7 @@ export const se_UpdateLagCommand = async (
   input: UpdateLagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UpdateLag",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLag");
   let body: any;
   body = JSON.stringify(se_UpdateLagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1349,10 +1163,7 @@ export const se_UpdateVirtualInterfaceAttributesCommand = async (
   input: UpdateVirtualInterfaceAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "OvertureService.UpdateVirtualInterfaceAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVirtualInterfaceAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateVirtualInterfaceAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6890,6 +6701,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `OvertureService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

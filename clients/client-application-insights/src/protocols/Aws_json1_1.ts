@@ -154,10 +154,7 @@ export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
   body = JSON.stringify(se_CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -170,10 +167,7 @@ export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateComponent");
   let body: any;
   body = JSON.stringify(se_CreateComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -186,10 +180,7 @@ export const se_CreateLogPatternCommand = async (
   input: CreateLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.CreateLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLogPattern");
   let body: any;
   body = JSON.stringify(se_CreateLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -202,10 +193,7 @@ export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -218,10 +206,7 @@ export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteComponent");
   let body: any;
   body = JSON.stringify(se_DeleteComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -234,10 +219,7 @@ export const se_DeleteLogPatternCommand = async (
   input: DeleteLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DeleteLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLogPattern");
   let body: any;
   body = JSON.stringify(se_DeleteLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -250,10 +232,7 @@ export const se_DescribeApplicationCommand = async (
   input: DescribeApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplication");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -266,10 +245,7 @@ export const se_DescribeComponentCommand = async (
   input: DescribeComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponent");
   let body: any;
   body = JSON.stringify(se_DescribeComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -282,10 +258,7 @@ export const se_DescribeComponentConfigurationCommand = async (
   input: DescribeComponentConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponentConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponentConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeComponentConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,10 +271,7 @@ export const se_DescribeComponentConfigurationRecommendationCommand = async (
   input: DescribeComponentConfigurationRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComponentConfigurationRecommendation");
   let body: any;
   body = JSON.stringify(se_DescribeComponentConfigurationRecommendationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -314,10 +284,7 @@ export const se_DescribeLogPatternCommand = async (
   input: DescribeLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLogPattern");
   let body: any;
   body = JSON.stringify(se_DescribeLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -330,10 +297,7 @@ export const se_DescribeObservationCommand = async (
   input: DescribeObservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeObservation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeObservation");
   let body: any;
   body = JSON.stringify(se_DescribeObservationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -346,10 +310,7 @@ export const se_DescribeProblemCommand = async (
   input: DescribeProblemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeProblem",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProblem");
   let body: any;
   body = JSON.stringify(se_DescribeProblemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -362,10 +323,7 @@ export const se_DescribeProblemObservationsCommand = async (
   input: DescribeProblemObservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.DescribeProblemObservations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProblemObservations");
   let body: any;
   body = JSON.stringify(se_DescribeProblemObservationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -378,10 +336,7 @@ export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplications");
   let body: any;
   body = JSON.stringify(se_ListApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -394,10 +349,7 @@ export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListComponents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComponents");
   let body: any;
   body = JSON.stringify(se_ListComponentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -410,10 +362,7 @@ export const se_ListConfigurationHistoryCommand = async (
   input: ListConfigurationHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListConfigurationHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConfigurationHistory");
   let body: any;
   body = JSON.stringify(se_ListConfigurationHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -426,10 +375,7 @@ export const se_ListLogPatternsCommand = async (
   input: ListLogPatternsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListLogPatterns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLogPatterns");
   let body: any;
   body = JSON.stringify(se_ListLogPatternsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -442,10 +388,7 @@ export const se_ListLogPatternSetsCommand = async (
   input: ListLogPatternSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListLogPatternSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLogPatternSets");
   let body: any;
   body = JSON.stringify(se_ListLogPatternSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -458,10 +401,7 @@ export const se_ListProblemsCommand = async (
   input: ListProblemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListProblems",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProblems");
   let body: any;
   body = JSON.stringify(se_ListProblemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -474,10 +414,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -490,10 +427,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -506,10 +440,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -522,10 +453,7 @@ export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -538,10 +466,7 @@ export const se_UpdateComponentCommand = async (
   input: UpdateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComponent");
   let body: any;
   body = JSON.stringify(se_UpdateComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -554,10 +479,7 @@ export const se_UpdateComponentConfigurationCommand = async (
   input: UpdateComponentConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateComponentConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComponentConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateComponentConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -570,10 +492,7 @@ export const se_UpdateLogPatternCommand = async (
   input: UpdateLogPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "EC2WindowsBarleyService.UpdateLogPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLogPattern");
   let body: any;
   body = JSON.stringify(se_UpdateLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3226,6 +3145,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `EC2WindowsBarleyService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

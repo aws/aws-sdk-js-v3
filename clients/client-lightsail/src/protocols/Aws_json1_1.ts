@@ -876,10 +876,7 @@ export const se_AllocateStaticIpCommand = async (
   input: AllocateStaticIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AllocateStaticIp",
-  };
+  const headers: __HeaderBag = sharedHeaders("AllocateStaticIp");
   let body: any;
   body = JSON.stringify(se_AllocateStaticIpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -892,10 +889,7 @@ export const se_AttachCertificateToDistributionCommand = async (
   input: AttachCertificateToDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AttachCertificateToDistribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachCertificateToDistribution");
   let body: any;
   body = JSON.stringify(se_AttachCertificateToDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,10 +902,7 @@ export const se_AttachDiskCommand = async (
   input: AttachDiskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AttachDisk",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachDisk");
   let body: any;
   body = JSON.stringify(se_AttachDiskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -924,10 +915,7 @@ export const se_AttachInstancesToLoadBalancerCommand = async (
   input: AttachInstancesToLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AttachInstancesToLoadBalancer",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachInstancesToLoadBalancer");
   let body: any;
   body = JSON.stringify(se_AttachInstancesToLoadBalancerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -940,10 +928,7 @@ export const se_AttachLoadBalancerTlsCertificateCommand = async (
   input: AttachLoadBalancerTlsCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AttachLoadBalancerTlsCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachLoadBalancerTlsCertificate");
   let body: any;
   body = JSON.stringify(se_AttachLoadBalancerTlsCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -956,10 +941,7 @@ export const se_AttachStaticIpCommand = async (
   input: AttachStaticIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.AttachStaticIp",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachStaticIp");
   let body: any;
   body = JSON.stringify(se_AttachStaticIpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -972,10 +954,7 @@ export const se_CloseInstancePublicPortsCommand = async (
   input: CloseInstancePublicPortsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CloseInstancePublicPorts",
-  };
+  const headers: __HeaderBag = sharedHeaders("CloseInstancePublicPorts");
   let body: any;
   body = JSON.stringify(se_CloseInstancePublicPortsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,10 +967,7 @@ export const se_CopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CopySnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopySnapshot");
   let body: any;
   body = JSON.stringify(se_CopySnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1004,10 +980,7 @@ export const se_CreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBucket");
   let body: any;
   body = JSON.stringify(se_CreateBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1020,10 +993,7 @@ export const se_CreateBucketAccessKeyCommand = async (
   input: CreateBucketAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateBucketAccessKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBucketAccessKey");
   let body: any;
   body = JSON.stringify(se_CreateBucketAccessKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1036,10 +1006,7 @@ export const se_CreateCertificateCommand = async (
   input: CreateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCertificate");
   let body: any;
   body = JSON.stringify(se_CreateCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,10 +1019,7 @@ export const se_CreateCloudFormationStackCommand = async (
   input: CreateCloudFormationStackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateCloudFormationStack",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCloudFormationStack");
   let body: any;
   body = JSON.stringify(se_CreateCloudFormationStackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1068,10 +1032,7 @@ export const se_CreateContactMethodCommand = async (
   input: CreateContactMethodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateContactMethod",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContactMethod");
   let body: any;
   body = JSON.stringify(se_CreateContactMethodRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1084,10 +1045,7 @@ export const se_CreateContainerServiceCommand = async (
   input: CreateContainerServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateContainerService",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContainerService");
   let body: any;
   body = JSON.stringify(se_CreateContainerServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1100,10 +1058,7 @@ export const se_CreateContainerServiceDeploymentCommand = async (
   input: CreateContainerServiceDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateContainerServiceDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContainerServiceDeployment");
   let body: any;
   body = JSON.stringify(se_CreateContainerServiceDeploymentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1116,10 +1071,7 @@ export const se_CreateContainerServiceRegistryLoginCommand = async (
   input: CreateContainerServiceRegistryLoginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateContainerServiceRegistryLogin",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContainerServiceRegistryLogin");
   let body: any;
   body = JSON.stringify(se_CreateContainerServiceRegistryLoginRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1132,10 +1084,7 @@ export const se_CreateDiskCommand = async (
   input: CreateDiskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDisk",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDisk");
   let body: any;
   body = JSON.stringify(se_CreateDiskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1148,10 +1097,7 @@ export const se_CreateDiskFromSnapshotCommand = async (
   input: CreateDiskFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDiskFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDiskFromSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateDiskFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1164,10 +1110,7 @@ export const se_CreateDiskSnapshotCommand = async (
   input: CreateDiskSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDiskSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDiskSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateDiskSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1180,10 +1123,7 @@ export const se_CreateDistributionCommand = async (
   input: CreateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDistribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDistribution");
   let body: any;
   body = JSON.stringify(se_CreateDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1196,10 +1136,7 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDomain");
   let body: any;
   body = JSON.stringify(se_CreateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1212,10 +1149,7 @@ export const se_CreateDomainEntryCommand = async (
   input: CreateDomainEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateDomainEntry",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDomainEntry");
   let body: any;
   body = JSON.stringify(se_CreateDomainEntryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1228,10 +1162,7 @@ export const se_CreateGUISessionAccessDetailsCommand = async (
   input: CreateGUISessionAccessDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateGUISessionAccessDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGUISessionAccessDetails");
   let body: any;
   body = JSON.stringify(se_CreateGUISessionAccessDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1244,10 +1175,7 @@ export const se_CreateInstancesCommand = async (
   input: CreateInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInstances");
   let body: any;
   body = JSON.stringify(se_CreateInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1260,10 +1188,7 @@ export const se_CreateInstancesFromSnapshotCommand = async (
   input: CreateInstancesFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateInstancesFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInstancesFromSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateInstancesFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1276,10 +1201,7 @@ export const se_CreateInstanceSnapshotCommand = async (
   input: CreateInstanceSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateInstanceSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInstanceSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateInstanceSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1292,10 +1214,7 @@ export const se_CreateKeyPairCommand = async (
   input: CreateKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateKeyPair");
   let body: any;
   body = JSON.stringify(se_CreateKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1308,10 +1227,7 @@ export const se_CreateLoadBalancerCommand = async (
   input: CreateLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateLoadBalancer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLoadBalancer");
   let body: any;
   body = JSON.stringify(se_CreateLoadBalancerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1324,10 +1240,7 @@ export const se_CreateLoadBalancerTlsCertificateCommand = async (
   input: CreateLoadBalancerTlsCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateLoadBalancerTlsCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLoadBalancerTlsCertificate");
   let body: any;
   body = JSON.stringify(se_CreateLoadBalancerTlsCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1340,10 +1253,7 @@ export const se_CreateRelationalDatabaseCommand = async (
   input: CreateRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_CreateRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1356,10 +1266,7 @@ export const se_CreateRelationalDatabaseFromSnapshotCommand = async (
   input: CreateRelationalDatabaseFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRelationalDatabaseFromSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateRelationalDatabaseFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1372,10 +1279,7 @@ export const se_CreateRelationalDatabaseSnapshotCommand = async (
   input: CreateRelationalDatabaseSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabaseSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRelationalDatabaseSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateRelationalDatabaseSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1388,10 +1292,7 @@ export const se_DeleteAlarmCommand = async (
   input: DeleteAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteAlarm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAlarm");
   let body: any;
   body = JSON.stringify(se_DeleteAlarmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1404,10 +1305,7 @@ export const se_DeleteAutoSnapshotCommand = async (
   input: DeleteAutoSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteAutoSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAutoSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteAutoSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1420,10 +1318,7 @@ export const se_DeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBucket");
   let body: any;
   body = JSON.stringify(se_DeleteBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1436,10 +1331,7 @@ export const se_DeleteBucketAccessKeyCommand = async (
   input: DeleteBucketAccessKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteBucketAccessKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBucketAccessKey");
   let body: any;
   body = JSON.stringify(se_DeleteBucketAccessKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1452,10 +1344,7 @@ export const se_DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
   body = JSON.stringify(se_DeleteCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1468,10 +1357,7 @@ export const se_DeleteContactMethodCommand = async (
   input: DeleteContactMethodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteContactMethod",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContactMethod");
   let body: any;
   body = JSON.stringify(se_DeleteContactMethodRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1484,10 +1370,7 @@ export const se_DeleteContainerImageCommand = async (
   input: DeleteContainerImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteContainerImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContainerImage");
   let body: any;
   body = JSON.stringify(se_DeleteContainerImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1500,10 +1383,7 @@ export const se_DeleteContainerServiceCommand = async (
   input: DeleteContainerServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteContainerService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContainerService");
   let body: any;
   body = JSON.stringify(se_DeleteContainerServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1516,10 +1396,7 @@ export const se_DeleteDiskCommand = async (
   input: DeleteDiskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteDisk",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDisk");
   let body: any;
   body = JSON.stringify(se_DeleteDiskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1532,10 +1409,7 @@ export const se_DeleteDiskSnapshotCommand = async (
   input: DeleteDiskSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteDiskSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDiskSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteDiskSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1548,10 +1422,7 @@ export const se_DeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteDistribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDistribution");
   let body: any;
   body = JSON.stringify(se_DeleteDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1564,10 +1435,7 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
   body = JSON.stringify(se_DeleteDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1580,10 +1448,7 @@ export const se_DeleteDomainEntryCommand = async (
   input: DeleteDomainEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteDomainEntry",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomainEntry");
   let body: any;
   body = JSON.stringify(se_DeleteDomainEntryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1596,10 +1461,7 @@ export const se_DeleteInstanceCommand = async (
   input: DeleteInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInstance");
   let body: any;
   body = JSON.stringify(se_DeleteInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1612,10 +1474,7 @@ export const se_DeleteInstanceSnapshotCommand = async (
   input: DeleteInstanceSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteInstanceSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInstanceSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteInstanceSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1628,10 +1487,7 @@ export const se_DeleteKeyPairCommand = async (
   input: DeleteKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteKeyPair");
   let body: any;
   body = JSON.stringify(se_DeleteKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1644,10 +1500,7 @@ export const se_DeleteKnownHostKeysCommand = async (
   input: DeleteKnownHostKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteKnownHostKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteKnownHostKeys");
   let body: any;
   body = JSON.stringify(se_DeleteKnownHostKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1660,10 +1513,7 @@ export const se_DeleteLoadBalancerCommand = async (
   input: DeleteLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteLoadBalancer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLoadBalancer");
   let body: any;
   body = JSON.stringify(se_DeleteLoadBalancerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1676,10 +1526,7 @@ export const se_DeleteLoadBalancerTlsCertificateCommand = async (
   input: DeleteLoadBalancerTlsCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteLoadBalancerTlsCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLoadBalancerTlsCertificate");
   let body: any;
   body = JSON.stringify(se_DeleteLoadBalancerTlsCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1692,10 +1539,7 @@ export const se_DeleteRelationalDatabaseCommand = async (
   input: DeleteRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_DeleteRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1708,10 +1552,7 @@ export const se_DeleteRelationalDatabaseSnapshotCommand = async (
   input: DeleteRelationalDatabaseSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DeleteRelationalDatabaseSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRelationalDatabaseSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteRelationalDatabaseSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1724,10 +1565,7 @@ export const se_DetachCertificateFromDistributionCommand = async (
   input: DetachCertificateFromDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DetachCertificateFromDistribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachCertificateFromDistribution");
   let body: any;
   body = JSON.stringify(se_DetachCertificateFromDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1740,10 +1578,7 @@ export const se_DetachDiskCommand = async (
   input: DetachDiskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DetachDisk",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachDisk");
   let body: any;
   body = JSON.stringify(se_DetachDiskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1756,10 +1591,7 @@ export const se_DetachInstancesFromLoadBalancerCommand = async (
   input: DetachInstancesFromLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DetachInstancesFromLoadBalancer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachInstancesFromLoadBalancer");
   let body: any;
   body = JSON.stringify(se_DetachInstancesFromLoadBalancerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1772,10 +1604,7 @@ export const se_DetachStaticIpCommand = async (
   input: DetachStaticIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DetachStaticIp",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachStaticIp");
   let body: any;
   body = JSON.stringify(se_DetachStaticIpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1788,10 +1617,7 @@ export const se_DisableAddOnCommand = async (
   input: DisableAddOnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DisableAddOn",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableAddOn");
   let body: any;
   body = JSON.stringify(se_DisableAddOnRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1804,10 +1630,7 @@ export const se_DownloadDefaultKeyPairCommand = async (
   input: DownloadDefaultKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.DownloadDefaultKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("DownloadDefaultKeyPair");
   let body: any;
   body = JSON.stringify(se_DownloadDefaultKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1820,10 +1643,7 @@ export const se_EnableAddOnCommand = async (
   input: EnableAddOnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.EnableAddOn",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableAddOn");
   let body: any;
   body = JSON.stringify(se_EnableAddOnRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1836,10 +1656,7 @@ export const se_ExportSnapshotCommand = async (
   input: ExportSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.ExportSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportSnapshot");
   let body: any;
   body = JSON.stringify(se_ExportSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1852,10 +1669,7 @@ export const se_GetActiveNamesCommand = async (
   input: GetActiveNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetActiveNames",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetActiveNames");
   let body: any;
   body = JSON.stringify(se_GetActiveNamesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1868,10 +1682,7 @@ export const se_GetAlarmsCommand = async (
   input: GetAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetAlarms",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAlarms");
   let body: any;
   body = JSON.stringify(se_GetAlarmsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1884,10 +1695,7 @@ export const se_GetAutoSnapshotsCommand = async (
   input: GetAutoSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetAutoSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAutoSnapshots");
   let body: any;
   body = JSON.stringify(se_GetAutoSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1900,10 +1708,7 @@ export const se_GetBlueprintsCommand = async (
   input: GetBlueprintsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBlueprints",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBlueprints");
   let body: any;
   body = JSON.stringify(se_GetBlueprintsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1916,10 +1721,7 @@ export const se_GetBucketAccessKeysCommand = async (
   input: GetBucketAccessKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBucketAccessKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBucketAccessKeys");
   let body: any;
   body = JSON.stringify(se_GetBucketAccessKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1932,10 +1734,7 @@ export const se_GetBucketBundlesCommand = async (
   input: GetBucketBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBucketBundles",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBucketBundles");
   let body: any;
   body = JSON.stringify(se_GetBucketBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1948,10 +1747,7 @@ export const se_GetBucketMetricDataCommand = async (
   input: GetBucketMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBucketMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBucketMetricData");
   let body: any;
   body = JSON.stringify(se_GetBucketMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1964,10 +1760,7 @@ export const se_GetBucketsCommand = async (
   input: GetBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBuckets",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBuckets");
   let body: any;
   body = JSON.stringify(se_GetBucketsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1980,10 +1773,7 @@ export const se_GetBundlesCommand = async (
   input: GetBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetBundles",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetBundles");
   let body: any;
   body = JSON.stringify(se_GetBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1996,10 +1786,7 @@ export const se_GetCertificatesCommand = async (
   input: GetCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificates");
   let body: any;
   body = JSON.stringify(se_GetCertificatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2012,10 +1799,7 @@ export const se_GetCloudFormationStackRecordsCommand = async (
   input: GetCloudFormationStackRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetCloudFormationStackRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCloudFormationStackRecords");
   let body: any;
   body = JSON.stringify(se_GetCloudFormationStackRecordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2028,10 +1812,7 @@ export const se_GetContactMethodsCommand = async (
   input: GetContactMethodsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContactMethods",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactMethods");
   let body: any;
   body = JSON.stringify(se_GetContactMethodsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2044,10 +1825,7 @@ export const se_GetContainerAPIMetadataCommand = async (
   input: GetContainerAPIMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerAPIMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerAPIMetadata");
   let body: any;
   body = JSON.stringify(se_GetContainerAPIMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2060,10 +1838,7 @@ export const se_GetContainerImagesCommand = async (
   input: GetContainerImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerImages");
   let body: any;
   body = JSON.stringify(se_GetContainerImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2076,10 +1851,7 @@ export const se_GetContainerLogCommand = async (
   input: GetContainerLogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerLog",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerLog");
   let body: any;
   body = JSON.stringify(se_GetContainerLogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2092,10 +1864,7 @@ export const se_GetContainerServiceDeploymentsCommand = async (
   input: GetContainerServiceDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerServiceDeployments",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerServiceDeployments");
   let body: any;
   body = JSON.stringify(se_GetContainerServiceDeploymentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2108,10 +1877,7 @@ export const se_GetContainerServiceMetricDataCommand = async (
   input: GetContainerServiceMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerServiceMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerServiceMetricData");
   let body: any;
   body = JSON.stringify(se_GetContainerServiceMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2124,10 +1890,7 @@ export const se_GetContainerServicePowersCommand = async (
   input: GetContainerServicePowersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerServicePowers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerServicePowers");
   let body: any;
   body = JSON.stringify(se_GetContainerServicePowersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2140,10 +1903,7 @@ export const se_GetContainerServicesCommand = async (
   input: GetContainerServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetContainerServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContainerServices");
   let body: any;
   body = JSON.stringify(se_GetContainerServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2156,10 +1916,7 @@ export const se_GetCostEstimateCommand = async (
   input: GetCostEstimateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetCostEstimate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCostEstimate");
   let body: any;
   body = JSON.stringify(se_GetCostEstimateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2172,10 +1929,7 @@ export const se_GetDiskCommand = async (
   input: GetDiskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDisk",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDisk");
   let body: any;
   body = JSON.stringify(se_GetDiskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2188,10 +1942,7 @@ export const se_GetDisksCommand = async (
   input: GetDisksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDisks",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDisks");
   let body: any;
   body = JSON.stringify(se_GetDisksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2204,10 +1955,7 @@ export const se_GetDiskSnapshotCommand = async (
   input: GetDiskSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDiskSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDiskSnapshot");
   let body: any;
   body = JSON.stringify(se_GetDiskSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2220,10 +1968,7 @@ export const se_GetDiskSnapshotsCommand = async (
   input: GetDiskSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDiskSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDiskSnapshots");
   let body: any;
   body = JSON.stringify(se_GetDiskSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2236,10 +1981,7 @@ export const se_GetDistributionBundlesCommand = async (
   input: GetDistributionBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDistributionBundles",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDistributionBundles");
   let body: any;
   body = JSON.stringify(se_GetDistributionBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2252,10 +1994,7 @@ export const se_GetDistributionLatestCacheResetCommand = async (
   input: GetDistributionLatestCacheResetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDistributionLatestCacheReset",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDistributionLatestCacheReset");
   let body: any;
   body = JSON.stringify(se_GetDistributionLatestCacheResetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2268,10 +2007,7 @@ export const se_GetDistributionMetricDataCommand = async (
   input: GetDistributionMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDistributionMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDistributionMetricData");
   let body: any;
   body = JSON.stringify(se_GetDistributionMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2284,10 +2020,7 @@ export const se_GetDistributionsCommand = async (
   input: GetDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDistributions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDistributions");
   let body: any;
   body = JSON.stringify(se_GetDistributionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2300,10 +2033,7 @@ export const se_GetDomainCommand = async (
   input: GetDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDomain");
   let body: any;
   body = JSON.stringify(se_GetDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2316,10 +2046,7 @@ export const se_GetDomainsCommand = async (
   input: GetDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDomains");
   let body: any;
   body = JSON.stringify(se_GetDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2332,10 +2059,7 @@ export const se_GetExportSnapshotRecordsCommand = async (
   input: GetExportSnapshotRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetExportSnapshotRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetExportSnapshotRecords");
   let body: any;
   body = JSON.stringify(se_GetExportSnapshotRecordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2348,10 +2072,7 @@ export const se_GetInstanceCommand = async (
   input: GetInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstance");
   let body: any;
   body = JSON.stringify(se_GetInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2364,10 +2085,7 @@ export const se_GetInstanceAccessDetailsCommand = async (
   input: GetInstanceAccessDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstanceAccessDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceAccessDetails");
   let body: any;
   body = JSON.stringify(se_GetInstanceAccessDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2380,10 +2098,7 @@ export const se_GetInstanceMetricDataCommand = async (
   input: GetInstanceMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstanceMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceMetricData");
   let body: any;
   body = JSON.stringify(se_GetInstanceMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2396,10 +2111,7 @@ export const se_GetInstancePortStatesCommand = async (
   input: GetInstancePortStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstancePortStates",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstancePortStates");
   let body: any;
   body = JSON.stringify(se_GetInstancePortStatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2412,10 +2124,7 @@ export const se_GetInstancesCommand = async (
   input: GetInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstances");
   let body: any;
   body = JSON.stringify(se_GetInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2428,10 +2137,7 @@ export const se_GetInstanceSnapshotCommand = async (
   input: GetInstanceSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstanceSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceSnapshot");
   let body: any;
   body = JSON.stringify(se_GetInstanceSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2444,10 +2150,7 @@ export const se_GetInstanceSnapshotsCommand = async (
   input: GetInstanceSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstanceSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceSnapshots");
   let body: any;
   body = JSON.stringify(se_GetInstanceSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2460,10 +2163,7 @@ export const se_GetInstanceStateCommand = async (
   input: GetInstanceStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetInstanceState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceState");
   let body: any;
   body = JSON.stringify(se_GetInstanceStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2476,10 +2176,7 @@ export const se_GetKeyPairCommand = async (
   input: GetKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyPair");
   let body: any;
   body = JSON.stringify(se_GetKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2492,10 +2189,7 @@ export const se_GetKeyPairsCommand = async (
   input: GetKeyPairsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetKeyPairs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetKeyPairs");
   let body: any;
   body = JSON.stringify(se_GetKeyPairsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2508,10 +2202,7 @@ export const se_GetLoadBalancerCommand = async (
   input: GetLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetLoadBalancer",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoadBalancer");
   let body: any;
   body = JSON.stringify(se_GetLoadBalancerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2524,10 +2215,7 @@ export const se_GetLoadBalancerMetricDataCommand = async (
   input: GetLoadBalancerMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetLoadBalancerMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoadBalancerMetricData");
   let body: any;
   body = JSON.stringify(se_GetLoadBalancerMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2540,10 +2228,7 @@ export const se_GetLoadBalancersCommand = async (
   input: GetLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetLoadBalancers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoadBalancers");
   let body: any;
   body = JSON.stringify(se_GetLoadBalancersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2556,10 +2241,7 @@ export const se_GetLoadBalancerTlsCertificatesCommand = async (
   input: GetLoadBalancerTlsCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetLoadBalancerTlsCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoadBalancerTlsCertificates");
   let body: any;
   body = JSON.stringify(se_GetLoadBalancerTlsCertificatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2572,10 +2254,7 @@ export const se_GetLoadBalancerTlsPoliciesCommand = async (
   input: GetLoadBalancerTlsPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetLoadBalancerTlsPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoadBalancerTlsPolicies");
   let body: any;
   body = JSON.stringify(se_GetLoadBalancerTlsPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2588,10 +2267,7 @@ export const se_GetOperationCommand = async (
   input: GetOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperation");
   let body: any;
   body = JSON.stringify(se_GetOperationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2604,10 +2280,7 @@ export const se_GetOperationsCommand = async (
   input: GetOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperations");
   let body: any;
   body = JSON.stringify(se_GetOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2620,10 +2293,7 @@ export const se_GetOperationsForResourceCommand = async (
   input: GetOperationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetOperationsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperationsForResource");
   let body: any;
   body = JSON.stringify(se_GetOperationsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2636,10 +2306,7 @@ export const se_GetRegionsCommand = async (
   input: GetRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRegions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegions");
   let body: any;
   body = JSON.stringify(se_GetRegionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2652,10 +2319,7 @@ export const se_GetRelationalDatabaseCommand = async (
   input: GetRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2668,10 +2332,7 @@ export const se_GetRelationalDatabaseBlueprintsCommand = async (
   input: GetRelationalDatabaseBlueprintsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseBlueprints",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseBlueprints");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseBlueprintsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2684,10 +2345,7 @@ export const se_GetRelationalDatabaseBundlesCommand = async (
   input: GetRelationalDatabaseBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseBundles",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseBundles");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2700,10 +2358,7 @@ export const se_GetRelationalDatabaseEventsCommand = async (
   input: GetRelationalDatabaseEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseEvents");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2716,10 +2371,7 @@ export const se_GetRelationalDatabaseLogEventsCommand = async (
   input: GetRelationalDatabaseLogEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseLogEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseLogEvents");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseLogEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2732,10 +2384,7 @@ export const se_GetRelationalDatabaseLogStreamsCommand = async (
   input: GetRelationalDatabaseLogStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseLogStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseLogStreams");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseLogStreamsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2748,10 +2397,7 @@ export const se_GetRelationalDatabaseMasterUserPasswordCommand = async (
   input: GetRelationalDatabaseMasterUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseMasterUserPassword");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseMasterUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2764,10 +2410,7 @@ export const se_GetRelationalDatabaseMetricDataCommand = async (
   input: GetRelationalDatabaseMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseMetricData",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseMetricData");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2780,10 +2423,7 @@ export const se_GetRelationalDatabaseParametersCommand = async (
   input: GetRelationalDatabaseParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseParameters");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2796,10 +2436,7 @@ export const se_GetRelationalDatabasesCommand = async (
   input: GetRelationalDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabases");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2812,10 +2449,7 @@ export const se_GetRelationalDatabaseSnapshotCommand = async (
   input: GetRelationalDatabaseSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseSnapshot");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2828,10 +2462,7 @@ export const se_GetRelationalDatabaseSnapshotsCommand = async (
   input: GetRelationalDatabaseSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRelationalDatabaseSnapshots");
   let body: any;
   body = JSON.stringify(se_GetRelationalDatabaseSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2844,10 +2475,7 @@ export const se_GetStaticIpCommand = async (
   input: GetStaticIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetStaticIp",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStaticIp");
   let body: any;
   body = JSON.stringify(se_GetStaticIpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2860,10 +2488,7 @@ export const se_GetStaticIpsCommand = async (
   input: GetStaticIpsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.GetStaticIps",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStaticIps");
   let body: any;
   body = JSON.stringify(se_GetStaticIpsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2876,10 +2501,7 @@ export const se_ImportKeyPairCommand = async (
   input: ImportKeyPairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.ImportKeyPair",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportKeyPair");
   let body: any;
   body = JSON.stringify(se_ImportKeyPairRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2892,10 +2514,7 @@ export const se_IsVpcPeeredCommand = async (
   input: IsVpcPeeredCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.IsVpcPeered",
-  };
+  const headers: __HeaderBag = sharedHeaders("IsVpcPeered");
   let body: any;
   body = JSON.stringify(se_IsVpcPeeredRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2908,10 +2527,7 @@ export const se_OpenInstancePublicPortsCommand = async (
   input: OpenInstancePublicPortsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.OpenInstancePublicPorts",
-  };
+  const headers: __HeaderBag = sharedHeaders("OpenInstancePublicPorts");
   let body: any;
   body = JSON.stringify(se_OpenInstancePublicPortsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2924,10 +2540,7 @@ export const se_PeerVpcCommand = async (
   input: PeerVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.PeerVpc",
-  };
+  const headers: __HeaderBag = sharedHeaders("PeerVpc");
   let body: any;
   body = JSON.stringify(se_PeerVpcRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2940,10 +2553,7 @@ export const se_PutAlarmCommand = async (
   input: PutAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.PutAlarm",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAlarm");
   let body: any;
   body = JSON.stringify(se_PutAlarmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2956,10 +2566,7 @@ export const se_PutInstancePublicPortsCommand = async (
   input: PutInstancePublicPortsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.PutInstancePublicPorts",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutInstancePublicPorts");
   let body: any;
   body = JSON.stringify(se_PutInstancePublicPortsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2972,10 +2579,7 @@ export const se_RebootInstanceCommand = async (
   input: RebootInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.RebootInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebootInstance");
   let body: any;
   body = JSON.stringify(se_RebootInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2988,10 +2592,7 @@ export const se_RebootRelationalDatabaseCommand = async (
   input: RebootRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.RebootRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebootRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_RebootRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3004,10 +2605,7 @@ export const se_RegisterContainerImageCommand = async (
   input: RegisterContainerImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.RegisterContainerImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterContainerImage");
   let body: any;
   body = JSON.stringify(se_RegisterContainerImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3020,10 +2618,7 @@ export const se_ReleaseStaticIpCommand = async (
   input: ReleaseStaticIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.ReleaseStaticIp",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReleaseStaticIp");
   let body: any;
   body = JSON.stringify(se_ReleaseStaticIpRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3036,10 +2631,7 @@ export const se_ResetDistributionCacheCommand = async (
   input: ResetDistributionCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.ResetDistributionCache",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetDistributionCache");
   let body: any;
   body = JSON.stringify(se_ResetDistributionCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3052,10 +2644,7 @@ export const se_SendContactMethodVerificationCommand = async (
   input: SendContactMethodVerificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.SendContactMethodVerification",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendContactMethodVerification");
   let body: any;
   body = JSON.stringify(se_SendContactMethodVerificationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3068,10 +2657,7 @@ export const se_SetIpAddressTypeCommand = async (
   input: SetIpAddressTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.SetIpAddressType",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetIpAddressType");
   let body: any;
   body = JSON.stringify(se_SetIpAddressTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3084,10 +2670,7 @@ export const se_SetResourceAccessForBucketCommand = async (
   input: SetResourceAccessForBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.SetResourceAccessForBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetResourceAccessForBucket");
   let body: any;
   body = JSON.stringify(se_SetResourceAccessForBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3100,10 +2683,7 @@ export const se_StartGUISessionCommand = async (
   input: StartGUISessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StartGUISession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartGUISession");
   let body: any;
   body = JSON.stringify(se_StartGUISessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3116,10 +2696,7 @@ export const se_StartInstanceCommand = async (
   input: StartInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StartInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartInstance");
   let body: any;
   body = JSON.stringify(se_StartInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3132,10 +2709,7 @@ export const se_StartRelationalDatabaseCommand = async (
   input: StartRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StartRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_StartRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3148,10 +2722,7 @@ export const se_StopGUISessionCommand = async (
   input: StopGUISessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StopGUISession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopGUISession");
   let body: any;
   body = JSON.stringify(se_StopGUISessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3164,10 +2735,7 @@ export const se_StopInstanceCommand = async (
   input: StopInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StopInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopInstance");
   let body: any;
   body = JSON.stringify(se_StopInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3180,10 +2748,7 @@ export const se_StopRelationalDatabaseCommand = async (
   input: StopRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.StopRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_StopRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3196,10 +2761,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3212,10 +2774,7 @@ export const se_TestAlarmCommand = async (
   input: TestAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.TestAlarm",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestAlarm");
   let body: any;
   body = JSON.stringify(se_TestAlarmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3228,10 +2787,7 @@ export const se_UnpeerVpcCommand = async (
   input: UnpeerVpcCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UnpeerVpc",
-  };
+  const headers: __HeaderBag = sharedHeaders("UnpeerVpc");
   let body: any;
   body = JSON.stringify(se_UnpeerVpcRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3244,10 +2800,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3260,10 +2813,7 @@ export const se_UpdateBucketCommand = async (
   input: UpdateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBucket");
   let body: any;
   body = JSON.stringify(se_UpdateBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3276,10 +2826,7 @@ export const se_UpdateBucketBundleCommand = async (
   input: UpdateBucketBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateBucketBundle",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBucketBundle");
   let body: any;
   body = JSON.stringify(se_UpdateBucketBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3292,10 +2839,7 @@ export const se_UpdateContainerServiceCommand = async (
   input: UpdateContainerServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateContainerService",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContainerService");
   let body: any;
   body = JSON.stringify(se_UpdateContainerServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3308,10 +2852,7 @@ export const se_UpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateDistribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDistribution");
   let body: any;
   body = JSON.stringify(se_UpdateDistributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3324,10 +2865,7 @@ export const se_UpdateDistributionBundleCommand = async (
   input: UpdateDistributionBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateDistributionBundle",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDistributionBundle");
   let body: any;
   body = JSON.stringify(se_UpdateDistributionBundleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3340,10 +2878,7 @@ export const se_UpdateDomainEntryCommand = async (
   input: UpdateDomainEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateDomainEntry",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomainEntry");
   let body: any;
   body = JSON.stringify(se_UpdateDomainEntryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3356,10 +2891,7 @@ export const se_UpdateInstanceMetadataOptionsCommand = async (
   input: UpdateInstanceMetadataOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateInstanceMetadataOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInstanceMetadataOptions");
   let body: any;
   body = JSON.stringify(se_UpdateInstanceMetadataOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3372,10 +2904,7 @@ export const se_UpdateLoadBalancerAttributeCommand = async (
   input: UpdateLoadBalancerAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateLoadBalancerAttribute",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLoadBalancerAttribute");
   let body: any;
   body = JSON.stringify(se_UpdateLoadBalancerAttributeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3388,10 +2917,7 @@ export const se_UpdateRelationalDatabaseCommand = async (
   input: UpdateRelationalDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateRelationalDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRelationalDatabase");
   let body: any;
   body = JSON.stringify(se_UpdateRelationalDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3404,10 +2930,7 @@ export const se_UpdateRelationalDatabaseParametersCommand = async (
   input: UpdateRelationalDatabaseParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Lightsail_20161128.UpdateRelationalDatabaseParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRelationalDatabaseParameters");
   let body: any;
   body = JSON.stringify(se_UpdateRelationalDatabaseParametersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -20577,6 +20100,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Lightsail_20161128.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

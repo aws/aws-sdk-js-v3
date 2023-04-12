@@ -592,10 +592,7 @@ export const se_AcceptMatchCommand = async (
   input: AcceptMatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.AcceptMatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptMatch");
   let body: any;
   body = JSON.stringify(se_AcceptMatchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -608,10 +605,7 @@ export const se_ClaimGameServerCommand = async (
   input: ClaimGameServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ClaimGameServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("ClaimGameServer");
   let body: any;
   body = JSON.stringify(se_ClaimGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -624,10 +618,7 @@ export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAlias");
   let body: any;
   body = JSON.stringify(se_CreateAliasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -640,10 +631,7 @@ export const se_CreateBuildCommand = async (
   input: CreateBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBuild");
   let body: any;
   body = JSON.stringify(se_CreateBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -656,10 +644,7 @@ export const se_CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleet");
   let body: any;
   body = JSON.stringify(se_CreateFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -672,10 +657,7 @@ export const se_CreateFleetLocationsCommand = async (
   input: CreateFleetLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateFleetLocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleetLocations");
   let body: any;
   body = JSON.stringify(se_CreateFleetLocationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -688,10 +670,7 @@ export const se_CreateGameServerGroupCommand = async (
   input: CreateGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGameServerGroup");
   let body: any;
   body = JSON.stringify(se_CreateGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -704,10 +683,7 @@ export const se_CreateGameSessionCommand = async (
   input: CreateGameSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateGameSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGameSession");
   let body: any;
   body = JSON.stringify(se_CreateGameSessionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -720,10 +696,7 @@ export const se_CreateGameSessionQueueCommand = async (
   input: CreateGameSessionQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateGameSessionQueue",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGameSessionQueue");
   let body: any;
   body = JSON.stringify(se_CreateGameSessionQueueInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -736,10 +709,7 @@ export const se_CreateLocationCommand = async (
   input: CreateLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateLocation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLocation");
   let body: any;
   body = JSON.stringify(se_CreateLocationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -752,10 +722,7 @@ export const se_CreateMatchmakingConfigurationCommand = async (
   input: CreateMatchmakingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateMatchmakingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMatchmakingConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateMatchmakingConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -768,10 +735,7 @@ export const se_CreateMatchmakingRuleSetCommand = async (
   input: CreateMatchmakingRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateMatchmakingRuleSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMatchmakingRuleSet");
   let body: any;
   body = JSON.stringify(se_CreateMatchmakingRuleSetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -784,10 +748,7 @@ export const se_CreatePlayerSessionCommand = async (
   input: CreatePlayerSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreatePlayerSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePlayerSession");
   let body: any;
   body = JSON.stringify(se_CreatePlayerSessionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -800,10 +761,7 @@ export const se_CreatePlayerSessionsCommand = async (
   input: CreatePlayerSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreatePlayerSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePlayerSessions");
   let body: any;
   body = JSON.stringify(se_CreatePlayerSessionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -816,10 +774,7 @@ export const se_CreateScriptCommand = async (
   input: CreateScriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateScript",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateScript");
   let body: any;
   body = JSON.stringify(se_CreateScriptInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -832,10 +787,7 @@ export const se_CreateVpcPeeringAuthorizationCommand = async (
   input: CreateVpcPeeringAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateVpcPeeringAuthorization",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVpcPeeringAuthorization");
   let body: any;
   body = JSON.stringify(se_CreateVpcPeeringAuthorizationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -848,10 +800,7 @@ export const se_CreateVpcPeeringConnectionCommand = async (
   input: CreateVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.CreateVpcPeeringConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVpcPeeringConnection");
   let body: any;
   body = JSON.stringify(se_CreateVpcPeeringConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -864,10 +813,7 @@ export const se_DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAlias");
   let body: any;
   body = JSON.stringify(se_DeleteAliasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -880,10 +826,7 @@ export const se_DeleteBuildCommand = async (
   input: DeleteBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBuild");
   let body: any;
   body = JSON.stringify(se_DeleteBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -896,10 +839,7 @@ export const se_DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
   body = JSON.stringify(se_DeleteFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -912,10 +852,7 @@ export const se_DeleteFleetLocationsCommand = async (
   input: DeleteFleetLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteFleetLocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleetLocations");
   let body: any;
   body = JSON.stringify(se_DeleteFleetLocationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -928,10 +865,7 @@ export const se_DeleteGameServerGroupCommand = async (
   input: DeleteGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGameServerGroup");
   let body: any;
   body = JSON.stringify(se_DeleteGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -944,10 +878,7 @@ export const se_DeleteGameSessionQueueCommand = async (
   input: DeleteGameSessionQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteGameSessionQueue",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGameSessionQueue");
   let body: any;
   body = JSON.stringify(se_DeleteGameSessionQueueInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -960,10 +891,7 @@ export const se_DeleteLocationCommand = async (
   input: DeleteLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteLocation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLocation");
   let body: any;
   body = JSON.stringify(se_DeleteLocationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -976,10 +904,7 @@ export const se_DeleteMatchmakingConfigurationCommand = async (
   input: DeleteMatchmakingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteMatchmakingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMatchmakingConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteMatchmakingConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -992,10 +917,7 @@ export const se_DeleteMatchmakingRuleSetCommand = async (
   input: DeleteMatchmakingRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteMatchmakingRuleSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMatchmakingRuleSet");
   let body: any;
   body = JSON.stringify(se_DeleteMatchmakingRuleSetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1008,10 +930,7 @@ export const se_DeleteScalingPolicyCommand = async (
   input: DeleteScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScalingPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1024,10 +943,7 @@ export const se_DeleteScriptCommand = async (
   input: DeleteScriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteScript",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScript");
   let body: any;
   body = JSON.stringify(se_DeleteScriptInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1040,10 +956,7 @@ export const se_DeleteVpcPeeringAuthorizationCommand = async (
   input: DeleteVpcPeeringAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteVpcPeeringAuthorization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcPeeringAuthorization");
   let body: any;
   body = JSON.stringify(se_DeleteVpcPeeringAuthorizationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1056,10 +969,7 @@ export const se_DeleteVpcPeeringConnectionCommand = async (
   input: DeleteVpcPeeringConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeleteVpcPeeringConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcPeeringConnection");
   let body: any;
   body = JSON.stringify(se_DeleteVpcPeeringConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1072,10 +982,7 @@ export const se_DeregisterComputeCommand = async (
   input: DeregisterComputeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeregisterCompute",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterCompute");
   let body: any;
   body = JSON.stringify(se_DeregisterComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1088,10 +995,7 @@ export const se_DeregisterGameServerCommand = async (
   input: DeregisterGameServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DeregisterGameServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterGameServer");
   let body: any;
   body = JSON.stringify(se_DeregisterGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1104,10 +1008,7 @@ export const se_DescribeAliasCommand = async (
   input: DescribeAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAlias");
   let body: any;
   body = JSON.stringify(se_DescribeAliasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1120,10 +1021,7 @@ export const se_DescribeBuildCommand = async (
   input: DescribeBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBuild");
   let body: any;
   body = JSON.stringify(se_DescribeBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1136,10 +1034,7 @@ export const se_DescribeComputeCommand = async (
   input: DescribeComputeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeCompute",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCompute");
   let body: any;
   body = JSON.stringify(se_DescribeComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1152,10 +1047,7 @@ export const se_DescribeEC2InstanceLimitsCommand = async (
   input: DescribeEC2InstanceLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeEC2InstanceLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEC2InstanceLimits");
   let body: any;
   body = JSON.stringify(se_DescribeEC2InstanceLimitsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1168,10 +1060,7 @@ export const se_DescribeFleetAttributesCommand = async (
   input: DescribeFleetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAttributesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1184,10 +1073,7 @@ export const se_DescribeFleetCapacityCommand = async (
   input: DescribeFleetCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetCapacity",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetCapacity");
   let body: any;
   body = JSON.stringify(se_DescribeFleetCapacityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1200,10 +1086,7 @@ export const se_DescribeFleetEventsCommand = async (
   input: DescribeFleetEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetEvents");
   let body: any;
   body = JSON.stringify(se_DescribeFleetEventsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1216,10 +1099,7 @@ export const se_DescribeFleetLocationAttributesCommand = async (
   input: DescribeFleetLocationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetLocationAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetLocationAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeFleetLocationAttributesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,10 +1112,7 @@ export const se_DescribeFleetLocationCapacityCommand = async (
   input: DescribeFleetLocationCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetLocationCapacity",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetLocationCapacity");
   let body: any;
   body = JSON.stringify(se_DescribeFleetLocationCapacityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1248,10 +1125,7 @@ export const se_DescribeFleetLocationUtilizationCommand = async (
   input: DescribeFleetLocationUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetLocationUtilization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetLocationUtilization");
   let body: any;
   body = JSON.stringify(se_DescribeFleetLocationUtilizationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1264,10 +1138,7 @@ export const se_DescribeFleetPortSettingsCommand = async (
   input: DescribeFleetPortSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetPortSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetPortSettings");
   let body: any;
   body = JSON.stringify(se_DescribeFleetPortSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1280,10 +1151,7 @@ export const se_DescribeFleetUtilizationCommand = async (
   input: DescribeFleetUtilizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeFleetUtilization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetUtilization");
   let body: any;
   body = JSON.stringify(se_DescribeFleetUtilizationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1296,10 +1164,7 @@ export const se_DescribeGameServerCommand = async (
   input: DescribeGameServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameServer");
   let body: any;
   body = JSON.stringify(se_DescribeGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1312,10 +1177,7 @@ export const se_DescribeGameServerGroupCommand = async (
   input: DescribeGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameServerGroup");
   let body: any;
   body = JSON.stringify(se_DescribeGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1328,10 +1190,7 @@ export const se_DescribeGameServerInstancesCommand = async (
   input: DescribeGameServerInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameServerInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameServerInstances");
   let body: any;
   body = JSON.stringify(se_DescribeGameServerInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1344,10 +1203,7 @@ export const se_DescribeGameSessionDetailsCommand = async (
   input: DescribeGameSessionDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameSessionDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameSessionDetails");
   let body: any;
   body = JSON.stringify(se_DescribeGameSessionDetailsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1360,10 +1216,7 @@ export const se_DescribeGameSessionPlacementCommand = async (
   input: DescribeGameSessionPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameSessionPlacement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameSessionPlacement");
   let body: any;
   body = JSON.stringify(se_DescribeGameSessionPlacementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1376,10 +1229,7 @@ export const se_DescribeGameSessionQueuesCommand = async (
   input: DescribeGameSessionQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameSessionQueues",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameSessionQueues");
   let body: any;
   body = JSON.stringify(se_DescribeGameSessionQueuesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1392,10 +1242,7 @@ export const se_DescribeGameSessionsCommand = async (
   input: DescribeGameSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeGameSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGameSessions");
   let body: any;
   body = JSON.stringify(se_DescribeGameSessionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1408,10 +1255,7 @@ export const se_DescribeInstancesCommand = async (
   input: DescribeInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstances");
   let body: any;
   body = JSON.stringify(se_DescribeInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1424,10 +1268,7 @@ export const se_DescribeMatchmakingCommand = async (
   input: DescribeMatchmakingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeMatchmaking",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMatchmaking");
   let body: any;
   body = JSON.stringify(se_DescribeMatchmakingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1440,10 +1281,7 @@ export const se_DescribeMatchmakingConfigurationsCommand = async (
   input: DescribeMatchmakingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeMatchmakingConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMatchmakingConfigurations");
   let body: any;
   body = JSON.stringify(se_DescribeMatchmakingConfigurationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1456,10 +1294,7 @@ export const se_DescribeMatchmakingRuleSetsCommand = async (
   input: DescribeMatchmakingRuleSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeMatchmakingRuleSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMatchmakingRuleSets");
   let body: any;
   body = JSON.stringify(se_DescribeMatchmakingRuleSetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1472,10 +1307,7 @@ export const se_DescribePlayerSessionsCommand = async (
   input: DescribePlayerSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribePlayerSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePlayerSessions");
   let body: any;
   body = JSON.stringify(se_DescribePlayerSessionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1488,10 +1320,7 @@ export const se_DescribeRuntimeConfigurationCommand = async (
   input: DescribeRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeRuntimeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRuntimeConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeRuntimeConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1504,10 +1333,7 @@ export const se_DescribeScalingPoliciesCommand = async (
   input: DescribeScalingPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeScalingPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScalingPolicies");
   let body: any;
   body = JSON.stringify(se_DescribeScalingPoliciesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1520,10 +1346,7 @@ export const se_DescribeScriptCommand = async (
   input: DescribeScriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeScript",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScript");
   let body: any;
   body = JSON.stringify(se_DescribeScriptInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1536,10 +1359,7 @@ export const se_DescribeVpcPeeringAuthorizationsCommand = async (
   input: DescribeVpcPeeringAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeVpcPeeringAuthorizations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVpcPeeringAuthorizations");
   let body: any;
   body = JSON.stringify(se_DescribeVpcPeeringAuthorizationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1552,10 +1372,7 @@ export const se_DescribeVpcPeeringConnectionsCommand = async (
   input: DescribeVpcPeeringConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.DescribeVpcPeeringConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVpcPeeringConnections");
   let body: any;
   body = JSON.stringify(se_DescribeVpcPeeringConnectionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1568,10 +1385,7 @@ export const se_GetComputeAccessCommand = async (
   input: GetComputeAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.GetComputeAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComputeAccess");
   let body: any;
   body = JSON.stringify(se_GetComputeAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1584,10 +1398,7 @@ export const se_GetComputeAuthTokenCommand = async (
   input: GetComputeAuthTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.GetComputeAuthToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComputeAuthToken");
   let body: any;
   body = JSON.stringify(se_GetComputeAuthTokenInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1600,10 +1411,7 @@ export const se_GetGameSessionLogUrlCommand = async (
   input: GetGameSessionLogUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.GetGameSessionLogUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGameSessionLogUrl");
   let body: any;
   body = JSON.stringify(se_GetGameSessionLogUrlInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1616,10 +1424,7 @@ export const se_GetInstanceAccessCommand = async (
   input: GetInstanceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.GetInstanceAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInstanceAccess");
   let body: any;
   body = JSON.stringify(se_GetInstanceAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1632,10 +1437,7 @@ export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAliases");
   let body: any;
   body = JSON.stringify(se_ListAliasesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1648,10 +1450,7 @@ export const se_ListBuildsCommand = async (
   input: ListBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListBuilds",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBuilds");
   let body: any;
   body = JSON.stringify(se_ListBuildsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1664,10 +1463,7 @@ export const se_ListComputeCommand = async (
   input: ListComputeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListCompute",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCompute");
   let body: any;
   body = JSON.stringify(se_ListComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1680,10 +1476,7 @@ export const se_ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFleets");
   let body: any;
   body = JSON.stringify(se_ListFleetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1696,10 +1489,7 @@ export const se_ListGameServerGroupsCommand = async (
   input: ListGameServerGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListGameServerGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGameServerGroups");
   let body: any;
   body = JSON.stringify(se_ListGameServerGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1712,10 +1502,7 @@ export const se_ListGameServersCommand = async (
   input: ListGameServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListGameServers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGameServers");
   let body: any;
   body = JSON.stringify(se_ListGameServersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1728,10 +1515,7 @@ export const se_ListLocationsCommand = async (
   input: ListLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListLocations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLocations");
   let body: any;
   body = JSON.stringify(se_ListLocationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1744,10 +1528,7 @@ export const se_ListScriptsCommand = async (
   input: ListScriptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListScripts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListScripts");
   let body: any;
   body = JSON.stringify(se_ListScriptsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1760,10 +1541,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1776,10 +1554,7 @@ export const se_PutScalingPolicyCommand = async (
   input: PutScalingPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.PutScalingPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutScalingPolicy");
   let body: any;
   body = JSON.stringify(se_PutScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1792,10 +1567,7 @@ export const se_RegisterComputeCommand = async (
   input: RegisterComputeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.RegisterCompute",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterCompute");
   let body: any;
   body = JSON.stringify(se_RegisterComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1808,10 +1580,7 @@ export const se_RegisterGameServerCommand = async (
   input: RegisterGameServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.RegisterGameServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterGameServer");
   let body: any;
   body = JSON.stringify(se_RegisterGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1824,10 +1593,7 @@ export const se_RequestUploadCredentialsCommand = async (
   input: RequestUploadCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.RequestUploadCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("RequestUploadCredentials");
   let body: any;
   body = JSON.stringify(se_RequestUploadCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1840,10 +1606,7 @@ export const se_ResolveAliasCommand = async (
   input: ResolveAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ResolveAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResolveAlias");
   let body: any;
   body = JSON.stringify(se_ResolveAliasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1856,10 +1619,7 @@ export const se_ResumeGameServerGroupCommand = async (
   input: ResumeGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ResumeGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResumeGameServerGroup");
   let body: any;
   body = JSON.stringify(se_ResumeGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1872,10 +1632,7 @@ export const se_SearchGameSessionsCommand = async (
   input: SearchGameSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.SearchGameSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchGameSessions");
   let body: any;
   body = JSON.stringify(se_SearchGameSessionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1888,10 +1645,7 @@ export const se_StartFleetActionsCommand = async (
   input: StartFleetActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StartFleetActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFleetActions");
   let body: any;
   body = JSON.stringify(se_StartFleetActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1904,10 +1658,7 @@ export const se_StartGameSessionPlacementCommand = async (
   input: StartGameSessionPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StartGameSessionPlacement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartGameSessionPlacement");
   let body: any;
   body = JSON.stringify(se_StartGameSessionPlacementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1920,10 +1671,7 @@ export const se_StartMatchBackfillCommand = async (
   input: StartMatchBackfillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StartMatchBackfill",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMatchBackfill");
   let body: any;
   body = JSON.stringify(se_StartMatchBackfillInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1936,10 +1684,7 @@ export const se_StartMatchmakingCommand = async (
   input: StartMatchmakingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StartMatchmaking",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMatchmaking");
   let body: any;
   body = JSON.stringify(se_StartMatchmakingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1952,10 +1697,7 @@ export const se_StopFleetActionsCommand = async (
   input: StopFleetActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StopFleetActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopFleetActions");
   let body: any;
   body = JSON.stringify(se_StopFleetActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1968,10 +1710,7 @@ export const se_StopGameSessionPlacementCommand = async (
   input: StopGameSessionPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StopGameSessionPlacement",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopGameSessionPlacement");
   let body: any;
   body = JSON.stringify(se_StopGameSessionPlacementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1984,10 +1723,7 @@ export const se_StopMatchmakingCommand = async (
   input: StopMatchmakingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.StopMatchmaking",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopMatchmaking");
   let body: any;
   body = JSON.stringify(se_StopMatchmakingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2000,10 +1736,7 @@ export const se_SuspendGameServerGroupCommand = async (
   input: SuspendGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.SuspendGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("SuspendGameServerGroup");
   let body: any;
   body = JSON.stringify(se_SuspendGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2016,10 +1749,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2032,10 +1762,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2048,10 +1775,7 @@ export const se_UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAlias");
   let body: any;
   body = JSON.stringify(se_UpdateAliasInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2064,10 +1788,7 @@ export const se_UpdateBuildCommand = async (
   input: UpdateBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateBuild");
   let body: any;
   body = JSON.stringify(se_UpdateBuildInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2080,10 +1801,7 @@ export const se_UpdateFleetAttributesCommand = async (
   input: UpdateFleetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateFleetAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleetAttributes");
   let body: any;
   body = JSON.stringify(se_UpdateFleetAttributesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2096,10 +1814,7 @@ export const se_UpdateFleetCapacityCommand = async (
   input: UpdateFleetCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateFleetCapacity",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleetCapacity");
   let body: any;
   body = JSON.stringify(se_UpdateFleetCapacityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2112,10 +1827,7 @@ export const se_UpdateFleetPortSettingsCommand = async (
   input: UpdateFleetPortSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateFleetPortSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleetPortSettings");
   let body: any;
   body = JSON.stringify(se_UpdateFleetPortSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2128,10 +1840,7 @@ export const se_UpdateGameServerCommand = async (
   input: UpdateGameServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateGameServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGameServer");
   let body: any;
   body = JSON.stringify(se_UpdateGameServerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2144,10 +1853,7 @@ export const se_UpdateGameServerGroupCommand = async (
   input: UpdateGameServerGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateGameServerGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGameServerGroup");
   let body: any;
   body = JSON.stringify(se_UpdateGameServerGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2160,10 +1866,7 @@ export const se_UpdateGameSessionCommand = async (
   input: UpdateGameSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateGameSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGameSession");
   let body: any;
   body = JSON.stringify(se_UpdateGameSessionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2176,10 +1879,7 @@ export const se_UpdateGameSessionQueueCommand = async (
   input: UpdateGameSessionQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateGameSessionQueue",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateGameSessionQueue");
   let body: any;
   body = JSON.stringify(se_UpdateGameSessionQueueInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2192,10 +1892,7 @@ export const se_UpdateMatchmakingConfigurationCommand = async (
   input: UpdateMatchmakingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateMatchmakingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMatchmakingConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateMatchmakingConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2208,10 +1905,7 @@ export const se_UpdateRuntimeConfigurationCommand = async (
   input: UpdateRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateRuntimeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuntimeConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateRuntimeConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2224,10 +1918,7 @@ export const se_UpdateScriptCommand = async (
   input: UpdateScriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.UpdateScript",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateScript");
   let body: any;
   body = JSON.stringify(se_UpdateScriptInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2240,10 +1931,7 @@ export const se_ValidateMatchmakingRuleSetCommand = async (
   input: ValidateMatchmakingRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "GameLift.ValidateMatchmakingRuleSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ValidateMatchmakingRuleSet");
   let body: any;
   body = JSON.stringify(se_ValidateMatchmakingRuleSetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13171,6 +12859,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `GameLift.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

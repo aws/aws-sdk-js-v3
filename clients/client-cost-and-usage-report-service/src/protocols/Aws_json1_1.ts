@@ -55,10 +55,7 @@ export const se_DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReportDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -71,10 +68,7 @@ export const se_DescribeReportDefinitionsCommand = async (
   input: DescribeReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReportDefinitions");
   let body: any;
   body = JSON.stringify(se_DescribeReportDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -87,10 +81,7 @@ export const se_ModifyReportDefinitionCommand = async (
   input: ModifyReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyReportDefinition");
   let body: any;
   body = JSON.stringify(se_ModifyReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -103,10 +94,7 @@ export const se_PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSOrigamiServiceGatewayService.PutReportDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutReportDefinition");
   let body: any;
   body = JSON.stringify(se_PutReportDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -646,6 +634,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSOrigamiServiceGatewayService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

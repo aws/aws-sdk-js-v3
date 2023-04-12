@@ -99,10 +99,7 @@ export const se_DatetimeOffsetsCommand = async (
   input: DatetimeOffsetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.DatetimeOffsets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DatetimeOffsets");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -114,10 +111,7 @@ export const se_EmptyOperationCommand = async (
   input: EmptyOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.EmptyOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EmptyOperation");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -129,10 +123,7 @@ export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.EndpointOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EndpointOperation");
   const body = "{}";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -151,10 +142,7 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.EndpointWithHostLabelOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("EndpointWithHostLabelOperation");
   let body: any;
   body = JSON.stringify(se_HostLabelInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -178,10 +166,7 @@ export const se_FractionalSecondsCommand = async (
   input: FractionalSecondsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.FractionalSeconds",
-  };
+  const headers: __HeaderBag = sharedHeaders("FractionalSeconds");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -193,10 +178,7 @@ export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.GreetingWithErrors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GreetingWithErrors");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -208,10 +190,7 @@ export const se_HostWithPathOperationCommand = async (
   input: HostWithPathOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.HostWithPathOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("HostWithPathOperation");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -223,10 +202,7 @@ export const se_JsonEnumsCommand = async (
   input: JsonEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.JsonEnums",
-  };
+  const headers: __HeaderBag = sharedHeaders("JsonEnums");
   let body: any;
   body = JSON.stringify(se_JsonEnumsInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -239,10 +215,7 @@ export const se_JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.JsonUnions",
-  };
+  const headers: __HeaderBag = sharedHeaders("JsonUnions");
   let body: any;
   body = JSON.stringify(se_UnionInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -255,10 +228,7 @@ export const se_KitchenSinkOperationCommand = async (
   input: KitchenSinkOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.KitchenSinkOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("KitchenSinkOperation");
   let body: any;
   body = JSON.stringify(se_KitchenSink(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -271,10 +241,7 @@ export const se_NullOperationCommand = async (
   input: NullOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.NullOperation",
-  };
+  const headers: __HeaderBag = sharedHeaders("NullOperation");
   let body: any;
   body = JSON.stringify(se_NullOperationInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -287,10 +254,7 @@ export const se_OperationWithOptionalInputOutputCommand = async (
   input: OperationWithOptionalInputOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.OperationWithOptionalInputOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("OperationWithOptionalInputOutput");
   let body: any;
   body = JSON.stringify(se_OperationWithOptionalInputOutputInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -303,10 +267,7 @@ export const se_PutAndGetInlineDocumentsCommand = async (
   input: PutAndGetInlineDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.PutAndGetInlineDocuments",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAndGetInlineDocuments");
   let body: any;
   body = JSON.stringify(se_PutAndGetInlineDocumentsInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -319,10 +280,7 @@ export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "JsonProtocol.SimpleScalarProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("SimpleScalarProperties");
   let body: any;
   body = JSON.stringify(se_SimpleScalarPropertiesInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1931,6 +1889,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `JsonProtocol.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

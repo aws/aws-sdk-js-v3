@@ -296,10 +296,7 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.AddTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
   body = JSON.stringify(se_AddTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -312,10 +309,7 @@ export const se_CancelQueryCommand = async (
   input: CancelQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.CancelQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelQuery");
   let body: any;
   body = JSON.stringify(se_CancelQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -328,10 +322,7 @@ export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.CreateChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateChannel");
   let body: any;
   body = JSON.stringify(se_CreateChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -344,10 +335,7 @@ export const se_CreateEventDataStoreCommand = async (
   input: CreateEventDataStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.CreateEventDataStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventDataStore");
   let body: any;
   body = JSON.stringify(se_CreateEventDataStoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -360,10 +348,7 @@ export const se_CreateTrailCommand = async (
   input: CreateTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.CreateTrail",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrail");
   let body: any;
   body = JSON.stringify(se_CreateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -376,10 +361,7 @@ export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DeleteChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteChannel");
   let body: any;
   body = JSON.stringify(se_DeleteChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,10 +374,7 @@ export const se_DeleteEventDataStoreCommand = async (
   input: DeleteEventDataStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DeleteEventDataStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventDataStore");
   let body: any;
   body = JSON.stringify(se_DeleteEventDataStoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +387,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +400,7 @@ export const se_DeleteTrailCommand = async (
   input: DeleteTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DeleteTrail",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTrail");
   let body: any;
   body = JSON.stringify(se_DeleteTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +413,7 @@ export const se_DeregisterOrganizationDelegatedAdminCommand = async (
   input: DeregisterOrganizationDelegatedAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DeregisterOrganizationDelegatedAdmin",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterOrganizationDelegatedAdmin");
   let body: any;
   body = JSON.stringify(se_DeregisterOrganizationDelegatedAdminRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +426,7 @@ export const se_DescribeQueryCommand = async (
   input: DescribeQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DescribeQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeQuery");
   let body: any;
   body = JSON.stringify(se_DescribeQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +439,7 @@ export const se_DescribeTrailsCommand = async (
   input: DescribeTrailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.DescribeTrails",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrails");
   let body: any;
   body = JSON.stringify(se_DescribeTrailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,10 +452,7 @@ export const se_GetChannelCommand = async (
   input: GetChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetChannel");
   let body: any;
   body = JSON.stringify(se_GetChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,10 +465,7 @@ export const se_GetEventDataStoreCommand = async (
   input: GetEventDataStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetEventDataStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEventDataStore");
   let body: any;
   body = JSON.stringify(se_GetEventDataStoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -520,10 +478,7 @@ export const se_GetEventSelectorsCommand = async (
   input: GetEventSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetEventSelectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEventSelectors");
   let body: any;
   body = JSON.stringify(se_GetEventSelectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -536,10 +491,7 @@ export const se_GetImportCommand = async (
   input: GetImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetImport",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetImport");
   let body: any;
   body = JSON.stringify(se_GetImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,10 +504,7 @@ export const se_GetInsightSelectorsCommand = async (
   input: GetInsightSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetInsightSelectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInsightSelectors");
   let body: any;
   body = JSON.stringify(se_GetInsightSelectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -568,10 +517,7 @@ export const se_GetQueryResultsCommand = async (
   input: GetQueryResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetQueryResults",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQueryResults");
   let body: any;
   body = JSON.stringify(se_GetQueryResultsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,10 +530,7 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
   body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -600,10 +543,7 @@ export const se_GetTrailCommand = async (
   input: GetTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetTrail",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTrail");
   let body: any;
   body = JSON.stringify(se_GetTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,10 +556,7 @@ export const se_GetTrailStatusCommand = async (
   input: GetTrailStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.GetTrailStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTrailStatus");
   let body: any;
   body = JSON.stringify(se_GetTrailStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +569,7 @@ export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListChannels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListChannels");
   let body: any;
   body = JSON.stringify(se_ListChannelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -648,10 +582,7 @@ export const se_ListEventDataStoresCommand = async (
   input: ListEventDataStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListEventDataStores",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventDataStores");
   let body: any;
   body = JSON.stringify(se_ListEventDataStoresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -664,10 +595,7 @@ export const se_ListImportFailuresCommand = async (
   input: ListImportFailuresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListImportFailures",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImportFailures");
   let body: any;
   body = JSON.stringify(se_ListImportFailuresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -680,10 +608,7 @@ export const se_ListImportsCommand = async (
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListImports",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImports");
   let body: any;
   body = JSON.stringify(se_ListImportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -696,10 +621,7 @@ export const se_ListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListPublicKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPublicKeys");
   let body: any;
   body = JSON.stringify(se_ListPublicKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,10 +634,7 @@ export const se_ListQueriesCommand = async (
   input: ListQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListQueries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQueries");
   let body: any;
   body = JSON.stringify(se_ListQueriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -728,10 +647,7 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
   body = JSON.stringify(se_ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,10 +660,7 @@ export const se_ListTrailsCommand = async (
   input: ListTrailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.ListTrails",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTrails");
   let body: any;
   body = JSON.stringify(se_ListTrailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -760,10 +673,7 @@ export const se_LookupEventsCommand = async (
   input: LookupEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.LookupEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("LookupEvents");
   let body: any;
   body = JSON.stringify(se_LookupEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -776,10 +686,7 @@ export const se_PutEventSelectorsCommand = async (
   input: PutEventSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.PutEventSelectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEventSelectors");
   let body: any;
   body = JSON.stringify(se_PutEventSelectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -792,10 +699,7 @@ export const se_PutInsightSelectorsCommand = async (
   input: PutInsightSelectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.PutInsightSelectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutInsightSelectors");
   let body: any;
   body = JSON.stringify(se_PutInsightSelectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -808,10 +712,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -824,10 +725,7 @@ export const se_RegisterOrganizationDelegatedAdminCommand = async (
   input: RegisterOrganizationDelegatedAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.RegisterOrganizationDelegatedAdmin",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterOrganizationDelegatedAdmin");
   let body: any;
   body = JSON.stringify(se_RegisterOrganizationDelegatedAdminRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -840,10 +738,7 @@ export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.RemoveTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTags");
   let body: any;
   body = JSON.stringify(se_RemoveTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -856,10 +751,7 @@ export const se_RestoreEventDataStoreCommand = async (
   input: RestoreEventDataStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.RestoreEventDataStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreEventDataStore");
   let body: any;
   body = JSON.stringify(se_RestoreEventDataStoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,10 +764,7 @@ export const se_StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.StartImport",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImport");
   let body: any;
   body = JSON.stringify(se_StartImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -888,10 +777,7 @@ export const se_StartLoggingCommand = async (
   input: StartLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.StartLogging",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartLogging");
   let body: any;
   body = JSON.stringify(se_StartLoggingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -904,10 +790,7 @@ export const se_StartQueryCommand = async (
   input: StartQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.StartQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartQuery");
   let body: any;
   body = JSON.stringify(se_StartQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -920,10 +803,7 @@ export const se_StopImportCommand = async (
   input: StopImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.StopImport",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopImport");
   let body: any;
   body = JSON.stringify(se_StopImportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -936,10 +816,7 @@ export const se_StopLoggingCommand = async (
   input: StopLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.StopLogging",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopLogging");
   let body: any;
   body = JSON.stringify(se_StopLoggingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -952,10 +829,7 @@ export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.UpdateChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateChannel");
   let body: any;
   body = JSON.stringify(se_UpdateChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -968,10 +842,7 @@ export const se_UpdateEventDataStoreCommand = async (
   input: UpdateEventDataStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.UpdateEventDataStore",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEventDataStore");
   let body: any;
   body = JSON.stringify(se_UpdateEventDataStoreRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -984,10 +855,7 @@ export const se_UpdateTrailCommand = async (
   input: UpdateTrailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CloudTrail_20131101.UpdateTrail",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrail");
   let body: any;
   body = JSON.stringify(se_UpdateTrailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8394,6 +8262,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CloudTrail_20131101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

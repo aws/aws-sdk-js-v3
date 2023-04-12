@@ -76,10 +76,7 @@ export const se_DescribeDimensionKeysCommand = async (
   input: DescribeDimensionKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.DescribeDimensionKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDimensionKeys");
   let body: any;
   body = JSON.stringify(se_DescribeDimensionKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -92,10 +89,7 @@ export const se_GetDimensionKeyDetailsCommand = async (
   input: GetDimensionKeyDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.GetDimensionKeyDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDimensionKeyDetails");
   let body: any;
   body = JSON.stringify(se_GetDimensionKeyDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -108,10 +102,7 @@ export const se_GetResourceMetadataCommand = async (
   input: GetResourceMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.GetResourceMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceMetadata");
   let body: any;
   body = JSON.stringify(se_GetResourceMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -124,10 +115,7 @@ export const se_GetResourceMetricsCommand = async (
   input: GetResourceMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.GetResourceMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceMetrics");
   let body: any;
   body = JSON.stringify(se_GetResourceMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -140,10 +128,7 @@ export const se_ListAvailableResourceDimensionsCommand = async (
   input: ListAvailableResourceDimensionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.ListAvailableResourceDimensions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailableResourceDimensions");
   let body: any;
   body = JSON.stringify(se_ListAvailableResourceDimensionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -156,10 +141,7 @@ export const se_ListAvailableResourceMetricsCommand = async (
   input: ListAvailableResourceMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "PerformanceInsightsv20180227.ListAvailableResourceMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailableResourceMetrics");
   let body: any;
   body = JSON.stringify(se_ListAvailableResourceMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1186,6 +1168,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `PerformanceInsightsv20180227.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

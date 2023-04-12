@@ -583,10 +583,7 @@ export const se_BatchDetectDominantLanguageCommand = async (
   input: BatchDetectDominantLanguageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectDominantLanguage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectDominantLanguage");
   let body: any;
   body = JSON.stringify(se_BatchDetectDominantLanguageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -599,10 +596,7 @@ export const se_BatchDetectEntitiesCommand = async (
   input: BatchDetectEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectEntities");
   let body: any;
   body = JSON.stringify(se_BatchDetectEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -615,10 +609,7 @@ export const se_BatchDetectKeyPhrasesCommand = async (
   input: BatchDetectKeyPhrasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectKeyPhrases",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectKeyPhrases");
   let body: any;
   body = JSON.stringify(se_BatchDetectKeyPhrasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -631,10 +622,7 @@ export const se_BatchDetectSentimentCommand = async (
   input: BatchDetectSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectSentiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectSentiment");
   let body: any;
   body = JSON.stringify(se_BatchDetectSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -647,10 +635,7 @@ export const se_BatchDetectSyntaxCommand = async (
   input: BatchDetectSyntaxCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectSyntax",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectSyntax");
   let body: any;
   body = JSON.stringify(se_BatchDetectSyntaxRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -663,10 +648,7 @@ export const se_BatchDetectTargetedSentimentCommand = async (
   input: BatchDetectTargetedSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.BatchDetectTargetedSentiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDetectTargetedSentiment");
   let body: any;
   body = JSON.stringify(se_BatchDetectTargetedSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -679,10 +661,7 @@ export const se_ClassifyDocumentCommand = async (
   input: ClassifyDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ClassifyDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("ClassifyDocument");
   let body: any;
   body = JSON.stringify(se_ClassifyDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -695,10 +674,7 @@ export const se_ContainsPiiEntitiesCommand = async (
   input: ContainsPiiEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ContainsPiiEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ContainsPiiEntities");
   let body: any;
   body = JSON.stringify(se_ContainsPiiEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -711,10 +687,7 @@ export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.CreateDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
   body = JSON.stringify(se_CreateDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -727,10 +700,7 @@ export const se_CreateDocumentClassifierCommand = async (
   input: CreateDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.CreateDocumentClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDocumentClassifier");
   let body: any;
   body = JSON.stringify(se_CreateDocumentClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -743,10 +713,7 @@ export const se_CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.CreateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -759,10 +726,7 @@ export const se_CreateEntityRecognizerCommand = async (
   input: CreateEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.CreateEntityRecognizer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEntityRecognizer");
   let body: any;
   body = JSON.stringify(se_CreateEntityRecognizerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -775,10 +739,7 @@ export const se_CreateFlywheelCommand = async (
   input: CreateFlywheelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.CreateFlywheel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFlywheel");
   let body: any;
   body = JSON.stringify(se_CreateFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -791,10 +752,7 @@ export const se_DeleteDocumentClassifierCommand = async (
   input: DeleteDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DeleteDocumentClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDocumentClassifier");
   let body: any;
   body = JSON.stringify(se_DeleteDocumentClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -807,10 +765,7 @@ export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DeleteEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -823,10 +778,7 @@ export const se_DeleteEntityRecognizerCommand = async (
   input: DeleteEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DeleteEntityRecognizer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEntityRecognizer");
   let body: any;
   body = JSON.stringify(se_DeleteEntityRecognizerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -839,10 +791,7 @@ export const se_DeleteFlywheelCommand = async (
   input: DeleteFlywheelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DeleteFlywheel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFlywheel");
   let body: any;
   body = JSON.stringify(se_DeleteFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -855,10 +804,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -871,10 +817,7 @@ export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -887,10 +830,7 @@ export const se_DescribeDocumentClassificationJobCommand = async (
   input: DescribeDocumentClassificationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeDocumentClassificationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDocumentClassificationJob");
   let body: any;
   body = JSON.stringify(se_DescribeDocumentClassificationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -903,10 +843,7 @@ export const se_DescribeDocumentClassifierCommand = async (
   input: DescribeDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeDocumentClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDocumentClassifier");
   let body: any;
   body = JSON.stringify(se_DescribeDocumentClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -919,10 +856,7 @@ export const se_DescribeDominantLanguageDetectionJobCommand = async (
   input: DescribeDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeDominantLanguageDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDominantLanguageDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeDominantLanguageDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -935,10 +869,7 @@ export const se_DescribeEndpointCommand = async (
   input: DescribeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoint");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -951,10 +882,7 @@ export const se_DescribeEntitiesDetectionJobCommand = async (
   input: DescribeEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -967,10 +895,7 @@ export const se_DescribeEntityRecognizerCommand = async (
   input: DescribeEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeEntityRecognizer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEntityRecognizer");
   let body: any;
   body = JSON.stringify(se_DescribeEntityRecognizerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -983,10 +908,7 @@ export const se_DescribeEventsDetectionJobCommand = async (
   input: DescribeEventsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeEventsDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventsDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeEventsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -999,10 +921,7 @@ export const se_DescribeFlywheelCommand = async (
   input: DescribeFlywheelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeFlywheel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFlywheel");
   let body: any;
   body = JSON.stringify(se_DescribeFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1015,10 +934,7 @@ export const se_DescribeFlywheelIterationCommand = async (
   input: DescribeFlywheelIterationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeFlywheelIteration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFlywheelIteration");
   let body: any;
   body = JSON.stringify(se_DescribeFlywheelIterationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1031,10 +947,7 @@ export const se_DescribeKeyPhrasesDetectionJobCommand = async (
   input: DescribeKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeKeyPhrasesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeKeyPhrasesDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeKeyPhrasesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1047,10 +960,7 @@ export const se_DescribePiiEntitiesDetectionJobCommand = async (
   input: DescribePiiEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribePiiEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePiiEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribePiiEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1063,10 +973,7 @@ export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DescribeResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1079,10 +986,7 @@ export const se_DescribeSentimentDetectionJobCommand = async (
   input: DescribeSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1095,10 +999,7 @@ export const se_DescribeTargetedSentimentDetectionJobCommand = async (
   input: DescribeTargetedSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeTargetedSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTargetedSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeTargetedSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1111,10 +1012,7 @@ export const se_DescribeTopicsDetectionJobCommand = async (
   input: DescribeTopicsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DescribeTopicsDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTopicsDetectionJob");
   let body: any;
   body = JSON.stringify(se_DescribeTopicsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1127,10 +1025,7 @@ export const se_DetectDominantLanguageCommand = async (
   input: DetectDominantLanguageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectDominantLanguage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectDominantLanguage");
   let body: any;
   body = JSON.stringify(se_DetectDominantLanguageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1143,10 +1038,7 @@ export const se_DetectEntitiesCommand = async (
   input: DetectEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectEntities");
   let body: any;
   body = JSON.stringify(se_DetectEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1159,10 +1051,7 @@ export const se_DetectKeyPhrasesCommand = async (
   input: DetectKeyPhrasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectKeyPhrases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectKeyPhrases");
   let body: any;
   body = JSON.stringify(se_DetectKeyPhrasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1175,10 +1064,7 @@ export const se_DetectPiiEntitiesCommand = async (
   input: DetectPiiEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectPiiEntities",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectPiiEntities");
   let body: any;
   body = JSON.stringify(se_DetectPiiEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1191,10 +1077,7 @@ export const se_DetectSentimentCommand = async (
   input: DetectSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectSentiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectSentiment");
   let body: any;
   body = JSON.stringify(se_DetectSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1207,10 +1090,7 @@ export const se_DetectSyntaxCommand = async (
   input: DetectSyntaxCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectSyntax",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectSyntax");
   let body: any;
   body = JSON.stringify(se_DetectSyntaxRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1223,10 +1103,7 @@ export const se_DetectTargetedSentimentCommand = async (
   input: DetectTargetedSentimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.DetectTargetedSentiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectTargetedSentiment");
   let body: any;
   body = JSON.stringify(se_DetectTargetedSentimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1239,10 +1116,7 @@ export const se_ImportModelCommand = async (
   input: ImportModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ImportModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportModel");
   let body: any;
   body = JSON.stringify(se_ImportModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1255,10 +1129,7 @@ export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListDatasets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
   body = JSON.stringify(se_ListDatasetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1271,10 +1142,7 @@ export const se_ListDocumentClassificationJobsCommand = async (
   input: ListDocumentClassificationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListDocumentClassificationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocumentClassificationJobs");
   let body: any;
   body = JSON.stringify(se_ListDocumentClassificationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1287,10 +1155,7 @@ export const se_ListDocumentClassifiersCommand = async (
   input: ListDocumentClassifiersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListDocumentClassifiers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocumentClassifiers");
   let body: any;
   body = JSON.stringify(se_ListDocumentClassifiersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1303,10 +1168,7 @@ export const se_ListDocumentClassifierSummariesCommand = async (
   input: ListDocumentClassifierSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListDocumentClassifierSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDocumentClassifierSummaries");
   let body: any;
   body = JSON.stringify(se_ListDocumentClassifierSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1319,10 +1181,7 @@ export const se_ListDominantLanguageDetectionJobsCommand = async (
   input: ListDominantLanguageDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListDominantLanguageDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDominantLanguageDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListDominantLanguageDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1335,10 +1194,7 @@ export const se_ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpoints");
   let body: any;
   body = JSON.stringify(se_ListEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1351,10 +1207,7 @@ export const se_ListEntitiesDetectionJobsCommand = async (
   input: ListEntitiesDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListEntitiesDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntitiesDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListEntitiesDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1367,10 +1220,7 @@ export const se_ListEntityRecognizersCommand = async (
   input: ListEntityRecognizersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListEntityRecognizers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntityRecognizers");
   let body: any;
   body = JSON.stringify(se_ListEntityRecognizersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1383,10 +1233,7 @@ export const se_ListEntityRecognizerSummariesCommand = async (
   input: ListEntityRecognizerSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListEntityRecognizerSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEntityRecognizerSummaries");
   let body: any;
   body = JSON.stringify(se_ListEntityRecognizerSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1399,10 +1246,7 @@ export const se_ListEventsDetectionJobsCommand = async (
   input: ListEventsDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListEventsDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventsDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListEventsDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1415,10 +1259,7 @@ export const se_ListFlywheelIterationHistoryCommand = async (
   input: ListFlywheelIterationHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListFlywheelIterationHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFlywheelIterationHistory");
   let body: any;
   body = JSON.stringify(se_ListFlywheelIterationHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1431,10 +1272,7 @@ export const se_ListFlywheelsCommand = async (
   input: ListFlywheelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListFlywheels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFlywheels");
   let body: any;
   body = JSON.stringify(se_ListFlywheelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1447,10 +1285,7 @@ export const se_ListKeyPhrasesDetectionJobsCommand = async (
   input: ListKeyPhrasesDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListKeyPhrasesDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListKeyPhrasesDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListKeyPhrasesDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1463,10 +1298,7 @@ export const se_ListPiiEntitiesDetectionJobsCommand = async (
   input: ListPiiEntitiesDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListPiiEntitiesDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPiiEntitiesDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListPiiEntitiesDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1479,10 +1311,7 @@ export const se_ListSentimentDetectionJobsCommand = async (
   input: ListSentimentDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListSentimentDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSentimentDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListSentimentDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1495,10 +1324,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1511,10 +1337,7 @@ export const se_ListTargetedSentimentDetectionJobsCommand = async (
   input: ListTargetedSentimentDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListTargetedSentimentDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTargetedSentimentDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListTargetedSentimentDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1527,10 +1350,7 @@ export const se_ListTopicsDetectionJobsCommand = async (
   input: ListTopicsDetectionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.ListTopicsDetectionJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTopicsDetectionJobs");
   let body: any;
   body = JSON.stringify(se_ListTopicsDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1543,10 +1363,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1559,10 +1376,7 @@ export const se_StartDocumentClassificationJobCommand = async (
   input: StartDocumentClassificationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartDocumentClassificationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDocumentClassificationJob");
   let body: any;
   body = JSON.stringify(se_StartDocumentClassificationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1575,10 +1389,7 @@ export const se_StartDominantLanguageDetectionJobCommand = async (
   input: StartDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartDominantLanguageDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDominantLanguageDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartDominantLanguageDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1591,10 +1402,7 @@ export const se_StartEntitiesDetectionJobCommand = async (
   input: StartEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1607,10 +1415,7 @@ export const se_StartEventsDetectionJobCommand = async (
   input: StartEventsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartEventsDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEventsDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartEventsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1623,10 +1428,7 @@ export const se_StartFlywheelIterationCommand = async (
   input: StartFlywheelIterationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartFlywheelIteration",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFlywheelIteration");
   let body: any;
   body = JSON.stringify(se_StartFlywheelIterationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1639,10 +1441,7 @@ export const se_StartKeyPhrasesDetectionJobCommand = async (
   input: StartKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartKeyPhrasesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartKeyPhrasesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartKeyPhrasesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1655,10 +1454,7 @@ export const se_StartPiiEntitiesDetectionJobCommand = async (
   input: StartPiiEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartPiiEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartPiiEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartPiiEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1671,10 +1467,7 @@ export const se_StartSentimentDetectionJobCommand = async (
   input: StartSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1687,10 +1480,7 @@ export const se_StartTargetedSentimentDetectionJobCommand = async (
   input: StartTargetedSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartTargetedSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTargetedSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartTargetedSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1703,10 +1493,7 @@ export const se_StartTopicsDetectionJobCommand = async (
   input: StartTopicsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StartTopicsDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartTopicsDetectionJob");
   let body: any;
   body = JSON.stringify(se_StartTopicsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1719,10 +1506,7 @@ export const se_StopDominantLanguageDetectionJobCommand = async (
   input: StopDominantLanguageDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopDominantLanguageDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopDominantLanguageDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopDominantLanguageDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1735,10 +1519,7 @@ export const se_StopEntitiesDetectionJobCommand = async (
   input: StopEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1751,10 +1532,7 @@ export const se_StopEventsDetectionJobCommand = async (
   input: StopEventsDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopEventsDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEventsDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopEventsDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1767,10 +1545,7 @@ export const se_StopKeyPhrasesDetectionJobCommand = async (
   input: StopKeyPhrasesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopKeyPhrasesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopKeyPhrasesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopKeyPhrasesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1783,10 +1558,7 @@ export const se_StopPiiEntitiesDetectionJobCommand = async (
   input: StopPiiEntitiesDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopPiiEntitiesDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopPiiEntitiesDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopPiiEntitiesDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1799,10 +1571,7 @@ export const se_StopSentimentDetectionJobCommand = async (
   input: StopSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1815,10 +1584,7 @@ export const se_StopTargetedSentimentDetectionJobCommand = async (
   input: StopTargetedSentimentDetectionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopTargetedSentimentDetectionJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTargetedSentimentDetectionJob");
   let body: any;
   body = JSON.stringify(se_StopTargetedSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1831,10 +1597,7 @@ export const se_StopTrainingDocumentClassifierCommand = async (
   input: StopTrainingDocumentClassifierCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopTrainingDocumentClassifier",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTrainingDocumentClassifier");
   let body: any;
   body = JSON.stringify(se_StopTrainingDocumentClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1847,10 +1610,7 @@ export const se_StopTrainingEntityRecognizerCommand = async (
   input: StopTrainingEntityRecognizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.StopTrainingEntityRecognizer",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTrainingEntityRecognizer");
   let body: any;
   body = JSON.stringify(se_StopTrainingEntityRecognizerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1863,10 +1623,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1879,10 +1636,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1895,10 +1649,7 @@ export const se_UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.UpdateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1911,10 +1662,7 @@ export const se_UpdateFlywheelCommand = async (
   input: UpdateFlywheelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Comprehend_20171127.UpdateFlywheel",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFlywheel");
   let body: any;
   body = JSON.stringify(se_UpdateFlywheelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12024,6 +11772,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Comprehend_20171127.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -44,10 +44,7 @@ export const se_SendSerialConsoleSSHPublicKeyCommand = async (
   input: SendSerialConsoleSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEC2InstanceConnectService.SendSerialConsoleSSHPublicKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendSerialConsoleSSHPublicKey");
   let body: any;
   body = JSON.stringify(se_SendSerialConsoleSSHPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -60,10 +57,7 @@ export const se_SendSSHPublicKeyCommand = async (
   input: SendSSHPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEC2InstanceConnectService.SendSSHPublicKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendSSHPublicKey");
   let body: any;
   body = JSON.stringify(se_SendSSHPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -582,6 +576,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSEC2InstanceConnectService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

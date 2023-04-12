@@ -60,10 +60,7 @@ export const se_BatchMeterUsageCommand = async (
   input: BatchMeterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMPMeteringService.BatchMeterUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchMeterUsage");
   let body: any;
   body = JSON.stringify(se_BatchMeterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -76,10 +73,7 @@ export const se_MeterUsageCommand = async (
   input: MeterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMPMeteringService.MeterUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("MeterUsage");
   let body: any;
   body = JSON.stringify(se_MeterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -92,10 +86,7 @@ export const se_RegisterUsageCommand = async (
   input: RegisterUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMPMeteringService.RegisterUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterUsage");
   let body: any;
   body = JSON.stringify(se_RegisterUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -108,10 +99,7 @@ export const se_ResolveCustomerCommand = async (
   input: ResolveCustomerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMPMeteringService.ResolveCustomer",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResolveCustomer");
   let body: any;
   body = JSON.stringify(se_ResolveCustomerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1121,6 +1109,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSMPMeteringService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

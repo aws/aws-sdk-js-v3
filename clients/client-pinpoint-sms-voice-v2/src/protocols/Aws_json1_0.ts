@@ -266,10 +266,7 @@ export const se_AssociateOriginationIdentityCommand = async (
   input: AssociateOriginationIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.AssociateOriginationIdentity",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateOriginationIdentity");
   let body: any;
   body = JSON.stringify(se_AssociateOriginationIdentityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -282,10 +279,7 @@ export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.CreateConfigurationSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConfigurationSet");
   let body: any;
   body = JSON.stringify(se_CreateConfigurationSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,10 +292,7 @@ export const se_CreateEventDestinationCommand = async (
   input: CreateEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.CreateEventDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventDestination");
   let body: any;
   body = JSON.stringify(se_CreateEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -314,10 +305,7 @@ export const se_CreateOptOutListCommand = async (
   input: CreateOptOutListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.CreateOptOutList",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOptOutList");
   let body: any;
   body = JSON.stringify(se_CreateOptOutListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -330,10 +318,7 @@ export const se_CreatePoolCommand = async (
   input: CreatePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.CreatePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePool");
   let body: any;
   body = JSON.stringify(se_CreatePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -346,10 +331,7 @@ export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteConfigurationSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConfigurationSet");
   let body: any;
   body = JSON.stringify(se_DeleteConfigurationSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -362,10 +344,7 @@ export const se_DeleteDefaultMessageTypeCommand = async (
   input: DeleteDefaultMessageTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteDefaultMessageType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDefaultMessageType");
   let body: any;
   body = JSON.stringify(se_DeleteDefaultMessageTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -378,10 +357,7 @@ export const se_DeleteDefaultSenderIdCommand = async (
   input: DeleteDefaultSenderIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteDefaultSenderId",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDefaultSenderId");
   let body: any;
   body = JSON.stringify(se_DeleteDefaultSenderIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -394,10 +370,7 @@ export const se_DeleteEventDestinationCommand = async (
   input: DeleteEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteEventDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventDestination");
   let body: any;
   body = JSON.stringify(se_DeleteEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -410,10 +383,7 @@ export const se_DeleteKeywordCommand = async (
   input: DeleteKeywordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteKeyword",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteKeyword");
   let body: any;
   body = JSON.stringify(se_DeleteKeywordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -426,10 +396,7 @@ export const se_DeleteOptedOutNumberCommand = async (
   input: DeleteOptedOutNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteOptedOutNumber",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOptedOutNumber");
   let body: any;
   body = JSON.stringify(se_DeleteOptedOutNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -442,10 +409,7 @@ export const se_DeleteOptOutListCommand = async (
   input: DeleteOptOutListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteOptOutList",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOptOutList");
   let body: any;
   body = JSON.stringify(se_DeleteOptOutListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -458,10 +422,7 @@ export const se_DeletePoolCommand = async (
   input: DeletePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeletePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePool");
   let body: any;
   body = JSON.stringify(se_DeletePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -474,10 +435,7 @@ export const se_DeleteTextMessageSpendLimitOverrideCommand = async (
   input: DeleteTextMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteTextMessageSpendLimitOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTextMessageSpendLimitOverride");
   let body: any;
   body = JSON.stringify(se_DeleteTextMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -490,10 +448,7 @@ export const se_DeleteVoiceMessageSpendLimitOverrideCommand = async (
   input: DeleteVoiceMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DeleteVoiceMessageSpendLimitOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVoiceMessageSpendLimitOverride");
   let body: any;
   body = JSON.stringify(se_DeleteVoiceMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -506,10 +461,7 @@ export const se_DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeAccountAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeAccountAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -522,10 +474,7 @@ export const se_DescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeAccountLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountLimits");
   let body: any;
   body = JSON.stringify(se_DescribeAccountLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -538,10 +487,7 @@ export const se_DescribeConfigurationSetsCommand = async (
   input: DescribeConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeConfigurationSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationSets");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -554,10 +500,7 @@ export const se_DescribeKeywordsCommand = async (
   input: DescribeKeywordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeKeywords",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeKeywords");
   let body: any;
   body = JSON.stringify(se_DescribeKeywordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -570,10 +513,7 @@ export const se_DescribeOptedOutNumbersCommand = async (
   input: DescribeOptedOutNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeOptedOutNumbers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOptedOutNumbers");
   let body: any;
   body = JSON.stringify(se_DescribeOptedOutNumbersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -586,10 +526,7 @@ export const se_DescribeOptOutListsCommand = async (
   input: DescribeOptOutListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeOptOutLists",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOptOutLists");
   let body: any;
   body = JSON.stringify(se_DescribeOptOutListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -602,10 +539,7 @@ export const se_DescribePhoneNumbersCommand = async (
   input: DescribePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribePhoneNumbers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePhoneNumbers");
   let body: any;
   body = JSON.stringify(se_DescribePhoneNumbersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -618,10 +552,7 @@ export const se_DescribePoolsCommand = async (
   input: DescribePoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribePools",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePools");
   let body: any;
   body = JSON.stringify(se_DescribePoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -634,10 +565,7 @@ export const se_DescribeSenderIdsCommand = async (
   input: DescribeSenderIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeSenderIds",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSenderIds");
   let body: any;
   body = JSON.stringify(se_DescribeSenderIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -650,10 +578,7 @@ export const se_DescribeSpendLimitsCommand = async (
   input: DescribeSpendLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DescribeSpendLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpendLimits");
   let body: any;
   body = JSON.stringify(se_DescribeSpendLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -666,10 +591,7 @@ export const se_DisassociateOriginationIdentityCommand = async (
   input: DisassociateOriginationIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.DisassociateOriginationIdentity",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateOriginationIdentity");
   let body: any;
   body = JSON.stringify(se_DisassociateOriginationIdentityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -682,10 +604,7 @@ export const se_ListPoolOriginationIdentitiesCommand = async (
   input: ListPoolOriginationIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.ListPoolOriginationIdentities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPoolOriginationIdentities");
   let body: any;
   body = JSON.stringify(se_ListPoolOriginationIdentitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -698,10 +617,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -714,10 +630,7 @@ export const se_PutKeywordCommand = async (
   input: PutKeywordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.PutKeyword",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutKeyword");
   let body: any;
   body = JSON.stringify(se_PutKeywordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -730,10 +643,7 @@ export const se_PutOptedOutNumberCommand = async (
   input: PutOptedOutNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.PutOptedOutNumber",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutOptedOutNumber");
   let body: any;
   body = JSON.stringify(se_PutOptedOutNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -746,10 +656,7 @@ export const se_ReleasePhoneNumberCommand = async (
   input: ReleasePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.ReleasePhoneNumber",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReleasePhoneNumber");
   let body: any;
   body = JSON.stringify(se_ReleasePhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -762,10 +669,7 @@ export const se_RequestPhoneNumberCommand = async (
   input: RequestPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.RequestPhoneNumber",
-  };
+  const headers: __HeaderBag = sharedHeaders("RequestPhoneNumber");
   let body: any;
   body = JSON.stringify(se_RequestPhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -778,10 +682,7 @@ export const se_SendTextMessageCommand = async (
   input: SendTextMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SendTextMessage",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendTextMessage");
   let body: any;
   body = JSON.stringify(se_SendTextMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -794,10 +695,7 @@ export const se_SendVoiceMessageCommand = async (
   input: SendVoiceMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SendVoiceMessage",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendVoiceMessage");
   let body: any;
   body = JSON.stringify(se_SendVoiceMessageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -810,10 +708,7 @@ export const se_SetDefaultMessageTypeCommand = async (
   input: SetDefaultMessageTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SetDefaultMessageType",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetDefaultMessageType");
   let body: any;
   body = JSON.stringify(se_SetDefaultMessageTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -826,10 +721,7 @@ export const se_SetDefaultSenderIdCommand = async (
   input: SetDefaultSenderIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SetDefaultSenderId",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetDefaultSenderId");
   let body: any;
   body = JSON.stringify(se_SetDefaultSenderIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -842,10 +734,7 @@ export const se_SetTextMessageSpendLimitOverrideCommand = async (
   input: SetTextMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SetTextMessageSpendLimitOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetTextMessageSpendLimitOverride");
   let body: any;
   body = JSON.stringify(se_SetTextMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -858,10 +747,7 @@ export const se_SetVoiceMessageSpendLimitOverrideCommand = async (
   input: SetVoiceMessageSpendLimitOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.SetVoiceMessageSpendLimitOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("SetVoiceMessageSpendLimitOverride");
   let body: any;
   body = JSON.stringify(se_SetVoiceMessageSpendLimitOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -874,10 +760,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -890,10 +773,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -906,10 +786,7 @@ export const se_UpdateEventDestinationCommand = async (
   input: UpdateEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.UpdateEventDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEventDestination");
   let body: any;
   body = JSON.stringify(se_UpdateEventDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -922,10 +799,7 @@ export const se_UpdatePhoneNumberCommand = async (
   input: UpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.UpdatePhoneNumber",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePhoneNumber");
   let body: any;
   body = JSON.stringify(se_UpdatePhoneNumberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -938,10 +812,7 @@ export const se_UpdatePoolCommand = async (
   input: UpdatePoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "PinpointSMSVoiceV2.UpdatePool",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePool");
   let body: any;
   body = JSON.stringify(se_UpdatePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5747,6 +5618,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `PinpointSMSVoiceV2.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

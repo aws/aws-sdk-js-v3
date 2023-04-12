@@ -186,10 +186,7 @@ export const se_BatchGetCollectionCommand = async (
   input: BatchGetCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.BatchGetCollection",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetCollection");
   let body: any;
   body = JSON.stringify(se_BatchGetCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -202,10 +199,7 @@ export const se_BatchGetVpcEndpointCommand = async (
   input: BatchGetVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.BatchGetVpcEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetVpcEndpoint");
   let body: any;
   body = JSON.stringify(se_BatchGetVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -218,10 +212,7 @@ export const se_CreateAccessPolicyCommand = async (
   input: CreateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.CreateAccessPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccessPolicy");
   let body: any;
   body = JSON.stringify(se_CreateAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -234,10 +225,7 @@ export const se_CreateCollectionCommand = async (
   input: CreateCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.CreateCollection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCollection");
   let body: any;
   body = JSON.stringify(se_CreateCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -250,10 +238,7 @@ export const se_CreateSecurityConfigCommand = async (
   input: CreateSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.CreateSecurityConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSecurityConfig");
   let body: any;
   body = JSON.stringify(se_CreateSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -266,10 +251,7 @@ export const se_CreateSecurityPolicyCommand = async (
   input: CreateSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.CreateSecurityPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSecurityPolicy");
   let body: any;
   body = JSON.stringify(se_CreateSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -282,10 +264,7 @@ export const se_CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.CreateVpcEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVpcEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,10 +277,7 @@ export const se_DeleteAccessPolicyCommand = async (
   input: DeleteAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.DeleteAccessPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccessPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -314,10 +290,7 @@ export const se_DeleteCollectionCommand = async (
   input: DeleteCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.DeleteCollection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCollection");
   let body: any;
   body = JSON.stringify(se_DeleteCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -330,10 +303,7 @@ export const se_DeleteSecurityConfigCommand = async (
   input: DeleteSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.DeleteSecurityConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSecurityConfig");
   let body: any;
   body = JSON.stringify(se_DeleteSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -346,10 +316,7 @@ export const se_DeleteSecurityPolicyCommand = async (
   input: DeleteSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.DeleteSecurityPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSecurityPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -362,10 +329,7 @@ export const se_DeleteVpcEndpointCommand = async (
   input: DeleteVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.DeleteVpcEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVpcEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -378,10 +342,7 @@ export const se_GetAccessPolicyCommand = async (
   input: GetAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.GetAccessPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccessPolicy");
   let body: any;
   body = JSON.stringify(se_GetAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -394,10 +355,7 @@ export const se_GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.GetAccountSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
   body = JSON.stringify(se_GetAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -410,10 +368,7 @@ export const se_GetPoliciesStatsCommand = async (
   input: GetPoliciesStatsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.GetPoliciesStats",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPoliciesStats");
   let body: any;
   body = JSON.stringify(se_GetPoliciesStatsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -426,10 +381,7 @@ export const se_GetSecurityConfigCommand = async (
   input: GetSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.GetSecurityConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSecurityConfig");
   let body: any;
   body = JSON.stringify(se_GetSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -442,10 +394,7 @@ export const se_GetSecurityPolicyCommand = async (
   input: GetSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.GetSecurityPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSecurityPolicy");
   let body: any;
   body = JSON.stringify(se_GetSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -458,10 +407,7 @@ export const se_ListAccessPoliciesCommand = async (
   input: ListAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListAccessPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccessPolicies");
   let body: any;
   body = JSON.stringify(se_ListAccessPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -474,10 +420,7 @@ export const se_ListCollectionsCommand = async (
   input: ListCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListCollections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCollections");
   let body: any;
   body = JSON.stringify(se_ListCollectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -490,10 +433,7 @@ export const se_ListSecurityConfigsCommand = async (
   input: ListSecurityConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListSecurityConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecurityConfigs");
   let body: any;
   body = JSON.stringify(se_ListSecurityConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -506,10 +446,7 @@ export const se_ListSecurityPoliciesCommand = async (
   input: ListSecurityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListSecurityPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecurityPolicies");
   let body: any;
   body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -522,10 +459,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -538,10 +472,7 @@ export const se_ListVpcEndpointsCommand = async (
   input: ListVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.ListVpcEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVpcEndpoints");
   let body: any;
   body = JSON.stringify(se_ListVpcEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -554,10 +485,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -570,10 +498,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -586,10 +511,7 @@ export const se_UpdateAccessPolicyCommand = async (
   input: UpdateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateAccessPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccessPolicy");
   let body: any;
   body = JSON.stringify(se_UpdateAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -602,10 +524,7 @@ export const se_UpdateAccountSettingsCommand = async (
   input: UpdateAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateAccountSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
   let body: any;
   body = JSON.stringify(se_UpdateAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -618,10 +537,7 @@ export const se_UpdateCollectionCommand = async (
   input: UpdateCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateCollection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCollection");
   let body: any;
   body = JSON.stringify(se_UpdateCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -634,10 +550,7 @@ export const se_UpdateSecurityConfigCommand = async (
   input: UpdateSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateSecurityConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSecurityConfig");
   let body: any;
   body = JSON.stringify(se_UpdateSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -650,10 +563,7 @@ export const se_UpdateSecurityPolicyCommand = async (
   input: UpdateSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateSecurityPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSecurityPolicy");
   let body: any;
   body = JSON.stringify(se_UpdateSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -666,10 +576,7 @@ export const se_UpdateVpcEndpointCommand = async (
   input: UpdateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "OpenSearchServerless.UpdateVpcEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVpcEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3857,6 +3764,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `OpenSearchServerless.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

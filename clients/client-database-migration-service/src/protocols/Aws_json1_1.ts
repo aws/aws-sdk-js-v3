@@ -496,10 +496,7 @@ export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.AddTagsToResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTagsToResource");
   let body: any;
   body = JSON.stringify(se_AddTagsToResourceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -512,10 +509,7 @@ export const se_ApplyPendingMaintenanceActionCommand = async (
   input: ApplyPendingMaintenanceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ApplyPendingMaintenanceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("ApplyPendingMaintenanceAction");
   let body: any;
   body = JSON.stringify(se_ApplyPendingMaintenanceActionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -528,10 +522,7 @@ export const se_BatchStartRecommendationsCommand = async (
   input: BatchStartRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.BatchStartRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchStartRecommendations");
   let body: any;
   body = JSON.stringify(se_BatchStartRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -544,10 +535,7 @@ export const se_CancelReplicationTaskAssessmentRunCommand = async (
   input: CancelReplicationTaskAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CancelReplicationTaskAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelReplicationTaskAssessmentRun");
   let body: any;
   body = JSON.stringify(se_CancelReplicationTaskAssessmentRunMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -560,10 +548,7 @@ export const se_CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateEndpointMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -576,10 +561,7 @@ export const se_CreateEventSubscriptionCommand = async (
   input: CreateEventSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateEventSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventSubscription");
   let body: any;
   body = JSON.stringify(se_CreateEventSubscriptionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -592,10 +574,7 @@ export const se_CreateFleetAdvisorCollectorCommand = async (
   input: CreateFleetAdvisorCollectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateFleetAdvisorCollector",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleetAdvisorCollector");
   let body: any;
   body = JSON.stringify(se_CreateFleetAdvisorCollectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -608,10 +587,7 @@ export const se_CreateReplicationInstanceCommand = async (
   input: CreateReplicationInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateReplicationInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReplicationInstance");
   let body: any;
   body = JSON.stringify(se_CreateReplicationInstanceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -624,10 +600,7 @@ export const se_CreateReplicationSubnetGroupCommand = async (
   input: CreateReplicationSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateReplicationSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReplicationSubnetGroup");
   let body: any;
   body = JSON.stringify(se_CreateReplicationSubnetGroupMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -640,10 +613,7 @@ export const se_CreateReplicationTaskCommand = async (
   input: CreateReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.CreateReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReplicationTask");
   let body: any;
   body = JSON.stringify(se_CreateReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -656,10 +626,7 @@ export const se_DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
   body = JSON.stringify(se_DeleteCertificateMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -672,10 +639,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -688,10 +652,7 @@ export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -704,10 +665,7 @@ export const se_DeleteEventSubscriptionCommand = async (
   input: DeleteEventSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteEventSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventSubscription");
   let body: any;
   body = JSON.stringify(se_DeleteEventSubscriptionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -720,10 +678,7 @@ export const se_DeleteFleetAdvisorCollectorCommand = async (
   input: DeleteFleetAdvisorCollectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteFleetAdvisorCollector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleetAdvisorCollector");
   let body: any;
   body = JSON.stringify(se_DeleteCollectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -736,10 +691,7 @@ export const se_DeleteFleetAdvisorDatabasesCommand = async (
   input: DeleteFleetAdvisorDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteFleetAdvisorDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleetAdvisorDatabases");
   let body: any;
   body = JSON.stringify(se_DeleteFleetAdvisorDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -752,10 +704,7 @@ export const se_DeleteReplicationInstanceCommand = async (
   input: DeleteReplicationInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteReplicationInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationInstance");
   let body: any;
   body = JSON.stringify(se_DeleteReplicationInstanceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -768,10 +717,7 @@ export const se_DeleteReplicationSubnetGroupCommand = async (
   input: DeleteReplicationSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteReplicationSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationSubnetGroup");
   let body: any;
   body = JSON.stringify(se_DeleteReplicationSubnetGroupMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -784,10 +730,7 @@ export const se_DeleteReplicationTaskCommand = async (
   input: DeleteReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationTask");
   let body: any;
   body = JSON.stringify(se_DeleteReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -800,10 +743,7 @@ export const se_DeleteReplicationTaskAssessmentRunCommand = async (
   input: DeleteReplicationTaskAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationTaskAssessmentRun");
   let body: any;
   body = JSON.stringify(se_DeleteReplicationTaskAssessmentRunMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -816,10 +756,7 @@ export const se_DescribeAccountAttributesCommand = async (
   input: DescribeAccountAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeAccountAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountAttributes");
   let body: any;
   body = JSON.stringify(se_DescribeAccountAttributesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -832,10 +769,7 @@ export const se_DescribeApplicableIndividualAssessmentsCommand = async (
   input: DescribeApplicableIndividualAssessmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeApplicableIndividualAssessments",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicableIndividualAssessments");
   let body: any;
   body = JSON.stringify(se_DescribeApplicableIndividualAssessmentsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -848,10 +782,7 @@ export const se_DescribeCertificatesCommand = async (
   input: DescribeCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificates");
   let body: any;
   body = JSON.stringify(se_DescribeCertificatesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -864,10 +795,7 @@ export const se_DescribeConnectionsCommand = async (
   input: DescribeConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnections");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -880,10 +808,7 @@ export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoints");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -896,10 +821,7 @@ export const se_DescribeEndpointSettingsCommand = async (
   input: DescribeEndpointSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEndpointSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpointSettings");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointSettingsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -912,10 +834,7 @@ export const se_DescribeEndpointTypesCommand = async (
   input: DescribeEndpointTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEndpointTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpointTypes");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointTypesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -928,10 +847,7 @@ export const se_DescribeEventCategoriesCommand = async (
   input: DescribeEventCategoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEventCategories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventCategories");
   let body: any;
   body = JSON.stringify(se_DescribeEventCategoriesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -944,10 +860,7 @@ export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
   body = JSON.stringify(se_DescribeEventsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -960,10 +873,7 @@ export const se_DescribeEventSubscriptionsCommand = async (
   input: DescribeEventSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeEventSubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventSubscriptions");
   let body: any;
   body = JSON.stringify(se_DescribeEventSubscriptionsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -976,10 +886,7 @@ export const se_DescribeFleetAdvisorCollectorsCommand = async (
   input: DescribeFleetAdvisorCollectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorCollectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorCollectors");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAdvisorCollectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -992,10 +899,7 @@ export const se_DescribeFleetAdvisorDatabasesCommand = async (
   input: DescribeFleetAdvisorDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorDatabases");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAdvisorDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1008,10 +912,7 @@ export const se_DescribeFleetAdvisorLsaAnalysisCommand = async (
   input: DescribeFleetAdvisorLsaAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorLsaAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorLsaAnalysis");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAdvisorLsaAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1024,10 +925,7 @@ export const se_DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
   input: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorSchemaObjectSummary");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAdvisorSchemaObjectSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1040,10 +938,7 @@ export const se_DescribeFleetAdvisorSchemasCommand = async (
   input: DescribeFleetAdvisorSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeFleetAdvisorSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorSchemas");
   let body: any;
   body = JSON.stringify(se_DescribeFleetAdvisorSchemasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1056,10 +951,7 @@ export const se_DescribeOrderableReplicationInstancesCommand = async (
   input: DescribeOrderableReplicationInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeOrderableReplicationInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrderableReplicationInstances");
   let body: any;
   body = JSON.stringify(se_DescribeOrderableReplicationInstancesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1072,10 +964,7 @@ export const se_DescribePendingMaintenanceActionsCommand = async (
   input: DescribePendingMaintenanceActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribePendingMaintenanceActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePendingMaintenanceActions");
   let body: any;
   body = JSON.stringify(se_DescribePendingMaintenanceActionsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1088,10 +977,7 @@ export const se_DescribeRecommendationLimitationsCommand = async (
   input: DescribeRecommendationLimitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeRecommendationLimitations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecommendationLimitations");
   let body: any;
   body = JSON.stringify(se_DescribeRecommendationLimitationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1104,10 +990,7 @@ export const se_DescribeRecommendationsCommand = async (
   input: DescribeRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecommendations");
   let body: any;
   body = JSON.stringify(se_DescribeRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1120,10 +1003,7 @@ export const se_DescribeRefreshSchemasStatusCommand = async (
   input: DescribeRefreshSchemasStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeRefreshSchemasStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRefreshSchemasStatus");
   let body: any;
   body = JSON.stringify(se_DescribeRefreshSchemasStatusMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1136,10 +1016,7 @@ export const se_DescribeReplicationInstancesCommand = async (
   input: DescribeReplicationInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationInstances");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationInstancesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1152,10 +1029,7 @@ export const se_DescribeReplicationInstanceTaskLogsCommand = async (
   input: DescribeReplicationInstanceTaskLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationInstanceTaskLogs");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationInstanceTaskLogsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1168,10 +1042,7 @@ export const se_DescribeReplicationSubnetGroupsCommand = async (
   input: DescribeReplicationSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationSubnetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationSubnetGroups");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationSubnetGroupsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1184,10 +1055,7 @@ export const se_DescribeReplicationTaskAssessmentResultsCommand = async (
   input: DescribeReplicationTaskAssessmentResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationTaskAssessmentResults",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationTaskAssessmentResults");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationTaskAssessmentResultsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1200,10 +1068,7 @@ export const se_DescribeReplicationTaskAssessmentRunsCommand = async (
   input: DescribeReplicationTaskAssessmentRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationTaskAssessmentRuns");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationTaskAssessmentRunsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1216,10 +1081,7 @@ export const se_DescribeReplicationTaskIndividualAssessmentsCommand = async (
   input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationTaskIndividualAssessments");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationTaskIndividualAssessmentsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,10 +1094,7 @@ export const se_DescribeReplicationTasksCommand = async (
   input: DescribeReplicationTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeReplicationTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationTasks");
   let body: any;
   body = JSON.stringify(se_DescribeReplicationTasksMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1248,10 +1107,7 @@ export const se_DescribeSchemasCommand = async (
   input: DescribeSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSchemas");
   let body: any;
   body = JSON.stringify(se_DescribeSchemasMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1264,10 +1120,7 @@ export const se_DescribeTableStatisticsCommand = async (
   input: DescribeTableStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.DescribeTableStatistics",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTableStatistics");
   let body: any;
   body = JSON.stringify(se_DescribeTableStatisticsMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1280,10 +1133,7 @@ export const se_ImportCertificateCommand = async (
   input: ImportCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ImportCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCertificate");
   let body: any;
   body = JSON.stringify(se_ImportCertificateMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1296,10 +1146,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1312,10 +1159,7 @@ export const se_ModifyEndpointCommand = async (
   input: ModifyEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ModifyEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyEndpoint");
   let body: any;
   body = JSON.stringify(se_ModifyEndpointMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1328,10 +1172,7 @@ export const se_ModifyEventSubscriptionCommand = async (
   input: ModifyEventSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ModifyEventSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyEventSubscription");
   let body: any;
   body = JSON.stringify(se_ModifyEventSubscriptionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1344,10 +1185,7 @@ export const se_ModifyReplicationInstanceCommand = async (
   input: ModifyReplicationInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ModifyReplicationInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyReplicationInstance");
   let body: any;
   body = JSON.stringify(se_ModifyReplicationInstanceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1360,10 +1198,7 @@ export const se_ModifyReplicationSubnetGroupCommand = async (
   input: ModifyReplicationSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ModifyReplicationSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyReplicationSubnetGroup");
   let body: any;
   body = JSON.stringify(se_ModifyReplicationSubnetGroupMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1376,10 +1211,7 @@ export const se_ModifyReplicationTaskCommand = async (
   input: ModifyReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ModifyReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("ModifyReplicationTask");
   let body: any;
   body = JSON.stringify(se_ModifyReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1392,10 +1224,7 @@ export const se_MoveReplicationTaskCommand = async (
   input: MoveReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.MoveReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("MoveReplicationTask");
   let body: any;
   body = JSON.stringify(se_MoveReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1408,10 +1237,7 @@ export const se_RebootReplicationInstanceCommand = async (
   input: RebootReplicationInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.RebootReplicationInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebootReplicationInstance");
   let body: any;
   body = JSON.stringify(se_RebootReplicationInstanceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1424,10 +1250,7 @@ export const se_RefreshSchemasCommand = async (
   input: RefreshSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.RefreshSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("RefreshSchemas");
   let body: any;
   body = JSON.stringify(se_RefreshSchemasMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1440,10 +1263,7 @@ export const se_ReloadTablesCommand = async (
   input: ReloadTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.ReloadTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReloadTables");
   let body: any;
   body = JSON.stringify(se_ReloadTablesMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1456,10 +1276,7 @@ export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.RemoveTagsFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTagsFromResource");
   let body: any;
   body = JSON.stringify(se_RemoveTagsFromResourceMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1472,10 +1289,7 @@ export const se_RunFleetAdvisorLsaAnalysisCommand = async (
   input: RunFleetAdvisorLsaAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("RunFleetAdvisorLsaAnalysis");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1487,10 +1301,7 @@ export const se_StartRecommendationsCommand = async (
   input: StartRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.StartRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartRecommendations");
   let body: any;
   body = JSON.stringify(se_StartRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1503,10 +1314,7 @@ export const se_StartReplicationTaskCommand = async (
   input: StartReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.StartReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartReplicationTask");
   let body: any;
   body = JSON.stringify(se_StartReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1519,10 +1327,7 @@ export const se_StartReplicationTaskAssessmentCommand = async (
   input: StartReplicationTaskAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.StartReplicationTaskAssessment",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartReplicationTaskAssessment");
   let body: any;
   body = JSON.stringify(se_StartReplicationTaskAssessmentMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1535,10 +1340,7 @@ export const se_StartReplicationTaskAssessmentRunCommand = async (
   input: StartReplicationTaskAssessmentRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.StartReplicationTaskAssessmentRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartReplicationTaskAssessmentRun");
   let body: any;
   body = JSON.stringify(se_StartReplicationTaskAssessmentRunMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1551,10 +1353,7 @@ export const se_StopReplicationTaskCommand = async (
   input: StopReplicationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.StopReplicationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopReplicationTask");
   let body: any;
   body = JSON.stringify(se_StopReplicationTaskMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1567,10 +1366,7 @@ export const se_TestConnectionCommand = async (
   input: TestConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.TestConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestConnection");
   let body: any;
   body = JSON.stringify(se_TestConnectionMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1583,10 +1379,7 @@ export const se_UpdateSubscriptionsToEventBridgeCommand = async (
   input: UpdateSubscriptionsToEventBridgeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubscriptionsToEventBridge");
   let body: any;
   body = JSON.stringify(se_UpdateSubscriptionsToEventBridgeMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10198,6 +9991,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonDMSv20160101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

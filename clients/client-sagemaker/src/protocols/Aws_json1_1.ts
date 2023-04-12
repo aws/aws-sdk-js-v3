@@ -1848,10 +1848,7 @@ export const se_AddAssociationCommand = async (
   input: AddAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.AddAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddAssociation");
   let body: any;
   body = JSON.stringify(se_AddAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1864,10 +1861,7 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.AddTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTags");
   let body: any;
   body = JSON.stringify(se_AddTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1880,10 +1874,7 @@ export const se_AssociateTrialComponentCommand = async (
   input: AssociateTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.AssociateTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateTrialComponent");
   let body: any;
   body = JSON.stringify(se_AssociateTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1896,10 +1887,7 @@ export const se_BatchDescribeModelPackageCommand = async (
   input: BatchDescribeModelPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.BatchDescribeModelPackage",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDescribeModelPackage");
   let body: any;
   body = JSON.stringify(se_BatchDescribeModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1912,10 +1900,7 @@ export const se_CreateActionCommand = async (
   input: CreateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAction");
   let body: any;
   body = JSON.stringify(se_CreateActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1928,10 +1913,7 @@ export const se_CreateAlgorithmCommand = async (
   input: CreateAlgorithmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateAlgorithm",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAlgorithm");
   let body: any;
   body = JSON.stringify(se_CreateAlgorithmInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1944,10 +1926,7 @@ export const se_CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApp");
   let body: any;
   body = JSON.stringify(se_CreateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1960,10 +1939,7 @@ export const se_CreateAppImageConfigCommand = async (
   input: CreateAppImageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateAppImageConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAppImageConfig");
   let body: any;
   body = JSON.stringify(se_CreateAppImageConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1976,10 +1952,7 @@ export const se_CreateArtifactCommand = async (
   input: CreateArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateArtifact");
   let body: any;
   body = JSON.stringify(se_CreateArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1992,10 +1965,7 @@ export const se_CreateAutoMLJobCommand = async (
   input: CreateAutoMLJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateAutoMLJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAutoMLJob");
   let body: any;
   body = JSON.stringify(se_CreateAutoMLJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2008,10 +1978,7 @@ export const se_CreateAutoMLJobV2Command = async (
   input: CreateAutoMLJobV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateAutoMLJobV2",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAutoMLJobV2");
   let body: any;
   body = JSON.stringify(se_CreateAutoMLJobV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2024,10 +1991,7 @@ export const se_CreateCodeRepositoryCommand = async (
   input: CreateCodeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateCodeRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCodeRepository");
   let body: any;
   body = JSON.stringify(se_CreateCodeRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2040,10 +2004,7 @@ export const se_CreateCompilationJobCommand = async (
   input: CreateCompilationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateCompilationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCompilationJob");
   let body: any;
   body = JSON.stringify(se_CreateCompilationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2056,10 +2017,7 @@ export const se_CreateContextCommand = async (
   input: CreateContextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateContext",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateContext");
   let body: any;
   body = JSON.stringify(se_CreateContextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2072,10 +2030,7 @@ export const se_CreateDataQualityJobDefinitionCommand = async (
   input: CreateDataQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateDataQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_CreateDataQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2088,10 +2043,7 @@ export const se_CreateDeviceFleetCommand = async (
   input: CreateDeviceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateDeviceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDeviceFleet");
   let body: any;
   body = JSON.stringify(se_CreateDeviceFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2104,10 +2056,7 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDomain");
   let body: any;
   body = JSON.stringify(se_CreateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2120,10 +2069,7 @@ export const se_CreateEdgeDeploymentPlanCommand = async (
   input: CreateEdgeDeploymentPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateEdgeDeploymentPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEdgeDeploymentPlan");
   let body: any;
   body = JSON.stringify(se_CreateEdgeDeploymentPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2136,10 +2082,7 @@ export const se_CreateEdgeDeploymentStageCommand = async (
   input: CreateEdgeDeploymentStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateEdgeDeploymentStage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEdgeDeploymentStage");
   let body: any;
   body = JSON.stringify(se_CreateEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2152,10 +2095,7 @@ export const se_CreateEdgePackagingJobCommand = async (
   input: CreateEdgePackagingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateEdgePackagingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEdgePackagingJob");
   let body: any;
   body = JSON.stringify(se_CreateEdgePackagingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2168,10 +2108,7 @@ export const se_CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2184,10 +2121,7 @@ export const se_CreateEndpointConfigCommand = async (
   input: CreateEndpointConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateEndpointConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpointConfig");
   let body: any;
   body = JSON.stringify(se_CreateEndpointConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2200,10 +2134,7 @@ export const se_CreateExperimentCommand = async (
   input: CreateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateExperiment");
   let body: any;
   body = JSON.stringify(se_CreateExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2216,10 +2147,7 @@ export const se_CreateFeatureGroupCommand = async (
   input: CreateFeatureGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateFeatureGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFeatureGroup");
   let body: any;
   body = JSON.stringify(se_CreateFeatureGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2232,10 +2160,7 @@ export const se_CreateFlowDefinitionCommand = async (
   input: CreateFlowDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateFlowDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFlowDefinition");
   let body: any;
   body = JSON.stringify(se_CreateFlowDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2248,10 +2173,7 @@ export const se_CreateHubCommand = async (
   input: CreateHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateHub",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHub");
   let body: any;
   body = JSON.stringify(se_CreateHubRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2264,10 +2186,7 @@ export const se_CreateHumanTaskUiCommand = async (
   input: CreateHumanTaskUiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateHumanTaskUi",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHumanTaskUi");
   let body: any;
   body = JSON.stringify(se_CreateHumanTaskUiRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2280,10 +2199,7 @@ export const se_CreateHyperParameterTuningJobCommand = async (
   input: CreateHyperParameterTuningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateHyperParameterTuningJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHyperParameterTuningJob");
   let body: any;
   body = JSON.stringify(se_CreateHyperParameterTuningJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2296,10 +2212,7 @@ export const se_CreateImageCommand = async (
   input: CreateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImage");
   let body: any;
   body = JSON.stringify(se_CreateImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2312,10 +2225,7 @@ export const se_CreateImageVersionCommand = async (
   input: CreateImageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateImageVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImageVersion");
   let body: any;
   body = JSON.stringify(se_CreateImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2328,10 +2238,7 @@ export const se_CreateInferenceExperimentCommand = async (
   input: CreateInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_CreateInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2344,10 +2251,7 @@ export const se_CreateInferenceRecommendationsJobCommand = async (
   input: CreateInferenceRecommendationsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateInferenceRecommendationsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInferenceRecommendationsJob");
   let body: any;
   body = JSON.stringify(se_CreateInferenceRecommendationsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2360,10 +2264,7 @@ export const se_CreateLabelingJobCommand = async (
   input: CreateLabelingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateLabelingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLabelingJob");
   let body: any;
   body = JSON.stringify(se_CreateLabelingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2376,10 +2277,7 @@ export const se_CreateModelCommand = async (
   input: CreateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModel");
   let body: any;
   body = JSON.stringify(se_CreateModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2392,10 +2290,7 @@ export const se_CreateModelBiasJobDefinitionCommand = async (
   input: CreateModelBiasJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelBiasJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelBiasJobDefinition");
   let body: any;
   body = JSON.stringify(se_CreateModelBiasJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2408,10 +2303,7 @@ export const se_CreateModelCardCommand = async (
   input: CreateModelCardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelCard",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelCard");
   let body: any;
   body = JSON.stringify(se_CreateModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2424,10 +2316,7 @@ export const se_CreateModelCardExportJobCommand = async (
   input: CreateModelCardExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelCardExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelCardExportJob");
   let body: any;
   body = JSON.stringify(se_CreateModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2440,10 +2329,7 @@ export const se_CreateModelExplainabilityJobDefinitionCommand = async (
   input: CreateModelExplainabilityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelExplainabilityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelExplainabilityJobDefinition");
   let body: any;
   body = JSON.stringify(se_CreateModelExplainabilityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2456,10 +2342,7 @@ export const se_CreateModelPackageCommand = async (
   input: CreateModelPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelPackage",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelPackage");
   let body: any;
   body = JSON.stringify(se_CreateModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2472,10 +2355,7 @@ export const se_CreateModelPackageGroupCommand = async (
   input: CreateModelPackageGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelPackageGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelPackageGroup");
   let body: any;
   body = JSON.stringify(se_CreateModelPackageGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2488,10 +2368,7 @@ export const se_CreateModelQualityJobDefinitionCommand = async (
   input: CreateModelQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateModelQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_CreateModelQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2504,10 +2381,7 @@ export const se_CreateMonitoringScheduleCommand = async (
   input: CreateMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_CreateMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2520,10 +2394,7 @@ export const se_CreateNotebookInstanceCommand = async (
   input: CreateNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNotebookInstance");
   let body: any;
   body = JSON.stringify(se_CreateNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2536,10 +2407,7 @@ export const se_CreateNotebookInstanceLifecycleConfigCommand = async (
   input: CreateNotebookInstanceLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateNotebookInstanceLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNotebookInstanceLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_CreateNotebookInstanceLifecycleConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2552,10 +2420,7 @@ export const se_CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreatePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePipeline");
   let body: any;
   body = JSON.stringify(se_CreatePipelineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2568,10 +2433,7 @@ export const se_CreatePresignedDomainUrlCommand = async (
   input: CreatePresignedDomainUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreatePresignedDomainUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePresignedDomainUrl");
   let body: any;
   body = JSON.stringify(se_CreatePresignedDomainUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2584,10 +2446,7 @@ export const se_CreatePresignedNotebookInstanceUrlCommand = async (
   input: CreatePresignedNotebookInstanceUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreatePresignedNotebookInstanceUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePresignedNotebookInstanceUrl");
   let body: any;
   body = JSON.stringify(se_CreatePresignedNotebookInstanceUrlInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2600,10 +2459,7 @@ export const se_CreateProcessingJobCommand = async (
   input: CreateProcessingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateProcessingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProcessingJob");
   let body: any;
   body = JSON.stringify(se_CreateProcessingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2616,10 +2472,7 @@ export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
   body = JSON.stringify(se_CreateProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2632,10 +2485,7 @@ export const se_CreateSpaceCommand = async (
   input: CreateSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateSpace",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSpace");
   let body: any;
   body = JSON.stringify(se_CreateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2648,10 +2498,7 @@ export const se_CreateStudioLifecycleConfigCommand = async (
   input: CreateStudioLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateStudioLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStudioLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_CreateStudioLifecycleConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2664,10 +2511,7 @@ export const se_CreateTrainingJobCommand = async (
   input: CreateTrainingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateTrainingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrainingJob");
   let body: any;
   body = JSON.stringify(se_CreateTrainingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2680,10 +2524,7 @@ export const se_CreateTransformJobCommand = async (
   input: CreateTransformJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateTransformJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTransformJob");
   let body: any;
   body = JSON.stringify(se_CreateTransformJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2696,10 +2537,7 @@ export const se_CreateTrialCommand = async (
   input: CreateTrialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateTrial",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrial");
   let body: any;
   body = JSON.stringify(se_CreateTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2712,10 +2550,7 @@ export const se_CreateTrialComponentCommand = async (
   input: CreateTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrialComponent");
   let body: any;
   body = JSON.stringify(se_CreateTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2728,10 +2563,7 @@ export const se_CreateUserProfileCommand = async (
   input: CreateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUserProfile");
   let body: any;
   body = JSON.stringify(se_CreateUserProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2744,10 +2576,7 @@ export const se_CreateWorkforceCommand = async (
   input: CreateWorkforceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateWorkforce",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkforce");
   let body: any;
   body = JSON.stringify(se_CreateWorkforceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2760,10 +2589,7 @@ export const se_CreateWorkteamCommand = async (
   input: CreateWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.CreateWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkteam");
   let body: any;
   body = JSON.stringify(se_CreateWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2776,10 +2602,7 @@ export const se_DeleteActionCommand = async (
   input: DeleteActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAction");
   let body: any;
   body = JSON.stringify(se_DeleteActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2792,10 +2615,7 @@ export const se_DeleteAlgorithmCommand = async (
   input: DeleteAlgorithmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteAlgorithm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAlgorithm");
   let body: any;
   body = JSON.stringify(se_DeleteAlgorithmInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2808,10 +2628,7 @@ export const se_DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApp");
   let body: any;
   body = JSON.stringify(se_DeleteAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2824,10 +2641,7 @@ export const se_DeleteAppImageConfigCommand = async (
   input: DeleteAppImageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteAppImageConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppImageConfig");
   let body: any;
   body = JSON.stringify(se_DeleteAppImageConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2840,10 +2654,7 @@ export const se_DeleteArtifactCommand = async (
   input: DeleteArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteArtifact");
   let body: any;
   body = JSON.stringify(se_DeleteArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2856,10 +2667,7 @@ export const se_DeleteAssociationCommand = async (
   input: DeleteAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAssociation");
   let body: any;
   body = JSON.stringify(se_DeleteAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2872,10 +2680,7 @@ export const se_DeleteCodeRepositoryCommand = async (
   input: DeleteCodeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteCodeRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCodeRepository");
   let body: any;
   body = JSON.stringify(se_DeleteCodeRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2888,10 +2693,7 @@ export const se_DeleteContextCommand = async (
   input: DeleteContextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteContext",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteContext");
   let body: any;
   body = JSON.stringify(se_DeleteContextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2904,10 +2706,7 @@ export const se_DeleteDataQualityJobDefinitionCommand = async (
   input: DeleteDataQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteDataQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteDataQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2920,10 +2719,7 @@ export const se_DeleteDeviceFleetCommand = async (
   input: DeleteDeviceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteDeviceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDeviceFleet");
   let body: any;
   body = JSON.stringify(se_DeleteDeviceFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2936,10 +2732,7 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
   body = JSON.stringify(se_DeleteDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2952,10 +2745,7 @@ export const se_DeleteEdgeDeploymentPlanCommand = async (
   input: DeleteEdgeDeploymentPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteEdgeDeploymentPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEdgeDeploymentPlan");
   let body: any;
   body = JSON.stringify(se_DeleteEdgeDeploymentPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2968,10 +2758,7 @@ export const se_DeleteEdgeDeploymentStageCommand = async (
   input: DeleteEdgeDeploymentStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteEdgeDeploymentStage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEdgeDeploymentStage");
   let body: any;
   body = JSON.stringify(se_DeleteEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2984,10 +2771,7 @@ export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3000,10 +2784,7 @@ export const se_DeleteEndpointConfigCommand = async (
   input: DeleteEndpointConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteEndpointConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpointConfig");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3016,10 +2797,7 @@ export const se_DeleteExperimentCommand = async (
   input: DeleteExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteExperiment");
   let body: any;
   body = JSON.stringify(se_DeleteExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3032,10 +2810,7 @@ export const se_DeleteFeatureGroupCommand = async (
   input: DeleteFeatureGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteFeatureGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFeatureGroup");
   let body: any;
   body = JSON.stringify(se_DeleteFeatureGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3048,10 +2823,7 @@ export const se_DeleteFlowDefinitionCommand = async (
   input: DeleteFlowDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteFlowDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFlowDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteFlowDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3064,10 +2836,7 @@ export const se_DeleteHubCommand = async (
   input: DeleteHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteHub",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHub");
   let body: any;
   body = JSON.stringify(se_DeleteHubRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3080,10 +2849,7 @@ export const se_DeleteHubContentCommand = async (
   input: DeleteHubContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteHubContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHubContent");
   let body: any;
   body = JSON.stringify(se_DeleteHubContentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3096,10 +2862,7 @@ export const se_DeleteHumanTaskUiCommand = async (
   input: DeleteHumanTaskUiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteHumanTaskUi",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHumanTaskUi");
   let body: any;
   body = JSON.stringify(se_DeleteHumanTaskUiRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3112,10 +2875,7 @@ export const se_DeleteImageCommand = async (
   input: DeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImage");
   let body: any;
   body = JSON.stringify(se_DeleteImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3128,10 +2888,7 @@ export const se_DeleteImageVersionCommand = async (
   input: DeleteImageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteImageVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImageVersion");
   let body: any;
   body = JSON.stringify(se_DeleteImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3144,10 +2901,7 @@ export const se_DeleteInferenceExperimentCommand = async (
   input: DeleteInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_DeleteInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3160,10 +2914,7 @@ export const se_DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModel");
   let body: any;
   body = JSON.stringify(se_DeleteModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3176,10 +2927,7 @@ export const se_DeleteModelBiasJobDefinitionCommand = async (
   input: DeleteModelBiasJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelBiasJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelBiasJobDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteModelBiasJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3192,10 +2940,7 @@ export const se_DeleteModelCardCommand = async (
   input: DeleteModelCardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelCard",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelCard");
   let body: any;
   body = JSON.stringify(se_DeleteModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3208,10 +2953,7 @@ export const se_DeleteModelExplainabilityJobDefinitionCommand = async (
   input: DeleteModelExplainabilityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelExplainabilityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelExplainabilityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteModelExplainabilityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3224,10 +2966,7 @@ export const se_DeleteModelPackageCommand = async (
   input: DeleteModelPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelPackage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelPackage");
   let body: any;
   body = JSON.stringify(se_DeleteModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3240,10 +2979,7 @@ export const se_DeleteModelPackageGroupCommand = async (
   input: DeleteModelPackageGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelPackageGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelPackageGroup");
   let body: any;
   body = JSON.stringify(se_DeleteModelPackageGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3256,10 +2992,7 @@ export const se_DeleteModelPackageGroupPolicyCommand = async (
   input: DeleteModelPackageGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelPackageGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelPackageGroupPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteModelPackageGroupPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3272,10 +3005,7 @@ export const se_DeleteModelQualityJobDefinitionCommand = async (
   input: DeleteModelQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteModelQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DeleteModelQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3288,10 +3018,7 @@ export const se_DeleteMonitoringScheduleCommand = async (
   input: DeleteMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_DeleteMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3304,10 +3031,7 @@ export const se_DeleteNotebookInstanceCommand = async (
   input: DeleteNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNotebookInstance");
   let body: any;
   body = JSON.stringify(se_DeleteNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3320,10 +3044,7 @@ export const se_DeleteNotebookInstanceLifecycleConfigCommand = async (
   input: DeleteNotebookInstanceLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteNotebookInstanceLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNotebookInstanceLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_DeleteNotebookInstanceLifecycleConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3336,10 +3057,7 @@ export const se_DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeletePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePipeline");
   let body: any;
   body = JSON.stringify(se_DeletePipelineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3352,10 +3070,7 @@ export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
   body = JSON.stringify(se_DeleteProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3368,10 +3083,7 @@ export const se_DeleteSpaceCommand = async (
   input: DeleteSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteSpace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSpace");
   let body: any;
   body = JSON.stringify(se_DeleteSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3384,10 +3096,7 @@ export const se_DeleteStudioLifecycleConfigCommand = async (
   input: DeleteStudioLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteStudioLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStudioLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_DeleteStudioLifecycleConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3400,10 +3109,7 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTags");
   let body: any;
   body = JSON.stringify(se_DeleteTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3416,10 +3122,7 @@ export const se_DeleteTrialCommand = async (
   input: DeleteTrialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteTrial",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTrial");
   let body: any;
   body = JSON.stringify(se_DeleteTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3432,10 +3135,7 @@ export const se_DeleteTrialComponentCommand = async (
   input: DeleteTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTrialComponent");
   let body: any;
   body = JSON.stringify(se_DeleteTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3448,10 +3148,7 @@ export const se_DeleteUserProfileCommand = async (
   input: DeleteUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUserProfile");
   let body: any;
   body = JSON.stringify(se_DeleteUserProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3464,10 +3161,7 @@ export const se_DeleteWorkforceCommand = async (
   input: DeleteWorkforceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteWorkforce",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkforce");
   let body: any;
   body = JSON.stringify(se_DeleteWorkforceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3480,10 +3174,7 @@ export const se_DeleteWorkteamCommand = async (
   input: DeleteWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeleteWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkteam");
   let body: any;
   body = JSON.stringify(se_DeleteWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3496,10 +3187,7 @@ export const se_DeregisterDevicesCommand = async (
   input: DeregisterDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DeregisterDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterDevices");
   let body: any;
   body = JSON.stringify(se_DeregisterDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3512,10 +3200,7 @@ export const se_DescribeActionCommand = async (
   input: DescribeActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAction");
   let body: any;
   body = JSON.stringify(se_DescribeActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3528,10 +3213,7 @@ export const se_DescribeAlgorithmCommand = async (
   input: DescribeAlgorithmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeAlgorithm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAlgorithm");
   let body: any;
   body = JSON.stringify(se_DescribeAlgorithmInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3544,10 +3226,7 @@ export const se_DescribeAppCommand = async (
   input: DescribeAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApp");
   let body: any;
   body = JSON.stringify(se_DescribeAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3560,10 +3239,7 @@ export const se_DescribeAppImageConfigCommand = async (
   input: DescribeAppImageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeAppImageConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAppImageConfig");
   let body: any;
   body = JSON.stringify(se_DescribeAppImageConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3576,10 +3252,7 @@ export const se_DescribeArtifactCommand = async (
   input: DescribeArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeArtifact");
   let body: any;
   body = JSON.stringify(se_DescribeArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3592,10 +3265,7 @@ export const se_DescribeAutoMLJobCommand = async (
   input: DescribeAutoMLJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeAutoMLJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAutoMLJob");
   let body: any;
   body = JSON.stringify(se_DescribeAutoMLJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3608,10 +3278,7 @@ export const se_DescribeAutoMLJobV2Command = async (
   input: DescribeAutoMLJobV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeAutoMLJobV2",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAutoMLJobV2");
   let body: any;
   body = JSON.stringify(se_DescribeAutoMLJobV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3624,10 +3291,7 @@ export const se_DescribeCodeRepositoryCommand = async (
   input: DescribeCodeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeCodeRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCodeRepository");
   let body: any;
   body = JSON.stringify(se_DescribeCodeRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3640,10 +3304,7 @@ export const se_DescribeCompilationJobCommand = async (
   input: DescribeCompilationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeCompilationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCompilationJob");
   let body: any;
   body = JSON.stringify(se_DescribeCompilationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3656,10 +3317,7 @@ export const se_DescribeContextCommand = async (
   input: DescribeContextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeContext",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeContext");
   let body: any;
   body = JSON.stringify(se_DescribeContextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3672,10 +3330,7 @@ export const se_DescribeDataQualityJobDefinitionCommand = async (
   input: DescribeDataQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeDataQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeDataQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3688,10 +3343,7 @@ export const se_DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeDevice",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDevice");
   let body: any;
   body = JSON.stringify(se_DescribeDeviceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3704,10 +3356,7 @@ export const se_DescribeDeviceFleetCommand = async (
   input: DescribeDeviceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeDeviceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDeviceFleet");
   let body: any;
   body = JSON.stringify(se_DescribeDeviceFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3720,10 +3369,7 @@ export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
   body = JSON.stringify(se_DescribeDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3736,10 +3382,7 @@ export const se_DescribeEdgeDeploymentPlanCommand = async (
   input: DescribeEdgeDeploymentPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeEdgeDeploymentPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEdgeDeploymentPlan");
   let body: any;
   body = JSON.stringify(se_DescribeEdgeDeploymentPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3752,10 +3395,7 @@ export const se_DescribeEdgePackagingJobCommand = async (
   input: DescribeEdgePackagingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeEdgePackagingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEdgePackagingJob");
   let body: any;
   body = JSON.stringify(se_DescribeEdgePackagingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3768,10 +3408,7 @@ export const se_DescribeEndpointCommand = async (
   input: DescribeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoint");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3784,10 +3421,7 @@ export const se_DescribeEndpointConfigCommand = async (
   input: DescribeEndpointConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeEndpointConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpointConfig");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3800,10 +3434,7 @@ export const se_DescribeExperimentCommand = async (
   input: DescribeExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExperiment");
   let body: any;
   body = JSON.stringify(se_DescribeExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3816,10 +3447,7 @@ export const se_DescribeFeatureGroupCommand = async (
   input: DescribeFeatureGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeFeatureGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFeatureGroup");
   let body: any;
   body = JSON.stringify(se_DescribeFeatureGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3832,10 +3460,7 @@ export const se_DescribeFeatureMetadataCommand = async (
   input: DescribeFeatureMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeFeatureMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFeatureMetadata");
   let body: any;
   body = JSON.stringify(se_DescribeFeatureMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3848,10 +3473,7 @@ export const se_DescribeFlowDefinitionCommand = async (
   input: DescribeFlowDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeFlowDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFlowDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeFlowDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3864,10 +3486,7 @@ export const se_DescribeHubCommand = async (
   input: DescribeHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeHub",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHub");
   let body: any;
   body = JSON.stringify(se_DescribeHubRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3880,10 +3499,7 @@ export const se_DescribeHubContentCommand = async (
   input: DescribeHubContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeHubContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHubContent");
   let body: any;
   body = JSON.stringify(se_DescribeHubContentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3896,10 +3512,7 @@ export const se_DescribeHumanTaskUiCommand = async (
   input: DescribeHumanTaskUiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeHumanTaskUi",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHumanTaskUi");
   let body: any;
   body = JSON.stringify(se_DescribeHumanTaskUiRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3912,10 +3525,7 @@ export const se_DescribeHyperParameterTuningJobCommand = async (
   input: DescribeHyperParameterTuningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeHyperParameterTuningJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHyperParameterTuningJob");
   let body: any;
   body = JSON.stringify(se_DescribeHyperParameterTuningJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3928,10 +3538,7 @@ export const se_DescribeImageCommand = async (
   input: DescribeImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImage");
   let body: any;
   body = JSON.stringify(se_DescribeImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3944,10 +3551,7 @@ export const se_DescribeImageVersionCommand = async (
   input: DescribeImageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeImageVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImageVersion");
   let body: any;
   body = JSON.stringify(se_DescribeImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3960,10 +3564,7 @@ export const se_DescribeInferenceExperimentCommand = async (
   input: DescribeInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_DescribeInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3976,10 +3577,7 @@ export const se_DescribeInferenceRecommendationsJobCommand = async (
   input: DescribeInferenceRecommendationsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeInferenceRecommendationsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInferenceRecommendationsJob");
   let body: any;
   body = JSON.stringify(se_DescribeInferenceRecommendationsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3992,10 +3590,7 @@ export const se_DescribeLabelingJobCommand = async (
   input: DescribeLabelingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeLabelingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLabelingJob");
   let body: any;
   body = JSON.stringify(se_DescribeLabelingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4008,10 +3603,7 @@ export const se_DescribeLineageGroupCommand = async (
   input: DescribeLineageGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeLineageGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLineageGroup");
   let body: any;
   body = JSON.stringify(se_DescribeLineageGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4024,10 +3616,7 @@ export const se_DescribeModelCommand = async (
   input: DescribeModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModel");
   let body: any;
   body = JSON.stringify(se_DescribeModelInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4040,10 +3629,7 @@ export const se_DescribeModelBiasJobDefinitionCommand = async (
   input: DescribeModelBiasJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelBiasJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelBiasJobDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeModelBiasJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4056,10 +3642,7 @@ export const se_DescribeModelCardCommand = async (
   input: DescribeModelCardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelCard",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelCard");
   let body: any;
   body = JSON.stringify(se_DescribeModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4072,10 +3655,7 @@ export const se_DescribeModelCardExportJobCommand = async (
   input: DescribeModelCardExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelCardExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelCardExportJob");
   let body: any;
   body = JSON.stringify(se_DescribeModelCardExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4088,10 +3668,7 @@ export const se_DescribeModelExplainabilityJobDefinitionCommand = async (
   input: DescribeModelExplainabilityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelExplainabilityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelExplainabilityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeModelExplainabilityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4104,10 +3681,7 @@ export const se_DescribeModelPackageCommand = async (
   input: DescribeModelPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelPackage",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelPackage");
   let body: any;
   body = JSON.stringify(se_DescribeModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4120,10 +3694,7 @@ export const se_DescribeModelPackageGroupCommand = async (
   input: DescribeModelPackageGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelPackageGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelPackageGroup");
   let body: any;
   body = JSON.stringify(se_DescribeModelPackageGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4136,10 +3707,7 @@ export const se_DescribeModelQualityJobDefinitionCommand = async (
   input: DescribeModelQualityJobDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeModelQualityJobDefinition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeModelQualityJobDefinition");
   let body: any;
   body = JSON.stringify(se_DescribeModelQualityJobDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4152,10 +3720,7 @@ export const se_DescribeMonitoringScheduleCommand = async (
   input: DescribeMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_DescribeMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4168,10 +3733,7 @@ export const se_DescribeNotebookInstanceCommand = async (
   input: DescribeNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNotebookInstance");
   let body: any;
   body = JSON.stringify(se_DescribeNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4184,10 +3746,7 @@ export const se_DescribeNotebookInstanceLifecycleConfigCommand = async (
   input: DescribeNotebookInstanceLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeNotebookInstanceLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeNotebookInstanceLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_DescribeNotebookInstanceLifecycleConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4200,10 +3759,7 @@ export const se_DescribePipelineCommand = async (
   input: DescribePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePipeline");
   let body: any;
   body = JSON.stringify(se_DescribePipelineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4216,10 +3772,7 @@ export const se_DescribePipelineDefinitionForExecutionCommand = async (
   input: DescribePipelineDefinitionForExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribePipelineDefinitionForExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePipelineDefinitionForExecution");
   let body: any;
   body = JSON.stringify(se_DescribePipelineDefinitionForExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4232,10 +3785,7 @@ export const se_DescribePipelineExecutionCommand = async (
   input: DescribePipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribePipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePipelineExecution");
   let body: any;
   body = JSON.stringify(se_DescribePipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4248,10 +3798,7 @@ export const se_DescribeProcessingJobCommand = async (
   input: DescribeProcessingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeProcessingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProcessingJob");
   let body: any;
   body = JSON.stringify(se_DescribeProcessingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4264,10 +3811,7 @@ export const se_DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProject");
   let body: any;
   body = JSON.stringify(se_DescribeProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4280,10 +3824,7 @@ export const se_DescribeSpaceCommand = async (
   input: DescribeSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeSpace",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpace");
   let body: any;
   body = JSON.stringify(se_DescribeSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4296,10 +3837,7 @@ export const se_DescribeStudioLifecycleConfigCommand = async (
   input: DescribeStudioLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeStudioLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStudioLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_DescribeStudioLifecycleConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4312,10 +3850,7 @@ export const se_DescribeSubscribedWorkteamCommand = async (
   input: DescribeSubscribedWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeSubscribedWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSubscribedWorkteam");
   let body: any;
   body = JSON.stringify(se_DescribeSubscribedWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4328,10 +3863,7 @@ export const se_DescribeTrainingJobCommand = async (
   input: DescribeTrainingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeTrainingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrainingJob");
   let body: any;
   body = JSON.stringify(se_DescribeTrainingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4344,10 +3876,7 @@ export const se_DescribeTransformJobCommand = async (
   input: DescribeTransformJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeTransformJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTransformJob");
   let body: any;
   body = JSON.stringify(se_DescribeTransformJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4360,10 +3889,7 @@ export const se_DescribeTrialCommand = async (
   input: DescribeTrialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeTrial",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrial");
   let body: any;
   body = JSON.stringify(se_DescribeTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4376,10 +3902,7 @@ export const se_DescribeTrialComponentCommand = async (
   input: DescribeTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrialComponent");
   let body: any;
   body = JSON.stringify(se_DescribeTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4392,10 +3915,7 @@ export const se_DescribeUserProfileCommand = async (
   input: DescribeUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUserProfile");
   let body: any;
   body = JSON.stringify(se_DescribeUserProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4408,10 +3928,7 @@ export const se_DescribeWorkforceCommand = async (
   input: DescribeWorkforceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeWorkforce",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkforce");
   let body: any;
   body = JSON.stringify(se_DescribeWorkforceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4424,10 +3941,7 @@ export const se_DescribeWorkteamCommand = async (
   input: DescribeWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DescribeWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkteam");
   let body: any;
   body = JSON.stringify(se_DescribeWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4440,10 +3954,7 @@ export const se_DisableSagemakerServicecatalogPortfolioCommand = async (
   input: DisableSagemakerServicecatalogPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DisableSagemakerServicecatalogPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableSagemakerServicecatalogPortfolio");
   let body: any;
   body = JSON.stringify(se_DisableSagemakerServicecatalogPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4456,10 +3967,7 @@ export const se_DisassociateTrialComponentCommand = async (
   input: DisassociateTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.DisassociateTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateTrialComponent");
   let body: any;
   body = JSON.stringify(se_DisassociateTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4472,10 +3980,7 @@ export const se_EnableSagemakerServicecatalogPortfolioCommand = async (
   input: EnableSagemakerServicecatalogPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.EnableSagemakerServicecatalogPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableSagemakerServicecatalogPortfolio");
   let body: any;
   body = JSON.stringify(se_EnableSagemakerServicecatalogPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4488,10 +3993,7 @@ export const se_GetDeviceFleetReportCommand = async (
   input: GetDeviceFleetReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.GetDeviceFleetReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDeviceFleetReport");
   let body: any;
   body = JSON.stringify(se_GetDeviceFleetReportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4504,10 +4006,7 @@ export const se_GetLineageGroupPolicyCommand = async (
   input: GetLineageGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.GetLineageGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLineageGroupPolicy");
   let body: any;
   body = JSON.stringify(se_GetLineageGroupPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4520,10 +4019,7 @@ export const se_GetModelPackageGroupPolicyCommand = async (
   input: GetModelPackageGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.GetModelPackageGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetModelPackageGroupPolicy");
   let body: any;
   body = JSON.stringify(se_GetModelPackageGroupPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4536,10 +4032,7 @@ export const se_GetSagemakerServicecatalogPortfolioStatusCommand = async (
   input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.GetSagemakerServicecatalogPortfolioStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSagemakerServicecatalogPortfolioStatus");
   let body: any;
   body = JSON.stringify(se_GetSagemakerServicecatalogPortfolioStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4552,10 +4045,7 @@ export const se_GetSearchSuggestionsCommand = async (
   input: GetSearchSuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.GetSearchSuggestions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSearchSuggestions");
   let body: any;
   body = JSON.stringify(se_GetSearchSuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4568,10 +4058,7 @@ export const se_ImportHubContentCommand = async (
   input: ImportHubContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ImportHubContent",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportHubContent");
   let body: any;
   body = JSON.stringify(se_ImportHubContentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4584,10 +4071,7 @@ export const se_ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListActions");
   let body: any;
   body = JSON.stringify(se_ListActionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4600,10 +4084,7 @@ export const se_ListAlgorithmsCommand = async (
   input: ListAlgorithmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListAlgorithms",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAlgorithms");
   let body: any;
   body = JSON.stringify(se_ListAlgorithmsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4616,10 +4097,7 @@ export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAliases");
   let body: any;
   body = JSON.stringify(se_ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4632,10 +4110,7 @@ export const se_ListAppImageConfigsCommand = async (
   input: ListAppImageConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListAppImageConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAppImageConfigs");
   let body: any;
   body = JSON.stringify(se_ListAppImageConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4648,10 +4123,7 @@ export const se_ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListApps",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApps");
   let body: any;
   body = JSON.stringify(se_ListAppsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4664,10 +4136,7 @@ export const se_ListArtifactsCommand = async (
   input: ListArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListArtifacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListArtifacts");
   let body: any;
   body = JSON.stringify(se_ListArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4680,10 +4149,7 @@ export const se_ListAssociationsCommand = async (
   input: ListAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociations");
   let body: any;
   body = JSON.stringify(se_ListAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4696,10 +4162,7 @@ export const se_ListAutoMLJobsCommand = async (
   input: ListAutoMLJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListAutoMLJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAutoMLJobs");
   let body: any;
   body = JSON.stringify(se_ListAutoMLJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4712,10 +4175,7 @@ export const se_ListCandidatesForAutoMLJobCommand = async (
   input: ListCandidatesForAutoMLJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListCandidatesForAutoMLJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCandidatesForAutoMLJob");
   let body: any;
   body = JSON.stringify(se_ListCandidatesForAutoMLJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4728,10 +4188,7 @@ export const se_ListCodeRepositoriesCommand = async (
   input: ListCodeRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListCodeRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCodeRepositories");
   let body: any;
   body = JSON.stringify(se_ListCodeRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4744,10 +4201,7 @@ export const se_ListCompilationJobsCommand = async (
   input: ListCompilationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListCompilationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCompilationJobs");
   let body: any;
   body = JSON.stringify(se_ListCompilationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4760,10 +4214,7 @@ export const se_ListContextsCommand = async (
   input: ListContextsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListContexts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListContexts");
   let body: any;
   body = JSON.stringify(se_ListContextsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4776,10 +4227,7 @@ export const se_ListDataQualityJobDefinitionsCommand = async (
   input: ListDataQualityJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListDataQualityJobDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataQualityJobDefinitions");
   let body: any;
   body = JSON.stringify(se_ListDataQualityJobDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4792,10 +4240,7 @@ export const se_ListDeviceFleetsCommand = async (
   input: ListDeviceFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListDeviceFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDeviceFleets");
   let body: any;
   body = JSON.stringify(se_ListDeviceFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4808,10 +4253,7 @@ export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDevices");
   let body: any;
   body = JSON.stringify(se_ListDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4824,10 +4266,7 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
   body = JSON.stringify(se_ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4840,10 +4279,7 @@ export const se_ListEdgeDeploymentPlansCommand = async (
   input: ListEdgeDeploymentPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListEdgeDeploymentPlans",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEdgeDeploymentPlans");
   let body: any;
   body = JSON.stringify(se_ListEdgeDeploymentPlansRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4856,10 +4292,7 @@ export const se_ListEdgePackagingJobsCommand = async (
   input: ListEdgePackagingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListEdgePackagingJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEdgePackagingJobs");
   let body: any;
   body = JSON.stringify(se_ListEdgePackagingJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4872,10 +4305,7 @@ export const se_ListEndpointConfigsCommand = async (
   input: ListEndpointConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListEndpointConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpointConfigs");
   let body: any;
   body = JSON.stringify(se_ListEndpointConfigsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4888,10 +4318,7 @@ export const se_ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpoints");
   let body: any;
   body = JSON.stringify(se_ListEndpointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4904,10 +4331,7 @@ export const se_ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListExperiments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExperiments");
   let body: any;
   body = JSON.stringify(se_ListExperimentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4920,10 +4344,7 @@ export const se_ListFeatureGroupsCommand = async (
   input: ListFeatureGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListFeatureGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFeatureGroups");
   let body: any;
   body = JSON.stringify(se_ListFeatureGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4936,10 +4357,7 @@ export const se_ListFlowDefinitionsCommand = async (
   input: ListFlowDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListFlowDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFlowDefinitions");
   let body: any;
   body = JSON.stringify(se_ListFlowDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4952,10 +4370,7 @@ export const se_ListHubContentsCommand = async (
   input: ListHubContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListHubContents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHubContents");
   let body: any;
   body = JSON.stringify(se_ListHubContentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4968,10 +4383,7 @@ export const se_ListHubContentVersionsCommand = async (
   input: ListHubContentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListHubContentVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHubContentVersions");
   let body: any;
   body = JSON.stringify(se_ListHubContentVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4984,10 +4396,7 @@ export const se_ListHubsCommand = async (
   input: ListHubsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListHubs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHubs");
   let body: any;
   body = JSON.stringify(se_ListHubsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5000,10 +4409,7 @@ export const se_ListHumanTaskUisCommand = async (
   input: ListHumanTaskUisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListHumanTaskUis",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHumanTaskUis");
   let body: any;
   body = JSON.stringify(se_ListHumanTaskUisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5016,10 +4422,7 @@ export const se_ListHyperParameterTuningJobsCommand = async (
   input: ListHyperParameterTuningJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListHyperParameterTuningJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHyperParameterTuningJobs");
   let body: any;
   body = JSON.stringify(se_ListHyperParameterTuningJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5032,10 +4435,7 @@ export const se_ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImages");
   let body: any;
   body = JSON.stringify(se_ListImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5048,10 +4448,7 @@ export const se_ListImageVersionsCommand = async (
   input: ListImageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListImageVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImageVersions");
   let body: any;
   body = JSON.stringify(se_ListImageVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5064,10 +4461,7 @@ export const se_ListInferenceExperimentsCommand = async (
   input: ListInferenceExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListInferenceExperiments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceExperiments");
   let body: any;
   body = JSON.stringify(se_ListInferenceExperimentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5080,10 +4474,7 @@ export const se_ListInferenceRecommendationsJobsCommand = async (
   input: ListInferenceRecommendationsJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListInferenceRecommendationsJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceRecommendationsJobs");
   let body: any;
   body = JSON.stringify(se_ListInferenceRecommendationsJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5096,10 +4487,7 @@ export const se_ListInferenceRecommendationsJobStepsCommand = async (
   input: ListInferenceRecommendationsJobStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListInferenceRecommendationsJobSteps",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInferenceRecommendationsJobSteps");
   let body: any;
   body = JSON.stringify(se_ListInferenceRecommendationsJobStepsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5112,10 +4500,7 @@ export const se_ListLabelingJobsCommand = async (
   input: ListLabelingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListLabelingJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLabelingJobs");
   let body: any;
   body = JSON.stringify(se_ListLabelingJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5128,10 +4513,7 @@ export const se_ListLabelingJobsForWorkteamCommand = async (
   input: ListLabelingJobsForWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListLabelingJobsForWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLabelingJobsForWorkteam");
   let body: any;
   body = JSON.stringify(se_ListLabelingJobsForWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5144,10 +4526,7 @@ export const se_ListLineageGroupsCommand = async (
   input: ListLineageGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListLineageGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLineageGroups");
   let body: any;
   body = JSON.stringify(se_ListLineageGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5160,10 +4539,7 @@ export const se_ListModelBiasJobDefinitionsCommand = async (
   input: ListModelBiasJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelBiasJobDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelBiasJobDefinitions");
   let body: any;
   body = JSON.stringify(se_ListModelBiasJobDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5176,10 +4552,7 @@ export const se_ListModelCardExportJobsCommand = async (
   input: ListModelCardExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelCardExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelCardExportJobs");
   let body: any;
   body = JSON.stringify(se_ListModelCardExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5192,10 +4565,7 @@ export const se_ListModelCardsCommand = async (
   input: ListModelCardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelCards",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelCards");
   let body: any;
   body = JSON.stringify(se_ListModelCardsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5208,10 +4578,7 @@ export const se_ListModelCardVersionsCommand = async (
   input: ListModelCardVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelCardVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelCardVersions");
   let body: any;
   body = JSON.stringify(se_ListModelCardVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5224,10 +4591,7 @@ export const se_ListModelExplainabilityJobDefinitionsCommand = async (
   input: ListModelExplainabilityJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelExplainabilityJobDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelExplainabilityJobDefinitions");
   let body: any;
   body = JSON.stringify(se_ListModelExplainabilityJobDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5240,10 +4604,7 @@ export const se_ListModelMetadataCommand = async (
   input: ListModelMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelMetadata");
   let body: any;
   body = JSON.stringify(se_ListModelMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5256,10 +4617,7 @@ export const se_ListModelPackageGroupsCommand = async (
   input: ListModelPackageGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelPackageGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelPackageGroups");
   let body: any;
   body = JSON.stringify(se_ListModelPackageGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5272,10 +4630,7 @@ export const se_ListModelPackagesCommand = async (
   input: ListModelPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelPackages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelPackages");
   let body: any;
   body = JSON.stringify(se_ListModelPackagesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5288,10 +4643,7 @@ export const se_ListModelQualityJobDefinitionsCommand = async (
   input: ListModelQualityJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModelQualityJobDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelQualityJobDefinitions");
   let body: any;
   body = JSON.stringify(se_ListModelQualityJobDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5304,10 +4656,7 @@ export const se_ListModelsCommand = async (
   input: ListModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListModels",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModels");
   let body: any;
   body = JSON.stringify(se_ListModelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5320,10 +4669,7 @@ export const se_ListMonitoringAlertHistoryCommand = async (
   input: ListMonitoringAlertHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListMonitoringAlertHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMonitoringAlertHistory");
   let body: any;
   body = JSON.stringify(se_ListMonitoringAlertHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5336,10 +4682,7 @@ export const se_ListMonitoringAlertsCommand = async (
   input: ListMonitoringAlertsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListMonitoringAlerts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMonitoringAlerts");
   let body: any;
   body = JSON.stringify(se_ListMonitoringAlertsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5352,10 +4695,7 @@ export const se_ListMonitoringExecutionsCommand = async (
   input: ListMonitoringExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListMonitoringExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMonitoringExecutions");
   let body: any;
   body = JSON.stringify(se_ListMonitoringExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5368,10 +4708,7 @@ export const se_ListMonitoringSchedulesCommand = async (
   input: ListMonitoringSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListMonitoringSchedules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMonitoringSchedules");
   let body: any;
   body = JSON.stringify(se_ListMonitoringSchedulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5384,10 +4721,7 @@ export const se_ListNotebookInstanceLifecycleConfigsCommand = async (
   input: ListNotebookInstanceLifecycleConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListNotebookInstanceLifecycleConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNotebookInstanceLifecycleConfigs");
   let body: any;
   body = JSON.stringify(se_ListNotebookInstanceLifecycleConfigsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5400,10 +4734,7 @@ export const se_ListNotebookInstancesCommand = async (
   input: ListNotebookInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListNotebookInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNotebookInstances");
   let body: any;
   body = JSON.stringify(se_ListNotebookInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5416,10 +4747,7 @@ export const se_ListPipelineExecutionsCommand = async (
   input: ListPipelineExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListPipelineExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelineExecutions");
   let body: any;
   body = JSON.stringify(se_ListPipelineExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5432,10 +4760,7 @@ export const se_ListPipelineExecutionStepsCommand = async (
   input: ListPipelineExecutionStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListPipelineExecutionSteps",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelineExecutionSteps");
   let body: any;
   body = JSON.stringify(se_ListPipelineExecutionStepsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5448,10 +4773,7 @@ export const se_ListPipelineParametersForExecutionCommand = async (
   input: ListPipelineParametersForExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListPipelineParametersForExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelineParametersForExecution");
   let body: any;
   body = JSON.stringify(se_ListPipelineParametersForExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5464,10 +4786,7 @@ export const se_ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListPipelines",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelines");
   let body: any;
   body = JSON.stringify(se_ListPipelinesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5480,10 +4799,7 @@ export const se_ListProcessingJobsCommand = async (
   input: ListProcessingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListProcessingJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProcessingJobs");
   let body: any;
   body = JSON.stringify(se_ListProcessingJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5496,10 +4812,7 @@ export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
   body = JSON.stringify(se_ListProjectsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5512,10 +4825,7 @@ export const se_ListSpacesCommand = async (
   input: ListSpacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListSpaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSpaces");
   let body: any;
   body = JSON.stringify(se_ListSpacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5528,10 +4838,7 @@ export const se_ListStageDevicesCommand = async (
   input: ListStageDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListStageDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStageDevices");
   let body: any;
   body = JSON.stringify(se_ListStageDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5544,10 +4851,7 @@ export const se_ListStudioLifecycleConfigsCommand = async (
   input: ListStudioLifecycleConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListStudioLifecycleConfigs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStudioLifecycleConfigs");
   let body: any;
   body = JSON.stringify(se_ListStudioLifecycleConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5560,10 +4864,7 @@ export const se_ListSubscribedWorkteamsCommand = async (
   input: ListSubscribedWorkteamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListSubscribedWorkteams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSubscribedWorkteams");
   let body: any;
   body = JSON.stringify(se_ListSubscribedWorkteamsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5576,10 +4877,7 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
   body = JSON.stringify(se_ListTagsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5592,10 +4890,7 @@ export const se_ListTrainingJobsCommand = async (
   input: ListTrainingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTrainingJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTrainingJobs");
   let body: any;
   body = JSON.stringify(se_ListTrainingJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5608,10 +4903,7 @@ export const se_ListTrainingJobsForHyperParameterTuningJobCommand = async (
   input: ListTrainingJobsForHyperParameterTuningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTrainingJobsForHyperParameterTuningJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTrainingJobsForHyperParameterTuningJob");
   let body: any;
   body = JSON.stringify(se_ListTrainingJobsForHyperParameterTuningJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5624,10 +4916,7 @@ export const se_ListTransformJobsCommand = async (
   input: ListTransformJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTransformJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTransformJobs");
   let body: any;
   body = JSON.stringify(se_ListTransformJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5640,10 +4929,7 @@ export const se_ListTrialComponentsCommand = async (
   input: ListTrialComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTrialComponents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTrialComponents");
   let body: any;
   body = JSON.stringify(se_ListTrialComponentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5656,10 +4942,7 @@ export const se_ListTrialsCommand = async (
   input: ListTrialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListTrials",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTrials");
   let body: any;
   body = JSON.stringify(se_ListTrialsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5672,10 +4955,7 @@ export const se_ListUserProfilesCommand = async (
   input: ListUserProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListUserProfiles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUserProfiles");
   let body: any;
   body = JSON.stringify(se_ListUserProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5688,10 +4968,7 @@ export const se_ListWorkforcesCommand = async (
   input: ListWorkforcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListWorkforces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkforces");
   let body: any;
   body = JSON.stringify(se_ListWorkforcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5704,10 +4981,7 @@ export const se_ListWorkteamsCommand = async (
   input: ListWorkteamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.ListWorkteams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkteams");
   let body: any;
   body = JSON.stringify(se_ListWorkteamsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5720,10 +4994,7 @@ export const se_PutModelPackageGroupPolicyCommand = async (
   input: PutModelPackageGroupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.PutModelPackageGroupPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutModelPackageGroupPolicy");
   let body: any;
   body = JSON.stringify(se_PutModelPackageGroupPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5736,10 +5007,7 @@ export const se_QueryLineageCommand = async (
   input: QueryLineageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.QueryLineage",
-  };
+  const headers: __HeaderBag = sharedHeaders("QueryLineage");
   let body: any;
   body = JSON.stringify(se_QueryLineageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5752,10 +5020,7 @@ export const se_RegisterDevicesCommand = async (
   input: RegisterDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.RegisterDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterDevices");
   let body: any;
   body = JSON.stringify(se_RegisterDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5768,10 +5033,7 @@ export const se_RenderUiTemplateCommand = async (
   input: RenderUiTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.RenderUiTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RenderUiTemplate");
   let body: any;
   body = JSON.stringify(se_RenderUiTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5784,10 +5046,7 @@ export const se_RetryPipelineExecutionCommand = async (
   input: RetryPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.RetryPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetryPipelineExecution");
   let body: any;
   body = JSON.stringify(se_RetryPipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5797,10 +5056,7 @@ export const se_RetryPipelineExecutionCommand = async (
  * serializeAws_json1_1SearchCommand
  */
 export const se_SearchCommand = async (input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.Search",
-  };
+  const headers: __HeaderBag = sharedHeaders("Search");
   let body: any;
   body = JSON.stringify(se_SearchRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5813,10 +5069,7 @@ export const se_SendPipelineExecutionStepFailureCommand = async (
   input: SendPipelineExecutionStepFailureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.SendPipelineExecutionStepFailure",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendPipelineExecutionStepFailure");
   let body: any;
   body = JSON.stringify(se_SendPipelineExecutionStepFailureRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5829,10 +5082,7 @@ export const se_SendPipelineExecutionStepSuccessCommand = async (
   input: SendPipelineExecutionStepSuccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.SendPipelineExecutionStepSuccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendPipelineExecutionStepSuccess");
   let body: any;
   body = JSON.stringify(se_SendPipelineExecutionStepSuccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5845,10 +5095,7 @@ export const se_StartEdgeDeploymentStageCommand = async (
   input: StartEdgeDeploymentStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StartEdgeDeploymentStage",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartEdgeDeploymentStage");
   let body: any;
   body = JSON.stringify(se_StartEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5861,10 +5108,7 @@ export const se_StartInferenceExperimentCommand = async (
   input: StartInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StartInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_StartInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5877,10 +5121,7 @@ export const se_StartMonitoringScheduleCommand = async (
   input: StartMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StartMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_StartMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5893,10 +5134,7 @@ export const se_StartNotebookInstanceCommand = async (
   input: StartNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StartNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartNotebookInstance");
   let body: any;
   body = JSON.stringify(se_StartNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5909,10 +5147,7 @@ export const se_StartPipelineExecutionCommand = async (
   input: StartPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StartPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartPipelineExecution");
   let body: any;
   body = JSON.stringify(se_StartPipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5925,10 +5160,7 @@ export const se_StopAutoMLJobCommand = async (
   input: StopAutoMLJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopAutoMLJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopAutoMLJob");
   let body: any;
   body = JSON.stringify(se_StopAutoMLJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5941,10 +5173,7 @@ export const se_StopCompilationJobCommand = async (
   input: StopCompilationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopCompilationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopCompilationJob");
   let body: any;
   body = JSON.stringify(se_StopCompilationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5957,10 +5186,7 @@ export const se_StopEdgeDeploymentStageCommand = async (
   input: StopEdgeDeploymentStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopEdgeDeploymentStage",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEdgeDeploymentStage");
   let body: any;
   body = JSON.stringify(se_StopEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5973,10 +5199,7 @@ export const se_StopEdgePackagingJobCommand = async (
   input: StopEdgePackagingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopEdgePackagingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopEdgePackagingJob");
   let body: any;
   body = JSON.stringify(se_StopEdgePackagingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5989,10 +5212,7 @@ export const se_StopHyperParameterTuningJobCommand = async (
   input: StopHyperParameterTuningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopHyperParameterTuningJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopHyperParameterTuningJob");
   let body: any;
   body = JSON.stringify(se_StopHyperParameterTuningJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6005,10 +5225,7 @@ export const se_StopInferenceExperimentCommand = async (
   input: StopInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_StopInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6021,10 +5238,7 @@ export const se_StopInferenceRecommendationsJobCommand = async (
   input: StopInferenceRecommendationsJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopInferenceRecommendationsJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopInferenceRecommendationsJob");
   let body: any;
   body = JSON.stringify(se_StopInferenceRecommendationsJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6037,10 +5251,7 @@ export const se_StopLabelingJobCommand = async (
   input: StopLabelingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopLabelingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopLabelingJob");
   let body: any;
   body = JSON.stringify(se_StopLabelingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6053,10 +5264,7 @@ export const se_StopMonitoringScheduleCommand = async (
   input: StopMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_StopMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6069,10 +5277,7 @@ export const se_StopNotebookInstanceCommand = async (
   input: StopNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopNotebookInstance");
   let body: any;
   body = JSON.stringify(se_StopNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6085,10 +5290,7 @@ export const se_StopPipelineExecutionCommand = async (
   input: StopPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopPipelineExecution");
   let body: any;
   body = JSON.stringify(se_StopPipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6101,10 +5303,7 @@ export const se_StopProcessingJobCommand = async (
   input: StopProcessingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopProcessingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopProcessingJob");
   let body: any;
   body = JSON.stringify(se_StopProcessingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6117,10 +5316,7 @@ export const se_StopTrainingJobCommand = async (
   input: StopTrainingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopTrainingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTrainingJob");
   let body: any;
   body = JSON.stringify(se_StopTrainingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6133,10 +5329,7 @@ export const se_StopTransformJobCommand = async (
   input: StopTransformJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.StopTransformJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopTransformJob");
   let body: any;
   body = JSON.stringify(se_StopTransformJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6149,10 +5342,7 @@ export const se_UpdateActionCommand = async (
   input: UpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAction");
   let body: any;
   body = JSON.stringify(se_UpdateActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6165,10 +5355,7 @@ export const se_UpdateAppImageConfigCommand = async (
   input: UpdateAppImageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateAppImageConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAppImageConfig");
   let body: any;
   body = JSON.stringify(se_UpdateAppImageConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6181,10 +5368,7 @@ export const se_UpdateArtifactCommand = async (
   input: UpdateArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateArtifact");
   let body: any;
   body = JSON.stringify(se_UpdateArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6197,10 +5381,7 @@ export const se_UpdateCodeRepositoryCommand = async (
   input: UpdateCodeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateCodeRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCodeRepository");
   let body: any;
   body = JSON.stringify(se_UpdateCodeRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6213,10 +5394,7 @@ export const se_UpdateContextCommand = async (
   input: UpdateContextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateContext",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateContext");
   let body: any;
   body = JSON.stringify(se_UpdateContextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6229,10 +5407,7 @@ export const se_UpdateDeviceFleetCommand = async (
   input: UpdateDeviceFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateDeviceFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDeviceFleet");
   let body: any;
   body = JSON.stringify(se_UpdateDeviceFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6245,10 +5420,7 @@ export const se_UpdateDevicesCommand = async (
   input: UpdateDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateDevices",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDevices");
   let body: any;
   body = JSON.stringify(se_UpdateDevicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6261,10 +5433,7 @@ export const se_UpdateDomainCommand = async (
   input: UpdateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomain");
   let body: any;
   body = JSON.stringify(se_UpdateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6277,10 +5446,7 @@ export const se_UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6293,10 +5459,7 @@ export const se_UpdateEndpointWeightsAndCapacitiesCommand = async (
   input: UpdateEndpointWeightsAndCapacitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateEndpointWeightsAndCapacities",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpointWeightsAndCapacities");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointWeightsAndCapacitiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6309,10 +5472,7 @@ export const se_UpdateExperimentCommand = async (
   input: UpdateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateExperiment");
   let body: any;
   body = JSON.stringify(se_UpdateExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6325,10 +5485,7 @@ export const se_UpdateFeatureGroupCommand = async (
   input: UpdateFeatureGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateFeatureGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFeatureGroup");
   let body: any;
   body = JSON.stringify(se_UpdateFeatureGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6341,10 +5498,7 @@ export const se_UpdateFeatureMetadataCommand = async (
   input: UpdateFeatureMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateFeatureMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFeatureMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateFeatureMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6357,10 +5511,7 @@ export const se_UpdateHubCommand = async (
   input: UpdateHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateHub",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHub");
   let body: any;
   body = JSON.stringify(se_UpdateHubRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6373,10 +5524,7 @@ export const se_UpdateImageCommand = async (
   input: UpdateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateImage",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateImage");
   let body: any;
   body = JSON.stringify(se_UpdateImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6389,10 +5537,7 @@ export const se_UpdateImageVersionCommand = async (
   input: UpdateImageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateImageVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateImageVersion");
   let body: any;
   body = JSON.stringify(se_UpdateImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6405,10 +5550,7 @@ export const se_UpdateInferenceExperimentCommand = async (
   input: UpdateInferenceExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateInferenceExperiment",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_UpdateInferenceExperimentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6421,10 +5563,7 @@ export const se_UpdateModelCardCommand = async (
   input: UpdateModelCardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateModelCard",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModelCard");
   let body: any;
   body = JSON.stringify(se_UpdateModelCardRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6437,10 +5576,7 @@ export const se_UpdateModelPackageCommand = async (
   input: UpdateModelPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateModelPackage",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModelPackage");
   let body: any;
   body = JSON.stringify(se_UpdateModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6453,10 +5589,7 @@ export const se_UpdateMonitoringAlertCommand = async (
   input: UpdateMonitoringAlertCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateMonitoringAlert",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMonitoringAlert");
   let body: any;
   body = JSON.stringify(se_UpdateMonitoringAlertRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6469,10 +5602,7 @@ export const se_UpdateMonitoringScheduleCommand = async (
   input: UpdateMonitoringScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateMonitoringSchedule",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMonitoringSchedule");
   let body: any;
   body = JSON.stringify(se_UpdateMonitoringScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6485,10 +5615,7 @@ export const se_UpdateNotebookInstanceCommand = async (
   input: UpdateNotebookInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateNotebookInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotebookInstance");
   let body: any;
   body = JSON.stringify(se_UpdateNotebookInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6501,10 +5628,7 @@ export const se_UpdateNotebookInstanceLifecycleConfigCommand = async (
   input: UpdateNotebookInstanceLifecycleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateNotebookInstanceLifecycleConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotebookInstanceLifecycleConfig");
   let body: any;
   body = JSON.stringify(se_UpdateNotebookInstanceLifecycleConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6517,10 +5641,7 @@ export const se_UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdatePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePipeline");
   let body: any;
   body = JSON.stringify(se_UpdatePipelineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6533,10 +5654,7 @@ export const se_UpdatePipelineExecutionCommand = async (
   input: UpdatePipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdatePipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePipelineExecution");
   let body: any;
   body = JSON.stringify(se_UpdatePipelineExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6549,10 +5667,7 @@ export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
   body = JSON.stringify(se_UpdateProjectInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6565,10 +5680,7 @@ export const se_UpdateSpaceCommand = async (
   input: UpdateSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateSpace",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSpace");
   let body: any;
   body = JSON.stringify(se_UpdateSpaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6581,10 +5693,7 @@ export const se_UpdateTrainingJobCommand = async (
   input: UpdateTrainingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateTrainingJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrainingJob");
   let body: any;
   body = JSON.stringify(se_UpdateTrainingJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6597,10 +5706,7 @@ export const se_UpdateTrialCommand = async (
   input: UpdateTrialCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateTrial",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrial");
   let body: any;
   body = JSON.stringify(se_UpdateTrialRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6613,10 +5719,7 @@ export const se_UpdateTrialComponentCommand = async (
   input: UpdateTrialComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateTrialComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrialComponent");
   let body: any;
   body = JSON.stringify(se_UpdateTrialComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6629,10 +5732,7 @@ export const se_UpdateUserProfileCommand = async (
   input: UpdateUserProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateUserProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUserProfile");
   let body: any;
   body = JSON.stringify(se_UpdateUserProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6645,10 +5745,7 @@ export const se_UpdateWorkforceCommand = async (
   input: UpdateWorkforceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateWorkforce",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkforce");
   let body: any;
   body = JSON.stringify(se_UpdateWorkforceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6661,10 +5758,7 @@ export const se_UpdateWorkteamCommand = async (
   input: UpdateWorkteamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SageMaker.UpdateWorkteam",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkteam");
   let body: any;
   body = JSON.stringify(se_UpdateWorkteamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -44186,6 +43280,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `SageMaker.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

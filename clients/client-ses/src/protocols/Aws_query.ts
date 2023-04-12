@@ -460,9 +460,7 @@ export const se_CloneReceiptRuleSetCommand = async (
   input: CloneReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CloneReceiptRuleSetRequest(input, context),
@@ -479,9 +477,7 @@ export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetRequest(input, context),
@@ -498,9 +494,7 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetEventDestinationRequest(input, context),
@@ -517,9 +511,7 @@ export const se_CreateConfigurationSetTrackingOptionsCommand = async (
   input: CreateConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetTrackingOptionsRequest(input, context),
@@ -536,9 +528,7 @@ export const se_CreateCustomVerificationEmailTemplateCommand = async (
   input: CreateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCustomVerificationEmailTemplateRequest(input, context),
@@ -555,9 +545,7 @@ export const se_CreateReceiptFilterCommand = async (
   input: CreateReceiptFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptFilterRequest(input, context),
@@ -574,9 +562,7 @@ export const se_CreateReceiptRuleCommand = async (
   input: CreateReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptRuleRequest(input, context),
@@ -593,9 +579,7 @@ export const se_CreateReceiptRuleSetCommand = async (
   input: CreateReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptRuleSetRequest(input, context),
@@ -612,9 +596,7 @@ export const se_CreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTemplateRequest(input, context),
@@ -631,9 +613,7 @@ export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetRequest(input, context),
@@ -650,9 +630,7 @@ export const se_DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetEventDestinationRequest(input, context),
@@ -669,9 +647,7 @@ export const se_DeleteConfigurationSetTrackingOptionsCommand = async (
   input: DeleteConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetTrackingOptionsRequest(input, context),
@@ -688,9 +664,7 @@ export const se_DeleteCustomVerificationEmailTemplateCommand = async (
   input: DeleteCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCustomVerificationEmailTemplateRequest(input, context),
@@ -707,9 +681,7 @@ export const se_DeleteIdentityCommand = async (
   input: DeleteIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIdentityRequest(input, context),
@@ -726,9 +698,7 @@ export const se_DeleteIdentityPolicyCommand = async (
   input: DeleteIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIdentityPolicyRequest(input, context),
@@ -745,9 +715,7 @@ export const se_DeleteReceiptFilterCommand = async (
   input: DeleteReceiptFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptFilterRequest(input, context),
@@ -764,9 +732,7 @@ export const se_DeleteReceiptRuleCommand = async (
   input: DeleteReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptRuleRequest(input, context),
@@ -783,9 +749,7 @@ export const se_DeleteReceiptRuleSetCommand = async (
   input: DeleteReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptRuleSetRequest(input, context),
@@ -802,9 +766,7 @@ export const se_DeleteTemplateCommand = async (
   input: DeleteTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTemplateRequest(input, context),
@@ -821,9 +783,7 @@ export const se_DeleteVerifiedEmailAddressCommand = async (
   input: DeleteVerifiedEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteVerifiedEmailAddressRequest(input, context),
@@ -840,9 +800,7 @@ export const se_DescribeActiveReceiptRuleSetCommand = async (
   input: DescribeActiveReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeActiveReceiptRuleSetRequest(input, context),
@@ -859,9 +817,7 @@ export const se_DescribeConfigurationSetCommand = async (
   input: DescribeConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeConfigurationSetRequest(input, context),
@@ -878,9 +834,7 @@ export const se_DescribeReceiptRuleCommand = async (
   input: DescribeReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReceiptRuleRequest(input, context),
@@ -897,9 +851,7 @@ export const se_DescribeReceiptRuleSetCommand = async (
   input: DescribeReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReceiptRuleSetRequest(input, context),
@@ -916,9 +868,7 @@ export const se_GetAccountSendingEnabledCommand = async (
   input: GetAccountSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetAccountSendingEnabled",
     Version: "2010-12-01",
@@ -933,9 +883,7 @@ export const se_GetCustomVerificationEmailTemplateCommand = async (
   input: GetCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetCustomVerificationEmailTemplateRequest(input, context),
@@ -952,9 +900,7 @@ export const se_GetIdentityDkimAttributesCommand = async (
   input: GetIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityDkimAttributesRequest(input, context),
@@ -971,9 +917,7 @@ export const se_GetIdentityMailFromDomainAttributesCommand = async (
   input: GetIdentityMailFromDomainAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityMailFromDomainAttributesRequest(input, context),
@@ -990,9 +934,7 @@ export const se_GetIdentityNotificationAttributesCommand = async (
   input: GetIdentityNotificationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityNotificationAttributesRequest(input, context),
@@ -1009,9 +951,7 @@ export const se_GetIdentityPoliciesCommand = async (
   input: GetIdentityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityPoliciesRequest(input, context),
@@ -1028,9 +968,7 @@ export const se_GetIdentityVerificationAttributesCommand = async (
   input: GetIdentityVerificationAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityVerificationAttributesRequest(input, context),
@@ -1047,9 +985,7 @@ export const se_GetSendQuotaCommand = async (
   input: GetSendQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetSendQuota",
     Version: "2010-12-01",
@@ -1064,9 +1000,7 @@ export const se_GetSendStatisticsCommand = async (
   input: GetSendStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "GetSendStatistics",
     Version: "2010-12-01",
@@ -1081,9 +1015,7 @@ export const se_GetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateRequest(input, context),
@@ -1100,9 +1032,7 @@ export const se_ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListConfigurationSetsRequest(input, context),
@@ -1119,9 +1049,7 @@ export const se_ListCustomVerificationEmailTemplatesCommand = async (
   input: ListCustomVerificationEmailTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListCustomVerificationEmailTemplatesRequest(input, context),
@@ -1138,9 +1066,7 @@ export const se_ListIdentitiesCommand = async (
   input: ListIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListIdentitiesRequest(input, context),
@@ -1157,9 +1083,7 @@ export const se_ListIdentityPoliciesCommand = async (
   input: ListIdentityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListIdentityPoliciesRequest(input, context),
@@ -1176,9 +1100,7 @@ export const se_ListReceiptFiltersCommand = async (
   input: ListReceiptFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListReceiptFiltersRequest(input, context),
@@ -1195,9 +1117,7 @@ export const se_ListReceiptRuleSetsCommand = async (
   input: ListReceiptRuleSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListReceiptRuleSetsRequest(input, context),
@@ -1214,9 +1134,7 @@ export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTemplatesRequest(input, context),
@@ -1233,9 +1151,7 @@ export const se_ListVerifiedEmailAddressesCommand = async (
   input: ListVerifiedEmailAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "ListVerifiedEmailAddresses",
     Version: "2010-12-01",
@@ -1250,9 +1166,7 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutConfigurationSetDeliveryOptionsRequest(input, context),
@@ -1269,9 +1183,7 @@ export const se_PutIdentityPolicyCommand = async (
   input: PutIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutIdentityPolicyRequest(input, context),
@@ -1288,9 +1200,7 @@ export const se_ReorderReceiptRuleSetCommand = async (
   input: ReorderReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ReorderReceiptRuleSetRequest(input, context),
@@ -1307,9 +1217,7 @@ export const se_SendBounceCommand = async (
   input: SendBounceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendBounceRequest(input, context),
@@ -1326,9 +1234,7 @@ export const se_SendBulkTemplatedEmailCommand = async (
   input: SendBulkTemplatedEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendBulkTemplatedEmailRequest(input, context),
@@ -1345,9 +1251,7 @@ export const se_SendCustomVerificationEmailCommand = async (
   input: SendCustomVerificationEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendCustomVerificationEmailRequest(input, context),
@@ -1364,9 +1268,7 @@ export const se_SendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendEmailRequest(input, context),
@@ -1383,9 +1285,7 @@ export const se_SendRawEmailCommand = async (
   input: SendRawEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendRawEmailRequest(input, context),
@@ -1402,9 +1302,7 @@ export const se_SendTemplatedEmailCommand = async (
   input: SendTemplatedEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendTemplatedEmailRequest(input, context),
@@ -1421,9 +1319,7 @@ export const se_SetActiveReceiptRuleSetCommand = async (
   input: SetActiveReceiptRuleSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetActiveReceiptRuleSetRequest(input, context),
@@ -1440,9 +1336,7 @@ export const se_SetIdentityDkimEnabledCommand = async (
   input: SetIdentityDkimEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityDkimEnabledRequest(input, context),
@@ -1459,9 +1353,7 @@ export const se_SetIdentityFeedbackForwardingEnabledCommand = async (
   input: SetIdentityFeedbackForwardingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityFeedbackForwardingEnabledRequest(input, context),
@@ -1478,9 +1370,7 @@ export const se_SetIdentityHeadersInNotificationsEnabledCommand = async (
   input: SetIdentityHeadersInNotificationsEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityHeadersInNotificationsEnabledRequest(input, context),
@@ -1497,9 +1387,7 @@ export const se_SetIdentityMailFromDomainCommand = async (
   input: SetIdentityMailFromDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityMailFromDomainRequest(input, context),
@@ -1516,9 +1404,7 @@ export const se_SetIdentityNotificationTopicCommand = async (
   input: SetIdentityNotificationTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityNotificationTopicRequest(input, context),
@@ -1535,9 +1421,7 @@ export const se_SetReceiptRulePositionCommand = async (
   input: SetReceiptRulePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetReceiptRulePositionRequest(input, context),
@@ -1554,9 +1438,7 @@ export const se_TestRenderTemplateCommand = async (
   input: TestRenderTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestRenderTemplateRequest(input, context),
@@ -1573,9 +1455,7 @@ export const se_UpdateAccountSendingEnabledCommand = async (
   input: UpdateAccountSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccountSendingEnabledRequest(input, context),
@@ -1592,9 +1472,7 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetEventDestinationRequest(input, context),
@@ -1611,9 +1489,7 @@ export const se_UpdateConfigurationSetReputationMetricsEnabledCommand = async (
   input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetReputationMetricsEnabledRequest(input, context),
@@ -1630,9 +1506,7 @@ export const se_UpdateConfigurationSetSendingEnabledCommand = async (
   input: UpdateConfigurationSetSendingEnabledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetSendingEnabledRequest(input, context),
@@ -1649,9 +1523,7 @@ export const se_UpdateConfigurationSetTrackingOptionsCommand = async (
   input: UpdateConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetTrackingOptionsRequest(input, context),
@@ -1668,9 +1540,7 @@ export const se_UpdateCustomVerificationEmailTemplateCommand = async (
   input: UpdateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateCustomVerificationEmailTemplateRequest(input, context),
@@ -1687,9 +1557,7 @@ export const se_UpdateReceiptRuleCommand = async (
   input: UpdateReceiptRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateReceiptRuleRequest(input, context),
@@ -1706,9 +1574,7 @@ export const se_UpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateTemplateRequest(input, context),
@@ -1725,9 +1591,7 @@ export const se_VerifyDomainDkimCommand = async (
   input: VerifyDomainDkimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyDomainDkimRequest(input, context),
@@ -1744,9 +1608,7 @@ export const se_VerifyDomainIdentityCommand = async (
   input: VerifyDomainIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyDomainIdentityRequest(input, context),
@@ -1763,9 +1625,7 @@ export const se_VerifyEmailAddressCommand = async (
   input: VerifyEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyEmailAddressRequest(input, context),
@@ -1782,9 +1642,7 @@ export const se_VerifyEmailIdentityCommand = async (
   input: VerifyEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyEmailIdentityRequest(input, context),
@@ -9967,6 +9825,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

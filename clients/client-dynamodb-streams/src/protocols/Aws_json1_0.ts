@@ -55,10 +55,7 @@ export const se_DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.DescribeStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStream");
   let body: any;
   body = JSON.stringify(se_DescribeStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -71,10 +68,7 @@ export const se_GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.GetRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecords");
   let body: any;
   body = JSON.stringify(se_GetRecordsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -87,10 +81,7 @@ export const se_GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.GetShardIterator",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetShardIterator");
   let body: any;
   body = JSON.stringify(se_GetShardIteratorInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -103,10 +94,7 @@ export const se_ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.ListStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStreams");
   let body: any;
   body = JSON.stringify(se_ListStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -874,6 +862,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `DynamoDBStreams_20120810.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

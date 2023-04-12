@@ -341,10 +341,7 @@ export const se_AssociateFileSystemAliasesCommand = async (
   input: AssociateFileSystemAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFileSystemAliases");
   let body: any;
   body = JSON.stringify(se_AssociateFileSystemAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -357,10 +354,7 @@ export const se_CancelDataRepositoryTaskCommand = async (
   input: CancelDataRepositoryTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelDataRepositoryTask");
   let body: any;
   body = JSON.stringify(se_CancelDataRepositoryTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -373,10 +367,7 @@ export const se_CopyBackupCommand = async (
   input: CopyBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CopyBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyBackup");
   let body: any;
   body = JSON.stringify(se_CopyBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -389,10 +380,7 @@ export const se_CreateBackupCommand = async (
   input: CreateBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBackup");
   let body: any;
   body = JSON.stringify(se_CreateBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -405,10 +393,7 @@ export const se_CreateDataRepositoryAssociationCommand = async (
   input: CreateDataRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataRepositoryAssociation");
   let body: any;
   body = JSON.stringify(se_CreateDataRepositoryAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -421,10 +406,7 @@ export const se_CreateDataRepositoryTaskCommand = async (
   input: CreateDataRepositoryTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataRepositoryTask");
   let body: any;
   body = JSON.stringify(se_CreateDataRepositoryTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -437,10 +419,7 @@ export const se_CreateFileCacheCommand = async (
   input: CreateFileCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileCache",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFileCache");
   let body: any;
   body = JSON.stringify(se_CreateFileCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -453,10 +432,7 @@ export const se_CreateFileSystemCommand = async (
   input: CreateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileSystem",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFileSystem");
   let body: any;
   body = JSON.stringify(se_CreateFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -469,10 +445,7 @@ export const se_CreateFileSystemFromBackupCommand = async (
   input: CreateFileSystemFromBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFileSystemFromBackup");
   let body: any;
   body = JSON.stringify(se_CreateFileSystemFromBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +458,7 @@ export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +471,7 @@ export const se_CreateStorageVirtualMachineCommand = async (
   input: CreateStorageVirtualMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateStorageVirtualMachine");
   let body: any;
   body = JSON.stringify(se_CreateStorageVirtualMachineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +484,7 @@ export const se_CreateVolumeCommand = async (
   input: CreateVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateVolume",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVolume");
   let body: any;
   body = JSON.stringify(se_CreateVolumeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -533,10 +497,7 @@ export const se_CreateVolumeFromBackupCommand = async (
   input: CreateVolumeFromBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.CreateVolumeFromBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVolumeFromBackup");
   let body: any;
   body = JSON.stringify(se_CreateVolumeFromBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -549,10 +510,7 @@ export const se_DeleteBackupCommand = async (
   input: DeleteBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteBackup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBackup");
   let body: any;
   body = JSON.stringify(se_DeleteBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -565,10 +523,7 @@ export const se_DeleteDataRepositoryAssociationCommand = async (
   input: DeleteDataRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataRepositoryAssociation");
   let body: any;
   body = JSON.stringify(se_DeleteDataRepositoryAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -581,10 +536,7 @@ export const se_DeleteFileCacheCommand = async (
   input: DeleteFileCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteFileCache",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFileCache");
   let body: any;
   body = JSON.stringify(se_DeleteFileCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,10 +549,7 @@ export const se_DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteFileSystem",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFileSystem");
   let body: any;
   body = JSON.stringify(se_DeleteFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -613,10 +562,7 @@ export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -629,10 +575,7 @@ export const se_DeleteStorageVirtualMachineCommand = async (
   input: DeleteStorageVirtualMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteStorageVirtualMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStorageVirtualMachine");
   let body: any;
   body = JSON.stringify(se_DeleteStorageVirtualMachineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -645,10 +588,7 @@ export const se_DeleteVolumeCommand = async (
   input: DeleteVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DeleteVolume",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVolume");
   let body: any;
   body = JSON.stringify(se_DeleteVolumeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -661,10 +601,7 @@ export const se_DescribeBackupsCommand = async (
   input: DescribeBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeBackups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBackups");
   let body: any;
   body = JSON.stringify(se_DescribeBackupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -677,10 +614,7 @@ export const se_DescribeDataRepositoryAssociationsCommand = async (
   input: DescribeDataRepositoryAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataRepositoryAssociations");
   let body: any;
   body = JSON.stringify(se_DescribeDataRepositoryAssociationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -693,10 +627,7 @@ export const se_DescribeDataRepositoryTasksCommand = async (
   input: DescribeDataRepositoryTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataRepositoryTasks");
   let body: any;
   body = JSON.stringify(se_DescribeDataRepositoryTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -709,10 +640,7 @@ export const se_DescribeFileCachesCommand = async (
   input: DescribeFileCachesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeFileCaches",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFileCaches");
   let body: any;
   body = JSON.stringify(se_DescribeFileCachesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -725,10 +653,7 @@ export const se_DescribeFileSystemAliasesCommand = async (
   input: DescribeFileSystemAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFileSystemAliases");
   let body: any;
   body = JSON.stringify(se_DescribeFileSystemAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -741,10 +666,7 @@ export const se_DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeFileSystems",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFileSystems");
   let body: any;
   body = JSON.stringify(se_DescribeFileSystemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -757,10 +679,7 @@ export const se_DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSnapshots");
   let body: any;
   body = JSON.stringify(se_DescribeSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -773,10 +692,7 @@ export const se_DescribeStorageVirtualMachinesCommand = async (
   input: DescribeStorageVirtualMachinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStorageVirtualMachines");
   let body: any;
   body = JSON.stringify(se_DescribeStorageVirtualMachinesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -789,10 +705,7 @@ export const se_DescribeVolumesCommand = async (
   input: DescribeVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DescribeVolumes",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeVolumes");
   let body: any;
   body = JSON.stringify(se_DescribeVolumesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -805,10 +718,7 @@ export const se_DisassociateFileSystemAliasesCommand = async (
   input: DisassociateFileSystemAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.DisassociateFileSystemAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateFileSystemAliases");
   let body: any;
   body = JSON.stringify(se_DisassociateFileSystemAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -821,10 +731,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -837,10 +744,7 @@ export const se_ReleaseFileSystemNfsV3LocksCommand = async (
   input: ReleaseFileSystemNfsV3LocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReleaseFileSystemNfsV3Locks");
   let body: any;
   body = JSON.stringify(se_ReleaseFileSystemNfsV3LocksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -853,10 +757,7 @@ export const se_RestoreVolumeFromSnapshotCommand = async (
   input: RestoreVolumeFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreVolumeFromSnapshot");
   let body: any;
   body = JSON.stringify(se_RestoreVolumeFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -869,10 +770,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -885,10 +783,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -901,10 +796,7 @@ export const se_UpdateDataRepositoryAssociationCommand = async (
   input: UpdateDataRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDataRepositoryAssociation");
   let body: any;
   body = JSON.stringify(se_UpdateDataRepositoryAssociationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -917,10 +809,7 @@ export const se_UpdateFileCacheCommand = async (
   input: UpdateFileCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateFileCache",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFileCache");
   let body: any;
   body = JSON.stringify(se_UpdateFileCacheRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -933,10 +822,7 @@ export const se_UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateFileSystem",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFileSystem");
   let body: any;
   body = JSON.stringify(se_UpdateFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -949,10 +835,7 @@ export const se_UpdateSnapshotCommand = async (
   input: UpdateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSnapshot");
   let body: any;
   body = JSON.stringify(se_UpdateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -965,10 +848,7 @@ export const se_UpdateStorageVirtualMachineCommand = async (
   input: UpdateStorageVirtualMachineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateStorageVirtualMachine");
   let body: any;
   body = JSON.stringify(se_UpdateStorageVirtualMachineRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -981,10 +861,7 @@ export const se_UpdateVolumeCommand = async (
   input: UpdateVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateVolume",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVolume");
   let body: any;
   body = JSON.stringify(se_UpdateVolumeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7854,6 +7731,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSSimbaAPIService_v20180301.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

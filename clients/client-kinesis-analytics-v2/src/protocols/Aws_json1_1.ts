@@ -323,10 +323,7 @@ export const se_AddApplicationCloudWatchLoggingOptionCommand = async (
   input: AddApplicationCloudWatchLoggingOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationCloudWatchLoggingOption");
   let body: any;
   body = JSON.stringify(se_AddApplicationCloudWatchLoggingOptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,10 +336,7 @@ export const se_AddApplicationInputCommand = async (
   input: AddApplicationInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationInput",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationInput");
   let body: any;
   body = JSON.stringify(se_AddApplicationInputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -355,10 +349,7 @@ export const se_AddApplicationInputProcessingConfigurationCommand = async (
   input: AddApplicationInputProcessingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationInputProcessingConfiguration");
   let body: any;
   body = JSON.stringify(se_AddApplicationInputProcessingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -371,10 +362,7 @@ export const se_AddApplicationOutputCommand = async (
   input: AddApplicationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationOutput");
   let body: any;
   body = JSON.stringify(se_AddApplicationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +375,7 @@ export const se_AddApplicationReferenceDataSourceCommand = async (
   input: AddApplicationReferenceDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationReferenceDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationReferenceDataSource");
   let body: any;
   body = JSON.stringify(se_AddApplicationReferenceDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +388,7 @@ export const se_AddApplicationVpcConfigurationCommand = async (
   input: AddApplicationVpcConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.AddApplicationVpcConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddApplicationVpcConfiguration");
   let body: any;
   body = JSON.stringify(se_AddApplicationVpcConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +401,7 @@ export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
   body = JSON.stringify(se_CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +414,7 @@ export const se_CreateApplicationPresignedUrlCommand = async (
   input: CreateApplicationPresignedUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.CreateApplicationPresignedUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplicationPresignedUrl");
   let body: any;
   body = JSON.stringify(se_CreateApplicationPresignedUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +427,7 @@ export const se_CreateApplicationSnapshotCommand = async (
   input: CreateApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.CreateApplicationSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplicationSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +440,7 @@ export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +453,7 @@ export const se_DeleteApplicationCloudWatchLoggingOptionCommand = async (
   input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationCloudWatchLoggingOption");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationCloudWatchLoggingOptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +466,7 @@ export const se_DeleteApplicationInputProcessingConfigurationCommand = async (
   input: DeleteApplicationInputProcessingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationInputProcessingConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationInputProcessingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +479,7 @@ export const se_DeleteApplicationOutputCommand = async (
   input: DeleteApplicationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationOutput");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +492,7 @@ export const se_DeleteApplicationReferenceDataSourceCommand = async (
   input: DeleteApplicationReferenceDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationReferenceDataSource");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationReferenceDataSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +505,7 @@ export const se_DeleteApplicationSnapshotCommand = async (
   input: DeleteApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +518,7 @@ export const se_DeleteApplicationVpcConfigurationCommand = async (
   input: DeleteApplicationVpcConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationVpcConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationVpcConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +531,7 @@ export const se_DescribeApplicationCommand = async (
   input: DescribeApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DescribeApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplication");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +544,7 @@ export const se_DescribeApplicationSnapshotCommand = async (
   input: DescribeApplicationSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DescribeApplicationSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationSnapshot");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +557,7 @@ export const se_DescribeApplicationVersionCommand = async (
   input: DescribeApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DescribeApplicationVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationVersion");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +570,7 @@ export const se_DiscoverInputSchemaCommand = async (
   input: DiscoverInputSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.DiscoverInputSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DiscoverInputSchema");
   let body: any;
   body = JSON.stringify(se_DiscoverInputSchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +583,7 @@ export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.ListApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplications");
   let body: any;
   body = JSON.stringify(se_ListApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +596,7 @@ export const se_ListApplicationSnapshotsCommand = async (
   input: ListApplicationSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.ListApplicationSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplicationSnapshots");
   let body: any;
   body = JSON.stringify(se_ListApplicationSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +609,7 @@ export const se_ListApplicationVersionsCommand = async (
   input: ListApplicationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.ListApplicationVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplicationVersions");
   let body: any;
   body = JSON.stringify(se_ListApplicationVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +622,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +635,7 @@ export const se_RollbackApplicationCommand = async (
   input: RollbackApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.RollbackApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("RollbackApplication");
   let body: any;
   body = JSON.stringify(se_RollbackApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +648,7 @@ export const se_StartApplicationCommand = async (
   input: StartApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.StartApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartApplication");
   let body: any;
   body = JSON.stringify(se_StartApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +661,7 @@ export const se_StopApplicationCommand = async (
   input: StopApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.StopApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopApplication");
   let body: any;
   body = JSON.stringify(se_StopApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +674,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +687,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +700,7 @@ export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +713,7 @@ export const se_UpdateApplicationMaintenanceConfigurationCommand = async (
   input: UpdateApplicationMaintenanceConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplicationMaintenanceConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationMaintenanceConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6176,6 +6083,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `KinesisAnalytics_20180523.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

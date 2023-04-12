@@ -515,10 +515,7 @@ export const se_AcceptEnvironmentAccountConnectionCommand = async (
   input: AcceptEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.AcceptEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_AcceptEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +528,7 @@ export const se_CancelComponentDeploymentCommand = async (
   input: CancelComponentDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CancelComponentDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelComponentDeployment");
   let body: any;
   body = JSON.stringify(se_CancelComponentDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +541,7 @@ export const se_CancelEnvironmentDeploymentCommand = async (
   input: CancelEnvironmentDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CancelEnvironmentDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelEnvironmentDeployment");
   let body: any;
   body = JSON.stringify(se_CancelEnvironmentDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +554,7 @@ export const se_CancelServiceInstanceDeploymentCommand = async (
   input: CancelServiceInstanceDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CancelServiceInstanceDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelServiceInstanceDeployment");
   let body: any;
   body = JSON.stringify(se_CancelServiceInstanceDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +567,7 @@ export const se_CancelServicePipelineDeploymentCommand = async (
   input: CancelServicePipelineDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CancelServicePipelineDeployment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelServicePipelineDeployment");
   let body: any;
   body = JSON.stringify(se_CancelServicePipelineDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +580,7 @@ export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateComponent");
   let body: any;
   body = JSON.stringify(se_CreateComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +593,7 @@ export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironment");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +606,7 @@ export const se_CreateEnvironmentAccountConnectionCommand = async (
   input: CreateEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +619,7 @@ export const se_CreateEnvironmentTemplateCommand = async (
   input: CreateEnvironmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateEnvironmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironmentTemplate");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +632,7 @@ export const se_CreateEnvironmentTemplateVersionCommand = async (
   input: CreateEnvironmentTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateEnvironmentTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEnvironmentTemplateVersion");
   let body: any;
   body = JSON.stringify(se_CreateEnvironmentTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +645,7 @@ export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRepository");
   let body: any;
   body = JSON.stringify(se_CreateRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +658,7 @@ export const se_CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateService");
   let body: any;
   body = JSON.stringify(se_CreateServiceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +671,7 @@ export const se_CreateServiceInstanceCommand = async (
   input: CreateServiceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateServiceInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServiceInstance");
   let body: any;
   body = JSON.stringify(se_CreateServiceInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +684,7 @@ export const se_CreateServiceSyncConfigCommand = async (
   input: CreateServiceSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateServiceSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServiceSyncConfig");
   let body: any;
   body = JSON.stringify(se_CreateServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +697,7 @@ export const se_CreateServiceTemplateCommand = async (
   input: CreateServiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateServiceTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServiceTemplate");
   let body: any;
   body = JSON.stringify(se_CreateServiceTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +710,7 @@ export const se_CreateServiceTemplateVersionCommand = async (
   input: CreateServiceTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateServiceTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServiceTemplateVersion");
   let body: any;
   body = JSON.stringify(se_CreateServiceTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +723,7 @@ export const se_CreateTemplateSyncConfigCommand = async (
   input: CreateTemplateSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.CreateTemplateSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTemplateSyncConfig");
   let body: any;
   body = JSON.stringify(se_CreateTemplateSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +736,7 @@ export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteComponent");
   let body: any;
   body = JSON.stringify(se_DeleteComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +749,7 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironment");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +762,7 @@ export const se_DeleteEnvironmentAccountConnectionCommand = async (
   input: DeleteEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +775,7 @@ export const se_DeleteEnvironmentTemplateCommand = async (
   input: DeleteEnvironmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteEnvironmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +788,7 @@ export const se_DeleteEnvironmentTemplateVersionCommand = async (
   input: DeleteEnvironmentTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteEnvironmentTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEnvironmentTemplateVersion");
   let body: any;
   body = JSON.stringify(se_DeleteEnvironmentTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +801,7 @@ export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRepository");
   let body: any;
   body = JSON.stringify(se_DeleteRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,10 +814,7 @@ export const se_DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteService",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteService");
   let body: any;
   body = JSON.stringify(se_DeleteServiceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,10 +827,7 @@ export const se_DeleteServiceSyncConfigCommand = async (
   input: DeleteServiceSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteServiceSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceSyncConfig");
   let body: any;
   body = JSON.stringify(se_DeleteServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -915,10 +840,7 @@ export const se_DeleteServiceTemplateCommand = async (
   input: DeleteServiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteServiceTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteServiceTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -931,10 +853,7 @@ export const se_DeleteServiceTemplateVersionCommand = async (
   input: DeleteServiceTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteServiceTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceTemplateVersion");
   let body: any;
   body = JSON.stringify(se_DeleteServiceTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -947,10 +866,7 @@ export const se_DeleteTemplateSyncConfigCommand = async (
   input: DeleteTemplateSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.DeleteTemplateSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTemplateSyncConfig");
   let body: any;
   body = JSON.stringify(se_DeleteTemplateSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -963,10 +879,7 @@ export const se_GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetAccountSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccountSettings");
   let body: any;
   body = JSON.stringify(se_GetAccountSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -979,10 +892,7 @@ export const se_GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComponent");
   let body: any;
   body = JSON.stringify(se_GetComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -995,10 +905,7 @@ export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnvironment");
   let body: any;
   body = JSON.stringify(se_GetEnvironmentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1011,10 +918,7 @@ export const se_GetEnvironmentAccountConnectionCommand = async (
   input: GetEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_GetEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1027,10 +931,7 @@ export const se_GetEnvironmentTemplateCommand = async (
   input: GetEnvironmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetEnvironmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnvironmentTemplate");
   let body: any;
   body = JSON.stringify(se_GetEnvironmentTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1043,10 +944,7 @@ export const se_GetEnvironmentTemplateVersionCommand = async (
   input: GetEnvironmentTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetEnvironmentTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnvironmentTemplateVersion");
   let body: any;
   body = JSON.stringify(se_GetEnvironmentTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1059,10 +957,7 @@ export const se_GetRepositoryCommand = async (
   input: GetRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetRepository",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepository");
   let body: any;
   body = JSON.stringify(se_GetRepositoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1075,10 +970,7 @@ export const se_GetRepositorySyncStatusCommand = async (
   input: GetRepositorySyncStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetRepositorySyncStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRepositorySyncStatus");
   let body: any;
   body = JSON.stringify(se_GetRepositorySyncStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1091,10 +983,7 @@ export const se_GetResourcesSummaryCommand = async (
   input: GetResourcesSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetResourcesSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcesSummary");
   let body: any;
   body = JSON.stringify(se_GetResourcesSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1107,10 +996,7 @@ export const se_GetServiceCommand = async (
   input: GetServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetService",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetService");
   let body: any;
   body = JSON.stringify(se_GetServiceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1123,10 +1009,7 @@ export const se_GetServiceInstanceCommand = async (
   input: GetServiceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceInstance");
   let body: any;
   body = JSON.stringify(se_GetServiceInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1139,10 +1022,7 @@ export const se_GetServiceInstanceSyncStatusCommand = async (
   input: GetServiceInstanceSyncStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceInstanceSyncStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceInstanceSyncStatus");
   let body: any;
   body = JSON.stringify(se_GetServiceInstanceSyncStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1155,10 +1035,7 @@ export const se_GetServiceSyncBlockerSummaryCommand = async (
   input: GetServiceSyncBlockerSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceSyncBlockerSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceSyncBlockerSummary");
   let body: any;
   body = JSON.stringify(se_GetServiceSyncBlockerSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1171,10 +1048,7 @@ export const se_GetServiceSyncConfigCommand = async (
   input: GetServiceSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceSyncConfig");
   let body: any;
   body = JSON.stringify(se_GetServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1187,10 +1061,7 @@ export const se_GetServiceTemplateCommand = async (
   input: GetServiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceTemplate");
   let body: any;
   body = JSON.stringify(se_GetServiceTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1203,10 +1074,7 @@ export const se_GetServiceTemplateVersionCommand = async (
   input: GetServiceTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetServiceTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceTemplateVersion");
   let body: any;
   body = JSON.stringify(se_GetServiceTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1219,10 +1087,7 @@ export const se_GetTemplateSyncConfigCommand = async (
   input: GetTemplateSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetTemplateSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTemplateSyncConfig");
   let body: any;
   body = JSON.stringify(se_GetTemplateSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1235,10 +1100,7 @@ export const se_GetTemplateSyncStatusCommand = async (
   input: GetTemplateSyncStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.GetTemplateSyncStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTemplateSyncStatus");
   let body: any;
   body = JSON.stringify(se_GetTemplateSyncStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1251,10 +1113,7 @@ export const se_ListComponentOutputsCommand = async (
   input: ListComponentOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListComponentOutputs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComponentOutputs");
   let body: any;
   body = JSON.stringify(se_ListComponentOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1267,10 +1126,7 @@ export const se_ListComponentProvisionedResourcesCommand = async (
   input: ListComponentProvisionedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListComponentProvisionedResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComponentProvisionedResources");
   let body: any;
   body = JSON.stringify(se_ListComponentProvisionedResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1283,10 +1139,7 @@ export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListComponents",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListComponents");
   let body: any;
   body = JSON.stringify(se_ListComponentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1299,10 +1152,7 @@ export const se_ListEnvironmentAccountConnectionsCommand = async (
   input: ListEnvironmentAccountConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironmentAccountConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironmentAccountConnections");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentAccountConnectionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1315,10 +1165,7 @@ export const se_ListEnvironmentOutputsCommand = async (
   input: ListEnvironmentOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironmentOutputs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironmentOutputs");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1331,10 +1178,7 @@ export const se_ListEnvironmentProvisionedResourcesCommand = async (
   input: ListEnvironmentProvisionedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironmentProvisionedResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironmentProvisionedResources");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentProvisionedResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1347,10 +1191,7 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironments");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1363,10 +1204,7 @@ export const se_ListEnvironmentTemplatesCommand = async (
   input: ListEnvironmentTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironmentTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironmentTemplates");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentTemplatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1379,10 +1217,7 @@ export const se_ListEnvironmentTemplateVersionsCommand = async (
   input: ListEnvironmentTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListEnvironmentTemplateVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEnvironmentTemplateVersions");
   let body: any;
   body = JSON.stringify(se_ListEnvironmentTemplateVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1395,10 +1230,7 @@ export const se_ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListRepositories",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRepositories");
   let body: any;
   body = JSON.stringify(se_ListRepositoriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1411,10 +1243,7 @@ export const se_ListRepositorySyncDefinitionsCommand = async (
   input: ListRepositorySyncDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListRepositorySyncDefinitions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRepositorySyncDefinitions");
   let body: any;
   body = JSON.stringify(se_ListRepositorySyncDefinitionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1427,10 +1256,7 @@ export const se_ListServiceInstanceOutputsCommand = async (
   input: ListServiceInstanceOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServiceInstanceOutputs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceInstanceOutputs");
   let body: any;
   body = JSON.stringify(se_ListServiceInstanceOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1443,10 +1269,7 @@ export const se_ListServiceInstanceProvisionedResourcesCommand = async (
   input: ListServiceInstanceProvisionedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServiceInstanceProvisionedResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceInstanceProvisionedResources");
   let body: any;
   body = JSON.stringify(se_ListServiceInstanceProvisionedResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1459,10 +1282,7 @@ export const se_ListServiceInstancesCommand = async (
   input: ListServiceInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServiceInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceInstances");
   let body: any;
   body = JSON.stringify(se_ListServiceInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1475,10 +1295,7 @@ export const se_ListServicePipelineOutputsCommand = async (
   input: ListServicePipelineOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServicePipelineOutputs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServicePipelineOutputs");
   let body: any;
   body = JSON.stringify(se_ListServicePipelineOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1491,10 +1308,7 @@ export const se_ListServicePipelineProvisionedResourcesCommand = async (
   input: ListServicePipelineProvisionedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServicePipelineProvisionedResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServicePipelineProvisionedResources");
   let body: any;
   body = JSON.stringify(se_ListServicePipelineProvisionedResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1507,10 +1321,7 @@ export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
   body = JSON.stringify(se_ListServicesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1523,10 +1334,7 @@ export const se_ListServiceTemplatesCommand = async (
   input: ListServiceTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServiceTemplates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceTemplates");
   let body: any;
   body = JSON.stringify(se_ListServiceTemplatesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1539,10 +1347,7 @@ export const se_ListServiceTemplateVersionsCommand = async (
   input: ListServiceTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListServiceTemplateVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceTemplateVersions");
   let body: any;
   body = JSON.stringify(se_ListServiceTemplateVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1555,10 +1360,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1571,10 +1373,7 @@ export const se_NotifyResourceDeploymentStatusChangeCommand = async (
   input: NotifyResourceDeploymentStatusChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.NotifyResourceDeploymentStatusChange",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyResourceDeploymentStatusChange");
   let body: any;
   body = JSON.stringify(se_NotifyResourceDeploymentStatusChangeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1587,10 +1386,7 @@ export const se_RejectEnvironmentAccountConnectionCommand = async (
   input: RejectEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.RejectEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_RejectEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1603,10 +1399,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1619,10 +1412,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1635,10 +1425,7 @@ export const se_UpdateAccountSettingsCommand = async (
   input: UpdateAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateAccountSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
   let body: any;
   body = JSON.stringify(se_UpdateAccountSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1651,10 +1438,7 @@ export const se_UpdateComponentCommand = async (
   input: UpdateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateComponent",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateComponent");
   let body: any;
   body = JSON.stringify(se_UpdateComponentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1667,10 +1451,7 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateEnvironment",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironment");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1683,10 +1464,7 @@ export const se_UpdateEnvironmentAccountConnectionCommand = async (
   input: UpdateEnvironmentAccountConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateEnvironmentAccountConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentAccountConnection");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentAccountConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1699,10 +1477,7 @@ export const se_UpdateEnvironmentTemplateCommand = async (
   input: UpdateEnvironmentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateEnvironmentTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentTemplate");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1715,10 +1490,7 @@ export const se_UpdateEnvironmentTemplateVersionCommand = async (
   input: UpdateEnvironmentTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateEnvironmentTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnvironmentTemplateVersion");
   let body: any;
   body = JSON.stringify(se_UpdateEnvironmentTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1731,10 +1503,7 @@ export const se_UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateService",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateService");
   let body: any;
   body = JSON.stringify(se_UpdateServiceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1747,10 +1516,7 @@ export const se_UpdateServiceInstanceCommand = async (
   input: UpdateServiceInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServiceInstance",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceInstance");
   let body: any;
   body = JSON.stringify(se_UpdateServiceInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1763,10 +1529,7 @@ export const se_UpdateServicePipelineCommand = async (
   input: UpdateServicePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServicePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServicePipeline");
   let body: any;
   body = JSON.stringify(se_UpdateServicePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1779,10 +1542,7 @@ export const se_UpdateServiceSyncBlockerCommand = async (
   input: UpdateServiceSyncBlockerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServiceSyncBlocker",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceSyncBlocker");
   let body: any;
   body = JSON.stringify(se_UpdateServiceSyncBlockerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1795,10 +1555,7 @@ export const se_UpdateServiceSyncConfigCommand = async (
   input: UpdateServiceSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServiceSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceSyncConfig");
   let body: any;
   body = JSON.stringify(se_UpdateServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1811,10 +1568,7 @@ export const se_UpdateServiceTemplateCommand = async (
   input: UpdateServiceTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServiceTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceTemplate");
   let body: any;
   body = JSON.stringify(se_UpdateServiceTemplateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1827,10 +1581,7 @@ export const se_UpdateServiceTemplateVersionCommand = async (
   input: UpdateServiceTemplateVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateServiceTemplateVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceTemplateVersion");
   let body: any;
   body = JSON.stringify(se_UpdateServiceTemplateVersionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1843,10 +1594,7 @@ export const se_UpdateTemplateSyncConfigCommand = async (
   input: UpdateTemplateSyncConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "AwsProton20200720.UpdateTemplateSyncConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTemplateSyncConfig");
   let body: any;
   body = JSON.stringify(se_UpdateTemplateSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10414,6 +10162,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `AwsProton20200720.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -144,10 +144,7 @@ export const se_AssociateCreatedArtifactCommand = async (
   input: AssociateCreatedArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.AssociateCreatedArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateCreatedArtifact");
   let body: any;
   body = JSON.stringify(se_AssociateCreatedArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -160,10 +157,7 @@ export const se_AssociateDiscoveredResourceCommand = async (
   input: AssociateDiscoveredResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.AssociateDiscoveredResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateDiscoveredResource");
   let body: any;
   body = JSON.stringify(se_AssociateDiscoveredResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -176,10 +170,7 @@ export const se_CreateProgressUpdateStreamCommand = async (
   input: CreateProgressUpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.CreateProgressUpdateStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProgressUpdateStream");
   let body: any;
   body = JSON.stringify(se_CreateProgressUpdateStreamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -192,10 +183,7 @@ export const se_DeleteProgressUpdateStreamCommand = async (
   input: DeleteProgressUpdateStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.DeleteProgressUpdateStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProgressUpdateStream");
   let body: any;
   body = JSON.stringify(se_DeleteProgressUpdateStreamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -208,10 +196,7 @@ export const se_DescribeApplicationStateCommand = async (
   input: DescribeApplicationStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.DescribeApplicationState",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationState");
   let body: any;
   body = JSON.stringify(se_DescribeApplicationStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -224,10 +209,7 @@ export const se_DescribeMigrationTaskCommand = async (
   input: DescribeMigrationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.DescribeMigrationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMigrationTask");
   let body: any;
   body = JSON.stringify(se_DescribeMigrationTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,10 +222,7 @@ export const se_DisassociateCreatedArtifactCommand = async (
   input: DisassociateCreatedArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.DisassociateCreatedArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateCreatedArtifact");
   let body: any;
   body = JSON.stringify(se_DisassociateCreatedArtifactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -256,10 +235,7 @@ export const se_DisassociateDiscoveredResourceCommand = async (
   input: DisassociateDiscoveredResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.DisassociateDiscoveredResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateDiscoveredResource");
   let body: any;
   body = JSON.stringify(se_DisassociateDiscoveredResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -272,10 +248,7 @@ export const se_ImportMigrationTaskCommand = async (
   input: ImportMigrationTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ImportMigrationTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportMigrationTask");
   let body: any;
   body = JSON.stringify(se_ImportMigrationTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -288,10 +261,7 @@ export const se_ListApplicationStatesCommand = async (
   input: ListApplicationStatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ListApplicationStates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplicationStates");
   let body: any;
   body = JSON.stringify(se_ListApplicationStatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -304,10 +274,7 @@ export const se_ListCreatedArtifactsCommand = async (
   input: ListCreatedArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ListCreatedArtifacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCreatedArtifacts");
   let body: any;
   body = JSON.stringify(se_ListCreatedArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -320,10 +287,7 @@ export const se_ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ListDiscoveredResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDiscoveredResources");
   let body: any;
   body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -336,10 +300,7 @@ export const se_ListMigrationTasksCommand = async (
   input: ListMigrationTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ListMigrationTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMigrationTasks");
   let body: any;
   body = JSON.stringify(se_ListMigrationTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -352,10 +313,7 @@ export const se_ListProgressUpdateStreamsCommand = async (
   input: ListProgressUpdateStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.ListProgressUpdateStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProgressUpdateStreams");
   let body: any;
   body = JSON.stringify(se_ListProgressUpdateStreamsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -368,10 +326,7 @@ export const se_NotifyApplicationStateCommand = async (
   input: NotifyApplicationStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.NotifyApplicationState",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyApplicationState");
   let body: any;
   body = JSON.stringify(se_NotifyApplicationStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -384,10 +339,7 @@ export const se_NotifyMigrationTaskStateCommand = async (
   input: NotifyMigrationTaskStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.NotifyMigrationTaskState",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyMigrationTaskState");
   let body: any;
   body = JSON.stringify(se_NotifyMigrationTaskStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -400,10 +352,7 @@ export const se_PutResourceAttributesCommand = async (
   input: PutResourceAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSMigrationHub.PutResourceAttributes",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourceAttributes");
   let body: any;
   body = JSON.stringify(se_PutResourceAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2495,6 +2444,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSMigrationHub.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

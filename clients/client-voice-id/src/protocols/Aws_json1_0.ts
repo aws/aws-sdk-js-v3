@@ -174,10 +174,7 @@ export const se_AssociateFraudsterCommand = async (
   input: AssociateFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.AssociateFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFraudster");
   let body: any;
   body = JSON.stringify(se_AssociateFraudsterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -190,10 +187,7 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.CreateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDomain");
   let body: any;
   body = JSON.stringify(se_CreateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -206,10 +200,7 @@ export const se_CreateWatchlistCommand = async (
   input: CreateWatchlistCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.CreateWatchlist",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWatchlist");
   let body: any;
   body = JSON.stringify(se_CreateWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -222,10 +213,7 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
   body = JSON.stringify(se_DeleteDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -238,10 +226,7 @@ export const se_DeleteFraudsterCommand = async (
   input: DeleteFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFraudster");
   let body: any;
   body = JSON.stringify(se_DeleteFraudsterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -254,10 +239,7 @@ export const se_DeleteSpeakerCommand = async (
   input: DeleteSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSpeaker");
   let body: any;
   body = JSON.stringify(se_DeleteSpeakerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -270,10 +252,7 @@ export const se_DeleteWatchlistCommand = async (
   input: DeleteWatchlistCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteWatchlist",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWatchlist");
   let body: any;
   body = JSON.stringify(se_DeleteWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -286,10 +265,7 @@ export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
   body = JSON.stringify(se_DescribeDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -302,10 +278,7 @@ export const se_DescribeFraudsterCommand = async (
   input: DescribeFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFraudster");
   let body: any;
   body = JSON.stringify(se_DescribeFraudsterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -318,10 +291,7 @@ export const se_DescribeFraudsterRegistrationJobCommand = async (
   input: DescribeFraudsterRegistrationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeFraudsterRegistrationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFraudsterRegistrationJob");
   let body: any;
   body = JSON.stringify(se_DescribeFraudsterRegistrationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -334,10 +304,7 @@ export const se_DescribeSpeakerCommand = async (
   input: DescribeSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpeaker");
   let body: any;
   body = JSON.stringify(se_DescribeSpeakerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -350,10 +317,7 @@ export const se_DescribeSpeakerEnrollmentJobCommand = async (
   input: DescribeSpeakerEnrollmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeSpeakerEnrollmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpeakerEnrollmentJob");
   let body: any;
   body = JSON.stringify(se_DescribeSpeakerEnrollmentJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -366,10 +330,7 @@ export const se_DescribeWatchlistCommand = async (
   input: DescribeWatchlistCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeWatchlist",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWatchlist");
   let body: any;
   body = JSON.stringify(se_DescribeWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -382,10 +343,7 @@ export const se_DisassociateFraudsterCommand = async (
   input: DisassociateFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DisassociateFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateFraudster");
   let body: any;
   body = JSON.stringify(se_DisassociateFraudsterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -398,10 +356,7 @@ export const se_EvaluateSessionCommand = async (
   input: EvaluateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.EvaluateSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("EvaluateSession");
   let body: any;
   body = JSON.stringify(se_EvaluateSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -414,10 +369,7 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
   body = JSON.stringify(se_ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -430,10 +382,7 @@ export const se_ListFraudsterRegistrationJobsCommand = async (
   input: ListFraudsterRegistrationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListFraudsterRegistrationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFraudsterRegistrationJobs");
   let body: any;
   body = JSON.stringify(se_ListFraudsterRegistrationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -446,10 +395,7 @@ export const se_ListFraudstersCommand = async (
   input: ListFraudstersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListFraudsters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFraudsters");
   let body: any;
   body = JSON.stringify(se_ListFraudstersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -462,10 +408,7 @@ export const se_ListSpeakerEnrollmentJobsCommand = async (
   input: ListSpeakerEnrollmentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListSpeakerEnrollmentJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSpeakerEnrollmentJobs");
   let body: any;
   body = JSON.stringify(se_ListSpeakerEnrollmentJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -478,10 +421,7 @@ export const se_ListSpeakersCommand = async (
   input: ListSpeakersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListSpeakers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSpeakers");
   let body: any;
   body = JSON.stringify(se_ListSpeakersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -494,10 +434,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -510,10 +447,7 @@ export const se_ListWatchlistsCommand = async (
   input: ListWatchlistsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListWatchlists",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWatchlists");
   let body: any;
   body = JSON.stringify(se_ListWatchlistsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -526,10 +460,7 @@ export const se_OptOutSpeakerCommand = async (
   input: OptOutSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.OptOutSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("OptOutSpeaker");
   let body: any;
   body = JSON.stringify(se_OptOutSpeakerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -542,10 +473,7 @@ export const se_StartFraudsterRegistrationJobCommand = async (
   input: StartFraudsterRegistrationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.StartFraudsterRegistrationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFraudsterRegistrationJob");
   let body: any;
   body = JSON.stringify(se_StartFraudsterRegistrationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -558,10 +486,7 @@ export const se_StartSpeakerEnrollmentJobCommand = async (
   input: StartSpeakerEnrollmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.StartSpeakerEnrollmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSpeakerEnrollmentJob");
   let body: any;
   body = JSON.stringify(se_StartSpeakerEnrollmentJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -574,10 +499,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -590,10 +512,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -606,10 +525,7 @@ export const se_UpdateDomainCommand = async (
   input: UpdateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.UpdateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomain");
   let body: any;
   body = JSON.stringify(se_UpdateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -622,10 +538,7 @@ export const se_UpdateWatchlistCommand = async (
   input: UpdateWatchlistCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.UpdateWatchlist",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWatchlist");
   let body: any;
   body = JSON.stringify(se_UpdateWatchlistRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3956,6 +3869,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `VoiceID.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

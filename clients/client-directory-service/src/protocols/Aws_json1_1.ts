@@ -393,10 +393,7 @@ export const se_AcceptSharedDirectoryCommand = async (
   input: AcceptSharedDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.AcceptSharedDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptSharedDirectory");
   let body: any;
   body = JSON.stringify(se_AcceptSharedDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -409,10 +406,7 @@ export const se_AddIpRoutesCommand = async (
   input: AddIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.AddIpRoutes",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddIpRoutes");
   let body: any;
   body = JSON.stringify(se_AddIpRoutesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -425,10 +419,7 @@ export const se_AddRegionCommand = async (
   input: AddRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.AddRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddRegion");
   let body: any;
   body = JSON.stringify(se_AddRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -441,10 +432,7 @@ export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.AddTagsToResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AddTagsToResource");
   let body: any;
   body = JSON.stringify(se_AddTagsToResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -457,10 +445,7 @@ export const se_CancelSchemaExtensionCommand = async (
   input: CancelSchemaExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CancelSchemaExtension",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelSchemaExtension");
   let body: any;
   body = JSON.stringify(se_CancelSchemaExtensionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -473,10 +458,7 @@ export const se_ConnectDirectoryCommand = async (
   input: ConnectDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ConnectDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ConnectDirectory");
   let body: any;
   body = JSON.stringify(se_ConnectDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -489,10 +471,7 @@ export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAlias");
   let body: any;
   body = JSON.stringify(se_CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -505,10 +484,7 @@ export const se_CreateComputerCommand = async (
   input: CreateComputerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateComputer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateComputer");
   let body: any;
   body = JSON.stringify(se_CreateComputerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -521,10 +497,7 @@ export const se_CreateConditionalForwarderCommand = async (
   input: CreateConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateConditionalForwarder",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConditionalForwarder");
   let body: any;
   body = JSON.stringify(se_CreateConditionalForwarderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -537,10 +510,7 @@ export const se_CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDirectory");
   let body: any;
   body = JSON.stringify(se_CreateDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -553,10 +523,7 @@ export const se_CreateLogSubscriptionCommand = async (
   input: CreateLogSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateLogSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLogSubscription");
   let body: any;
   body = JSON.stringify(se_CreateLogSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -569,10 +536,7 @@ export const se_CreateMicrosoftADCommand = async (
   input: CreateMicrosoftADCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateMicrosoftAD",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMicrosoftAD");
   let body: any;
   body = JSON.stringify(se_CreateMicrosoftADRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -585,10 +549,7 @@ export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSnapshot");
   let body: any;
   body = JSON.stringify(se_CreateSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -601,10 +562,7 @@ export const se_CreateTrustCommand = async (
   input: CreateTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.CreateTrust",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTrust");
   let body: any;
   body = JSON.stringify(se_CreateTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -617,10 +575,7 @@ export const se_DeleteConditionalForwarderCommand = async (
   input: DeleteConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeleteConditionalForwarder",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConditionalForwarder");
   let body: any;
   body = JSON.stringify(se_DeleteConditionalForwarderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -633,10 +588,7 @@ export const se_DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeleteDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDirectory");
   let body: any;
   body = JSON.stringify(se_DeleteDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -649,10 +601,7 @@ export const se_DeleteLogSubscriptionCommand = async (
   input: DeleteLogSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeleteLogSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLogSubscription");
   let body: any;
   body = JSON.stringify(se_DeleteLogSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -665,10 +614,7 @@ export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeleteSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSnapshot");
   let body: any;
   body = JSON.stringify(se_DeleteSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -681,10 +627,7 @@ export const se_DeleteTrustCommand = async (
   input: DeleteTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeleteTrust",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTrust");
   let body: any;
   body = JSON.stringify(se_DeleteTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -697,10 +640,7 @@ export const se_DeregisterCertificateCommand = async (
   input: DeregisterCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeregisterCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterCertificate");
   let body: any;
   body = JSON.stringify(se_DeregisterCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -713,10 +653,7 @@ export const se_DeregisterEventTopicCommand = async (
   input: DeregisterEventTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DeregisterEventTopic",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterEventTopic");
   let body: any;
   body = JSON.stringify(se_DeregisterEventTopicRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -729,10 +666,7 @@ export const se_DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
   body = JSON.stringify(se_DescribeCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -745,10 +679,7 @@ export const se_DescribeClientAuthenticationSettingsCommand = async (
   input: DescribeClientAuthenticationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeClientAuthenticationSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClientAuthenticationSettings");
   let body: any;
   body = JSON.stringify(se_DescribeClientAuthenticationSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -761,10 +692,7 @@ export const se_DescribeConditionalForwardersCommand = async (
   input: DescribeConditionalForwardersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeConditionalForwarders",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConditionalForwarders");
   let body: any;
   body = JSON.stringify(se_DescribeConditionalForwardersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -777,10 +705,7 @@ export const se_DescribeDirectoriesCommand = async (
   input: DescribeDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeDirectories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectories");
   let body: any;
   body = JSON.stringify(se_DescribeDirectoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -793,10 +718,7 @@ export const se_DescribeDomainControllersCommand = async (
   input: DescribeDomainControllersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeDomainControllers",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDomainControllers");
   let body: any;
   body = JSON.stringify(se_DescribeDomainControllersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -809,10 +731,7 @@ export const se_DescribeEventTopicsCommand = async (
   input: DescribeEventTopicsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeEventTopics",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventTopics");
   let body: any;
   body = JSON.stringify(se_DescribeEventTopicsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -825,10 +744,7 @@ export const se_DescribeLDAPSSettingsCommand = async (
   input: DescribeLDAPSSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeLDAPSSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLDAPSSettings");
   let body: any;
   body = JSON.stringify(se_DescribeLDAPSSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -841,10 +757,7 @@ export const se_DescribeRegionsCommand = async (
   input: DescribeRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeRegions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRegions");
   let body: any;
   body = JSON.stringify(se_DescribeRegionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -857,10 +770,7 @@ export const se_DescribeSettingsCommand = async (
   input: DescribeSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSettings");
   let body: any;
   body = JSON.stringify(se_DescribeSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -873,10 +783,7 @@ export const se_DescribeSharedDirectoriesCommand = async (
   input: DescribeSharedDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeSharedDirectories",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSharedDirectories");
   let body: any;
   body = JSON.stringify(se_DescribeSharedDirectoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -889,10 +796,7 @@ export const se_DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeSnapshots",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSnapshots");
   let body: any;
   body = JSON.stringify(se_DescribeSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -905,10 +809,7 @@ export const se_DescribeTrustsCommand = async (
   input: DescribeTrustsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeTrusts",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTrusts");
   let body: any;
   body = JSON.stringify(se_DescribeTrustsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -921,10 +822,7 @@ export const se_DescribeUpdateDirectoryCommand = async (
   input: DescribeUpdateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DescribeUpdateDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUpdateDirectory");
   let body: any;
   body = JSON.stringify(se_DescribeUpdateDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -937,10 +835,7 @@ export const se_DisableClientAuthenticationCommand = async (
   input: DisableClientAuthenticationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DisableClientAuthentication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableClientAuthentication");
   let body: any;
   body = JSON.stringify(se_DisableClientAuthenticationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -953,10 +848,7 @@ export const se_DisableLDAPSCommand = async (
   input: DisableLDAPSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DisableLDAPS",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableLDAPS");
   let body: any;
   body = JSON.stringify(se_DisableLDAPSRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -969,10 +861,7 @@ export const se_DisableRadiusCommand = async (
   input: DisableRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DisableRadius",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableRadius");
   let body: any;
   body = JSON.stringify(se_DisableRadiusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -985,10 +874,7 @@ export const se_DisableSsoCommand = async (
   input: DisableSsoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.DisableSso",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableSso");
   let body: any;
   body = JSON.stringify(se_DisableSsoRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1001,10 +887,7 @@ export const se_EnableClientAuthenticationCommand = async (
   input: EnableClientAuthenticationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.EnableClientAuthentication",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableClientAuthentication");
   let body: any;
   body = JSON.stringify(se_EnableClientAuthenticationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1017,10 +900,7 @@ export const se_EnableLDAPSCommand = async (
   input: EnableLDAPSCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.EnableLDAPS",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableLDAPS");
   let body: any;
   body = JSON.stringify(se_EnableLDAPSRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1033,10 +913,7 @@ export const se_EnableRadiusCommand = async (
   input: EnableRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.EnableRadius",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableRadius");
   let body: any;
   body = JSON.stringify(se_EnableRadiusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1049,10 +926,7 @@ export const se_EnableSsoCommand = async (
   input: EnableSsoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.EnableSso",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableSso");
   let body: any;
   body = JSON.stringify(se_EnableSsoRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1065,10 +939,7 @@ export const se_GetDirectoryLimitsCommand = async (
   input: GetDirectoryLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.GetDirectoryLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDirectoryLimits");
   let body: any;
   body = JSON.stringify(se_GetDirectoryLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1081,10 +952,7 @@ export const se_GetSnapshotLimitsCommand = async (
   input: GetSnapshotLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.GetSnapshotLimits",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSnapshotLimits");
   let body: any;
   body = JSON.stringify(se_GetSnapshotLimitsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1097,10 +965,7 @@ export const se_ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ListCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
   body = JSON.stringify(se_ListCertificatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1113,10 +978,7 @@ export const se_ListIpRoutesCommand = async (
   input: ListIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ListIpRoutes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListIpRoutes");
   let body: any;
   body = JSON.stringify(se_ListIpRoutesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1129,10 +991,7 @@ export const se_ListLogSubscriptionsCommand = async (
   input: ListLogSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ListLogSubscriptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLogSubscriptions");
   let body: any;
   body = JSON.stringify(se_ListLogSubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1145,10 +1004,7 @@ export const se_ListSchemaExtensionsCommand = async (
   input: ListSchemaExtensionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ListSchemaExtensions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemaExtensions");
   let body: any;
   body = JSON.stringify(se_ListSchemaExtensionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1161,10 +1017,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1177,10 +1030,7 @@ export const se_RegisterCertificateCommand = async (
   input: RegisterCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RegisterCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterCertificate");
   let body: any;
   body = JSON.stringify(se_RegisterCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1193,10 +1043,7 @@ export const se_RegisterEventTopicCommand = async (
   input: RegisterEventTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RegisterEventTopic",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterEventTopic");
   let body: any;
   body = JSON.stringify(se_RegisterEventTopicRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1209,10 +1056,7 @@ export const se_RejectSharedDirectoryCommand = async (
   input: RejectSharedDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RejectSharedDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectSharedDirectory");
   let body: any;
   body = JSON.stringify(se_RejectSharedDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1225,10 +1069,7 @@ export const se_RemoveIpRoutesCommand = async (
   input: RemoveIpRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RemoveIpRoutes",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveIpRoutes");
   let body: any;
   body = JSON.stringify(se_RemoveIpRoutesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1241,10 +1082,7 @@ export const se_RemoveRegionCommand = async (
   input: RemoveRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RemoveRegion",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveRegion");
   let body: any;
   body = JSON.stringify(se_RemoveRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1257,10 +1095,7 @@ export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RemoveTagsFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTagsFromResource");
   let body: any;
   body = JSON.stringify(se_RemoveTagsFromResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1273,10 +1108,7 @@ export const se_ResetUserPasswordCommand = async (
   input: ResetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ResetUserPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetUserPassword");
   let body: any;
   body = JSON.stringify(se_ResetUserPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1289,10 +1121,7 @@ export const se_RestoreFromSnapshotCommand = async (
   input: RestoreFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.RestoreFromSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreFromSnapshot");
   let body: any;
   body = JSON.stringify(se_RestoreFromSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1305,10 +1134,7 @@ export const se_ShareDirectoryCommand = async (
   input: ShareDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.ShareDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ShareDirectory");
   let body: any;
   body = JSON.stringify(se_ShareDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1321,10 +1147,7 @@ export const se_StartSchemaExtensionCommand = async (
   input: StartSchemaExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.StartSchemaExtension",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSchemaExtension");
   let body: any;
   body = JSON.stringify(se_StartSchemaExtensionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1337,10 +1160,7 @@ export const se_UnshareDirectoryCommand = async (
   input: UnshareDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UnshareDirectory",
-  };
+  const headers: __HeaderBag = sharedHeaders("UnshareDirectory");
   let body: any;
   body = JSON.stringify(se_UnshareDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1353,10 +1173,7 @@ export const se_UpdateConditionalForwarderCommand = async (
   input: UpdateConditionalForwarderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateConditionalForwarder",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConditionalForwarder");
   let body: any;
   body = JSON.stringify(se_UpdateConditionalForwarderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1369,10 +1186,7 @@ export const se_UpdateDirectorySetupCommand = async (
   input: UpdateDirectorySetupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateDirectorySetup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDirectorySetup");
   let body: any;
   body = JSON.stringify(se_UpdateDirectorySetupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1385,10 +1199,7 @@ export const se_UpdateNumberOfDomainControllersCommand = async (
   input: UpdateNumberOfDomainControllersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateNumberOfDomainControllers",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNumberOfDomainControllers");
   let body: any;
   body = JSON.stringify(se_UpdateNumberOfDomainControllersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1401,10 +1212,7 @@ export const se_UpdateRadiusCommand = async (
   input: UpdateRadiusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateRadius",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRadius");
   let body: any;
   body = JSON.stringify(se_UpdateRadiusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1417,10 +1225,7 @@ export const se_UpdateSettingsCommand = async (
   input: UpdateSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSettings");
   let body: any;
   body = JSON.stringify(se_UpdateSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1433,10 +1238,7 @@ export const se_UpdateTrustCommand = async (
   input: UpdateTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.UpdateTrust",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTrust");
   let body: any;
   body = JSON.stringify(se_UpdateTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1449,10 +1251,7 @@ export const se_VerifyTrustCommand = async (
   input: VerifyTrustCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "DirectoryService_20150416.VerifyTrust",
-  };
+  const headers: __HeaderBag = sharedHeaders("VerifyTrust");
   let body: any;
   body = JSON.stringify(se_VerifyTrustRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9100,6 +8899,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `DirectoryService_20150416.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -71,10 +71,7 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.CreateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
   body = JSON.stringify(se_CreateConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -87,10 +84,7 @@ export const se_CreateHostCommand = async (
   input: CreateHostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.CreateHost",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateHost");
   let body: any;
   body = JSON.stringify(se_CreateHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -103,10 +97,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -119,10 +110,7 @@ export const se_DeleteHostCommand = async (
   input: DeleteHostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.DeleteHost",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHost");
   let body: any;
   body = JSON.stringify(se_DeleteHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -135,10 +123,7 @@ export const se_GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.GetConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConnection");
   let body: any;
   body = JSON.stringify(se_GetConnectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -151,10 +136,7 @@ export const se_GetHostCommand = async (
   input: GetHostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.GetHost",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetHost");
   let body: any;
   body = JSON.stringify(se_GetHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -167,10 +149,7 @@ export const se_ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.ListConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConnections");
   let body: any;
   body = JSON.stringify(se_ListConnectionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -183,10 +162,7 @@ export const se_ListHostsCommand = async (
   input: ListHostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.ListHosts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHosts");
   let body: any;
   body = JSON.stringify(se_ListHostsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -199,10 +175,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -215,10 +188,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -231,10 +201,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -247,10 +214,7 @@ export const se_UpdateHostCommand = async (
   input: UpdateHostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "CodeStar_connections_20191201.UpdateHost",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHost");
   let body: any;
   body = JSON.stringify(se_UpdateHostInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1425,6 +1389,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `CodeStar_connections_20191201.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

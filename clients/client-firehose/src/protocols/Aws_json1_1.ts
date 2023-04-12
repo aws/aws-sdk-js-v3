@@ -168,10 +168,7 @@ export const se_CreateDeliveryStreamCommand = async (
   input: CreateDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.CreateDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDeliveryStream");
   let body: any;
   body = JSON.stringify(se_CreateDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -184,10 +181,7 @@ export const se_DeleteDeliveryStreamCommand = async (
   input: DeleteDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.DeleteDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDeliveryStream");
   let body: any;
   body = JSON.stringify(se_DeleteDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -200,10 +194,7 @@ export const se_DescribeDeliveryStreamCommand = async (
   input: DescribeDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.DescribeDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliveryStream");
   let body: any;
   body = JSON.stringify(se_DescribeDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -216,10 +207,7 @@ export const se_ListDeliveryStreamsCommand = async (
   input: ListDeliveryStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.ListDeliveryStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDeliveryStreams");
   let body: any;
   body = JSON.stringify(se_ListDeliveryStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -232,10 +220,7 @@ export const se_ListTagsForDeliveryStreamCommand = async (
   input: ListTagsForDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.ListTagsForDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForDeliveryStream");
   let body: any;
   body = JSON.stringify(se_ListTagsForDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -248,10 +233,7 @@ export const se_PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.PutRecord",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRecord");
   let body: any;
   body = JSON.stringify(se_PutRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -264,10 +246,7 @@ export const se_PutRecordBatchCommand = async (
   input: PutRecordBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.PutRecordBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRecordBatch");
   let body: any;
   body = JSON.stringify(se_PutRecordBatchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -280,10 +259,7 @@ export const se_StartDeliveryStreamEncryptionCommand = async (
   input: StartDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.StartDeliveryStreamEncryption",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDeliveryStreamEncryption");
   let body: any;
   body = JSON.stringify(se_StartDeliveryStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -296,10 +272,7 @@ export const se_StopDeliveryStreamEncryptionCommand = async (
   input: StopDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.StopDeliveryStreamEncryption",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopDeliveryStreamEncryption");
   let body: any;
   body = JSON.stringify(se_StopDeliveryStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -312,10 +285,7 @@ export const se_TagDeliveryStreamCommand = async (
   input: TagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.TagDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagDeliveryStream");
   let body: any;
   body = JSON.stringify(se_TagDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -328,10 +298,7 @@ export const se_UntagDeliveryStreamCommand = async (
   input: UntagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.UntagDeliveryStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagDeliveryStream");
   let body: any;
   body = JSON.stringify(se_UntagDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -344,10 +311,7 @@ export const se_UpdateDestinationCommand = async (
   input: UpdateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Firehose_20150804.UpdateDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDestination");
   let body: any;
   body = JSON.stringify(se_UpdateDestinationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3553,6 +3517,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Firehose_20150804.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

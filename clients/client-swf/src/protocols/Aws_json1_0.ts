@@ -301,10 +301,7 @@ export const se_CountClosedWorkflowExecutionsCommand = async (
   input: CountClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.CountClosedWorkflowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("CountClosedWorkflowExecutions");
   let body: any;
   body = JSON.stringify(se_CountClosedWorkflowExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +314,7 @@ export const se_CountOpenWorkflowExecutionsCommand = async (
   input: CountOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.CountOpenWorkflowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("CountOpenWorkflowExecutions");
   let body: any;
   body = JSON.stringify(se_CountOpenWorkflowExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +327,7 @@ export const se_CountPendingActivityTasksCommand = async (
   input: CountPendingActivityTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.CountPendingActivityTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("CountPendingActivityTasks");
   let body: any;
   body = JSON.stringify(se_CountPendingActivityTasksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +340,7 @@ export const se_CountPendingDecisionTasksCommand = async (
   input: CountPendingDecisionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.CountPendingDecisionTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("CountPendingDecisionTasks");
   let body: any;
   body = JSON.stringify(se_CountPendingDecisionTasksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +353,7 @@ export const se_DeprecateActivityTypeCommand = async (
   input: DeprecateActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DeprecateActivityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprecateActivityType");
   let body: any;
   body = JSON.stringify(se_DeprecateActivityTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +366,7 @@ export const se_DeprecateDomainCommand = async (
   input: DeprecateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DeprecateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprecateDomain");
   let body: any;
   body = JSON.stringify(se_DeprecateDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +379,7 @@ export const se_DeprecateWorkflowTypeCommand = async (
   input: DeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DeprecateWorkflowType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeprecateWorkflowType");
   let body: any;
   body = JSON.stringify(se_DeprecateWorkflowTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +392,7 @@ export const se_DescribeActivityTypeCommand = async (
   input: DescribeActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DescribeActivityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeActivityType");
   let body: any;
   body = JSON.stringify(se_DescribeActivityTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +405,7 @@ export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DescribeDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
   body = JSON.stringify(se_DescribeDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +418,7 @@ export const se_DescribeWorkflowExecutionCommand = async (
   input: DescribeWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DescribeWorkflowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkflowExecution");
   let body: any;
   body = JSON.stringify(se_DescribeWorkflowExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +431,7 @@ export const se_DescribeWorkflowTypeCommand = async (
   input: DescribeWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.DescribeWorkflowType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkflowType");
   let body: any;
   body = JSON.stringify(se_DescribeWorkflowTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +444,7 @@ export const se_GetWorkflowExecutionHistoryCommand = async (
   input: GetWorkflowExecutionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.GetWorkflowExecutionHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkflowExecutionHistory");
   let body: any;
   body = JSON.stringify(se_GetWorkflowExecutionHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +457,7 @@ export const se_ListActivityTypesCommand = async (
   input: ListActivityTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListActivityTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListActivityTypes");
   let body: any;
   body = JSON.stringify(se_ListActivityTypesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +470,7 @@ export const se_ListClosedWorkflowExecutionsCommand = async (
   input: ListClosedWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListClosedWorkflowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListClosedWorkflowExecutions");
   let body: any;
   body = JSON.stringify(se_ListClosedWorkflowExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +483,7 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
   body = JSON.stringify(se_ListDomainsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +496,7 @@ export const se_ListOpenWorkflowExecutionsCommand = async (
   input: ListOpenWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListOpenWorkflowExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOpenWorkflowExecutions");
   let body: any;
   body = JSON.stringify(se_ListOpenWorkflowExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +509,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +522,7 @@ export const se_ListWorkflowTypesCommand = async (
   input: ListWorkflowTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.ListWorkflowTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkflowTypes");
   let body: any;
   body = JSON.stringify(se_ListWorkflowTypesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,10 +535,7 @@ export const se_PollForActivityTaskCommand = async (
   input: PollForActivityTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.PollForActivityTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("PollForActivityTask");
   let body: any;
   body = JSON.stringify(se_PollForActivityTaskInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -605,10 +548,7 @@ export const se_PollForDecisionTaskCommand = async (
   input: PollForDecisionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.PollForDecisionTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("PollForDecisionTask");
   let body: any;
   body = JSON.stringify(se_PollForDecisionTaskInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,10 +561,7 @@ export const se_RecordActivityTaskHeartbeatCommand = async (
   input: RecordActivityTaskHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RecordActivityTaskHeartbeat",
-  };
+  const headers: __HeaderBag = sharedHeaders("RecordActivityTaskHeartbeat");
   let body: any;
   body = JSON.stringify(se_RecordActivityTaskHeartbeatInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -637,10 +574,7 @@ export const se_RegisterActivityTypeCommand = async (
   input: RegisterActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RegisterActivityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterActivityType");
   let body: any;
   body = JSON.stringify(se_RegisterActivityTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -653,10 +587,7 @@ export const se_RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RegisterDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterDomain");
   let body: any;
   body = JSON.stringify(se_RegisterDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -669,10 +600,7 @@ export const se_RegisterWorkflowTypeCommand = async (
   input: RegisterWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RegisterWorkflowType",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterWorkflowType");
   let body: any;
   body = JSON.stringify(se_RegisterWorkflowTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -685,10 +613,7 @@ export const se_RequestCancelWorkflowExecutionCommand = async (
   input: RequestCancelWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RequestCancelWorkflowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("RequestCancelWorkflowExecution");
   let body: any;
   body = JSON.stringify(se_RequestCancelWorkflowExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -701,10 +626,7 @@ export const se_RespondActivityTaskCanceledCommand = async (
   input: RespondActivityTaskCanceledCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskCanceled",
-  };
+  const headers: __HeaderBag = sharedHeaders("RespondActivityTaskCanceled");
   let body: any;
   body = JSON.stringify(se_RespondActivityTaskCanceledInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -717,10 +639,7 @@ export const se_RespondActivityTaskCompletedCommand = async (
   input: RespondActivityTaskCompletedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskCompleted",
-  };
+  const headers: __HeaderBag = sharedHeaders("RespondActivityTaskCompleted");
   let body: any;
   body = JSON.stringify(se_RespondActivityTaskCompletedInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +652,7 @@ export const se_RespondActivityTaskFailedCommand = async (
   input: RespondActivityTaskFailedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskFailed",
-  };
+  const headers: __HeaderBag = sharedHeaders("RespondActivityTaskFailed");
   let body: any;
   body = JSON.stringify(se_RespondActivityTaskFailedInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,10 +665,7 @@ export const se_RespondDecisionTaskCompletedCommand = async (
   input: RespondDecisionTaskCompletedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.RespondDecisionTaskCompleted",
-  };
+  const headers: __HeaderBag = sharedHeaders("RespondDecisionTaskCompleted");
   let body: any;
   body = JSON.stringify(se_RespondDecisionTaskCompletedInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -765,10 +678,7 @@ export const se_SignalWorkflowExecutionCommand = async (
   input: SignalWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.SignalWorkflowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("SignalWorkflowExecution");
   let body: any;
   body = JSON.stringify(se_SignalWorkflowExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,10 +691,7 @@ export const se_StartWorkflowExecutionCommand = async (
   input: StartWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.StartWorkflowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartWorkflowExecution");
   let body: any;
   body = JSON.stringify(se_StartWorkflowExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -797,10 +704,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -813,10 +717,7 @@ export const se_TerminateWorkflowExecutionCommand = async (
   input: TerminateWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.TerminateWorkflowExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateWorkflowExecution");
   let body: any;
   body = JSON.stringify(se_TerminateWorkflowExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -829,10 +730,7 @@ export const se_UndeprecateActivityTypeCommand = async (
   input: UndeprecateActivityTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.UndeprecateActivityType",
-  };
+  const headers: __HeaderBag = sharedHeaders("UndeprecateActivityType");
   let body: any;
   body = JSON.stringify(se_UndeprecateActivityTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -845,10 +743,7 @@ export const se_UndeprecateDomainCommand = async (
   input: UndeprecateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.UndeprecateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UndeprecateDomain");
   let body: any;
   body = JSON.stringify(se_UndeprecateDomainInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -861,10 +756,7 @@ export const se_UndeprecateWorkflowTypeCommand = async (
   input: UndeprecateWorkflowTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.UndeprecateWorkflowType",
-  };
+  const headers: __HeaderBag = sharedHeaders("UndeprecateWorkflowType");
   let body: any;
   body = JSON.stringify(se_UndeprecateWorkflowTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -877,10 +769,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "SimpleWorkflowService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5494,6 +5383,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `SimpleWorkflowService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

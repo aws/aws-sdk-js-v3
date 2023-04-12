@@ -134,10 +134,7 @@ export const se_CreateBatchLoadTaskCommand = async (
   input: CreateBatchLoadTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.CreateBatchLoadTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchLoadTask");
   let body: any;
   body = JSON.stringify(se_CreateBatchLoadTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -150,10 +147,7 @@ export const se_CreateDatabaseCommand = async (
   input: CreateDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.CreateDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatabase");
   let body: any;
   body = JSON.stringify(se_CreateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,10 +160,7 @@ export const se_CreateTableCommand = async (
   input: CreateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.CreateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
   body = JSON.stringify(se_CreateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -182,10 +173,7 @@ export const se_DeleteDatabaseCommand = async (
   input: DeleteDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DeleteDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatabase");
   let body: any;
   body = JSON.stringify(se_DeleteDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -198,10 +186,7 @@ export const se_DeleteTableCommand = async (
   input: DeleteTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DeleteTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTable");
   let body: any;
   body = JSON.stringify(se_DeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -214,10 +199,7 @@ export const se_DescribeBatchLoadTaskCommand = async (
   input: DescribeBatchLoadTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeBatchLoadTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchLoadTask");
   let body: any;
   body = JSON.stringify(se_DescribeBatchLoadTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -230,10 +212,7 @@ export const se_DescribeDatabaseCommand = async (
   input: DescribeDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatabase");
   let body: any;
   body = JSON.stringify(se_DescribeDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -246,10 +225,7 @@ export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoints");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -262,10 +238,7 @@ export const se_DescribeTableCommand = async (
   input: DescribeTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTable");
   let body: any;
   body = JSON.stringify(se_DescribeTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -278,10 +251,7 @@ export const se_ListBatchLoadTasksCommand = async (
   input: ListBatchLoadTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListBatchLoadTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBatchLoadTasks");
   let body: any;
   body = JSON.stringify(se_ListBatchLoadTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -294,10 +264,7 @@ export const se_ListDatabasesCommand = async (
   input: ListDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
   body = JSON.stringify(se_ListDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -310,10 +277,7 @@ export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListTables",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTables");
   let body: any;
   body = JSON.stringify(se_ListTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -326,10 +290,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -342,10 +303,7 @@ export const se_ResumeBatchLoadTaskCommand = async (
   input: ResumeBatchLoadTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ResumeBatchLoadTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResumeBatchLoadTask");
   let body: any;
   body = JSON.stringify(se_ResumeBatchLoadTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -358,10 +316,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -374,10 +329,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -390,10 +342,7 @@ export const se_UpdateDatabaseCommand = async (
   input: UpdateDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.UpdateDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDatabase");
   let body: any;
   body = JSON.stringify(se_UpdateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -406,10 +355,7 @@ export const se_UpdateTableCommand = async (
   input: UpdateTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.UpdateTable",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
   body = JSON.stringify(se_UpdateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -422,10 +368,7 @@ export const se_WriteRecordsCommand = async (
   input: WriteRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.WriteRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("WriteRecords");
   let body: any;
   body = JSON.stringify(se_WriteRecordsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3059,6 +3002,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `Timestream_20181101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

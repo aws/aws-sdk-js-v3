@@ -227,10 +227,7 @@ export const se_DeleteRecommendationPreferencesCommand = async (
   input: DeleteRecommendationPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.DeleteRecommendationPreferences",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRecommendationPreferences");
   let body: any;
   body = JSON.stringify(se_DeleteRecommendationPreferencesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -243,10 +240,7 @@ export const se_DescribeRecommendationExportJobsCommand = async (
   input: DescribeRecommendationExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.DescribeRecommendationExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecommendationExportJobs");
   let body: any;
   body = JSON.stringify(se_DescribeRecommendationExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -259,10 +253,7 @@ export const se_ExportAutoScalingGroupRecommendationsCommand = async (
   input: ExportAutoScalingGroupRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.ExportAutoScalingGroupRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportAutoScalingGroupRecommendations");
   let body: any;
   body = JSON.stringify(se_ExportAutoScalingGroupRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -275,10 +266,7 @@ export const se_ExportEBSVolumeRecommendationsCommand = async (
   input: ExportEBSVolumeRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.ExportEBSVolumeRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportEBSVolumeRecommendations");
   let body: any;
   body = JSON.stringify(se_ExportEBSVolumeRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -291,10 +279,7 @@ export const se_ExportEC2InstanceRecommendationsCommand = async (
   input: ExportEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.ExportEC2InstanceRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportEC2InstanceRecommendations");
   let body: any;
   body = JSON.stringify(se_ExportEC2InstanceRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -307,10 +292,7 @@ export const se_ExportECSServiceRecommendationsCommand = async (
   input: ExportECSServiceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.ExportECSServiceRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportECSServiceRecommendations");
   let body: any;
   body = JSON.stringify(se_ExportECSServiceRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -323,10 +305,7 @@ export const se_ExportLambdaFunctionRecommendationsCommand = async (
   input: ExportLambdaFunctionRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.ExportLambdaFunctionRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportLambdaFunctionRecommendations");
   let body: any;
   body = JSON.stringify(se_ExportLambdaFunctionRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,10 +318,7 @@ export const se_GetAutoScalingGroupRecommendationsCommand = async (
   input: GetAutoScalingGroupRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetAutoScalingGroupRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAutoScalingGroupRecommendations");
   let body: any;
   body = JSON.stringify(se_GetAutoScalingGroupRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -355,10 +331,7 @@ export const se_GetEBSVolumeRecommendationsCommand = async (
   input: GetEBSVolumeRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEBSVolumeRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEBSVolumeRecommendations");
   let body: any;
   body = JSON.stringify(se_GetEBSVolumeRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -371,10 +344,7 @@ export const se_GetEC2InstanceRecommendationsCommand = async (
   input: GetEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEC2InstanceRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEC2InstanceRecommendations");
   let body: any;
   body = JSON.stringify(se_GetEC2InstanceRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +357,7 @@ export const se_GetEC2RecommendationProjectedMetricsCommand = async (
   input: GetEC2RecommendationProjectedMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEC2RecommendationProjectedMetrics");
   let body: any;
   body = JSON.stringify(se_GetEC2RecommendationProjectedMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +370,7 @@ export const se_GetECSServiceRecommendationProjectedMetricsCommand = async (
   input: GetECSServiceRecommendationProjectedMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetECSServiceRecommendationProjectedMetrics");
   let body: any;
   body = JSON.stringify(se_GetECSServiceRecommendationProjectedMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +383,7 @@ export const se_GetECSServiceRecommendationsCommand = async (
   input: GetECSServiceRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetECSServiceRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetECSServiceRecommendations");
   let body: any;
   body = JSON.stringify(se_GetECSServiceRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +396,7 @@ export const se_GetEffectiveRecommendationPreferencesCommand = async (
   input: GetEffectiveRecommendationPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEffectiveRecommendationPreferences",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEffectiveRecommendationPreferences");
   let body: any;
   body = JSON.stringify(se_GetEffectiveRecommendationPreferencesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +409,7 @@ export const se_GetEnrollmentStatusCommand = async (
   input: GetEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEnrollmentStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnrollmentStatus");
   let body: any;
   body = JSON.stringify(se_GetEnrollmentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +422,7 @@ export const se_GetEnrollmentStatusesForOrganizationCommand = async (
   input: GetEnrollmentStatusesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetEnrollmentStatusesForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetEnrollmentStatusesForOrganization");
   let body: any;
   body = JSON.stringify(se_GetEnrollmentStatusesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +435,7 @@ export const se_GetLambdaFunctionRecommendationsCommand = async (
   input: GetLambdaFunctionRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetLambdaFunctionRecommendations",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLambdaFunctionRecommendations");
   let body: any;
   body = JSON.stringify(se_GetLambdaFunctionRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +448,7 @@ export const se_GetRecommendationPreferencesCommand = async (
   input: GetRecommendationPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetRecommendationPreferences",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecommendationPreferences");
   let body: any;
   body = JSON.stringify(se_GetRecommendationPreferencesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +461,7 @@ export const se_GetRecommendationSummariesCommand = async (
   input: GetRecommendationSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.GetRecommendationSummaries",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecommendationSummaries");
   let body: any;
   body = JSON.stringify(se_GetRecommendationSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +474,7 @@ export const se_PutRecommendationPreferencesCommand = async (
   input: PutRecommendationPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.PutRecommendationPreferences",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRecommendationPreferences");
   let body: any;
   body = JSON.stringify(se_PutRecommendationPreferencesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +487,7 @@ export const se_UpdateEnrollmentStatusCommand = async (
   input: UpdateEnrollmentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "ComputeOptimizerService.UpdateEnrollmentStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEnrollmentStatus");
   let body: any;
   body = JSON.stringify(se_UpdateEnrollmentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4528,6 +4465,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `ComputeOptimizerService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

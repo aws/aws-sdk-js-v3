@@ -253,10 +253,7 @@ export const se_AssociateDRTLogBucketCommand = async (
   input: AssociateDRTLogBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.AssociateDRTLogBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateDRTLogBucket");
   let body: any;
   body = JSON.stringify(se_AssociateDRTLogBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -269,10 +266,7 @@ export const se_AssociateDRTRoleCommand = async (
   input: AssociateDRTRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.AssociateDRTRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateDRTRole");
   let body: any;
   body = JSON.stringify(se_AssociateDRTRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -285,10 +279,7 @@ export const se_AssociateHealthCheckCommand = async (
   input: AssociateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.AssociateHealthCheck",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateHealthCheck");
   let body: any;
   body = JSON.stringify(se_AssociateHealthCheckRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -301,10 +292,7 @@ export const se_AssociateProactiveEngagementDetailsCommand = async (
   input: AssociateProactiveEngagementDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.AssociateProactiveEngagementDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateProactiveEngagementDetails");
   let body: any;
   body = JSON.stringify(se_AssociateProactiveEngagementDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +305,7 @@ export const se_CreateProtectionCommand = async (
   input: CreateProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.CreateProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProtection");
   let body: any;
   body = JSON.stringify(se_CreateProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +318,7 @@ export const se_CreateProtectionGroupCommand = async (
   input: CreateProtectionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.CreateProtectionGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProtectionGroup");
   let body: any;
   body = JSON.stringify(se_CreateProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +331,7 @@ export const se_CreateSubscriptionCommand = async (
   input: CreateSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.CreateSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSubscription");
   let body: any;
   body = JSON.stringify(se_CreateSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +344,7 @@ export const se_DeleteProtectionCommand = async (
   input: DeleteProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DeleteProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProtection");
   let body: any;
   body = JSON.stringify(se_DeleteProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +357,7 @@ export const se_DeleteProtectionGroupCommand = async (
   input: DeleteProtectionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DeleteProtectionGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProtectionGroup");
   let body: any;
   body = JSON.stringify(se_DeleteProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +370,7 @@ export const se_DeleteSubscriptionCommand = async (
   input: DeleteSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DeleteSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSubscription");
   let body: any;
   body = JSON.stringify(se_DeleteSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +383,7 @@ export const se_DescribeAttackCommand = async (
   input: DescribeAttackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeAttack",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAttack");
   let body: any;
   body = JSON.stringify(se_DescribeAttackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +396,7 @@ export const se_DescribeAttackStatisticsCommand = async (
   input: DescribeAttackStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeAttackStatistics",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAttackStatistics");
   let body: any;
   body = JSON.stringify(se_DescribeAttackStatisticsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +409,7 @@ export const se_DescribeDRTAccessCommand = async (
   input: DescribeDRTAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeDRTAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDRTAccess");
   let body: any;
   body = JSON.stringify(se_DescribeDRTAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +422,7 @@ export const se_DescribeEmergencyContactSettingsCommand = async (
   input: DescribeEmergencyContactSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeEmergencyContactSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEmergencyContactSettings");
   let body: any;
   body = JSON.stringify(se_DescribeEmergencyContactSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +435,7 @@ export const se_DescribeProtectionCommand = async (
   input: DescribeProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProtection");
   let body: any;
   body = JSON.stringify(se_DescribeProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +448,7 @@ export const se_DescribeProtectionGroupCommand = async (
   input: DescribeProtectionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeProtectionGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProtectionGroup");
   let body: any;
   body = JSON.stringify(se_DescribeProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +461,7 @@ export const se_DescribeSubscriptionCommand = async (
   input: DescribeSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DescribeSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSubscription");
   let body: any;
   body = JSON.stringify(se_DescribeSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +474,7 @@ export const se_DisableApplicationLayerAutomaticResponseCommand = async (
   input: DisableApplicationLayerAutomaticResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DisableApplicationLayerAutomaticResponse",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableApplicationLayerAutomaticResponse");
   let body: any;
   body = JSON.stringify(se_DisableApplicationLayerAutomaticResponseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +487,7 @@ export const se_DisableProactiveEngagementCommand = async (
   input: DisableProactiveEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DisableProactiveEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableProactiveEngagement");
   let body: any;
   body = JSON.stringify(se_DisableProactiveEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +500,7 @@ export const se_DisassociateDRTLogBucketCommand = async (
   input: DisassociateDRTLogBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DisassociateDRTLogBucket",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateDRTLogBucket");
   let body: any;
   body = JSON.stringify(se_DisassociateDRTLogBucketRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +513,7 @@ export const se_DisassociateDRTRoleCommand = async (
   input: DisassociateDRTRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DisassociateDRTRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateDRTRole");
   let body: any;
   body = JSON.stringify(se_DisassociateDRTRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,10 +526,7 @@ export const se_DisassociateHealthCheckCommand = async (
   input: DisassociateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.DisassociateHealthCheck",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateHealthCheck");
   let body: any;
   body = JSON.stringify(se_DisassociateHealthCheckRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -605,10 +539,7 @@ export const se_EnableApplicationLayerAutomaticResponseCommand = async (
   input: EnableApplicationLayerAutomaticResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.EnableApplicationLayerAutomaticResponse",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableApplicationLayerAutomaticResponse");
   let body: any;
   body = JSON.stringify(se_EnableApplicationLayerAutomaticResponseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,10 +552,7 @@ export const se_EnableProactiveEngagementCommand = async (
   input: EnableProactiveEngagementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.EnableProactiveEngagement",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableProactiveEngagement");
   let body: any;
   body = JSON.stringify(se_EnableProactiveEngagementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -637,10 +565,7 @@ export const se_GetSubscriptionStateCommand = async (
   input: GetSubscriptionStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.GetSubscriptionState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSubscriptionState");
   let body: any;
   body = JSON.stringify(se_GetSubscriptionStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -653,10 +578,7 @@ export const se_ListAttacksCommand = async (
   input: ListAttacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.ListAttacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAttacks");
   let body: any;
   body = JSON.stringify(se_ListAttacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -669,10 +591,7 @@ export const se_ListProtectionGroupsCommand = async (
   input: ListProtectionGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.ListProtectionGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProtectionGroups");
   let body: any;
   body = JSON.stringify(se_ListProtectionGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -685,10 +604,7 @@ export const se_ListProtectionsCommand = async (
   input: ListProtectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.ListProtections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProtections");
   let body: any;
   body = JSON.stringify(se_ListProtectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -701,10 +617,7 @@ export const se_ListResourcesInProtectionGroupCommand = async (
   input: ListResourcesInProtectionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.ListResourcesInProtectionGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourcesInProtectionGroup");
   let body: any;
   body = JSON.stringify(se_ListResourcesInProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -717,10 +630,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +643,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,10 +656,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -765,10 +669,7 @@ export const se_UpdateApplicationLayerAutomaticResponseCommand = async (
   input: UpdateApplicationLayerAutomaticResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.UpdateApplicationLayerAutomaticResponse",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplicationLayerAutomaticResponse");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationLayerAutomaticResponseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,10 +682,7 @@ export const se_UpdateEmergencyContactSettingsCommand = async (
   input: UpdateEmergencyContactSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.UpdateEmergencyContactSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEmergencyContactSettings");
   let body: any;
   body = JSON.stringify(se_UpdateEmergencyContactSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -797,10 +695,7 @@ export const se_UpdateProtectionGroupCommand = async (
   input: UpdateProtectionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.UpdateProtectionGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProtectionGroup");
   let body: any;
   body = JSON.stringify(se_UpdateProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -813,10 +708,7 @@ export const se_UpdateSubscriptionCommand = async (
   input: UpdateSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSShield_20160616.UpdateSubscription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubscription");
   let body: any;
   body = JSON.stringify(se_UpdateSubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4748,6 +4640,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSShield_20160616.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

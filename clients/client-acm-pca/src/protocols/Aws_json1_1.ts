@@ -169,10 +169,7 @@ export const se_CreateCertificateAuthorityCommand = async (
   input: CreateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_CreateCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -185,10 +182,7 @@ export const se_CreateCertificateAuthorityAuditReportCommand = async (
   input: CreateCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthorityAuditReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCertificateAuthorityAuditReport");
   let body: any;
   body = JSON.stringify(se_CreateCertificateAuthorityAuditReportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -201,10 +195,7 @@ export const se_CreatePermissionCommand = async (
   input: CreatePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.CreatePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePermission");
   let body: any;
   body = JSON.stringify(se_CreatePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -217,10 +208,7 @@ export const se_DeleteCertificateAuthorityCommand = async (
   input: DeleteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeleteCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_DeleteCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -233,10 +221,7 @@ export const se_DeletePermissionCommand = async (
   input: DeletePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeletePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePermission");
   let body: any;
   body = JSON.stringify(se_DeletePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -249,10 +234,7 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DeletePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePolicy");
   let body: any;
   body = JSON.stringify(se_DeletePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -265,10 +247,7 @@ export const se_DescribeCertificateAuthorityCommand = async (
   input: DescribeCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_DescribeCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -281,10 +260,7 @@ export const se_DescribeCertificateAuthorityAuditReportCommand = async (
   input: DescribeCertificateAuthorityAuditReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthorityAuditReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificateAuthorityAuditReport");
   let body: any;
   body = JSON.stringify(se_DescribeCertificateAuthorityAuditReportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -297,10 +273,7 @@ export const se_GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificate");
   let body: any;
   body = JSON.stringify(se_GetCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -313,10 +286,7 @@ export const se_GetCertificateAuthorityCertificateCommand = async (
   input: GetCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificateAuthorityCertificate");
   let body: any;
   body = JSON.stringify(se_GetCertificateAuthorityCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -329,10 +299,7 @@ export const se_GetCertificateAuthorityCsrCommand = async (
   input: GetCertificateAuthorityCsrCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCsr",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCertificateAuthorityCsr");
   let body: any;
   body = JSON.stringify(se_GetCertificateAuthorityCsrRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -345,10 +312,7 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.GetPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPolicy");
   let body: any;
   body = JSON.stringify(se_GetPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -361,10 +325,7 @@ export const se_ImportCertificateAuthorityCertificateCommand = async (
   input: ImportCertificateAuthorityCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ImportCertificateAuthorityCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCertificateAuthorityCertificate");
   let body: any;
   body = JSON.stringify(se_ImportCertificateAuthorityCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -377,10 +338,7 @@ export const se_IssueCertificateCommand = async (
   input: IssueCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.IssueCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("IssueCertificate");
   let body: any;
   body = JSON.stringify(se_IssueCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -393,10 +351,7 @@ export const se_ListCertificateAuthoritiesCommand = async (
   input: ListCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListCertificateAuthorities",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCertificateAuthorities");
   let body: any;
   body = JSON.stringify(se_ListCertificateAuthoritiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -409,10 +364,7 @@ export const se_ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPermissions");
   let body: any;
   body = JSON.stringify(se_ListPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -425,10 +377,7 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
   body = JSON.stringify(se_ListTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -441,10 +390,7 @@ export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.PutPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPolicy");
   let body: any;
   body = JSON.stringify(se_PutPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -457,10 +403,7 @@ export const se_RestoreCertificateAuthorityCommand = async (
   input: RestoreCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.RestoreCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_RestoreCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -473,10 +416,7 @@ export const se_RevokeCertificateCommand = async (
   input: RevokeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.RevokeCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("RevokeCertificate");
   let body: any;
   body = JSON.stringify(se_RevokeCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -489,10 +429,7 @@ export const se_TagCertificateAuthorityCommand = async (
   input: TagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.TagCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_TagCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -505,10 +442,7 @@ export const se_UntagCertificateAuthorityCommand = async (
   input: UntagCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.UntagCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_UntagCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -521,10 +455,7 @@ export const se_UpdateCertificateAuthorityCommand = async (
   input: UpdateCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ACMPrivateCA.UpdateCertificateAuthority",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCertificateAuthority");
   let body: any;
   body = JSON.stringify(se_UpdateCertificateAuthorityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3487,6 +3418,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ACMPrivateCA.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

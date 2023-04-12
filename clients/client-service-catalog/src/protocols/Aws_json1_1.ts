@@ -569,10 +569,7 @@ export const se_AcceptPortfolioShareCommand = async (
   input: AcceptPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AcceptPortfolioShare",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptPortfolioShare");
   let body: any;
   body = JSON.stringify(se_AcceptPortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -585,10 +582,7 @@ export const se_AssociateBudgetWithResourceCommand = async (
   input: AssociateBudgetWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AssociateBudgetWithResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateBudgetWithResource");
   let body: any;
   body = JSON.stringify(se_AssociateBudgetWithResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -601,10 +595,7 @@ export const se_AssociatePrincipalWithPortfolioCommand = async (
   input: AssociatePrincipalWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociatePrincipalWithPortfolio");
   let body: any;
   body = JSON.stringify(se_AssociatePrincipalWithPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -617,10 +608,7 @@ export const se_AssociateProductWithPortfolioCommand = async (
   input: AssociateProductWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AssociateProductWithPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateProductWithPortfolio");
   let body: any;
   body = JSON.stringify(se_AssociateProductWithPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -633,10 +621,7 @@ export const se_AssociateServiceActionWithProvisioningArtifactCommand = async (
   input: AssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateServiceActionWithProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_AssociateServiceActionWithProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -649,10 +634,7 @@ export const se_AssociateTagOptionWithResourceCommand = async (
   input: AssociateTagOptionWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.AssociateTagOptionWithResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateTagOptionWithResource");
   let body: any;
   body = JSON.stringify(se_AssociateTagOptionWithResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -665,10 +647,7 @@ export const se_BatchAssociateServiceActionWithProvisioningArtifactCommand = asy
   input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchAssociateServiceActionWithProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_BatchAssociateServiceActionWithProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -681,10 +660,7 @@ export const se_BatchDisassociateServiceActionFromProvisioningArtifactCommand = 
   input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDisassociateServiceActionFromProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_BatchDisassociateServiceActionFromProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -697,10 +673,7 @@ export const se_CopyProductCommand = async (
   input: CopyProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CopyProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("CopyProduct");
   let body: any;
   body = JSON.stringify(se_CopyProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -713,10 +686,7 @@ export const se_CreateConstraintCommand = async (
   input: CreateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateConstraint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConstraint");
   let body: any;
   body = JSON.stringify(se_CreateConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -729,10 +699,7 @@ export const se_CreatePortfolioCommand = async (
   input: CreatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePortfolio");
   let body: any;
   body = JSON.stringify(se_CreatePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -745,10 +712,7 @@ export const se_CreatePortfolioShareCommand = async (
   input: CreatePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolioShare",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePortfolioShare");
   let body: any;
   body = JSON.stringify(se_CreatePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -761,10 +725,7 @@ export const se_CreateProductCommand = async (
   input: CreateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProduct");
   let body: any;
   body = JSON.stringify(se_CreateProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -777,10 +738,7 @@ export const se_CreateProvisionedProductPlanCommand = async (
   input: CreateProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateProvisionedProductPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProvisionedProductPlan");
   let body: any;
   body = JSON.stringify(se_CreateProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -793,10 +751,7 @@ export const se_CreateProvisioningArtifactCommand = async (
   input: CreateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_CreateProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -809,10 +764,7 @@ export const se_CreateServiceActionCommand = async (
   input: CreateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServiceAction");
   let body: any;
   body = JSON.stringify(se_CreateServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -825,10 +777,7 @@ export const se_CreateTagOptionCommand = async (
   input: CreateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.CreateTagOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTagOption");
   let body: any;
   body = JSON.stringify(se_CreateTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -841,10 +790,7 @@ export const se_DeleteConstraintCommand = async (
   input: DeleteConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteConstraint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConstraint");
   let body: any;
   body = JSON.stringify(se_DeleteConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -857,10 +803,7 @@ export const se_DeletePortfolioCommand = async (
   input: DeletePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePortfolio");
   let body: any;
   body = JSON.stringify(se_DeletePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -873,10 +816,7 @@ export const se_DeletePortfolioShareCommand = async (
   input: DeletePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolioShare",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePortfolioShare");
   let body: any;
   body = JSON.stringify(se_DeletePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -889,10 +829,7 @@ export const se_DeleteProductCommand = async (
   input: DeleteProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProduct");
   let body: any;
   body = JSON.stringify(se_DeleteProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -905,10 +842,7 @@ export const se_DeleteProvisionedProductPlanCommand = async (
   input: DeleteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisionedProductPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProvisionedProductPlan");
   let body: any;
   body = JSON.stringify(se_DeleteProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -921,10 +855,7 @@ export const se_DeleteProvisioningArtifactCommand = async (
   input: DeleteProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_DeleteProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -937,10 +868,7 @@ export const se_DeleteServiceActionCommand = async (
   input: DeleteServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceAction");
   let body: any;
   body = JSON.stringify(se_DeleteServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -953,10 +881,7 @@ export const se_DeleteTagOptionCommand = async (
   input: DeleteTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DeleteTagOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTagOption");
   let body: any;
   body = JSON.stringify(se_DeleteTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -969,10 +894,7 @@ export const se_DescribeConstraintCommand = async (
   input: DescribeConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeConstraint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConstraint");
   let body: any;
   body = JSON.stringify(se_DescribeConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -985,10 +907,7 @@ export const se_DescribeCopyProductStatusCommand = async (
   input: DescribeCopyProductStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeCopyProductStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCopyProductStatus");
   let body: any;
   body = JSON.stringify(se_DescribeCopyProductStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1001,10 +920,7 @@ export const se_DescribePortfolioCommand = async (
   input: DescribePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePortfolio");
   let body: any;
   body = JSON.stringify(se_DescribePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1017,10 +933,7 @@ export const se_DescribePortfolioSharesCommand = async (
   input: DescribePortfolioSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShares",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePortfolioShares");
   let body: any;
   body = JSON.stringify(se_DescribePortfolioSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1033,10 +946,7 @@ export const se_DescribePortfolioShareStatusCommand = async (
   input: DescribePortfolioShareStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShareStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePortfolioShareStatus");
   let body: any;
   body = JSON.stringify(se_DescribePortfolioShareStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1049,10 +959,7 @@ export const se_DescribeProductCommand = async (
   input: DescribeProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProduct");
   let body: any;
   body = JSON.stringify(se_DescribeProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1065,10 +972,7 @@ export const se_DescribeProductAsAdminCommand = async (
   input: DescribeProductAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProductAsAdmin",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProductAsAdmin");
   let body: any;
   body = JSON.stringify(se_DescribeProductAsAdminInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1081,10 +985,7 @@ export const se_DescribeProductViewCommand = async (
   input: DescribeProductViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProductView",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProductView");
   let body: any;
   body = JSON.stringify(se_DescribeProductViewInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1097,10 +998,7 @@ export const se_DescribeProvisionedProductCommand = async (
   input: DescribeProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProvisionedProduct");
   let body: any;
   body = JSON.stringify(se_DescribeProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1113,10 +1011,7 @@ export const se_DescribeProvisionedProductPlanCommand = async (
   input: DescribeProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProductPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProvisionedProductPlan");
   let body: any;
   body = JSON.stringify(se_DescribeProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1129,10 +1024,7 @@ export const se_DescribeProvisioningArtifactCommand = async (
   input: DescribeProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_DescribeProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1145,10 +1037,7 @@ export const se_DescribeProvisioningParametersCommand = async (
   input: DescribeProvisioningParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProvisioningParameters");
   let body: any;
   body = JSON.stringify(se_DescribeProvisioningParametersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1161,10 +1050,7 @@ export const se_DescribeRecordCommand = async (
   input: DescribeRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeRecord",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecord");
   let body: any;
   body = JSON.stringify(se_DescribeRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1177,10 +1063,7 @@ export const se_DescribeServiceActionCommand = async (
   input: DescribeServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServiceAction");
   let body: any;
   body = JSON.stringify(se_DescribeServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1193,10 +1076,7 @@ export const se_DescribeServiceActionExecutionParametersCommand = async (
   input: DescribeServiceActionExecutionParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServiceActionExecutionParameters");
   let body: any;
   body = JSON.stringify(se_DescribeServiceActionExecutionParametersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1209,10 +1089,7 @@ export const se_DescribeTagOptionCommand = async (
   input: DescribeTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DescribeTagOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTagOption");
   let body: any;
   body = JSON.stringify(se_DescribeTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1225,10 +1102,7 @@ export const se_DisableAWSOrganizationsAccessCommand = async (
   input: DisableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableAWSOrganizationsAccess");
   let body: any;
   body = JSON.stringify(se_DisableAWSOrganizationsAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1241,10 +1115,7 @@ export const se_DisassociateBudgetFromResourceCommand = async (
   input: DisassociateBudgetFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisassociateBudgetFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateBudgetFromResource");
   let body: any;
   body = JSON.stringify(se_DisassociateBudgetFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1257,10 +1128,7 @@ export const se_DisassociatePrincipalFromPortfolioCommand = async (
   input: DisassociatePrincipalFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociatePrincipalFromPortfolio");
   let body: any;
   body = JSON.stringify(se_DisassociatePrincipalFromPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1273,10 +1141,7 @@ export const se_DisassociateProductFromPortfolioCommand = async (
   input: DisassociateProductFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisassociateProductFromPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateProductFromPortfolio");
   let body: any;
   body = JSON.stringify(se_DisassociateProductFromPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1289,10 +1154,7 @@ export const se_DisassociateServiceActionFromProvisioningArtifactCommand = async
   input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateServiceActionFromProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_DisassociateServiceActionFromProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1305,10 +1167,7 @@ export const se_DisassociateTagOptionFromResourceCommand = async (
   input: DisassociateTagOptionFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.DisassociateTagOptionFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateTagOptionFromResource");
   let body: any;
   body = JSON.stringify(se_DisassociateTagOptionFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1321,10 +1180,7 @@ export const se_EnableAWSOrganizationsAccessCommand = async (
   input: EnableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableAWSOrganizationsAccess");
   let body: any;
   body = JSON.stringify(se_EnableAWSOrganizationsAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1337,10 +1193,7 @@ export const se_ExecuteProvisionedProductPlanCommand = async (
   input: ExecuteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteProvisionedProductPlan");
   let body: any;
   body = JSON.stringify(se_ExecuteProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1353,10 +1206,7 @@ export const se_ExecuteProvisionedProductServiceActionCommand = async (
   input: ExecuteProvisionedProductServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteProvisionedProductServiceAction");
   let body: any;
   body = JSON.stringify(se_ExecuteProvisionedProductServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1369,10 +1219,7 @@ export const se_GetAWSOrganizationsAccessStatusCommand = async (
   input: GetAWSOrganizationsAccessStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAWSOrganizationsAccessStatus");
   let body: any;
   body = JSON.stringify(se_GetAWSOrganizationsAccessStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1385,10 +1232,7 @@ export const se_GetProvisionedProductOutputsCommand = async (
   input: GetProvisionedProductOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetProvisionedProductOutputs");
   let body: any;
   body = JSON.stringify(se_GetProvisionedProductOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1401,10 +1245,7 @@ export const se_ImportAsProvisionedProductCommand = async (
   input: ImportAsProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportAsProvisionedProduct");
   let body: any;
   body = JSON.stringify(se_ImportAsProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1417,10 +1258,7 @@ export const se_ListAcceptedPortfolioSharesCommand = async (
   input: ListAcceptedPortfolioSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListAcceptedPortfolioShares",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAcceptedPortfolioShares");
   let body: any;
   body = JSON.stringify(se_ListAcceptedPortfolioSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1433,10 +1271,7 @@ export const se_ListBudgetsForResourceCommand = async (
   input: ListBudgetsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListBudgetsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBudgetsForResource");
   let body: any;
   body = JSON.stringify(se_ListBudgetsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1449,10 +1284,7 @@ export const se_ListConstraintsForPortfolioCommand = async (
   input: ListConstraintsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListConstraintsForPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConstraintsForPortfolio");
   let body: any;
   body = JSON.stringify(se_ListConstraintsForPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1465,10 +1297,7 @@ export const se_ListLaunchPathsCommand = async (
   input: ListLaunchPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListLaunchPaths",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLaunchPaths");
   let body: any;
   body = JSON.stringify(se_ListLaunchPathsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1481,10 +1310,7 @@ export const se_ListOrganizationPortfolioAccessCommand = async (
   input: ListOrganizationPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOrganizationPortfolioAccess");
   let body: any;
   body = JSON.stringify(se_ListOrganizationPortfolioAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1497,10 +1323,7 @@ export const se_ListPortfolioAccessCommand = async (
   input: ListPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListPortfolioAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPortfolioAccess");
   let body: any;
   body = JSON.stringify(se_ListPortfolioAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1513,10 +1336,7 @@ export const se_ListPortfoliosCommand = async (
   input: ListPortfoliosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListPortfolios",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPortfolios");
   let body: any;
   body = JSON.stringify(se_ListPortfoliosInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1529,10 +1349,7 @@ export const se_ListPortfoliosForProductCommand = async (
   input: ListPortfoliosForProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListPortfoliosForProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPortfoliosForProduct");
   let body: any;
   body = JSON.stringify(se_ListPortfoliosForProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1545,10 +1362,7 @@ export const se_ListPrincipalsForPortfolioCommand = async (
   input: ListPrincipalsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListPrincipalsForPortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPrincipalsForPortfolio");
   let body: any;
   body = JSON.stringify(se_ListPrincipalsForPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1561,10 +1375,7 @@ export const se_ListProvisionedProductPlansCommand = async (
   input: ListProvisionedProductPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListProvisionedProductPlans",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProvisionedProductPlans");
   let body: any;
   body = JSON.stringify(se_ListProvisionedProductPlansInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1577,10 +1388,7 @@ export const se_ListProvisioningArtifactsCommand = async (
   input: ListProvisioningArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifacts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProvisioningArtifacts");
   let body: any;
   body = JSON.stringify(se_ListProvisioningArtifactsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1593,10 +1401,7 @@ export const se_ListProvisioningArtifactsForServiceActionCommand = async (
   input: ListProvisioningArtifactsForServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProvisioningArtifactsForServiceAction");
   let body: any;
   body = JSON.stringify(se_ListProvisioningArtifactsForServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1609,10 +1414,7 @@ export const se_ListRecordHistoryCommand = async (
   input: ListRecordHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListRecordHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecordHistory");
   let body: any;
   body = JSON.stringify(se_ListRecordHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1625,10 +1427,7 @@ export const se_ListResourcesForTagOptionCommand = async (
   input: ListResourcesForTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListResourcesForTagOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourcesForTagOption");
   let body: any;
   body = JSON.stringify(se_ListResourcesForTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1641,10 +1440,7 @@ export const se_ListServiceActionsCommand = async (
   input: ListServiceActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListServiceActions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceActions");
   let body: any;
   body = JSON.stringify(se_ListServiceActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1657,10 +1453,7 @@ export const se_ListServiceActionsForProvisioningArtifactCommand = async (
   input: ListServiceActionsForProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceActionsForProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_ListServiceActionsForProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1673,10 +1466,7 @@ export const se_ListStackInstancesForProvisionedProductCommand = async (
   input: ListStackInstancesForProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStackInstancesForProvisionedProduct");
   let body: any;
   body = JSON.stringify(se_ListStackInstancesForProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1689,10 +1479,7 @@ export const se_ListTagOptionsCommand = async (
   input: ListTagOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ListTagOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagOptions");
   let body: any;
   body = JSON.stringify(se_ListTagOptionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1705,10 +1492,7 @@ export const se_NotifyProvisionProductEngineWorkflowResultCommand = async (
   input: NotifyProvisionProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.NotifyProvisionProductEngineWorkflowResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyProvisionProductEngineWorkflowResult");
   let body: any;
   body = JSON.stringify(se_NotifyProvisionProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1721,10 +1505,7 @@ export const se_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = a
   input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.NotifyTerminateProvisionedProductEngineWorkflowResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyTerminateProvisionedProductEngineWorkflowResult");
   let body: any;
   body = JSON.stringify(se_NotifyTerminateProvisionedProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1737,10 +1518,7 @@ export const se_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = asyn
   input: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyUpdateProvisionedProductEngineWorkflowResult");
   let body: any;
   body = JSON.stringify(se_NotifyUpdateProvisionedProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1753,10 +1531,7 @@ export const se_ProvisionProductCommand = async (
   input: ProvisionProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ProvisionProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("ProvisionProduct");
   let body: any;
   body = JSON.stringify(se_ProvisionProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1769,10 +1544,7 @@ export const se_RejectPortfolioShareCommand = async (
   input: RejectPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.RejectPortfolioShare",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectPortfolioShare");
   let body: any;
   body = JSON.stringify(se_RejectPortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1785,10 +1557,7 @@ export const se_ScanProvisionedProductsCommand = async (
   input: ScanProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.ScanProvisionedProducts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ScanProvisionedProducts");
   let body: any;
   body = JSON.stringify(se_ScanProvisionedProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1801,10 +1570,7 @@ export const se_SearchProductsCommand = async (
   input: SearchProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.SearchProducts",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchProducts");
   let body: any;
   body = JSON.stringify(se_SearchProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1817,10 +1583,7 @@ export const se_SearchProductsAsAdminCommand = async (
   input: SearchProductsAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.SearchProductsAsAdmin",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchProductsAsAdmin");
   let body: any;
   body = JSON.stringify(se_SearchProductsAsAdminInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1833,10 +1596,7 @@ export const se_SearchProvisionedProductsCommand = async (
   input: SearchProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.SearchProvisionedProducts",
-  };
+  const headers: __HeaderBag = sharedHeaders("SearchProvisionedProducts");
   let body: any;
   body = JSON.stringify(se_SearchProvisionedProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1849,10 +1609,7 @@ export const se_TerminateProvisionedProductCommand = async (
   input: TerminateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.TerminateProvisionedProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateProvisionedProduct");
   let body: any;
   body = JSON.stringify(se_TerminateProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1865,10 +1622,7 @@ export const se_UpdateConstraintCommand = async (
   input: UpdateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateConstraint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConstraint");
   let body: any;
   body = JSON.stringify(se_UpdateConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1881,10 +1635,7 @@ export const se_UpdatePortfolioCommand = async (
   input: UpdatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolio",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePortfolio");
   let body: any;
   body = JSON.stringify(se_UpdatePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1897,10 +1648,7 @@ export const se_UpdatePortfolioShareCommand = async (
   input: UpdatePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolioShare",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePortfolioShare");
   let body: any;
   body = JSON.stringify(se_UpdatePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1913,10 +1661,7 @@ export const se_UpdateProductCommand = async (
   input: UpdateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProduct");
   let body: any;
   body = JSON.stringify(se_UpdateProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1929,10 +1674,7 @@ export const se_UpdateProvisionedProductCommand = async (
   input: UpdateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProduct",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProvisionedProduct");
   let body: any;
   body = JSON.stringify(se_UpdateProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1945,10 +1687,7 @@ export const se_UpdateProvisionedProductPropertiesCommand = async (
   input: UpdateProvisionedProductPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProductProperties",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProvisionedProductProperties");
   let body: any;
   body = JSON.stringify(se_UpdateProvisionedProductPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1961,10 +1700,7 @@ export const se_UpdateProvisioningArtifactCommand = async (
   input: UpdateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisioningArtifact",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProvisioningArtifact");
   let body: any;
   body = JSON.stringify(se_UpdateProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1977,10 +1713,7 @@ export const se_UpdateServiceActionCommand = async (
   input: UpdateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateServiceAction",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceAction");
   let body: any;
   body = JSON.stringify(se_UpdateServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1993,10 +1726,7 @@ export const se_UpdateTagOptionCommand = async (
   input: UpdateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWS242ServiceCatalogService.UpdateTagOption",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTagOption");
   let body: any;
   body = JSON.stringify(se_UpdateTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11102,6 +10832,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWS242ServiceCatalogService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

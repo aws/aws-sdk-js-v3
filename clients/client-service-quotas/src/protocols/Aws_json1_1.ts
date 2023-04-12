@@ -154,10 +154,7 @@ export const se_AssociateServiceQuotaTemplateCommand = async (
   input: AssociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.AssociateServiceQuotaTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateServiceQuotaTemplate");
   let body: any;
   body = JSON.stringify(se_AssociateServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -170,10 +167,7 @@ export const se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
   input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServiceQuotaIncreaseRequestFromTemplate");
   let body: any;
   body = JSON.stringify(se_DeleteServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -186,10 +180,7 @@ export const se_DisassociateServiceQuotaTemplateCommand = async (
   input: DisassociateServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateServiceQuotaTemplate");
   let body: any;
   body = JSON.stringify(se_DisassociateServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -202,10 +193,7 @@ export const se_GetAssociationForServiceQuotaTemplateCommand = async (
   input: GetAssociationForServiceQuotaTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAssociationForServiceQuotaTemplate");
   let body: any;
   body = JSON.stringify(se_GetAssociationForServiceQuotaTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -218,10 +206,7 @@ export const se_GetAWSDefaultServiceQuotaCommand = async (
   input: GetAWSDefaultServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.GetAWSDefaultServiceQuota",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAWSDefaultServiceQuota");
   let body: any;
   body = JSON.stringify(se_GetAWSDefaultServiceQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -234,10 +219,7 @@ export const se_GetRequestedServiceQuotaChangeCommand = async (
   input: GetRequestedServiceQuotaChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.GetRequestedServiceQuotaChange",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRequestedServiceQuotaChange");
   let body: any;
   body = JSON.stringify(se_GetRequestedServiceQuotaChangeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -250,10 +232,7 @@ export const se_GetServiceQuotaCommand = async (
   input: GetServiceQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.GetServiceQuota",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceQuota");
   let body: any;
   body = JSON.stringify(se_GetServiceQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -266,10 +245,7 @@ export const se_GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
   input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceQuotaIncreaseRequestFromTemplate");
   let body: any;
   body = JSON.stringify(se_GetServiceQuotaIncreaseRequestFromTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -282,10 +258,7 @@ export const se_ListAWSDefaultServiceQuotasCommand = async (
   input: ListAWSDefaultServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAWSDefaultServiceQuotas");
   let body: any;
   body = JSON.stringify(se_ListAWSDefaultServiceQuotasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,10 +271,7 @@ export const se_ListRequestedServiceQuotaChangeHistoryCommand = async (
   input: ListRequestedServiceQuotaChangeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRequestedServiceQuotaChangeHistory");
   let body: any;
   body = JSON.stringify(se_ListRequestedServiceQuotaChangeHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -314,10 +284,7 @@ export const se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRequestedServiceQuotaChangeHistoryByQuota");
   let body: any;
   body = JSON.stringify(se_ListRequestedServiceQuotaChangeHistoryByQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -330,10 +297,7 @@ export const se_ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceQuotaIncreaseRequestsInTemplate");
   let body: any;
   body = JSON.stringify(se_ListServiceQuotaIncreaseRequestsInTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -346,10 +310,7 @@ export const se_ListServiceQuotasCommand = async (
   input: ListServiceQuotasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListServiceQuotas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceQuotas");
   let body: any;
   body = JSON.stringify(se_ListServiceQuotasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -362,10 +323,7 @@ export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListServices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServices");
   let body: any;
   body = JSON.stringify(se_ListServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -378,10 +336,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -394,10 +349,7 @@ export const se_PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
   input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutServiceQuotaIncreaseRequestIntoTemplate");
   let body: any;
   body = JSON.stringify(se_PutServiceQuotaIncreaseRequestIntoTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -410,10 +362,7 @@ export const se_RequestServiceQuotaIncreaseCommand = async (
   input: RequestServiceQuotaIncreaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.RequestServiceQuotaIncrease",
-  };
+  const headers: __HeaderBag = sharedHeaders("RequestServiceQuotaIncrease");
   let body: any;
   body = JSON.stringify(se_RequestServiceQuotaIncreaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -426,10 +375,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -442,10 +388,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "ServiceQuotasV20190624.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2854,6 +2797,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `ServiceQuotasV20190624.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -312,10 +312,7 @@ export const se_ActivateEventSourceCommand = async (
   input: ActivateEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ActivateEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ActivateEventSource");
   let body: any;
   body = JSON.stringify(se_ActivateEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -328,10 +325,7 @@ export const se_CancelReplayCommand = async (
   input: CancelReplayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CancelReplay",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelReplay");
   let body: any;
   body = JSON.stringify(se_CancelReplayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -344,10 +338,7 @@ export const se_CreateApiDestinationCommand = async (
   input: CreateApiDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreateApiDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApiDestination");
   let body: any;
   body = JSON.stringify(se_CreateApiDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -360,10 +351,7 @@ export const se_CreateArchiveCommand = async (
   input: CreateArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreateArchive",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateArchive");
   let body: any;
   body = JSON.stringify(se_CreateArchiveRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -376,10 +364,7 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnection");
   let body: any;
   body = JSON.stringify(se_CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -392,10 +377,7 @@ export const se_CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEndpoint");
   let body: any;
   body = JSON.stringify(se_CreateEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +390,7 @@ export const se_CreateEventBusCommand = async (
   input: CreateEventBusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreateEventBus",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventBus");
   let body: any;
   body = JSON.stringify(se_CreateEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +403,7 @@ export const se_CreatePartnerEventSourceCommand = async (
   input: CreatePartnerEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.CreatePartnerEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePartnerEventSource");
   let body: any;
   body = JSON.stringify(se_CreatePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +416,7 @@ export const se_DeactivateEventSourceCommand = async (
   input: DeactivateEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeactivateEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeactivateEventSource");
   let body: any;
   body = JSON.stringify(se_DeactivateEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +429,7 @@ export const se_DeauthorizeConnectionCommand = async (
   input: DeauthorizeConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeauthorizeConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeauthorizeConnection");
   let body: any;
   body = JSON.stringify(se_DeauthorizeConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +442,7 @@ export const se_DeleteApiDestinationCommand = async (
   input: DeleteApiDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteApiDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApiDestination");
   let body: any;
   body = JSON.stringify(se_DeleteApiDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,10 +455,7 @@ export const se_DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteArchive",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteArchive");
   let body: any;
   body = JSON.stringify(se_DeleteArchiveRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,10 +468,7 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnection");
   let body: any;
   body = JSON.stringify(se_DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -520,10 +481,7 @@ export const se_DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEndpoint");
   let body: any;
   body = JSON.stringify(se_DeleteEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -536,10 +494,7 @@ export const se_DeleteEventBusCommand = async (
   input: DeleteEventBusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteEventBus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventBus");
   let body: any;
   body = JSON.stringify(se_DeleteEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,10 +507,7 @@ export const se_DeletePartnerEventSourceCommand = async (
   input: DeletePartnerEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeletePartnerEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePartnerEventSource");
   let body: any;
   body = JSON.stringify(se_DeletePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -568,10 +520,7 @@ export const se_DeleteRuleCommand = async (
   input: DeleteRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DeleteRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRule");
   let body: any;
   body = JSON.stringify(se_DeleteRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,10 +533,7 @@ export const se_DescribeApiDestinationCommand = async (
   input: DescribeApiDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeApiDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeApiDestination");
   let body: any;
   body = JSON.stringify(se_DescribeApiDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -600,10 +546,7 @@ export const se_DescribeArchiveCommand = async (
   input: DescribeArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeArchive",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeArchive");
   let body: any;
   body = JSON.stringify(se_DescribeArchiveRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,10 +559,7 @@ export const se_DescribeConnectionCommand = async (
   input: DescribeConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnection");
   let body: any;
   body = JSON.stringify(se_DescribeConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +572,7 @@ export const se_DescribeEndpointCommand = async (
   input: DescribeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoint");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -648,10 +585,7 @@ export const se_DescribeEventBusCommand = async (
   input: DescribeEventBusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeEventBus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventBus");
   let body: any;
   body = JSON.stringify(se_DescribeEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -664,10 +598,7 @@ export const se_DescribeEventSourceCommand = async (
   input: DescribeEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventSource");
   let body: any;
   body = JSON.stringify(se_DescribeEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -680,10 +611,7 @@ export const se_DescribePartnerEventSourceCommand = async (
   input: DescribePartnerEventSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribePartnerEventSource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePartnerEventSource");
   let body: any;
   body = JSON.stringify(se_DescribePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -696,10 +624,7 @@ export const se_DescribeReplayCommand = async (
   input: DescribeReplayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeReplay",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReplay");
   let body: any;
   body = JSON.stringify(se_DescribeReplayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,10 +637,7 @@ export const se_DescribeRuleCommand = async (
   input: DescribeRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DescribeRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRule");
   let body: any;
   body = JSON.stringify(se_DescribeRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -728,10 +650,7 @@ export const se_DisableRuleCommand = async (
   input: DisableRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.DisableRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableRule");
   let body: any;
   body = JSON.stringify(se_DisableRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,10 +663,7 @@ export const se_EnableRuleCommand = async (
   input: EnableRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.EnableRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableRule");
   let body: any;
   body = JSON.stringify(se_EnableRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -760,10 +676,7 @@ export const se_ListApiDestinationsCommand = async (
   input: ListApiDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListApiDestinations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApiDestinations");
   let body: any;
   body = JSON.stringify(se_ListApiDestinationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -776,10 +689,7 @@ export const se_ListArchivesCommand = async (
   input: ListArchivesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListArchives",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListArchives");
   let body: any;
   body = JSON.stringify(se_ListArchivesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -792,10 +702,7 @@ export const se_ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListConnections",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConnections");
   let body: any;
   body = JSON.stringify(se_ListConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -808,10 +715,7 @@ export const se_ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEndpoints");
   let body: any;
   body = JSON.stringify(se_ListEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -824,10 +728,7 @@ export const se_ListEventBusesCommand = async (
   input: ListEventBusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListEventBuses",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventBuses");
   let body: any;
   body = JSON.stringify(se_ListEventBusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -840,10 +741,7 @@ export const se_ListEventSourcesCommand = async (
   input: ListEventSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListEventSources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventSources");
   let body: any;
   body = JSON.stringify(se_ListEventSourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -856,10 +754,7 @@ export const se_ListPartnerEventSourceAccountsCommand = async (
   input: ListPartnerEventSourceAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListPartnerEventSourceAccounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPartnerEventSourceAccounts");
   let body: any;
   body = JSON.stringify(se_ListPartnerEventSourceAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -872,10 +767,7 @@ export const se_ListPartnerEventSourcesCommand = async (
   input: ListPartnerEventSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListPartnerEventSources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPartnerEventSources");
   let body: any;
   body = JSON.stringify(se_ListPartnerEventSourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -888,10 +780,7 @@ export const se_ListReplaysCommand = async (
   input: ListReplaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListReplays",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReplays");
   let body: any;
   body = JSON.stringify(se_ListReplaysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -904,10 +793,7 @@ export const se_ListRuleNamesByTargetCommand = async (
   input: ListRuleNamesByTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListRuleNamesByTarget",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRuleNamesByTarget");
   let body: any;
   body = JSON.stringify(se_ListRuleNamesByTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -920,10 +806,7 @@ export const se_ListRulesCommand = async (
   input: ListRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRules");
   let body: any;
   body = JSON.stringify(se_ListRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -936,10 +819,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -952,10 +832,7 @@ export const se_ListTargetsByRuleCommand = async (
   input: ListTargetsByRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.ListTargetsByRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTargetsByRule");
   let body: any;
   body = JSON.stringify(se_ListTargetsByRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -968,10 +845,7 @@ export const se_PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.PutEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEvents");
   let body: any;
   body = JSON.stringify(se_PutEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -984,10 +858,7 @@ export const se_PutPartnerEventsCommand = async (
   input: PutPartnerEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.PutPartnerEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPartnerEvents");
   let body: any;
   body = JSON.stringify(se_PutPartnerEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1000,10 +871,7 @@ export const se_PutPermissionCommand = async (
   input: PutPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.PutPermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPermission");
   let body: any;
   body = JSON.stringify(se_PutPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1016,10 +884,7 @@ export const se_PutRuleCommand = async (
   input: PutRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.PutRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRule");
   let body: any;
   body = JSON.stringify(se_PutRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1032,10 +897,7 @@ export const se_PutTargetsCommand = async (
   input: PutTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.PutTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutTargets");
   let body: any;
   body = JSON.stringify(se_PutTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1048,10 +910,7 @@ export const se_RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.RemovePermission",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemovePermission");
   let body: any;
   body = JSON.stringify(se_RemovePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1064,10 +923,7 @@ export const se_RemoveTargetsCommand = async (
   input: RemoveTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.RemoveTargets",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveTargets");
   let body: any;
   body = JSON.stringify(se_RemoveTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1080,10 +936,7 @@ export const se_StartReplayCommand = async (
   input: StartReplayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.StartReplay",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartReplay");
   let body: any;
   body = JSON.stringify(se_StartReplayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1096,10 +949,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1112,10 +962,7 @@ export const se_TestEventPatternCommand = async (
   input: TestEventPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.TestEventPattern",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestEventPattern");
   let body: any;
   body = JSON.stringify(se_TestEventPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1128,10 +975,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1144,10 +988,7 @@ export const se_UpdateApiDestinationCommand = async (
   input: UpdateApiDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.UpdateApiDestination",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApiDestination");
   let body: any;
   body = JSON.stringify(se_UpdateApiDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1160,10 +1001,7 @@ export const se_UpdateArchiveCommand = async (
   input: UpdateArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.UpdateArchive",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateArchive");
   let body: any;
   body = JSON.stringify(se_UpdateArchiveRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1176,10 +1014,7 @@ export const se_UpdateConnectionCommand = async (
   input: UpdateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.UpdateConnection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnection");
   let body: any;
   body = JSON.stringify(se_UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1192,10 +1027,7 @@ export const se_UpdateEndpointCommand = async (
   input: UpdateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSEvents.UpdateEndpoint",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateEndpoint");
   let body: any;
   body = JSON.stringify(se_UpdateEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7859,6 +7691,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSEvents.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

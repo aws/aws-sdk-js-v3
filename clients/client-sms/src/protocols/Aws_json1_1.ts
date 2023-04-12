@@ -235,10 +235,7 @@ export const se_CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.CreateApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApp");
   let body: any;
   body = JSON.stringify(se_CreateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -251,10 +248,7 @@ export const se_CreateReplicationJobCommand = async (
   input: CreateReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.CreateReplicationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReplicationJob");
   let body: any;
   body = JSON.stringify(se_CreateReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -267,10 +261,7 @@ export const se_DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApp");
   let body: any;
   body = JSON.stringify(se_DeleteAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,10 +274,7 @@ export const se_DeleteAppLaunchConfigurationCommand = async (
   input: DeleteAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppLaunchConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -299,10 +287,7 @@ export const se_DeleteAppReplicationConfigurationCommand = async (
   input: DeleteAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppReplicationConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAppReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -315,10 +300,7 @@ export const se_DeleteAppValidationConfigurationCommand = async (
   input: DeleteAppValidationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAppValidationConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAppValidationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -331,10 +313,7 @@ export const se_DeleteReplicationJobCommand = async (
   input: DeleteReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationJob");
   let body: any;
   body = JSON.stringify(se_DeleteReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -347,10 +326,7 @@ export const se_DeleteServerCatalogCommand = async (
   input: DeleteServerCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServerCatalog");
   let body: any;
   body = JSON.stringify(se_DeleteServerCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -363,10 +339,7 @@ export const se_DisassociateConnectorCommand = async (
   input: DisassociateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DisassociateConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateConnector");
   let body: any;
   body = JSON.stringify(se_DisassociateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -379,10 +352,7 @@ export const se_GenerateChangeSetCommand = async (
   input: GenerateChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GenerateChangeSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateChangeSet");
   let body: any;
   body = JSON.stringify(se_GenerateChangeSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -395,10 +365,7 @@ export const se_GenerateTemplateCommand = async (
   input: GenerateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GenerateTemplate",
-  };
+  const headers: __HeaderBag = sharedHeaders("GenerateTemplate");
   let body: any;
   body = JSON.stringify(se_GenerateTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -408,10 +375,7 @@ export const se_GenerateTemplateCommand = async (
  * serializeAws_json1_1GetAppCommand
  */
 export const se_GetAppCommand = async (input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetApp");
   let body: any;
   body = JSON.stringify(se_GetAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -424,10 +388,7 @@ export const se_GetAppLaunchConfigurationCommand = async (
   input: GetAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAppLaunchConfiguration");
   let body: any;
   body = JSON.stringify(se_GetAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -440,10 +401,7 @@ export const se_GetAppReplicationConfigurationCommand = async (
   input: GetAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAppReplicationConfiguration");
   let body: any;
   body = JSON.stringify(se_GetAppReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -456,10 +414,7 @@ export const se_GetAppValidationConfigurationCommand = async (
   input: GetAppValidationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAppValidationConfiguration");
   let body: any;
   body = JSON.stringify(se_GetAppValidationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -472,10 +427,7 @@ export const se_GetAppValidationOutputCommand = async (
   input: GetAppValidationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAppValidationOutput");
   let body: any;
   body = JSON.stringify(se_GetAppValidationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -488,10 +440,7 @@ export const se_GetConnectorsCommand = async (
   input: GetConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetConnectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConnectors");
   let body: any;
   body = JSON.stringify(se_GetConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,10 +453,7 @@ export const se_GetReplicationJobsCommand = async (
   input: GetReplicationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetReplicationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReplicationJobs");
   let body: any;
   body = JSON.stringify(se_GetReplicationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -520,10 +466,7 @@ export const se_GetReplicationRunsCommand = async (
   input: GetReplicationRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetReplicationRuns",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReplicationRuns");
   let body: any;
   body = JSON.stringify(se_GetReplicationRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -536,10 +479,7 @@ export const se_GetServersCommand = async (
   input: GetServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetServers",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServers");
   let body: any;
   body = JSON.stringify(se_GetServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -552,10 +492,7 @@ export const se_ImportAppCatalogCommand = async (
   input: ImportAppCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ImportAppCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportAppCatalog");
   let body: any;
   body = JSON.stringify(se_ImportAppCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -568,10 +505,7 @@ export const se_ImportServerCatalogCommand = async (
   input: ImportServerCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ImportServerCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportServerCatalog");
   let body: any;
   body = JSON.stringify(se_ImportServerCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,10 +518,7 @@ export const se_LaunchAppCommand = async (
   input: LaunchAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.LaunchApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("LaunchApp");
   let body: any;
   body = JSON.stringify(se_LaunchAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -600,10 +531,7 @@ export const se_ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ListApps",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApps");
   let body: any;
   body = JSON.stringify(se_ListAppsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,10 +544,7 @@ export const se_NotifyAppValidationOutputCommand = async (
   input: NotifyAppValidationOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput",
-  };
+  const headers: __HeaderBag = sharedHeaders("NotifyAppValidationOutput");
   let body: any;
   body = JSON.stringify(se_NotifyAppValidationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -632,10 +557,7 @@ export const se_PutAppLaunchConfigurationCommand = async (
   input: PutAppLaunchConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAppLaunchConfiguration");
   let body: any;
   body = JSON.stringify(se_PutAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -648,10 +570,7 @@ export const se_PutAppReplicationConfigurationCommand = async (
   input: PutAppReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAppReplicationConfiguration");
   let body: any;
   body = JSON.stringify(se_PutAppReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -664,10 +583,7 @@ export const se_PutAppValidationConfigurationCommand = async (
   input: PutAppValidationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAppValidationConfiguration");
   let body: any;
   body = JSON.stringify(se_PutAppValidationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -680,10 +596,7 @@ export const se_StartAppReplicationCommand = async (
   input: StartAppReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartAppReplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartAppReplication");
   let body: any;
   body = JSON.stringify(se_StartAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -696,10 +609,7 @@ export const se_StartOnDemandAppReplicationCommand = async (
   input: StartOnDemandAppReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartOnDemandAppReplication");
   let body: any;
   body = JSON.stringify(se_StartOnDemandAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -712,10 +622,7 @@ export const se_StartOnDemandReplicationRunCommand = async (
   input: StartOnDemandReplicationRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartOnDemandReplicationRun");
   let body: any;
   body = JSON.stringify(se_StartOnDemandReplicationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -728,10 +635,7 @@ export const se_StopAppReplicationCommand = async (
   input: StopAppReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StopAppReplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopAppReplication");
   let body: any;
   body = JSON.stringify(se_StopAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -744,10 +648,7 @@ export const se_TerminateAppCommand = async (
   input: TerminateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.TerminateApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateApp");
   let body: any;
   body = JSON.stringify(se_TerminateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -760,10 +661,7 @@ export const se_UpdateAppCommand = async (
   input: UpdateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.UpdateApp",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApp");
   let body: any;
   body = JSON.stringify(se_UpdateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -776,10 +674,7 @@ export const se_UpdateReplicationJobCommand = async (
   input: UpdateReplicationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateReplicationJob");
   let body: any;
   body = JSON.stringify(se_UpdateReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5000,6 +4895,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSServerMigrationService_V2016_10_24.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

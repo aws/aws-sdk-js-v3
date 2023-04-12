@@ -134,10 +134,7 @@ export const se_CancelRotateSecretCommand = async (
   input: CancelRotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.CancelRotateSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelRotateSecret");
   let body: any;
   body = JSON.stringify(se_CancelRotateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -150,10 +147,7 @@ export const se_CreateSecretCommand = async (
   input: CreateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.CreateSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSecret");
   let body: any;
   body = JSON.stringify(se_CreateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -166,10 +160,7 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(se_DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -182,10 +173,7 @@ export const se_DeleteSecretCommand = async (
   input: DeleteSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.DeleteSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSecret");
   let body: any;
   body = JSON.stringify(se_DeleteSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -198,10 +186,7 @@ export const se_DescribeSecretCommand = async (
   input: DescribeSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.DescribeSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSecret");
   let body: any;
   body = JSON.stringify(se_DescribeSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -214,10 +199,7 @@ export const se_GetRandomPasswordCommand = async (
   input: GetRandomPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.GetRandomPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRandomPassword");
   let body: any;
   body = JSON.stringify(se_GetRandomPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -230,10 +212,7 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
   body = JSON.stringify(se_GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -246,10 +225,7 @@ export const se_GetSecretValueCommand = async (
   input: GetSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.GetSecretValue",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSecretValue");
   let body: any;
   body = JSON.stringify(se_GetSecretValueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -262,10 +238,7 @@ export const se_ListSecretsCommand = async (
   input: ListSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.ListSecrets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecrets");
   let body: any;
   body = JSON.stringify(se_ListSecretsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -278,10 +251,7 @@ export const se_ListSecretVersionIdsCommand = async (
   input: ListSecretVersionIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.ListSecretVersionIds",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecretVersionIds");
   let body: any;
   body = JSON.stringify(se_ListSecretVersionIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -294,10 +264,7 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -310,10 +277,7 @@ export const se_PutSecretValueCommand = async (
   input: PutSecretValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.PutSecretValue",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutSecretValue");
   let body: any;
   body = JSON.stringify(se_PutSecretValueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -326,10 +290,7 @@ export const se_RemoveRegionsFromReplicationCommand = async (
   input: RemoveRegionsFromReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.RemoveRegionsFromReplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("RemoveRegionsFromReplication");
   let body: any;
   body = JSON.stringify(se_RemoveRegionsFromReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -342,10 +303,7 @@ export const se_ReplicateSecretToRegionsCommand = async (
   input: ReplicateSecretToRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.ReplicateSecretToRegions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ReplicateSecretToRegions");
   let body: any;
   body = JSON.stringify(se_ReplicateSecretToRegionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -358,10 +316,7 @@ export const se_RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.RestoreSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("RestoreSecret");
   let body: any;
   body = JSON.stringify(se_RestoreSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -374,10 +329,7 @@ export const se_RotateSecretCommand = async (
   input: RotateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.RotateSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("RotateSecret");
   let body: any;
   body = JSON.stringify(se_RotateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -390,10 +342,7 @@ export const se_StopReplicationToReplicaCommand = async (
   input: StopReplicationToReplicaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.StopReplicationToReplica",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopReplicationToReplica");
   let body: any;
   body = JSON.stringify(se_StopReplicationToReplicaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -406,10 +355,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -422,10 +368,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -438,10 +381,7 @@ export const se_UpdateSecretCommand = async (
   input: UpdateSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.UpdateSecret",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSecret");
   let body: any;
   body = JSON.stringify(se_UpdateSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -454,10 +394,7 @@ export const se_UpdateSecretVersionStageCommand = async (
   input: UpdateSecretVersionStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.UpdateSecretVersionStage",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSecretVersionStage");
   let body: any;
   body = JSON.stringify(se_UpdateSecretVersionStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -470,10 +407,7 @@ export const se_ValidateResourcePolicyCommand = async (
   input: ValidateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "secretsmanager.ValidateResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("ValidateResourcePolicy");
   let body: any;
   body = JSON.stringify(se_ValidateResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2983,6 +2917,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `secretsmanager.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

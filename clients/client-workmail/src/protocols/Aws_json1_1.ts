@@ -469,10 +469,7 @@ export const se_AssociateDelegateToResourceCommand = async (
   input: AssociateDelegateToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.AssociateDelegateToResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateDelegateToResource");
   let body: any;
   body = JSON.stringify(se_AssociateDelegateToResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -485,10 +482,7 @@ export const se_AssociateMemberToGroupCommand = async (
   input: AssociateMemberToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.AssociateMemberToGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateMemberToGroup");
   let body: any;
   body = JSON.stringify(se_AssociateMemberToGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,10 +495,7 @@ export const se_AssumeImpersonationRoleCommand = async (
   input: AssumeImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.AssumeImpersonationRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssumeImpersonationRole");
   let body: any;
   body = JSON.stringify(se_AssumeImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -517,10 +508,7 @@ export const se_CancelMailboxExportJobCommand = async (
   input: CancelMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CancelMailboxExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelMailboxExportJob");
   let body: any;
   body = JSON.stringify(se_CancelMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -533,10 +521,7 @@ export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAlias");
   let body: any;
   body = JSON.stringify(se_CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -549,10 +534,7 @@ export const se_CreateAvailabilityConfigurationCommand = async (
   input: CreateAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateAvailabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAvailabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -565,10 +547,7 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGroup");
   let body: any;
   body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -581,10 +560,7 @@ export const se_CreateImpersonationRoleCommand = async (
   input: CreateImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateImpersonationRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateImpersonationRole");
   let body: any;
   body = JSON.stringify(se_CreateImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -597,10 +573,7 @@ export const se_CreateMobileDeviceAccessRuleCommand = async (
   input: CreateMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateMobileDeviceAccessRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMobileDeviceAccessRule");
   let body: any;
   body = JSON.stringify(se_CreateMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -613,10 +586,7 @@ export const se_CreateOrganizationCommand = async (
   input: CreateOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateOrganization");
   let body: any;
   body = JSON.stringify(se_CreateOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -629,10 +599,7 @@ export const se_CreateResourceCommand = async (
   input: CreateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateResource");
   let body: any;
   body = JSON.stringify(se_CreateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -645,10 +612,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
   body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -661,10 +625,7 @@ export const se_DeleteAccessControlRuleCommand = async (
   input: DeleteAccessControlRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteAccessControlRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccessControlRule");
   let body: any;
   body = JSON.stringify(se_DeleteAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -677,10 +638,7 @@ export const se_DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteAlias",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAlias");
   let body: any;
   body = JSON.stringify(se_DeleteAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -693,10 +651,7 @@ export const se_DeleteAvailabilityConfigurationCommand = async (
   input: DeleteAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteAvailabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAvailabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -709,10 +664,7 @@ export const se_DeleteEmailMonitoringConfigurationCommand = async (
   input: DeleteEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteEmailMonitoringConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEmailMonitoringConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -725,10 +677,7 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGroup");
   let body: any;
   body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -741,10 +690,7 @@ export const se_DeleteImpersonationRoleCommand = async (
   input: DeleteImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteImpersonationRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteImpersonationRole");
   let body: any;
   body = JSON.stringify(se_DeleteImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -757,10 +703,7 @@ export const se_DeleteMailboxPermissionsCommand = async (
   input: DeleteMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteMailboxPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMailboxPermissions");
   let body: any;
   body = JSON.stringify(se_DeleteMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -773,10 +716,7 @@ export const se_DeleteMobileDeviceAccessOverrideCommand = async (
   input: DeleteMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteMobileDeviceAccessOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMobileDeviceAccessOverride");
   let body: any;
   body = JSON.stringify(se_DeleteMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -789,10 +729,7 @@ export const se_DeleteMobileDeviceAccessRuleCommand = async (
   input: DeleteMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteMobileDeviceAccessRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMobileDeviceAccessRule");
   let body: any;
   body = JSON.stringify(se_DeleteMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -805,10 +742,7 @@ export const se_DeleteOrganizationCommand = async (
   input: DeleteOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOrganization");
   let body: any;
   body = JSON.stringify(se_DeleteOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -821,10 +755,7 @@ export const se_DeleteResourceCommand = async (
   input: DeleteResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResource");
   let body: any;
   body = JSON.stringify(se_DeleteResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -837,10 +768,7 @@ export const se_DeleteRetentionPolicyCommand = async (
   input: DeleteRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteRetentionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRetentionPolicy");
   let body: any;
   body = JSON.stringify(se_DeleteRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -853,10 +781,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -869,10 +794,7 @@ export const se_DeregisterFromWorkMailCommand = async (
   input: DeregisterFromWorkMailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeregisterFromWorkMail",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterFromWorkMail");
   let body: any;
   body = JSON.stringify(se_DeregisterFromWorkMailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -885,10 +807,7 @@ export const se_DeregisterMailDomainCommand = async (
   input: DeregisterMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DeregisterMailDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterMailDomain");
   let body: any;
   body = JSON.stringify(se_DeregisterMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -901,10 +820,7 @@ export const se_DescribeEmailMonitoringConfigurationCommand = async (
   input: DescribeEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeEmailMonitoringConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEmailMonitoringConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -917,10 +833,7 @@ export const se_DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeGroup");
   let body: any;
   body = JSON.stringify(se_DescribeGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -933,10 +846,7 @@ export const se_DescribeInboundDmarcSettingsCommand = async (
   input: DescribeInboundDmarcSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeInboundDmarcSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInboundDmarcSettings");
   let body: any;
   body = JSON.stringify(se_DescribeInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -949,10 +859,7 @@ export const se_DescribeMailboxExportJobCommand = async (
   input: DescribeMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeMailboxExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMailboxExportJob");
   let body: any;
   body = JSON.stringify(se_DescribeMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -965,10 +872,7 @@ export const se_DescribeOrganizationCommand = async (
   input: DescribeOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganization");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -981,10 +885,7 @@ export const se_DescribeResourceCommand = async (
   input: DescribeResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResource");
   let body: any;
   body = JSON.stringify(se_DescribeResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -997,10 +898,7 @@ export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DescribeUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUser");
   let body: any;
   body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1013,10 +911,7 @@ export const se_DisassociateDelegateFromResourceCommand = async (
   input: DisassociateDelegateFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DisassociateDelegateFromResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateDelegateFromResource");
   let body: any;
   body = JSON.stringify(se_DisassociateDelegateFromResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1029,10 +924,7 @@ export const se_DisassociateMemberFromGroupCommand = async (
   input: DisassociateMemberFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.DisassociateMemberFromGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateMemberFromGroup");
   let body: any;
   body = JSON.stringify(se_DisassociateMemberFromGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1045,10 +937,7 @@ export const se_GetAccessControlEffectCommand = async (
   input: GetAccessControlEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetAccessControlEffect",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccessControlEffect");
   let body: any;
   body = JSON.stringify(se_GetAccessControlEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1061,10 +950,7 @@ export const se_GetDefaultRetentionPolicyCommand = async (
   input: GetDefaultRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetDefaultRetentionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDefaultRetentionPolicy");
   let body: any;
   body = JSON.stringify(se_GetDefaultRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1077,10 +963,7 @@ export const se_GetImpersonationRoleCommand = async (
   input: GetImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetImpersonationRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetImpersonationRole");
   let body: any;
   body = JSON.stringify(se_GetImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1093,10 +976,7 @@ export const se_GetImpersonationRoleEffectCommand = async (
   input: GetImpersonationRoleEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetImpersonationRoleEffect",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetImpersonationRoleEffect");
   let body: any;
   body = JSON.stringify(se_GetImpersonationRoleEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1109,10 +989,7 @@ export const se_GetMailboxDetailsCommand = async (
   input: GetMailboxDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetMailboxDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMailboxDetails");
   let body: any;
   body = JSON.stringify(se_GetMailboxDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1125,10 +1002,7 @@ export const se_GetMailDomainCommand = async (
   input: GetMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetMailDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMailDomain");
   let body: any;
   body = JSON.stringify(se_GetMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1141,10 +1015,7 @@ export const se_GetMobileDeviceAccessEffectCommand = async (
   input: GetMobileDeviceAccessEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetMobileDeviceAccessEffect",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMobileDeviceAccessEffect");
   let body: any;
   body = JSON.stringify(se_GetMobileDeviceAccessEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1157,10 +1028,7 @@ export const se_GetMobileDeviceAccessOverrideCommand = async (
   input: GetMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.GetMobileDeviceAccessOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetMobileDeviceAccessOverride");
   let body: any;
   body = JSON.stringify(se_GetMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1173,10 +1041,7 @@ export const se_ListAccessControlRulesCommand = async (
   input: ListAccessControlRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListAccessControlRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccessControlRules");
   let body: any;
   body = JSON.stringify(se_ListAccessControlRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1189,10 +1054,7 @@ export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListAliases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAliases");
   let body: any;
   body = JSON.stringify(se_ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1205,10 +1067,7 @@ export const se_ListAvailabilityConfigurationsCommand = async (
   input: ListAvailabilityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListAvailabilityConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAvailabilityConfigurations");
   let body: any;
   body = JSON.stringify(se_ListAvailabilityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1221,10 +1080,7 @@ export const se_ListGroupMembersCommand = async (
   input: ListGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListGroupMembers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroupMembers");
   let body: any;
   body = JSON.stringify(se_ListGroupMembersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1237,10 +1093,7 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListGroups");
   let body: any;
   body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1253,10 +1106,7 @@ export const se_ListImpersonationRolesCommand = async (
   input: ListImpersonationRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListImpersonationRoles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListImpersonationRoles");
   let body: any;
   body = JSON.stringify(se_ListImpersonationRolesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1269,10 +1119,7 @@ export const se_ListMailboxExportJobsCommand = async (
   input: ListMailboxExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListMailboxExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMailboxExportJobs");
   let body: any;
   body = JSON.stringify(se_ListMailboxExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1285,10 +1132,7 @@ export const se_ListMailboxPermissionsCommand = async (
   input: ListMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListMailboxPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMailboxPermissions");
   let body: any;
   body = JSON.stringify(se_ListMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1301,10 +1145,7 @@ export const se_ListMailDomainsCommand = async (
   input: ListMailDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListMailDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMailDomains");
   let body: any;
   body = JSON.stringify(se_ListMailDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1317,10 +1158,7 @@ export const se_ListMobileDeviceAccessOverridesCommand = async (
   input: ListMobileDeviceAccessOverridesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListMobileDeviceAccessOverrides",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMobileDeviceAccessOverrides");
   let body: any;
   body = JSON.stringify(se_ListMobileDeviceAccessOverridesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1333,10 +1171,7 @@ export const se_ListMobileDeviceAccessRulesCommand = async (
   input: ListMobileDeviceAccessRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListMobileDeviceAccessRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMobileDeviceAccessRules");
   let body: any;
   body = JSON.stringify(se_ListMobileDeviceAccessRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1349,10 +1184,7 @@ export const se_ListOrganizationsCommand = async (
   input: ListOrganizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListOrganizations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOrganizations");
   let body: any;
   body = JSON.stringify(se_ListOrganizationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1365,10 +1197,7 @@ export const se_ListResourceDelegatesCommand = async (
   input: ListResourceDelegatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListResourceDelegates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceDelegates");
   let body: any;
   body = JSON.stringify(se_ListResourceDelegatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1381,10 +1210,7 @@ export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResources");
   let body: any;
   body = JSON.stringify(se_ListResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1397,10 +1223,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1413,10 +1236,7 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ListUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
   body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1429,10 +1249,7 @@ export const se_PutAccessControlRuleCommand = async (
   input: PutAccessControlRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutAccessControlRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAccessControlRule");
   let body: any;
   body = JSON.stringify(se_PutAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1445,10 +1262,7 @@ export const se_PutEmailMonitoringConfigurationCommand = async (
   input: PutEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutEmailMonitoringConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEmailMonitoringConfiguration");
   let body: any;
   body = JSON.stringify(se_PutEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1461,10 +1275,7 @@ export const se_PutInboundDmarcSettingsCommand = async (
   input: PutInboundDmarcSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutInboundDmarcSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutInboundDmarcSettings");
   let body: any;
   body = JSON.stringify(se_PutInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1477,10 +1288,7 @@ export const se_PutMailboxPermissionsCommand = async (
   input: PutMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutMailboxPermissions",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutMailboxPermissions");
   let body: any;
   body = JSON.stringify(se_PutMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1493,10 +1301,7 @@ export const se_PutMobileDeviceAccessOverrideCommand = async (
   input: PutMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutMobileDeviceAccessOverride",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutMobileDeviceAccessOverride");
   let body: any;
   body = JSON.stringify(se_PutMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1509,10 +1314,7 @@ export const se_PutRetentionPolicyCommand = async (
   input: PutRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.PutRetentionPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRetentionPolicy");
   let body: any;
   body = JSON.stringify(se_PutRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1525,10 +1327,7 @@ export const se_RegisterMailDomainCommand = async (
   input: RegisterMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.RegisterMailDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterMailDomain");
   let body: any;
   body = JSON.stringify(se_RegisterMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1541,10 +1340,7 @@ export const se_RegisterToWorkMailCommand = async (
   input: RegisterToWorkMailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.RegisterToWorkMail",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterToWorkMail");
   let body: any;
   body = JSON.stringify(se_RegisterToWorkMailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1557,10 +1353,7 @@ export const se_ResetPasswordCommand = async (
   input: ResetPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.ResetPassword",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResetPassword");
   let body: any;
   body = JSON.stringify(se_ResetPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1573,10 +1366,7 @@ export const se_StartMailboxExportJobCommand = async (
   input: StartMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.StartMailboxExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartMailboxExportJob");
   let body: any;
   body = JSON.stringify(se_StartMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1589,10 +1379,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1605,10 +1392,7 @@ export const se_TestAvailabilityConfigurationCommand = async (
   input: TestAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.TestAvailabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestAvailabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_TestAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1621,10 +1405,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1637,10 +1418,7 @@ export const se_UpdateAvailabilityConfigurationCommand = async (
   input: UpdateAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateAvailabilityConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAvailabilityConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1653,10 +1431,7 @@ export const se_UpdateDefaultMailDomainCommand = async (
   input: UpdateDefaultMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateDefaultMailDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDefaultMailDomain");
   let body: any;
   body = JSON.stringify(se_UpdateDefaultMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1669,10 +1444,7 @@ export const se_UpdateImpersonationRoleCommand = async (
   input: UpdateImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateImpersonationRole",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateImpersonationRole");
   let body: any;
   body = JSON.stringify(se_UpdateImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1685,10 +1457,7 @@ export const se_UpdateMailboxQuotaCommand = async (
   input: UpdateMailboxQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateMailboxQuota",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMailboxQuota");
   let body: any;
   body = JSON.stringify(se_UpdateMailboxQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1701,10 +1470,7 @@ export const se_UpdateMobileDeviceAccessRuleCommand = async (
   input: UpdateMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateMobileDeviceAccessRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMobileDeviceAccessRule");
   let body: any;
   body = JSON.stringify(se_UpdateMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1717,10 +1483,7 @@ export const se_UpdatePrimaryEmailAddressCommand = async (
   input: UpdatePrimaryEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdatePrimaryEmailAddress",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePrimaryEmailAddress");
   let body: any;
   body = JSON.stringify(se_UpdatePrimaryEmailAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1733,10 +1496,7 @@ export const se_UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "WorkMailService.UpdateResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateResource");
   let body: any;
   body = JSON.stringify(se_UpdateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9907,6 +9667,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `WorkMailService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

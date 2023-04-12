@@ -323,10 +323,7 @@ export const se_AcceptGrantCommand = async (
   input: AcceptGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.AcceptGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptGrant");
   let body: any;
   body = JSON.stringify(se_AcceptGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -339,10 +336,7 @@ export const se_CheckInLicenseCommand = async (
   input: CheckInLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CheckInLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckInLicense");
   let body: any;
   body = JSON.stringify(se_CheckInLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -355,10 +349,7 @@ export const se_CheckoutBorrowLicenseCommand = async (
   input: CheckoutBorrowLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CheckoutBorrowLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckoutBorrowLicense");
   let body: any;
   body = JSON.stringify(se_CheckoutBorrowLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -371,10 +362,7 @@ export const se_CheckoutLicenseCommand = async (
   input: CheckoutLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CheckoutLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckoutLicense");
   let body: any;
   body = JSON.stringify(se_CheckoutLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +375,7 @@ export const se_CreateGrantCommand = async (
   input: CreateGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGrant");
   let body: any;
   body = JSON.stringify(se_CreateGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +388,7 @@ export const se_CreateGrantVersionCommand = async (
   input: CreateGrantVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateGrantVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateGrantVersion");
   let body: any;
   body = JSON.stringify(se_CreateGrantVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +401,7 @@ export const se_CreateLicenseCommand = async (
   input: CreateLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLicense");
   let body: any;
   body = JSON.stringify(se_CreateLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +414,7 @@ export const se_CreateLicenseConfigurationCommand = async (
   input: CreateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +427,7 @@ export const se_CreateLicenseConversionTaskForResourceCommand = async (
   input: CreateLicenseConversionTaskForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateLicenseConversionTaskForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLicenseConversionTaskForResource");
   let body: any;
   body = JSON.stringify(se_CreateLicenseConversionTaskForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +440,7 @@ export const se_CreateLicenseManagerReportGeneratorCommand = async (
   input: CreateLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateLicenseManagerReportGenerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLicenseManagerReportGenerator");
   let body: any;
   body = JSON.stringify(se_CreateLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +453,7 @@ export const se_CreateLicenseVersionCommand = async (
   input: CreateLicenseVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateLicenseVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLicenseVersion");
   let body: any;
   body = JSON.stringify(se_CreateLicenseVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +466,7 @@ export const se_CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.CreateToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateToken");
   let body: any;
   body = JSON.stringify(se_CreateTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +479,7 @@ export const se_DeleteGrantCommand = async (
   input: DeleteGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.DeleteGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteGrant");
   let body: any;
   body = JSON.stringify(se_DeleteGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +492,7 @@ export const se_DeleteLicenseCommand = async (
   input: DeleteLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.DeleteLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLicense");
   let body: any;
   body = JSON.stringify(se_DeleteLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +505,7 @@ export const se_DeleteLicenseConfigurationCommand = async (
   input: DeleteLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.DeleteLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +518,7 @@ export const se_DeleteLicenseManagerReportGeneratorCommand = async (
   input: DeleteLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.DeleteLicenseManagerReportGenerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteLicenseManagerReportGenerator");
   let body: any;
   body = JSON.stringify(se_DeleteLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +531,7 @@ export const se_DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.DeleteToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteToken");
   let body: any;
   body = JSON.stringify(se_DeleteTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +544,7 @@ export const se_ExtendLicenseConsumptionCommand = async (
   input: ExtendLicenseConsumptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ExtendLicenseConsumption",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExtendLicenseConsumption");
   let body: any;
   body = JSON.stringify(se_ExtendLicenseConsumptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +557,7 @@ export const se_GetAccessTokenCommand = async (
   input: GetAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetAccessToken",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccessToken");
   let body: any;
   body = JSON.stringify(se_GetAccessTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +570,7 @@ export const se_GetGrantCommand = async (
   input: GetGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetGrant");
   let body: any;
   body = JSON.stringify(se_GetGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +583,7 @@ export const se_GetLicenseCommand = async (
   input: GetLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetLicense",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLicense");
   let body: any;
   body = JSON.stringify(se_GetLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +596,7 @@ export const se_GetLicenseConfigurationCommand = async (
   input: GetLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_GetLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +609,7 @@ export const se_GetLicenseConversionTaskCommand = async (
   input: GetLicenseConversionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetLicenseConversionTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLicenseConversionTask");
   let body: any;
   body = JSON.stringify(se_GetLicenseConversionTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +622,7 @@ export const se_GetLicenseManagerReportGeneratorCommand = async (
   input: GetLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetLicenseManagerReportGenerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLicenseManagerReportGenerator");
   let body: any;
   body = JSON.stringify(se_GetLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +635,7 @@ export const se_GetLicenseUsageCommand = async (
   input: GetLicenseUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetLicenseUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLicenseUsage");
   let body: any;
   body = JSON.stringify(se_GetLicenseUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +648,7 @@ export const se_GetServiceSettingsCommand = async (
   input: GetServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.GetServiceSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetServiceSettings");
   let body: any;
   body = JSON.stringify(se_GetServiceSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +661,7 @@ export const se_ListAssociationsForLicenseConfigurationCommand = async (
   input: ListAssociationsForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAssociationsForLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_ListAssociationsForLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +674,7 @@ export const se_ListDistributedGrantsCommand = async (
   input: ListDistributedGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListDistributedGrants",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDistributedGrants");
   let body: any;
   body = JSON.stringify(se_ListDistributedGrantsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +687,7 @@ export const se_ListFailuresForLicenseConfigurationOperationsCommand = async (
   input: ListFailuresForLicenseConfigurationOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFailuresForLicenseConfigurationOperations");
   let body: any;
   body = JSON.stringify(se_ListFailuresForLicenseConfigurationOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +700,7 @@ export const se_ListLicenseConfigurationsCommand = async (
   input: ListLicenseConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenseConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenseConfigurations");
   let body: any;
   body = JSON.stringify(se_ListLicenseConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +713,7 @@ export const se_ListLicenseConversionTasksCommand = async (
   input: ListLicenseConversionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenseConversionTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenseConversionTasks");
   let body: any;
   body = JSON.stringify(se_ListLicenseConversionTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +726,7 @@ export const se_ListLicenseManagerReportGeneratorsCommand = async (
   input: ListLicenseManagerReportGeneratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenseManagerReportGenerators",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenseManagerReportGenerators");
   let body: any;
   body = JSON.stringify(se_ListLicenseManagerReportGeneratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +739,7 @@ export const se_ListLicensesCommand = async (
   input: ListLicensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenses",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenses");
   let body: any;
   body = JSON.stringify(se_ListLicensesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +752,7 @@ export const se_ListLicenseSpecificationsForResourceCommand = async (
   input: ListLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenseSpecificationsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenseSpecificationsForResource");
   let body: any;
   body = JSON.stringify(se_ListLicenseSpecificationsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +765,7 @@ export const se_ListLicenseVersionsCommand = async (
   input: ListLicenseVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListLicenseVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLicenseVersions");
   let body: any;
   body = JSON.stringify(se_ListLicenseVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,10 +778,7 @@ export const se_ListReceivedGrantsCommand = async (
   input: ListReceivedGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListReceivedGrants",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReceivedGrants");
   let body: any;
   body = JSON.stringify(se_ListReceivedGrantsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,10 +791,7 @@ export const se_ListReceivedGrantsForOrganizationCommand = async (
   input: ListReceivedGrantsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListReceivedGrantsForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReceivedGrantsForOrganization");
   let body: any;
   body = JSON.stringify(se_ListReceivedGrantsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -915,10 +804,7 @@ export const se_ListReceivedLicensesCommand = async (
   input: ListReceivedLicensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListReceivedLicenses",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReceivedLicenses");
   let body: any;
   body = JSON.stringify(se_ListReceivedLicensesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -931,10 +817,7 @@ export const se_ListReceivedLicensesForOrganizationCommand = async (
   input: ListReceivedLicensesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListReceivedLicensesForOrganization",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReceivedLicensesForOrganization");
   let body: any;
   body = JSON.stringify(se_ListReceivedLicensesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -947,10 +830,7 @@ export const se_ListResourceInventoryCommand = async (
   input: ListResourceInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListResourceInventory",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceInventory");
   let body: any;
   body = JSON.stringify(se_ListResourceInventoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -963,10 +843,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -979,10 +856,7 @@ export const se_ListTokensCommand = async (
   input: ListTokensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListTokens",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTokens");
   let body: any;
   body = JSON.stringify(se_ListTokensRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -995,10 +869,7 @@ export const se_ListUsageForLicenseConfigurationCommand = async (
   input: ListUsageForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.ListUsageForLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsageForLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_ListUsageForLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1011,10 +882,7 @@ export const se_RejectGrantCommand = async (
   input: RejectGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.RejectGrant",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectGrant");
   let body: any;
   body = JSON.stringify(se_RejectGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1027,10 +895,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1043,10 +908,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1059,10 +921,7 @@ export const se_UpdateLicenseConfigurationCommand = async (
   input: UpdateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.UpdateLicenseConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLicenseConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1075,10 +934,7 @@ export const se_UpdateLicenseManagerReportGeneratorCommand = async (
   input: UpdateLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.UpdateLicenseManagerReportGenerator",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLicenseManagerReportGenerator");
   let body: any;
   body = JSON.stringify(se_UpdateLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1091,10 +947,7 @@ export const se_UpdateLicenseSpecificationsForResourceCommand = async (
   input: UpdateLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLicenseSpecificationsForResource");
   let body: any;
   body = JSON.stringify(se_UpdateLicenseSpecificationsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1107,10 +960,7 @@ export const se_UpdateServiceSettingsCommand = async (
   input: UpdateServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSLicenseManager.UpdateServiceSettings",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServiceSettings");
   let body: any;
   body = JSON.stringify(se_UpdateServiceSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7342,6 +7192,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSLicenseManager.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

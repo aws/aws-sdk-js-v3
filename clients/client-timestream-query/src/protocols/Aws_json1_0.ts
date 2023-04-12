@@ -125,10 +125,7 @@ export const se_CancelQueryCommand = async (
   input: CancelQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.CancelQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelQuery");
   let body: any;
   body = JSON.stringify(se_CancelQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -141,10 +138,7 @@ export const se_CreateScheduledQueryCommand = async (
   input: CreateScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.CreateScheduledQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateScheduledQuery");
   let body: any;
   body = JSON.stringify(se_CreateScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -157,10 +151,7 @@ export const se_DeleteScheduledQueryCommand = async (
   input: DeleteScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DeleteScheduledQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteScheduledQuery");
   let body: any;
   body = JSON.stringify(se_DeleteScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -173,10 +164,7 @@ export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeEndpoints",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEndpoints");
   let body: any;
   body = JSON.stringify(se_DescribeEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -189,10 +177,7 @@ export const se_DescribeScheduledQueryCommand = async (
   input: DescribeScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.DescribeScheduledQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeScheduledQuery");
   let body: any;
   body = JSON.stringify(se_DescribeScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -205,10 +190,7 @@ export const se_ExecuteScheduledQueryCommand = async (
   input: ExecuteScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ExecuteScheduledQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExecuteScheduledQuery");
   let body: any;
   body = JSON.stringify(se_ExecuteScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -221,10 +203,7 @@ export const se_ListScheduledQueriesCommand = async (
   input: ListScheduledQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListScheduledQueries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListScheduledQueries");
   let body: any;
   body = JSON.stringify(se_ListScheduledQueriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -237,10 +216,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -253,10 +229,7 @@ export const se_PrepareQueryCommand = async (
   input: PrepareQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.PrepareQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("PrepareQuery");
   let body: any;
   body = JSON.stringify(se_PrepareQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -266,10 +239,7 @@ export const se_PrepareQueryCommand = async (
  * serializeAws_json1_0QueryCommand
  */
 export const se_QueryCommand = async (input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.Query",
-  };
+  const headers: __HeaderBag = sharedHeaders("Query");
   let body: any;
   body = JSON.stringify(se_QueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -282,10 +252,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -298,10 +265,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -314,10 +278,7 @@ export const se_UpdateScheduledQueryCommand = async (
   input: UpdateScheduledQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "Timestream_20181101.UpdateScheduledQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateScheduledQuery");
   let body: any;
   body = JSON.stringify(se_UpdateScheduledQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2373,6 +2334,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `Timestream_20181101.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

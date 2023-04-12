@@ -145,10 +145,7 @@ export const se_AnalyzeDocumentCommand = async (
   input: AnalyzeDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.AnalyzeDocument",
-  };
+  const headers: __HeaderBag = sharedHeaders("AnalyzeDocument");
   let body: any;
   body = JSON.stringify(se_AnalyzeDocumentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -161,10 +158,7 @@ export const se_AnalyzeExpenseCommand = async (
   input: AnalyzeExpenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.AnalyzeExpense",
-  };
+  const headers: __HeaderBag = sharedHeaders("AnalyzeExpense");
   let body: any;
   body = JSON.stringify(se_AnalyzeExpenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -177,10 +171,7 @@ export const se_AnalyzeIDCommand = async (
   input: AnalyzeIDCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.AnalyzeID",
-  };
+  const headers: __HeaderBag = sharedHeaders("AnalyzeID");
   let body: any;
   body = JSON.stringify(se_AnalyzeIDRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -193,10 +184,7 @@ export const se_DetectDocumentTextCommand = async (
   input: DetectDocumentTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.DetectDocumentText",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetectDocumentText");
   let body: any;
   body = JSON.stringify(se_DetectDocumentTextRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -209,10 +197,7 @@ export const se_GetDocumentAnalysisCommand = async (
   input: GetDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.GetDocumentAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDocumentAnalysis");
   let body: any;
   body = JSON.stringify(se_GetDocumentAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -225,10 +210,7 @@ export const se_GetDocumentTextDetectionCommand = async (
   input: GetDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.GetDocumentTextDetection",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDocumentTextDetection");
   let body: any;
   body = JSON.stringify(se_GetDocumentTextDetectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -241,10 +223,7 @@ export const se_GetExpenseAnalysisCommand = async (
   input: GetExpenseAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.GetExpenseAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetExpenseAnalysis");
   let body: any;
   body = JSON.stringify(se_GetExpenseAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -257,10 +236,7 @@ export const se_GetLendingAnalysisCommand = async (
   input: GetLendingAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.GetLendingAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLendingAnalysis");
   let body: any;
   body = JSON.stringify(se_GetLendingAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -273,10 +249,7 @@ export const se_GetLendingAnalysisSummaryCommand = async (
   input: GetLendingAnalysisSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.GetLendingAnalysisSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLendingAnalysisSummary");
   let body: any;
   body = JSON.stringify(se_GetLendingAnalysisSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -289,10 +262,7 @@ export const se_StartDocumentAnalysisCommand = async (
   input: StartDocumentAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.StartDocumentAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDocumentAnalysis");
   let body: any;
   body = JSON.stringify(se_StartDocumentAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -305,10 +275,7 @@ export const se_StartDocumentTextDetectionCommand = async (
   input: StartDocumentTextDetectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.StartDocumentTextDetection",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDocumentTextDetection");
   let body: any;
   body = JSON.stringify(se_StartDocumentTextDetectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -321,10 +288,7 @@ export const se_StartExpenseAnalysisCommand = async (
   input: StartExpenseAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.StartExpenseAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartExpenseAnalysis");
   let body: any;
   body = JSON.stringify(se_StartExpenseAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -337,10 +301,7 @@ export const se_StartLendingAnalysisCommand = async (
   input: StartLendingAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Textract.StartLendingAnalysis",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartLendingAnalysis");
   let body: any;
   body = JSON.stringify(se_StartLendingAnalysisRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3016,6 +2977,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Textract.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -178,10 +178,7 @@ export const se_AssociateConfigurationItemsToApplicationCommand = async (
   input: AssociateConfigurationItemsToApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateConfigurationItemsToApplication");
   let body: any;
   body = JSON.stringify(se_AssociateConfigurationItemsToApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -194,10 +191,7 @@ export const se_BatchDeleteImportDataCommand = async (
   input: BatchDeleteImportDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.BatchDeleteImportData",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteImportData");
   let body: any;
   body = JSON.stringify(se_BatchDeleteImportDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -210,10 +204,7 @@ export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.CreateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
   let body: any;
   body = JSON.stringify(se_CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -226,10 +217,7 @@ export const se_CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.CreateTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateTags");
   let body: any;
   body = JSON.stringify(se_CreateTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -242,10 +230,7 @@ export const se_DeleteApplicationsCommand = async (
   input: DeleteApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DeleteApplications",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteApplications");
   let body: any;
   body = JSON.stringify(se_DeleteApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -258,10 +243,7 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DeleteTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTags");
   let body: any;
   body = JSON.stringify(se_DeleteTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -274,10 +256,7 @@ export const se_DescribeAgentsCommand = async (
   input: DescribeAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeAgents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAgents");
   let body: any;
   body = JSON.stringify(se_DescribeAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -290,10 +269,7 @@ export const se_DescribeConfigurationsCommand = async (
   input: DescribeConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurations");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -306,10 +282,7 @@ export const se_DescribeContinuousExportsCommand = async (
   input: DescribeContinuousExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeContinuousExports",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeContinuousExports");
   let body: any;
   body = JSON.stringify(se_DescribeContinuousExportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -322,10 +295,7 @@ export const se_DescribeExportConfigurationsCommand = async (
   input: DescribeExportConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExportConfigurations");
   let body: any;
   body = JSON.stringify(se_DescribeExportConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,10 +308,7 @@ export const se_DescribeExportTasksCommand = async (
   input: DescribeExportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeExportTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExportTasks");
   let body: any;
   body = JSON.stringify(se_DescribeExportTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -354,10 +321,7 @@ export const se_DescribeImportTasksCommand = async (
   input: DescribeImportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeImportTasks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeImportTasks");
   let body: any;
   body = JSON.stringify(se_DescribeImportTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -370,10 +334,7 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DescribeTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTags");
   let body: any;
   body = JSON.stringify(se_DescribeTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,10 +347,7 @@ export const se_DisassociateConfigurationItemsFromApplicationCommand = async (
   input: DisassociateConfigurationItemsFromApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateConfigurationItemsFromApplication");
   let body: any;
   body = JSON.stringify(se_DisassociateConfigurationItemsFromApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -402,10 +360,7 @@ export const se_ExportConfigurationsCommand = async (
   input: ExportConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.ExportConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportConfigurations");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -417,10 +372,7 @@ export const se_GetDiscoverySummaryCommand = async (
   input: GetDiscoverySummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.GetDiscoverySummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDiscoverySummary");
   let body: any;
   body = JSON.stringify(se_GetDiscoverySummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -433,10 +385,7 @@ export const se_ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.ListConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConfigurations");
   let body: any;
   body = JSON.stringify(se_ListConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -449,10 +398,7 @@ export const se_ListServerNeighborsCommand = async (
   input: ListServerNeighborsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.ListServerNeighbors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServerNeighbors");
   let body: any;
   body = JSON.stringify(se_ListServerNeighborsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,10 +411,7 @@ export const se_StartContinuousExportCommand = async (
   input: StartContinuousExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StartContinuousExport",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartContinuousExport");
   let body: any;
   body = JSON.stringify(se_StartContinuousExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -481,10 +424,7 @@ export const se_StartDataCollectionByAgentIdsCommand = async (
   input: StartDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartDataCollectionByAgentIds");
   let body: any;
   body = JSON.stringify(se_StartDataCollectionByAgentIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -497,10 +437,7 @@ export const se_StartExportTaskCommand = async (
   input: StartExportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StartExportTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartExportTask");
   let body: any;
   body = JSON.stringify(se_StartExportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -513,10 +450,7 @@ export const se_StartImportTaskCommand = async (
   input: StartImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StartImportTask",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartImportTask");
   let body: any;
   body = JSON.stringify(se_StartImportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,10 +463,7 @@ export const se_StopContinuousExportCommand = async (
   input: StopContinuousExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StopContinuousExport",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopContinuousExport");
   let body: any;
   body = JSON.stringify(se_StopContinuousExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -545,10 +476,7 @@ export const se_StopDataCollectionByAgentIdsCommand = async (
   input: StopDataCollectionByAgentIdsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopDataCollectionByAgentIds");
   let body: any;
   body = JSON.stringify(se_StopDataCollectionByAgentIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -561,10 +489,7 @@ export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSPoseidonService_V2015_11_01.UpdateApplication",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
   let body: any;
   body = JSON.stringify(se_UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3549,6 +3474,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSPoseidonService_V2015_11_01.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

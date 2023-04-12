@@ -173,10 +173,7 @@ export const se_CancelClusterCommand = async (
   input: CancelClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CancelCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelCluster");
   let body: any;
   body = JSON.stringify(se_CancelClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -189,10 +186,7 @@ export const se_CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CancelJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelJob");
   let body: any;
   body = JSON.stringify(se_CancelJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -205,10 +199,7 @@ export const se_CreateAddressCommand = async (
   input: CreateAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CreateAddress",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAddress");
   let body: any;
   body = JSON.stringify(se_CreateAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -221,10 +212,7 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CreateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCluster");
   let body: any;
   body = JSON.stringify(se_CreateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -237,10 +225,7 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CreateJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateJob");
   let body: any;
   body = JSON.stringify(se_CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -253,10 +238,7 @@ export const se_CreateLongTermPricingCommand = async (
   input: CreateLongTermPricingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CreateLongTermPricing",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateLongTermPricing");
   let body: any;
   body = JSON.stringify(se_CreateLongTermPricingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -269,10 +251,7 @@ export const se_CreateReturnShippingLabelCommand = async (
   input: CreateReturnShippingLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.CreateReturnShippingLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReturnShippingLabel");
   let body: any;
   body = JSON.stringify(se_CreateReturnShippingLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -285,10 +264,7 @@ export const se_DescribeAddressCommand = async (
   input: DescribeAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.DescribeAddress",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAddress");
   let body: any;
   body = JSON.stringify(se_DescribeAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -301,10 +277,7 @@ export const se_DescribeAddressesCommand = async (
   input: DescribeAddressesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.DescribeAddresses",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAddresses");
   let body: any;
   body = JSON.stringify(se_DescribeAddressesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +290,7 @@ export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.DescribeCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCluster");
   let body: any;
   body = JSON.stringify(se_DescribeClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +303,7 @@ export const se_DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.DescribeJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeJob");
   let body: any;
   body = JSON.stringify(se_DescribeJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +316,7 @@ export const se_DescribeReturnShippingLabelCommand = async (
   input: DescribeReturnShippingLabelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.DescribeReturnShippingLabel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeReturnShippingLabel");
   let body: any;
   body = JSON.stringify(se_DescribeReturnShippingLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +329,7 @@ export const se_GetJobManifestCommand = async (
   input: GetJobManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.GetJobManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobManifest");
   let body: any;
   body = JSON.stringify(se_GetJobManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +342,7 @@ export const se_GetJobUnlockCodeCommand = async (
   input: GetJobUnlockCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.GetJobUnlockCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobUnlockCode");
   let body: any;
   body = JSON.stringify(se_GetJobUnlockCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +355,7 @@ export const se_GetSnowballUsageCommand = async (
   input: GetSnowballUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.GetSnowballUsage",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSnowballUsage");
   let body: any;
   body = JSON.stringify(se_GetSnowballUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +368,7 @@ export const se_GetSoftwareUpdatesCommand = async (
   input: GetSoftwareUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.GetSoftwareUpdates",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSoftwareUpdates");
   let body: any;
   body = JSON.stringify(se_GetSoftwareUpdatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +381,7 @@ export const se_ListClusterJobsCommand = async (
   input: ListClusterJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListClusterJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListClusterJobs");
   let body: any;
   body = JSON.stringify(se_ListClusterJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +394,7 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListClusters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListClusters");
   let body: any;
   body = JSON.stringify(se_ListClustersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +407,7 @@ export const se_ListCompatibleImagesCommand = async (
   input: ListCompatibleImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListCompatibleImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCompatibleImages");
   let body: any;
   body = JSON.stringify(se_ListCompatibleImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +420,7 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListJobs");
   let body: any;
   body = JSON.stringify(se_ListJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +433,7 @@ export const se_ListLongTermPricingCommand = async (
   input: ListLongTermPricingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListLongTermPricing",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListLongTermPricing");
   let body: any;
   body = JSON.stringify(se_ListLongTermPricingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +446,7 @@ export const se_ListServiceVersionsCommand = async (
   input: ListServiceVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.ListServiceVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServiceVersions");
   let body: any;
   body = JSON.stringify(se_ListServiceVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +459,7 @@ export const se_UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.UpdateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCluster");
   let body: any;
   body = JSON.stringify(se_UpdateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +472,7 @@ export const se_UpdateJobCommand = async (
   input: UpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.UpdateJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateJob");
   let body: any;
   body = JSON.stringify(se_UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +485,7 @@ export const se_UpdateJobShipmentStateCommand = async (
   input: UpdateJobShipmentStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.UpdateJobShipmentState",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateJobShipmentState");
   let body: any;
   body = JSON.stringify(se_UpdateJobShipmentStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +498,7 @@ export const se_UpdateLongTermPricingCommand = async (
   input: UpdateLongTermPricingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AWSIESnowballJobManagementService.UpdateLongTermPricing",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLongTermPricing");
   let body: any;
   body = JSON.stringify(se_UpdateLongTermPricingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3716,6 +3638,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AWSIESnowballJobManagementService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -301,10 +301,7 @@ export const se_AcknowledgeJobCommand = async (
   input: AcknowledgeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.AcknowledgeJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcknowledgeJob");
   let body: any;
   body = JSON.stringify(se_AcknowledgeJobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +314,7 @@ export const se_AcknowledgeThirdPartyJobCommand = async (
   input: AcknowledgeThirdPartyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.AcknowledgeThirdPartyJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcknowledgeThirdPartyJob");
   let body: any;
   body = JSON.stringify(se_AcknowledgeThirdPartyJobInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +327,7 @@ export const se_CreateCustomActionTypeCommand = async (
   input: CreateCustomActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.CreateCustomActionType",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCustomActionType");
   let body: any;
   body = JSON.stringify(se_CreateCustomActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +340,7 @@ export const se_CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.CreatePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePipeline");
   let body: any;
   body = JSON.stringify(se_CreatePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +353,7 @@ export const se_DeleteCustomActionTypeCommand = async (
   input: DeleteCustomActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.DeleteCustomActionType",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCustomActionType");
   let body: any;
   body = JSON.stringify(se_DeleteCustomActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +366,7 @@ export const se_DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.DeletePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePipeline");
   let body: any;
   body = JSON.stringify(se_DeletePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +379,7 @@ export const se_DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.DeleteWebhook",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWebhook");
   let body: any;
   body = JSON.stringify(se_DeleteWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +392,7 @@ export const se_DeregisterWebhookWithThirdPartyCommand = async (
   input: DeregisterWebhookWithThirdPartyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.DeregisterWebhookWithThirdParty",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeregisterWebhookWithThirdParty");
   let body: any;
   body = JSON.stringify(se_DeregisterWebhookWithThirdPartyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +405,7 @@ export const se_DisableStageTransitionCommand = async (
   input: DisableStageTransitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.DisableStageTransition",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableStageTransition");
   let body: any;
   body = JSON.stringify(se_DisableStageTransitionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +418,7 @@ export const se_EnableStageTransitionCommand = async (
   input: EnableStageTransitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.EnableStageTransition",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableStageTransition");
   let body: any;
   body = JSON.stringify(se_EnableStageTransitionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +431,7 @@ export const se_GetActionTypeCommand = async (
   input: GetActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetActionType",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetActionType");
   let body: any;
   body = JSON.stringify(se_GetActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +444,7 @@ export const se_GetJobDetailsCommand = async (
   input: GetJobDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetJobDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetJobDetails");
   let body: any;
   body = JSON.stringify(se_GetJobDetailsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +457,7 @@ export const se_GetPipelineCommand = async (
   input: GetPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetPipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPipeline");
   let body: any;
   body = JSON.stringify(se_GetPipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +470,7 @@ export const se_GetPipelineExecutionCommand = async (
   input: GetPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPipelineExecution");
   let body: any;
   body = JSON.stringify(se_GetPipelineExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +483,7 @@ export const se_GetPipelineStateCommand = async (
   input: GetPipelineStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetPipelineState",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPipelineState");
   let body: any;
   body = JSON.stringify(se_GetPipelineStateInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +496,7 @@ export const se_GetThirdPartyJobDetailsCommand = async (
   input: GetThirdPartyJobDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.GetThirdPartyJobDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetThirdPartyJobDetails");
   let body: any;
   body = JSON.stringify(se_GetThirdPartyJobDetailsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +509,7 @@ export const se_ListActionExecutionsCommand = async (
   input: ListActionExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListActionExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListActionExecutions");
   let body: any;
   body = JSON.stringify(se_ListActionExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +522,7 @@ export const se_ListActionTypesCommand = async (
   input: ListActionTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListActionTypes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListActionTypes");
   let body: any;
   body = JSON.stringify(se_ListActionTypesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,10 +535,7 @@ export const se_ListPipelineExecutionsCommand = async (
   input: ListPipelineExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListPipelineExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelineExecutions");
   let body: any;
   body = JSON.stringify(se_ListPipelineExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -605,10 +548,7 @@ export const se_ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListPipelines",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPipelines");
   let body: any;
   body = JSON.stringify(se_ListPipelinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,10 +561,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -637,10 +574,7 @@ export const se_ListWebhooksCommand = async (
   input: ListWebhooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.ListWebhooks",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWebhooks");
   let body: any;
   body = JSON.stringify(se_ListWebhooksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -653,10 +587,7 @@ export const se_PollForJobsCommand = async (
   input: PollForJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PollForJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("PollForJobs");
   let body: any;
   body = JSON.stringify(se_PollForJobsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -669,10 +600,7 @@ export const se_PollForThirdPartyJobsCommand = async (
   input: PollForThirdPartyJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PollForThirdPartyJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("PollForThirdPartyJobs");
   let body: any;
   body = JSON.stringify(se_PollForThirdPartyJobsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -685,10 +613,7 @@ export const se_PutActionRevisionCommand = async (
   input: PutActionRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutActionRevision",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutActionRevision");
   let body: any;
   body = JSON.stringify(se_PutActionRevisionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -701,10 +626,7 @@ export const se_PutApprovalResultCommand = async (
   input: PutApprovalResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutApprovalResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutApprovalResult");
   let body: any;
   body = JSON.stringify(se_PutApprovalResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -717,10 +639,7 @@ export const se_PutJobFailureResultCommand = async (
   input: PutJobFailureResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutJobFailureResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutJobFailureResult");
   let body: any;
   body = JSON.stringify(se_PutJobFailureResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +652,7 @@ export const se_PutJobSuccessResultCommand = async (
   input: PutJobSuccessResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutJobSuccessResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutJobSuccessResult");
   let body: any;
   body = JSON.stringify(se_PutJobSuccessResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,10 +665,7 @@ export const se_PutThirdPartyJobFailureResultCommand = async (
   input: PutThirdPartyJobFailureResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutThirdPartyJobFailureResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutThirdPartyJobFailureResult");
   let body: any;
   body = JSON.stringify(se_PutThirdPartyJobFailureResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -765,10 +678,7 @@ export const se_PutThirdPartyJobSuccessResultCommand = async (
   input: PutThirdPartyJobSuccessResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutThirdPartyJobSuccessResult",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutThirdPartyJobSuccessResult");
   let body: any;
   body = JSON.stringify(se_PutThirdPartyJobSuccessResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -781,10 +691,7 @@ export const se_PutWebhookCommand = async (
   input: PutWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.PutWebhook",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutWebhook");
   let body: any;
   body = JSON.stringify(se_PutWebhookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -797,10 +704,7 @@ export const se_RegisterWebhookWithThirdPartyCommand = async (
   input: RegisterWebhookWithThirdPartyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.RegisterWebhookWithThirdParty",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterWebhookWithThirdParty");
   let body: any;
   body = JSON.stringify(se_RegisterWebhookWithThirdPartyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -813,10 +717,7 @@ export const se_RetryStageExecutionCommand = async (
   input: RetryStageExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.RetryStageExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetryStageExecution");
   let body: any;
   body = JSON.stringify(se_RetryStageExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -829,10 +730,7 @@ export const se_StartPipelineExecutionCommand = async (
   input: StartPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.StartPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartPipelineExecution");
   let body: any;
   body = JSON.stringify(se_StartPipelineExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -845,10 +743,7 @@ export const se_StopPipelineExecutionCommand = async (
   input: StopPipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.StopPipelineExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopPipelineExecution");
   let body: any;
   body = JSON.stringify(se_StopPipelineExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -861,10 +756,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -877,10 +769,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -893,10 +782,7 @@ export const se_UpdateActionTypeCommand = async (
   input: UpdateActionTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.UpdateActionType",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateActionType");
   let body: any;
   body = JSON.stringify(se_UpdateActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -909,10 +795,7 @@ export const se_UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodePipeline_20150709.UpdatePipeline",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePipeline");
   let body: any;
   body = JSON.stringify(se_UpdatePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6522,6 +6405,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CodePipeline_20150709.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

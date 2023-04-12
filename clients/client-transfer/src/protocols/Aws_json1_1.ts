@@ -267,10 +267,7 @@ export const se_CreateAccessCommand = async (
   input: CreateAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccess");
   let body: any;
   body = JSON.stringify(se_CreateAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -283,10 +280,7 @@ export const se_CreateAgreementCommand = async (
   input: CreateAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateAgreement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAgreement");
   let body: any;
   body = JSON.stringify(se_CreateAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -299,10 +293,7 @@ export const se_CreateConnectorCommand = async (
   input: CreateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateConnector");
   let body: any;
   body = JSON.stringify(se_CreateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -315,10 +306,7 @@ export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProfile");
   let body: any;
   body = JSON.stringify(se_CreateProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -331,10 +319,7 @@ export const se_CreateServerCommand = async (
   input: CreateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateServer");
   let body: any;
   body = JSON.stringify(se_CreateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -347,10 +332,7 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateUser");
   let body: any;
   body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -363,10 +345,7 @@ export const se_CreateWorkflowCommand = async (
   input: CreateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.CreateWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkflow");
   let body: any;
   body = JSON.stringify(se_CreateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -379,10 +358,7 @@ export const se_DeleteAccessCommand = async (
   input: DeleteAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccess");
   let body: any;
   body = JSON.stringify(se_DeleteAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -395,10 +371,7 @@ export const se_DeleteAgreementCommand = async (
   input: DeleteAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteAgreement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAgreement");
   let body: any;
   body = JSON.stringify(se_DeleteAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -411,10 +384,7 @@ export const se_DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCertificate");
   let body: any;
   body = JSON.stringify(se_DeleteCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -427,10 +397,7 @@ export const se_DeleteConnectorCommand = async (
   input: DeleteConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConnector");
   let body: any;
   body = JSON.stringify(se_DeleteConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -443,10 +410,7 @@ export const se_DeleteHostKeyCommand = async (
   input: DeleteHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteHostKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteHostKey");
   let body: any;
   body = JSON.stringify(se_DeleteHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -459,10 +423,7 @@ export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProfile");
   let body: any;
   body = JSON.stringify(se_DeleteProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -475,10 +436,7 @@ export const se_DeleteServerCommand = async (
   input: DeleteServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteServer");
   let body: any;
   body = JSON.stringify(se_DeleteServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -491,10 +449,7 @@ export const se_DeleteSshPublicKeyCommand = async (
   input: DeleteSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteSshPublicKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSshPublicKey");
   let body: any;
   body = JSON.stringify(se_DeleteSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -507,10 +462,7 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteUser");
   let body: any;
   body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -523,10 +475,7 @@ export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DeleteWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkflow");
   let body: any;
   body = JSON.stringify(se_DeleteWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -539,10 +488,7 @@ export const se_DescribeAccessCommand = async (
   input: DescribeAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccess");
   let body: any;
   body = JSON.stringify(se_DescribeAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -555,10 +501,7 @@ export const se_DescribeAgreementCommand = async (
   input: DescribeAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeAgreement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAgreement");
   let body: any;
   body = JSON.stringify(se_DescribeAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -571,10 +514,7 @@ export const se_DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCertificate");
   let body: any;
   body = JSON.stringify(se_DescribeCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -587,10 +527,7 @@ export const se_DescribeConnectorCommand = async (
   input: DescribeConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConnector");
   let body: any;
   body = JSON.stringify(se_DescribeConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -603,10 +540,7 @@ export const se_DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeExecution");
   let body: any;
   body = JSON.stringify(se_DescribeExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -619,10 +553,7 @@ export const se_DescribeHostKeyCommand = async (
   input: DescribeHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeHostKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeHostKey");
   let body: any;
   body = JSON.stringify(se_DescribeHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -635,10 +566,7 @@ export const se_DescribeProfileCommand = async (
   input: DescribeProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeProfile");
   let body: any;
   body = JSON.stringify(se_DescribeProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -651,10 +579,7 @@ export const se_DescribeSecurityPolicyCommand = async (
   input: DescribeSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeSecurityPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSecurityPolicy");
   let body: any;
   body = JSON.stringify(se_DescribeSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -667,10 +592,7 @@ export const se_DescribeServerCommand = async (
   input: DescribeServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeServer");
   let body: any;
   body = JSON.stringify(se_DescribeServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -683,10 +605,7 @@ export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeUser");
   let body: any;
   body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -699,10 +618,7 @@ export const se_DescribeWorkflowCommand = async (
   input: DescribeWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.DescribeWorkflow",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkflow");
   let body: any;
   body = JSON.stringify(se_DescribeWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -715,10 +631,7 @@ export const se_ImportCertificateCommand = async (
   input: ImportCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ImportCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportCertificate");
   let body: any;
   body = JSON.stringify(se_ImportCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -731,10 +644,7 @@ export const se_ImportHostKeyCommand = async (
   input: ImportHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ImportHostKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportHostKey");
   let body: any;
   body = JSON.stringify(se_ImportHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -747,10 +657,7 @@ export const se_ImportSshPublicKeyCommand = async (
   input: ImportSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ImportSshPublicKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportSshPublicKey");
   let body: any;
   body = JSON.stringify(se_ImportSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -763,10 +670,7 @@ export const se_ListAccessesCommand = async (
   input: ListAccessesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListAccesses",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccesses");
   let body: any;
   body = JSON.stringify(se_ListAccessesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -779,10 +683,7 @@ export const se_ListAgreementsCommand = async (
   input: ListAgreementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListAgreements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAgreements");
   let body: any;
   body = JSON.stringify(se_ListAgreementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -795,10 +696,7 @@ export const se_ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListCertificates",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCertificates");
   let body: any;
   body = JSON.stringify(se_ListCertificatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -811,10 +709,7 @@ export const se_ListConnectorsCommand = async (
   input: ListConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListConnectors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConnectors");
   let body: any;
   body = JSON.stringify(se_ListConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -827,10 +722,7 @@ export const se_ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExecutions");
   let body: any;
   body = JSON.stringify(se_ListExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -843,10 +735,7 @@ export const se_ListHostKeysCommand = async (
   input: ListHostKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListHostKeys",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListHostKeys");
   let body: any;
   body = JSON.stringify(se_ListHostKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -859,10 +748,7 @@ export const se_ListProfilesCommand = async (
   input: ListProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListProfiles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProfiles");
   let body: any;
   body = JSON.stringify(se_ListProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -875,10 +761,7 @@ export const se_ListSecurityPoliciesCommand = async (
   input: ListSecurityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListSecurityPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSecurityPolicies");
   let body: any;
   body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -891,10 +774,7 @@ export const se_ListServersCommand = async (
   input: ListServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListServers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListServers");
   let body: any;
   body = JSON.stringify(se_ListServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -907,10 +787,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -923,10 +800,7 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListUsers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListUsers");
   let body: any;
   body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -939,10 +813,7 @@ export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.ListWorkflows",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkflows");
   let body: any;
   body = JSON.stringify(se_ListWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -955,10 +826,7 @@ export const se_SendWorkflowStepStateCommand = async (
   input: SendWorkflowStepStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.SendWorkflowStepState",
-  };
+  const headers: __HeaderBag = sharedHeaders("SendWorkflowStepState");
   let body: any;
   body = JSON.stringify(se_SendWorkflowStepStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -971,10 +839,7 @@ export const se_StartFileTransferCommand = async (
   input: StartFileTransferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.StartFileTransfer",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFileTransfer");
   let body: any;
   body = JSON.stringify(se_StartFileTransferRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -987,10 +852,7 @@ export const se_StartServerCommand = async (
   input: StartServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.StartServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartServer");
   let body: any;
   body = JSON.stringify(se_StartServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1003,10 +865,7 @@ export const se_StopServerCommand = async (
   input: StopServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.StopServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopServer");
   let body: any;
   body = JSON.stringify(se_StopServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1019,10 +878,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1035,10 +891,7 @@ export const se_TestIdentityProviderCommand = async (
   input: TestIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.TestIdentityProvider",
-  };
+  const headers: __HeaderBag = sharedHeaders("TestIdentityProvider");
   let body: any;
   body = JSON.stringify(se_TestIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1051,10 +904,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1067,10 +917,7 @@ export const se_UpdateAccessCommand = async (
   input: UpdateAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateAccess",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAccess");
   let body: any;
   body = JSON.stringify(se_UpdateAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1083,10 +930,7 @@ export const se_UpdateAgreementCommand = async (
   input: UpdateAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateAgreement",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateAgreement");
   let body: any;
   body = JSON.stringify(se_UpdateAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1099,10 +943,7 @@ export const se_UpdateCertificateCommand = async (
   input: UpdateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateCertificate",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCertificate");
   let body: any;
   body = JSON.stringify(se_UpdateCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1115,10 +956,7 @@ export const se_UpdateConnectorCommand = async (
   input: UpdateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateConnector",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateConnector");
   let body: any;
   body = JSON.stringify(se_UpdateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1131,10 +969,7 @@ export const se_UpdateHostKeyCommand = async (
   input: UpdateHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateHostKey",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateHostKey");
   let body: any;
   body = JSON.stringify(se_UpdateHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1147,10 +982,7 @@ export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateProfile",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProfile");
   let body: any;
   body = JSON.stringify(se_UpdateProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1163,10 +995,7 @@ export const se_UpdateServerCommand = async (
   input: UpdateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateServer",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateServer");
   let body: any;
   body = JSON.stringify(se_UpdateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1179,10 +1008,7 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "TransferService.UpdateUser",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateUser");
   let body: any;
   body = JSON.stringify(se_UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7392,6 +7218,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `TransferService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

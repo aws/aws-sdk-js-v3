@@ -221,10 +221,7 @@ export const se_AcceptDomainTransferFromAnotherAwsAccountCommand = async (
   input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.AcceptDomainTransferFromAnotherAwsAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("AcceptDomainTransferFromAnotherAwsAccount");
   let body: any;
   body = JSON.stringify(se_AcceptDomainTransferFromAnotherAwsAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -237,10 +234,7 @@ export const se_AssociateDelegationSignerToDomainCommand = async (
   input: AssociateDelegationSignerToDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.AssociateDelegationSignerToDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateDelegationSignerToDomain");
   let body: any;
   body = JSON.stringify(se_AssociateDelegationSignerToDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -253,10 +247,7 @@ export const se_CancelDomainTransferToAnotherAwsAccountCommand = async (
   input: CancelDomainTransferToAnotherAwsAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("CancelDomainTransferToAnotherAwsAccount");
   let body: any;
   body = JSON.stringify(se_CancelDomainTransferToAnotherAwsAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -269,10 +260,7 @@ export const se_CheckDomainAvailabilityCommand = async (
   input: CheckDomainAvailabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.CheckDomainAvailability",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckDomainAvailability");
   let body: any;
   body = JSON.stringify(se_CheckDomainAvailabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -285,10 +273,7 @@ export const se_CheckDomainTransferabilityCommand = async (
   input: CheckDomainTransferabilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.CheckDomainTransferability",
-  };
+  const headers: __HeaderBag = sharedHeaders("CheckDomainTransferability");
   let body: any;
   body = JSON.stringify(se_CheckDomainTransferabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -301,10 +286,7 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.DeleteDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
   body = JSON.stringify(se_DeleteDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -317,10 +299,7 @@ export const se_DeleteTagsForDomainCommand = async (
   input: DeleteTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.DeleteTagsForDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteTagsForDomain");
   let body: any;
   body = JSON.stringify(se_DeleteTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -333,10 +312,7 @@ export const se_DisableDomainAutoRenewCommand = async (
   input: DisableDomainAutoRenewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.DisableDomainAutoRenew",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableDomainAutoRenew");
   let body: any;
   body = JSON.stringify(se_DisableDomainAutoRenewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -349,10 +325,7 @@ export const se_DisableDomainTransferLockCommand = async (
   input: DisableDomainTransferLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.DisableDomainTransferLock",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisableDomainTransferLock");
   let body: any;
   body = JSON.stringify(se_DisableDomainTransferLockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -365,10 +338,7 @@ export const se_DisassociateDelegationSignerFromDomainCommand = async (
   input: DisassociateDelegationSignerFromDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.DisassociateDelegationSignerFromDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateDelegationSignerFromDomain");
   let body: any;
   body = JSON.stringify(se_DisassociateDelegationSignerFromDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -381,10 +351,7 @@ export const se_EnableDomainAutoRenewCommand = async (
   input: EnableDomainAutoRenewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.EnableDomainAutoRenew",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableDomainAutoRenew");
   let body: any;
   body = JSON.stringify(se_EnableDomainAutoRenewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -397,10 +364,7 @@ export const se_EnableDomainTransferLockCommand = async (
   input: EnableDomainTransferLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.EnableDomainTransferLock",
-  };
+  const headers: __HeaderBag = sharedHeaders("EnableDomainTransferLock");
   let body: any;
   body = JSON.stringify(se_EnableDomainTransferLockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -413,10 +377,7 @@ export const se_GetContactReachabilityStatusCommand = async (
   input: GetContactReachabilityStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.GetContactReachabilityStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetContactReachabilityStatus");
   let body: any;
   body = JSON.stringify(se_GetContactReachabilityStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -429,10 +390,7 @@ export const se_GetDomainDetailCommand = async (
   input: GetDomainDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.GetDomainDetail",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDomainDetail");
   let body: any;
   body = JSON.stringify(se_GetDomainDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -445,10 +403,7 @@ export const se_GetDomainSuggestionsCommand = async (
   input: GetDomainSuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.GetDomainSuggestions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDomainSuggestions");
   let body: any;
   body = JSON.stringify(se_GetDomainSuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -461,10 +416,7 @@ export const se_GetOperationDetailCommand = async (
   input: GetOperationDetailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.GetOperationDetail",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOperationDetail");
   let body: any;
   body = JSON.stringify(se_GetOperationDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -477,10 +429,7 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ListDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
   body = JSON.stringify(se_ListDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -493,10 +442,7 @@ export const se_ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ListOperations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListOperations");
   let body: any;
   body = JSON.stringify(se_ListOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -509,10 +455,7 @@ export const se_ListPricesCommand = async (
   input: ListPricesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ListPrices",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPrices");
   let body: any;
   body = JSON.stringify(se_ListPricesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -525,10 +468,7 @@ export const se_ListTagsForDomainCommand = async (
   input: ListTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ListTagsForDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForDomain");
   let body: any;
   body = JSON.stringify(se_ListTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -541,10 +481,7 @@ export const se_PushDomainCommand = async (
   input: PushDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.PushDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("PushDomain");
   let body: any;
   body = JSON.stringify(se_PushDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -557,10 +494,7 @@ export const se_RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.RegisterDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterDomain");
   let body: any;
   body = JSON.stringify(se_RegisterDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -573,10 +507,7 @@ export const se_RejectDomainTransferFromAnotherAwsAccountCommand = async (
   input: RejectDomainTransferFromAnotherAwsAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("RejectDomainTransferFromAnotherAwsAccount");
   let body: any;
   body = JSON.stringify(se_RejectDomainTransferFromAnotherAwsAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,10 +520,7 @@ export const se_RenewDomainCommand = async (
   input: RenewDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.RenewDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("RenewDomain");
   let body: any;
   body = JSON.stringify(se_RenewDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -605,10 +533,7 @@ export const se_ResendContactReachabilityEmailCommand = async (
   input: ResendContactReachabilityEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ResendContactReachabilityEmail",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResendContactReachabilityEmail");
   let body: any;
   body = JSON.stringify(se_ResendContactReachabilityEmailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -621,10 +546,7 @@ export const se_ResendOperationAuthorizationCommand = async (
   input: ResendOperationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ResendOperationAuthorization",
-  };
+  const headers: __HeaderBag = sharedHeaders("ResendOperationAuthorization");
   let body: any;
   body = JSON.stringify(se_ResendOperationAuthorizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -637,10 +559,7 @@ export const se_RetrieveDomainAuthCodeCommand = async (
   input: RetrieveDomainAuthCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.RetrieveDomainAuthCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetrieveDomainAuthCode");
   let body: any;
   body = JSON.stringify(se_RetrieveDomainAuthCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -653,10 +572,7 @@ export const se_TransferDomainCommand = async (
   input: TransferDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.TransferDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("TransferDomain");
   let body: any;
   body = JSON.stringify(se_TransferDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -669,10 +585,7 @@ export const se_TransferDomainToAnotherAwsAccountCommand = async (
   input: TransferDomainToAnotherAwsAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.TransferDomainToAnotherAwsAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("TransferDomainToAnotherAwsAccount");
   let body: any;
   body = JSON.stringify(se_TransferDomainToAnotherAwsAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -685,10 +598,7 @@ export const se_UpdateDomainContactCommand = async (
   input: UpdateDomainContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.UpdateDomainContact",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomainContact");
   let body: any;
   body = JSON.stringify(se_UpdateDomainContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -701,10 +611,7 @@ export const se_UpdateDomainContactPrivacyCommand = async (
   input: UpdateDomainContactPrivacyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.UpdateDomainContactPrivacy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomainContactPrivacy");
   let body: any;
   body = JSON.stringify(se_UpdateDomainContactPrivacyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -717,10 +624,7 @@ export const se_UpdateDomainNameserversCommand = async (
   input: UpdateDomainNameserversCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.UpdateDomainNameservers",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomainNameservers");
   let body: any;
   body = JSON.stringify(se_UpdateDomainNameserversRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -733,10 +637,7 @@ export const se_UpdateTagsForDomainCommand = async (
   input: UpdateTagsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.UpdateTagsForDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateTagsForDomain");
   let body: any;
   body = JSON.stringify(se_UpdateTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -749,10 +650,7 @@ export const se_ViewBillingCommand = async (
   input: ViewBillingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "Route53Domains_v20140515.ViewBilling",
-  };
+  const headers: __HeaderBag = sharedHeaders("ViewBilling");
   let body: any;
   body = JSON.stringify(se_ViewBillingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4072,6 +3970,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `Route53Domains_v20140515.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

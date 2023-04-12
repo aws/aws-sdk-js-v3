@@ -239,9 +239,7 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsInput(input, context),
@@ -258,9 +256,7 @@ export const se_ApplySecurityGroupsToLoadBalancerCommand = async (
   input: ApplySecurityGroupsToLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ApplySecurityGroupsToLoadBalancerInput(input, context),
@@ -277,9 +273,7 @@ export const se_AttachLoadBalancerToSubnetsCommand = async (
   input: AttachLoadBalancerToSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachLoadBalancerToSubnetsInput(input, context),
@@ -296,9 +290,7 @@ export const se_ConfigureHealthCheckCommand = async (
   input: ConfigureHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ConfigureHealthCheckInput(input, context),
@@ -315,9 +307,7 @@ export const se_CreateAppCookieStickinessPolicyCommand = async (
   input: CreateAppCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAppCookieStickinessPolicyInput(input, context),
@@ -334,9 +324,7 @@ export const se_CreateLBCookieStickinessPolicyCommand = async (
   input: CreateLBCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLBCookieStickinessPolicyInput(input, context),
@@ -353,9 +341,7 @@ export const se_CreateLoadBalancerCommand = async (
   input: CreateLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccessPointInput(input, context),
@@ -372,9 +358,7 @@ export const se_CreateLoadBalancerListenersCommand = async (
   input: CreateLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoadBalancerListenerInput(input, context),
@@ -391,9 +375,7 @@ export const se_CreateLoadBalancerPolicyCommand = async (
   input: CreateLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoadBalancerPolicyInput(input, context),
@@ -410,9 +392,7 @@ export const se_DeleteLoadBalancerCommand = async (
   input: DeleteLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccessPointInput(input, context),
@@ -429,9 +409,7 @@ export const se_DeleteLoadBalancerListenersCommand = async (
   input: DeleteLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoadBalancerListenerInput(input, context),
@@ -448,9 +426,7 @@ export const se_DeleteLoadBalancerPolicyCommand = async (
   input: DeleteLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoadBalancerPolicyInput(input, context),
@@ -467,9 +443,7 @@ export const se_DeregisterInstancesFromLoadBalancerCommand = async (
   input: DeregisterInstancesFromLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterEndPointsInput(input, context),
@@ -486,9 +460,7 @@ export const se_DescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
@@ -505,9 +477,7 @@ export const se_DescribeInstanceHealthCommand = async (
   input: DescribeInstanceHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEndPointStateInput(input, context),
@@ -524,9 +494,7 @@ export const se_DescribeLoadBalancerAttributesCommand = async (
   input: DescribeLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerAttributesInput(input, context),
@@ -543,9 +511,7 @@ export const se_DescribeLoadBalancerPoliciesCommand = async (
   input: DescribeLoadBalancerPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerPoliciesInput(input, context),
@@ -562,9 +528,7 @@ export const se_DescribeLoadBalancerPolicyTypesCommand = async (
   input: DescribeLoadBalancerPolicyTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerPolicyTypesInput(input, context),
@@ -581,9 +545,7 @@ export const se_DescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccessPointsInput(input, context),
@@ -600,9 +562,7 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTagsInput(input, context),
@@ -619,9 +579,7 @@ export const se_DetachLoadBalancerFromSubnetsCommand = async (
   input: DetachLoadBalancerFromSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachLoadBalancerFromSubnetsInput(input, context),
@@ -638,9 +596,7 @@ export const se_DisableAvailabilityZonesForLoadBalancerCommand = async (
   input: DisableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveAvailabilityZonesInput(input, context),
@@ -657,9 +613,7 @@ export const se_EnableAvailabilityZonesForLoadBalancerCommand = async (
   input: EnableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddAvailabilityZonesInput(input, context),
@@ -676,9 +630,7 @@ export const se_ModifyLoadBalancerAttributesCommand = async (
   input: ModifyLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyLoadBalancerAttributesInput(input, context),
@@ -695,9 +647,7 @@ export const se_RegisterInstancesWithLoadBalancerCommand = async (
   input: RegisterInstancesWithLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterEndPointsInput(input, context),
@@ -714,9 +664,7 @@ export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsInput(input, context),
@@ -733,9 +681,7 @@ export const se_SetLoadBalancerListenerSSLCertificateCommand = async (
   input: SetLoadBalancerListenerSSLCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerListenerSSLCertificateInput(input, context),
@@ -752,9 +698,7 @@ export const se_SetLoadBalancerPoliciesForBackendServerCommand = async (
   input: SetLoadBalancerPoliciesForBackendServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerPoliciesForBackendServerInput(input, context),
@@ -771,9 +715,7 @@ export const se_SetLoadBalancerPoliciesOfListenerCommand = async (
   input: SetLoadBalancerPoliciesOfListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerPoliciesOfListenerInput(input, context),
@@ -5134,6 +5076,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

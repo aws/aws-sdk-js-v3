@@ -371,10 +371,7 @@ export const se_CreateBatchInferenceJobCommand = async (
   input: CreateBatchInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateBatchInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchInferenceJob");
   let body: any;
   body = JSON.stringify(se_CreateBatchInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -387,10 +384,7 @@ export const se_CreateBatchSegmentJobCommand = async (
   input: CreateBatchSegmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateBatchSegmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchSegmentJob");
   let body: any;
   body = JSON.stringify(se_CreateBatchSegmentJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -403,10 +397,7 @@ export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCampaign");
   let body: any;
   body = JSON.stringify(se_CreateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -419,10 +410,7 @@ export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
   body = JSON.stringify(se_CreateDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -435,10 +423,7 @@ export const se_CreateDatasetExportJobCommand = async (
   input: CreateDatasetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetExportJob");
   let body: any;
   body = JSON.stringify(se_CreateDatasetExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -451,10 +436,7 @@ export const se_CreateDatasetGroupCommand = async (
   input: CreateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetGroup");
   let body: any;
   body = JSON.stringify(se_CreateDatasetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,10 +449,7 @@ export const se_CreateDatasetImportJobCommand = async (
   input: CreateDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetImportJob");
   let body: any;
   body = JSON.stringify(se_CreateDatasetImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -483,10 +462,7 @@ export const se_CreateEventTrackerCommand = async (
   input: CreateEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventTracker");
   let body: any;
   body = JSON.stringify(se_CreateEventTrackerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -499,10 +475,7 @@ export const se_CreateFilterCommand = async (
   input: CreateFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFilter");
   let body: any;
   body = JSON.stringify(se_CreateFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -515,10 +488,7 @@ export const se_CreateMetricAttributionCommand = async (
   input: CreateMetricAttributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateMetricAttribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateMetricAttribution");
   let body: any;
   body = JSON.stringify(se_CreateMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -531,10 +501,7 @@ export const se_CreateRecommenderCommand = async (
   input: CreateRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRecommender");
   let body: any;
   body = JSON.stringify(se_CreateRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -547,10 +514,7 @@ export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSchema");
   let body: any;
   body = JSON.stringify(se_CreateSchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -563,10 +527,7 @@ export const se_CreateSolutionCommand = async (
   input: CreateSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSolution");
   let body: any;
   body = JSON.stringify(se_CreateSolutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -579,10 +540,7 @@ export const se_CreateSolutionVersionCommand = async (
   input: CreateSolutionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSolutionVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSolutionVersion");
   let body: any;
   body = JSON.stringify(se_CreateSolutionVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,10 +553,7 @@ export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCampaign");
   let body: any;
   body = JSON.stringify(se_DeleteCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -611,10 +566,7 @@ export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
   body = JSON.stringify(se_DeleteDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -627,10 +579,7 @@ export const se_DeleteDatasetGroupCommand = async (
   input: DeleteDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatasetGroup");
   let body: any;
   body = JSON.stringify(se_DeleteDatasetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -643,10 +592,7 @@ export const se_DeleteEventTrackerCommand = async (
   input: DeleteEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventTracker");
   let body: any;
   body = JSON.stringify(se_DeleteEventTrackerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -659,10 +605,7 @@ export const se_DeleteFilterCommand = async (
   input: DeleteFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFilter");
   let body: any;
   body = JSON.stringify(se_DeleteFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -675,10 +618,7 @@ export const se_DeleteMetricAttributionCommand = async (
   input: DeleteMetricAttributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteMetricAttribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteMetricAttribution");
   let body: any;
   body = JSON.stringify(se_DeleteMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -691,10 +631,7 @@ export const se_DeleteRecommenderCommand = async (
   input: DeleteRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRecommender");
   let body: any;
   body = JSON.stringify(se_DeleteRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -707,10 +644,7 @@ export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSchema");
   let body: any;
   body = JSON.stringify(se_DeleteSchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -723,10 +657,7 @@ export const se_DeleteSolutionCommand = async (
   input: DeleteSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSolution");
   let body: any;
   body = JSON.stringify(se_DeleteSolutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -739,10 +670,7 @@ export const se_DescribeAlgorithmCommand = async (
   input: DescribeAlgorithmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeAlgorithm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAlgorithm");
   let body: any;
   body = JSON.stringify(se_DescribeAlgorithmRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -755,10 +683,7 @@ export const se_DescribeBatchInferenceJobCommand = async (
   input: DescribeBatchInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeBatchInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchInferenceJob");
   let body: any;
   body = JSON.stringify(se_DescribeBatchInferenceJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -771,10 +696,7 @@ export const se_DescribeBatchSegmentJobCommand = async (
   input: DescribeBatchSegmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeBatchSegmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchSegmentJob");
   let body: any;
   body = JSON.stringify(se_DescribeBatchSegmentJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -787,10 +709,7 @@ export const se_DescribeCampaignCommand = async (
   input: DescribeCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCampaign");
   let body: any;
   body = JSON.stringify(se_DescribeCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -803,10 +722,7 @@ export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -819,10 +735,7 @@ export const se_DescribeDatasetExportJobCommand = async (
   input: DescribeDatasetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetExportJob");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -835,10 +748,7 @@ export const se_DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetGroup");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -851,10 +761,7 @@ export const se_DescribeDatasetImportJobCommand = async (
   input: DescribeDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetImportJob");
   let body: any;
   body = JSON.stringify(se_DescribeDatasetImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -867,10 +774,7 @@ export const se_DescribeEventTrackerCommand = async (
   input: DescribeEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventTracker");
   let body: any;
   body = JSON.stringify(se_DescribeEventTrackerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -883,10 +787,7 @@ export const se_DescribeFeatureTransformationCommand = async (
   input: DescribeFeatureTransformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeFeatureTransformation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFeatureTransformation");
   let body: any;
   body = JSON.stringify(se_DescribeFeatureTransformationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,10 +800,7 @@ export const se_DescribeFilterCommand = async (
   input: DescribeFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFilter");
   let body: any;
   body = JSON.stringify(se_DescribeFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -915,10 +813,7 @@ export const se_DescribeMetricAttributionCommand = async (
   input: DescribeMetricAttributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeMetricAttribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeMetricAttribution");
   let body: any;
   body = JSON.stringify(se_DescribeMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -931,10 +826,7 @@ export const se_DescribeRecipeCommand = async (
   input: DescribeRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeRecipe",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecipe");
   let body: any;
   body = JSON.stringify(se_DescribeRecipeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -947,10 +839,7 @@ export const se_DescribeRecommenderCommand = async (
   input: DescribeRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecommender");
   let body: any;
   body = JSON.stringify(se_DescribeRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -963,10 +852,7 @@ export const se_DescribeSchemaCommand = async (
   input: DescribeSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSchema");
   let body: any;
   body = JSON.stringify(se_DescribeSchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -979,10 +865,7 @@ export const se_DescribeSolutionCommand = async (
   input: DescribeSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSolution");
   let body: any;
   body = JSON.stringify(se_DescribeSolutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -995,10 +878,7 @@ export const se_DescribeSolutionVersionCommand = async (
   input: DescribeSolutionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSolutionVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSolutionVersion");
   let body: any;
   body = JSON.stringify(se_DescribeSolutionVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1011,10 +891,7 @@ export const se_GetSolutionMetricsCommand = async (
   input: GetSolutionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.GetSolutionMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSolutionMetrics");
   let body: any;
   body = JSON.stringify(se_GetSolutionMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1027,10 +904,7 @@ export const se_ListBatchInferenceJobsCommand = async (
   input: ListBatchInferenceJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListBatchInferenceJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBatchInferenceJobs");
   let body: any;
   body = JSON.stringify(se_ListBatchInferenceJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1043,10 +917,7 @@ export const se_ListBatchSegmentJobsCommand = async (
   input: ListBatchSegmentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListBatchSegmentJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBatchSegmentJobs");
   let body: any;
   body = JSON.stringify(se_ListBatchSegmentJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1059,10 +930,7 @@ export const se_ListCampaignsCommand = async (
   input: ListCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListCampaigns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCampaigns");
   let body: any;
   body = JSON.stringify(se_ListCampaignsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1075,10 +943,7 @@ export const se_ListDatasetExportJobsCommand = async (
   input: ListDatasetExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetExportJobs");
   let body: any;
   body = JSON.stringify(se_ListDatasetExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1091,10 +956,7 @@ export const se_ListDatasetGroupsCommand = async (
   input: ListDatasetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetGroups");
   let body: any;
   body = JSON.stringify(se_ListDatasetGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1107,10 +969,7 @@ export const se_ListDatasetImportJobsCommand = async (
   input: ListDatasetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetImportJobs");
   let body: any;
   body = JSON.stringify(se_ListDatasetImportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1123,10 +982,7 @@ export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
   body = JSON.stringify(se_ListDatasetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1139,10 +995,7 @@ export const se_ListEventTrackersCommand = async (
   input: ListEventTrackersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListEventTrackers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventTrackers");
   let body: any;
   body = JSON.stringify(se_ListEventTrackersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1155,10 +1008,7 @@ export const se_ListFiltersCommand = async (
   input: ListFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListFilters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFilters");
   let body: any;
   body = JSON.stringify(se_ListFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1171,10 +1021,7 @@ export const se_ListMetricAttributionMetricsCommand = async (
   input: ListMetricAttributionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListMetricAttributionMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMetricAttributionMetrics");
   let body: any;
   body = JSON.stringify(se_ListMetricAttributionMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1187,10 +1034,7 @@ export const se_ListMetricAttributionsCommand = async (
   input: ListMetricAttributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListMetricAttributions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListMetricAttributions");
   let body: any;
   body = JSON.stringify(se_ListMetricAttributionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1203,10 +1047,7 @@ export const se_ListRecipesCommand = async (
   input: ListRecipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListRecipes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecipes");
   let body: any;
   body = JSON.stringify(se_ListRecipesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1219,10 +1060,7 @@ export const se_ListRecommendersCommand = async (
   input: ListRecommendersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListRecommenders",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecommenders");
   let body: any;
   body = JSON.stringify(se_ListRecommendersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1235,10 +1073,7 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemas");
   let body: any;
   body = JSON.stringify(se_ListSchemasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1251,10 +1086,7 @@ export const se_ListSolutionsCommand = async (
   input: ListSolutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSolutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSolutions");
   let body: any;
   body = JSON.stringify(se_ListSolutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1267,10 +1099,7 @@ export const se_ListSolutionVersionsCommand = async (
   input: ListSolutionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSolutionVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSolutionVersions");
   let body: any;
   body = JSON.stringify(se_ListSolutionVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1283,10 +1112,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1299,10 +1125,7 @@ export const se_StartRecommenderCommand = async (
   input: StartRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.StartRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartRecommender");
   let body: any;
   body = JSON.stringify(se_StartRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1315,10 +1138,7 @@ export const se_StopRecommenderCommand = async (
   input: StopRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.StopRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopRecommender");
   let body: any;
   body = JSON.stringify(se_StopRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1331,10 +1151,7 @@ export const se_StopSolutionVersionCreationCommand = async (
   input: StopSolutionVersionCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.StopSolutionVersionCreation",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopSolutionVersionCreation");
   let body: any;
   body = JSON.stringify(se_StopSolutionVersionCreationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1347,10 +1164,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1363,10 +1177,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1379,10 +1190,7 @@ export const se_UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.UpdateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCampaign");
   let body: any;
   body = JSON.stringify(se_UpdateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1395,10 +1203,7 @@ export const se_UpdateMetricAttributionCommand = async (
   input: UpdateMetricAttributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.UpdateMetricAttribution",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateMetricAttribution");
   let body: any;
   body = JSON.stringify(se_UpdateMetricAttributionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1411,10 +1216,7 @@ export const se_UpdateRecommenderCommand = async (
   input: UpdateRecommenderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.UpdateRecommender",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRecommender");
   let body: any;
   body = JSON.stringify(se_UpdateRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8376,6 +8178,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonPersonalize.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

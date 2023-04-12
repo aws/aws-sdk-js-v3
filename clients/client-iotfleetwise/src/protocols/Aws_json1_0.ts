@@ -300,10 +300,7 @@ export const se_AssociateVehicleFleetCommand = async (
   input: AssociateVehicleFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.AssociateVehicleFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateVehicleFleet");
   let body: any;
   body = JSON.stringify(se_AssociateVehicleFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -316,10 +313,7 @@ export const se_BatchCreateVehicleCommand = async (
   input: BatchCreateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.BatchCreateVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchCreateVehicle");
   let body: any;
   body = JSON.stringify(se_BatchCreateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -332,10 +326,7 @@ export const se_BatchUpdateVehicleCommand = async (
   input: BatchUpdateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.BatchUpdateVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchUpdateVehicle");
   let body: any;
   body = JSON.stringify(se_BatchUpdateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -348,10 +339,7 @@ export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCampaign");
   let body: any;
   body = JSON.stringify(se_CreateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -364,10 +352,7 @@ export const se_CreateDecoderManifestCommand = async (
   input: CreateDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateDecoderManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDecoderManifest");
   let body: any;
   body = JSON.stringify(se_CreateDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -380,10 +365,7 @@ export const se_CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFleet");
   let body: any;
   body = JSON.stringify(se_CreateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -396,10 +378,7 @@ export const se_CreateModelManifestCommand = async (
   input: CreateModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateModelManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateModelManifest");
   let body: any;
   body = JSON.stringify(se_CreateModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -412,10 +391,7 @@ export const se_CreateSignalCatalogCommand = async (
   input: CreateSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateSignalCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSignalCatalog");
   let body: any;
   body = JSON.stringify(se_CreateSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -428,10 +404,7 @@ export const se_CreateVehicleCommand = async (
   input: CreateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.CreateVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateVehicle");
   let body: any;
   body = JSON.stringify(se_CreateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -444,10 +417,7 @@ export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCampaign");
   let body: any;
   body = JSON.stringify(se_DeleteCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -460,10 +430,7 @@ export const se_DeleteDecoderManifestCommand = async (
   input: DeleteDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteDecoderManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDecoderManifest");
   let body: any;
   body = JSON.stringify(se_DeleteDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -476,10 +443,7 @@ export const se_DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
   body = JSON.stringify(se_DeleteFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -492,10 +456,7 @@ export const se_DeleteModelManifestCommand = async (
   input: DeleteModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteModelManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteModelManifest");
   let body: any;
   body = JSON.stringify(se_DeleteModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -508,10 +469,7 @@ export const se_DeleteSignalCatalogCommand = async (
   input: DeleteSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteSignalCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSignalCatalog");
   let body: any;
   body = JSON.stringify(se_DeleteSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -524,10 +482,7 @@ export const se_DeleteVehicleCommand = async (
   input: DeleteVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DeleteVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteVehicle");
   let body: any;
   body = JSON.stringify(se_DeleteVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -540,10 +495,7 @@ export const se_DisassociateVehicleFleetCommand = async (
   input: DisassociateVehicleFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.DisassociateVehicleFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateVehicleFleet");
   let body: any;
   body = JSON.stringify(se_DisassociateVehicleFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -556,10 +508,7 @@ export const se_GetCampaignCommand = async (
   input: GetCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCampaign");
   let body: any;
   body = JSON.stringify(se_GetCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -572,10 +521,7 @@ export const se_GetDecoderManifestCommand = async (
   input: GetDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetDecoderManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDecoderManifest");
   let body: any;
   body = JSON.stringify(se_GetDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -588,10 +534,7 @@ export const se_GetFleetCommand = async (
   input: GetFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetFleet");
   let body: any;
   body = JSON.stringify(se_GetFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -604,10 +547,7 @@ export const se_GetLoggingOptionsCommand = async (
   input: GetLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetLoggingOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetLoggingOptions");
   let body: any;
   body = JSON.stringify(se_GetLoggingOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -620,10 +560,7 @@ export const se_GetModelManifestCommand = async (
   input: GetModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetModelManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetModelManifest");
   let body: any;
   body = JSON.stringify(se_GetModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -636,10 +573,7 @@ export const se_GetRegisterAccountStatusCommand = async (
   input: GetRegisterAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetRegisterAccountStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRegisterAccountStatus");
   let body: any;
   body = JSON.stringify(se_GetRegisterAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -652,10 +586,7 @@ export const se_GetSignalCatalogCommand = async (
   input: GetSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetSignalCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSignalCatalog");
   let body: any;
   body = JSON.stringify(se_GetSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -668,10 +599,7 @@ export const se_GetVehicleCommand = async (
   input: GetVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVehicle");
   let body: any;
   body = JSON.stringify(se_GetVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -684,10 +612,7 @@ export const se_GetVehicleStatusCommand = async (
   input: GetVehicleStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.GetVehicleStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetVehicleStatus");
   let body: any;
   body = JSON.stringify(se_GetVehicleStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -700,10 +625,7 @@ export const se_ImportDecoderManifestCommand = async (
   input: ImportDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ImportDecoderManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportDecoderManifest");
   let body: any;
   body = JSON.stringify(se_ImportDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -716,10 +638,7 @@ export const se_ImportSignalCatalogCommand = async (
   input: ImportSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ImportSignalCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportSignalCatalog");
   let body: any;
   body = JSON.stringify(se_ImportSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -732,10 +651,7 @@ export const se_ListCampaignsCommand = async (
   input: ListCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListCampaigns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCampaigns");
   let body: any;
   body = JSON.stringify(se_ListCampaignsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -748,10 +664,7 @@ export const se_ListDecoderManifestNetworkInterfacesCommand = async (
   input: ListDecoderManifestNetworkInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifestNetworkInterfaces",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDecoderManifestNetworkInterfaces");
   let body: any;
   body = JSON.stringify(se_ListDecoderManifestNetworkInterfacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -764,10 +677,7 @@ export const se_ListDecoderManifestsCommand = async (
   input: ListDecoderManifestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDecoderManifests");
   let body: any;
   body = JSON.stringify(se_ListDecoderManifestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -780,10 +690,7 @@ export const se_ListDecoderManifestSignalsCommand = async (
   input: ListDecoderManifestSignalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListDecoderManifestSignals",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDecoderManifestSignals");
   let body: any;
   body = JSON.stringify(se_ListDecoderManifestSignalsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -796,10 +703,7 @@ export const se_ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListFleets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFleets");
   let body: any;
   body = JSON.stringify(se_ListFleetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -812,10 +716,7 @@ export const se_ListFleetsForVehicleCommand = async (
   input: ListFleetsForVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListFleetsForVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFleetsForVehicle");
   let body: any;
   body = JSON.stringify(se_ListFleetsForVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -828,10 +729,7 @@ export const se_ListModelManifestNodesCommand = async (
   input: ListModelManifestNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListModelManifestNodes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelManifestNodes");
   let body: any;
   body = JSON.stringify(se_ListModelManifestNodesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -844,10 +742,7 @@ export const se_ListModelManifestsCommand = async (
   input: ListModelManifestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListModelManifests",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListModelManifests");
   let body: any;
   body = JSON.stringify(se_ListModelManifestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -860,10 +755,7 @@ export const se_ListSignalCatalogNodesCommand = async (
   input: ListSignalCatalogNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListSignalCatalogNodes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSignalCatalogNodes");
   let body: any;
   body = JSON.stringify(se_ListSignalCatalogNodesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -876,10 +768,7 @@ export const se_ListSignalCatalogsCommand = async (
   input: ListSignalCatalogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListSignalCatalogs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSignalCatalogs");
   let body: any;
   body = JSON.stringify(se_ListSignalCatalogsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -892,10 +781,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -908,10 +794,7 @@ export const se_ListVehiclesCommand = async (
   input: ListVehiclesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListVehicles",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVehicles");
   let body: any;
   body = JSON.stringify(se_ListVehiclesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -924,10 +807,7 @@ export const se_ListVehiclesInFleetCommand = async (
   input: ListVehiclesInFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.ListVehiclesInFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListVehiclesInFleet");
   let body: any;
   body = JSON.stringify(se_ListVehiclesInFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -940,10 +820,7 @@ export const se_PutLoggingOptionsCommand = async (
   input: PutLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.PutLoggingOptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutLoggingOptions");
   let body: any;
   body = JSON.stringify(se_PutLoggingOptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -956,10 +833,7 @@ export const se_RegisterAccountCommand = async (
   input: RegisterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.RegisterAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("RegisterAccount");
   let body: any;
   body = JSON.stringify(se_RegisterAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -972,10 +846,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -988,10 +859,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1004,10 +872,7 @@ export const se_UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCampaign");
   let body: any;
   body = JSON.stringify(se_UpdateCampaignRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1020,10 +885,7 @@ export const se_UpdateDecoderManifestCommand = async (
   input: UpdateDecoderManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateDecoderManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDecoderManifest");
   let body: any;
   body = JSON.stringify(se_UpdateDecoderManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1036,10 +898,7 @@ export const se_UpdateFleetCommand = async (
   input: UpdateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateFleet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFleet");
   let body: any;
   body = JSON.stringify(se_UpdateFleetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,10 +911,7 @@ export const se_UpdateModelManifestCommand = async (
   input: UpdateModelManifestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateModelManifest",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateModelManifest");
   let body: any;
   body = JSON.stringify(se_UpdateModelManifestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1068,10 +924,7 @@ export const se_UpdateSignalCatalogCommand = async (
   input: UpdateSignalCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateSignalCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSignalCatalog");
   let body: any;
   body = JSON.stringify(se_UpdateSignalCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1084,10 +937,7 @@ export const se_UpdateVehicleCommand = async (
   input: UpdateVehicleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "IoTAutobahnControlPlane.UpdateVehicle",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateVehicle");
   let body: any;
   body = JSON.stringify(se_UpdateVehicleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6989,6 +6839,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `IoTAutobahnControlPlane.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

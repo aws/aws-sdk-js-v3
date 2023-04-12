@@ -258,10 +258,7 @@ export const se_AttachCustomerManagedPolicyReferenceToPermissionSetCommand = asy
   input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.AttachCustomerManagedPolicyReferenceToPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachCustomerManagedPolicyReferenceToPermissionSet");
   let body: any;
   body = JSON.stringify(se_AttachCustomerManagedPolicyReferenceToPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -274,10 +271,7 @@ export const se_AttachManagedPolicyToPermissionSetCommand = async (
   input: AttachManagedPolicyToPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.AttachManagedPolicyToPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("AttachManagedPolicyToPermissionSet");
   let body: any;
   body = JSON.stringify(se_AttachManagedPolicyToPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -290,10 +284,7 @@ export const se_CreateAccountAssignmentCommand = async (
   input: CreateAccountAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.CreateAccountAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateAccountAssignment");
   let body: any;
   body = JSON.stringify(se_CreateAccountAssignmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -306,10 +297,7 @@ export const se_CreateInstanceAccessControlAttributeConfigurationCommand = async
   input: CreateInstanceAccessControlAttributeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateInstanceAccessControlAttributeConfiguration");
   let body: any;
   body = JSON.stringify(se_CreateInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -322,10 +310,7 @@ export const se_CreatePermissionSetCommand = async (
   input: CreatePermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.CreatePermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePermissionSet");
   let body: any;
   body = JSON.stringify(se_CreatePermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -338,10 +323,7 @@ export const se_DeleteAccountAssignmentCommand = async (
   input: DeleteAccountAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DeleteAccountAssignment",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAccountAssignment");
   let body: any;
   body = JSON.stringify(se_DeleteAccountAssignmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -354,10 +336,7 @@ export const se_DeleteInlinePolicyFromPermissionSetCommand = async (
   input: DeleteInlinePolicyFromPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DeleteInlinePolicyFromPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInlinePolicyFromPermissionSet");
   let body: any;
   body = JSON.stringify(se_DeleteInlinePolicyFromPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -370,10 +349,7 @@ export const se_DeleteInstanceAccessControlAttributeConfigurationCommand = async
   input: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteInstanceAccessControlAttributeConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,10 +362,7 @@ export const se_DeletePermissionsBoundaryFromPermissionSetCommand = async (
   input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DeletePermissionsBoundaryFromPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePermissionsBoundaryFromPermissionSet");
   let body: any;
   body = JSON.stringify(se_DeletePermissionsBoundaryFromPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -402,10 +375,7 @@ export const se_DeletePermissionSetCommand = async (
   input: DeletePermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DeletePermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePermissionSet");
   let body: any;
   body = JSON.stringify(se_DeletePermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -418,10 +388,7 @@ export const se_DescribeAccountAssignmentCreationStatusCommand = async (
   input: DescribeAccountAssignmentCreationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DescribeAccountAssignmentCreationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountAssignmentCreationStatus");
   let body: any;
   body = JSON.stringify(se_DescribeAccountAssignmentCreationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -434,10 +401,7 @@ export const se_DescribeAccountAssignmentDeletionStatusCommand = async (
   input: DescribeAccountAssignmentDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DescribeAccountAssignmentDeletionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountAssignmentDeletionStatus");
   let body: any;
   body = JSON.stringify(se_DescribeAccountAssignmentDeletionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -450,10 +414,7 @@ export const se_DescribeInstanceAccessControlAttributeConfigurationCommand = asy
   input: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeInstanceAccessControlAttributeConfiguration");
   let body: any;
   body = JSON.stringify(se_DescribeInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -466,10 +427,7 @@ export const se_DescribePermissionSetCommand = async (
   input: DescribePermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DescribePermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePermissionSet");
   let body: any;
   body = JSON.stringify(se_DescribePermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -482,10 +440,7 @@ export const se_DescribePermissionSetProvisioningStatusCommand = async (
   input: DescribePermissionSetProvisioningStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DescribePermissionSetProvisioningStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePermissionSetProvisioningStatus");
   let body: any;
   body = JSON.stringify(se_DescribePermissionSetProvisioningStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -498,10 +453,7 @@ export const se_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = a
   input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DetachCustomerManagedPolicyReferenceFromPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachCustomerManagedPolicyReferenceFromPermissionSet");
   let body: any;
   body = JSON.stringify(se_DetachCustomerManagedPolicyReferenceFromPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -514,10 +466,7 @@ export const se_DetachManagedPolicyFromPermissionSetCommand = async (
   input: DetachManagedPolicyFromPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.DetachManagedPolicyFromPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("DetachManagedPolicyFromPermissionSet");
   let body: any;
   body = JSON.stringify(se_DetachManagedPolicyFromPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -530,10 +479,7 @@ export const se_GetInlinePolicyForPermissionSetCommand = async (
   input: GetInlinePolicyForPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.GetInlinePolicyForPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetInlinePolicyForPermissionSet");
   let body: any;
   body = JSON.stringify(se_GetInlinePolicyForPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -546,10 +492,7 @@ export const se_GetPermissionsBoundaryForPermissionSetCommand = async (
   input: GetPermissionsBoundaryForPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.GetPermissionsBoundaryForPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPermissionsBoundaryForPermissionSet");
   let body: any;
   body = JSON.stringify(se_GetPermissionsBoundaryForPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -562,10 +505,7 @@ export const se_ListAccountAssignmentCreationStatusCommand = async (
   input: ListAccountAssignmentCreationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListAccountAssignmentCreationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccountAssignmentCreationStatus");
   let body: any;
   body = JSON.stringify(se_ListAccountAssignmentCreationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -578,10 +518,7 @@ export const se_ListAccountAssignmentDeletionStatusCommand = async (
   input: ListAccountAssignmentDeletionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListAccountAssignmentDeletionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccountAssignmentDeletionStatus");
   let body: any;
   body = JSON.stringify(se_ListAccountAssignmentDeletionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -594,10 +531,7 @@ export const se_ListAccountAssignmentsCommand = async (
   input: ListAccountAssignmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListAccountAssignments",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccountAssignments");
   let body: any;
   body = JSON.stringify(se_ListAccountAssignmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -610,10 +544,7 @@ export const se_ListAccountsForProvisionedPermissionSetCommand = async (
   input: ListAccountsForProvisionedPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListAccountsForProvisionedPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAccountsForProvisionedPermissionSet");
   let body: any;
   body = JSON.stringify(se_ListAccountsForProvisionedPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -626,10 +557,7 @@ export const se_ListCustomerManagedPolicyReferencesInPermissionSetCommand = asyn
   input: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListCustomerManagedPolicyReferencesInPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCustomerManagedPolicyReferencesInPermissionSet");
   let body: any;
   body = JSON.stringify(se_ListCustomerManagedPolicyReferencesInPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -642,10 +570,7 @@ export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListInstances",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListInstances");
   let body: any;
   body = JSON.stringify(se_ListInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -658,10 +583,7 @@ export const se_ListManagedPoliciesInPermissionSetCommand = async (
   input: ListManagedPoliciesInPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListManagedPoliciesInPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListManagedPoliciesInPermissionSet");
   let body: any;
   body = JSON.stringify(se_ListManagedPoliciesInPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -674,10 +596,7 @@ export const se_ListPermissionSetProvisioningStatusCommand = async (
   input: ListPermissionSetProvisioningStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListPermissionSetProvisioningStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPermissionSetProvisioningStatus");
   let body: any;
   body = JSON.stringify(se_ListPermissionSetProvisioningStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -690,10 +609,7 @@ export const se_ListPermissionSetsCommand = async (
   input: ListPermissionSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListPermissionSets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPermissionSets");
   let body: any;
   body = JSON.stringify(se_ListPermissionSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -706,10 +622,7 @@ export const se_ListPermissionSetsProvisionedToAccountCommand = async (
   input: ListPermissionSetsProvisionedToAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListPermissionSetsProvisionedToAccount",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPermissionSetsProvisionedToAccount");
   let body: any;
   body = JSON.stringify(se_ListPermissionSetsProvisionedToAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -722,10 +635,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -738,10 +648,7 @@ export const se_ProvisionPermissionSetCommand = async (
   input: ProvisionPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.ProvisionPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("ProvisionPermissionSet");
   let body: any;
   body = JSON.stringify(se_ProvisionPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -754,10 +661,7 @@ export const se_PutInlinePolicyToPermissionSetCommand = async (
   input: PutInlinePolicyToPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.PutInlinePolicyToPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutInlinePolicyToPermissionSet");
   let body: any;
   body = JSON.stringify(se_PutInlinePolicyToPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -770,10 +674,7 @@ export const se_PutPermissionsBoundaryToPermissionSetCommand = async (
   input: PutPermissionsBoundaryToPermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.PutPermissionsBoundaryToPermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutPermissionsBoundaryToPermissionSet");
   let body: any;
   body = JSON.stringify(se_PutPermissionsBoundaryToPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -786,10 +687,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -802,10 +700,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -818,10 +713,7 @@ export const se_UpdateInstanceAccessControlAttributeConfigurationCommand = async
   input: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateInstanceAccessControlAttributeConfiguration");
   let body: any;
   body = JSON.stringify(se_UpdateInstanceAccessControlAttributeConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -834,10 +726,7 @@ export const se_UpdatePermissionSetCommand = async (
   input: UpdatePermissionSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "SWBExternalService.UpdatePermissionSet",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePermissionSet");
   let body: any;
   body = JSON.stringify(se_UpdatePermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4721,6 +4610,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `SWBExternalService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

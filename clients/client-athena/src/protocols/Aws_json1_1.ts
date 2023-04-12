@@ -340,10 +340,7 @@ export const se_BatchGetNamedQueryCommand = async (
   input: BatchGetNamedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.BatchGetNamedQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetNamedQuery");
   let body: any;
   body = JSON.stringify(se_BatchGetNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -356,10 +353,7 @@ export const se_BatchGetPreparedStatementCommand = async (
   input: BatchGetPreparedStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.BatchGetPreparedStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetPreparedStatement");
   let body: any;
   body = JSON.stringify(se_BatchGetPreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -372,10 +366,7 @@ export const se_BatchGetQueryExecutionCommand = async (
   input: BatchGetQueryExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.BatchGetQueryExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetQueryExecution");
   let body: any;
   body = JSON.stringify(se_BatchGetQueryExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -388,10 +379,7 @@ export const se_CreateDataCatalogCommand = async (
   input: CreateDataCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreateDataCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataCatalog");
   let body: any;
   body = JSON.stringify(se_CreateDataCatalogInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -404,10 +392,7 @@ export const se_CreateNamedQueryCommand = async (
   input: CreateNamedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreateNamedQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNamedQuery");
   let body: any;
   body = JSON.stringify(se_CreateNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -420,10 +405,7 @@ export const se_CreateNotebookCommand = async (
   input: CreateNotebookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreateNotebook",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateNotebook");
   let body: any;
   body = JSON.stringify(se_CreateNotebookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -436,10 +418,7 @@ export const se_CreatePreparedStatementCommand = async (
   input: CreatePreparedStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreatePreparedStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePreparedStatement");
   let body: any;
   body = JSON.stringify(se_CreatePreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -452,10 +431,7 @@ export const se_CreatePresignedNotebookUrlCommand = async (
   input: CreatePresignedNotebookUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreatePresignedNotebookUrl",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePresignedNotebookUrl");
   let body: any;
   body = JSON.stringify(se_CreatePresignedNotebookUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -468,10 +444,7 @@ export const se_CreateWorkGroupCommand = async (
   input: CreateWorkGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.CreateWorkGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWorkGroup");
   let body: any;
   body = JSON.stringify(se_CreateWorkGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -484,10 +457,7 @@ export const se_DeleteDataCatalogCommand = async (
   input: DeleteDataCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.DeleteDataCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataCatalog");
   let body: any;
   body = JSON.stringify(se_DeleteDataCatalogInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -500,10 +470,7 @@ export const se_DeleteNamedQueryCommand = async (
   input: DeleteNamedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.DeleteNamedQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNamedQuery");
   let body: any;
   body = JSON.stringify(se_DeleteNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -516,10 +483,7 @@ export const se_DeleteNotebookCommand = async (
   input: DeleteNotebookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.DeleteNotebook",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteNotebook");
   let body: any;
   body = JSON.stringify(se_DeleteNotebookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -532,10 +496,7 @@ export const se_DeletePreparedStatementCommand = async (
   input: DeletePreparedStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.DeletePreparedStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePreparedStatement");
   let body: any;
   body = JSON.stringify(se_DeletePreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -548,10 +509,7 @@ export const se_DeleteWorkGroupCommand = async (
   input: DeleteWorkGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.DeleteWorkGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkGroup");
   let body: any;
   body = JSON.stringify(se_DeleteWorkGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -564,10 +522,7 @@ export const se_ExportNotebookCommand = async (
   input: ExportNotebookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ExportNotebook",
-  };
+  const headers: __HeaderBag = sharedHeaders("ExportNotebook");
   let body: any;
   body = JSON.stringify(se_ExportNotebookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -580,10 +535,7 @@ export const se_GetCalculationExecutionCommand = async (
   input: GetCalculationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetCalculationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCalculationExecution");
   let body: any;
   body = JSON.stringify(se_GetCalculationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -596,10 +548,7 @@ export const se_GetCalculationExecutionCodeCommand = async (
   input: GetCalculationExecutionCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetCalculationExecutionCode",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCalculationExecutionCode");
   let body: any;
   body = JSON.stringify(se_GetCalculationExecutionCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -612,10 +561,7 @@ export const se_GetCalculationExecutionStatusCommand = async (
   input: GetCalculationExecutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetCalculationExecutionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCalculationExecutionStatus");
   let body: any;
   body = JSON.stringify(se_GetCalculationExecutionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -628,10 +574,7 @@ export const se_GetDatabaseCommand = async (
   input: GetDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetDatabase",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDatabase");
   let body: any;
   body = JSON.stringify(se_GetDatabaseInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -644,10 +587,7 @@ export const se_GetDataCatalogCommand = async (
   input: GetDataCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetDataCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDataCatalog");
   let body: any;
   body = JSON.stringify(se_GetDataCatalogInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -660,10 +600,7 @@ export const se_GetNamedQueryCommand = async (
   input: GetNamedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetNamedQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNamedQuery");
   let body: any;
   body = JSON.stringify(se_GetNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -676,10 +613,7 @@ export const se_GetNotebookMetadataCommand = async (
   input: GetNotebookMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetNotebookMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetNotebookMetadata");
   let body: any;
   body = JSON.stringify(se_GetNotebookMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -692,10 +626,7 @@ export const se_GetPreparedStatementCommand = async (
   input: GetPreparedStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetPreparedStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetPreparedStatement");
   let body: any;
   body = JSON.stringify(se_GetPreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -708,10 +639,7 @@ export const se_GetQueryExecutionCommand = async (
   input: GetQueryExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetQueryExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQueryExecution");
   let body: any;
   body = JSON.stringify(se_GetQueryExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -724,10 +652,7 @@ export const se_GetQueryResultsCommand = async (
   input: GetQueryResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetQueryResults",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQueryResults");
   let body: any;
   body = JSON.stringify(se_GetQueryResultsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -740,10 +665,7 @@ export const se_GetQueryRuntimeStatisticsCommand = async (
   input: GetQueryRuntimeStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetQueryRuntimeStatistics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetQueryRuntimeStatistics");
   let body: any;
   body = JSON.stringify(se_GetQueryRuntimeStatisticsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -756,10 +678,7 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSession");
   let body: any;
   body = JSON.stringify(se_GetSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -772,10 +691,7 @@ export const se_GetSessionStatusCommand = async (
   input: GetSessionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetSessionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSessionStatus");
   let body: any;
   body = JSON.stringify(se_GetSessionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -788,10 +704,7 @@ export const se_GetTableMetadataCommand = async (
   input: GetTableMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetTableMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetTableMetadata");
   let body: any;
   body = JSON.stringify(se_GetTableMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -804,10 +717,7 @@ export const se_GetWorkGroupCommand = async (
   input: GetWorkGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.GetWorkGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetWorkGroup");
   let body: any;
   body = JSON.stringify(se_GetWorkGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -820,10 +730,7 @@ export const se_ImportNotebookCommand = async (
   input: ImportNotebookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ImportNotebook",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportNotebook");
   let body: any;
   body = JSON.stringify(se_ImportNotebookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -836,10 +743,7 @@ export const se_ListApplicationDPUSizesCommand = async (
   input: ListApplicationDPUSizesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListApplicationDPUSizes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListApplicationDPUSizes");
   let body: any;
   body = JSON.stringify(se_ListApplicationDPUSizesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -852,10 +756,7 @@ export const se_ListCalculationExecutionsCommand = async (
   input: ListCalculationExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListCalculationExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCalculationExecutions");
   let body: any;
   body = JSON.stringify(se_ListCalculationExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -868,10 +769,7 @@ export const se_ListDatabasesCommand = async (
   input: ListDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListDatabases",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatabases");
   let body: any;
   body = JSON.stringify(se_ListDatabasesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -884,10 +782,7 @@ export const se_ListDataCatalogsCommand = async (
   input: ListDataCatalogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListDataCatalogs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDataCatalogs");
   let body: any;
   body = JSON.stringify(se_ListDataCatalogsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -900,10 +795,7 @@ export const se_ListEngineVersionsCommand = async (
   input: ListEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListEngineVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEngineVersions");
   let body: any;
   body = JSON.stringify(se_ListEngineVersionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -916,10 +808,7 @@ export const se_ListExecutorsCommand = async (
   input: ListExecutorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListExecutors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListExecutors");
   let body: any;
   body = JSON.stringify(se_ListExecutorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -932,10 +821,7 @@ export const se_ListNamedQueriesCommand = async (
   input: ListNamedQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListNamedQueries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNamedQueries");
   let body: any;
   body = JSON.stringify(se_ListNamedQueriesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -948,10 +834,7 @@ export const se_ListNotebookMetadataCommand = async (
   input: ListNotebookMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListNotebookMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNotebookMetadata");
   let body: any;
   body = JSON.stringify(se_ListNotebookMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -964,10 +847,7 @@ export const se_ListNotebookSessionsCommand = async (
   input: ListNotebookSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListNotebookSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListNotebookSessions");
   let body: any;
   body = JSON.stringify(se_ListNotebookSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -980,10 +860,7 @@ export const se_ListPreparedStatementsCommand = async (
   input: ListPreparedStatementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListPreparedStatements",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPreparedStatements");
   let body: any;
   body = JSON.stringify(se_ListPreparedStatementsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -996,10 +873,7 @@ export const se_ListQueryExecutionsCommand = async (
   input: ListQueryExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListQueryExecutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListQueryExecutions");
   let body: any;
   body = JSON.stringify(se_ListQueryExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1012,10 +886,7 @@ export const se_ListSessionsCommand = async (
   input: ListSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListSessions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSessions");
   let body: any;
   body = JSON.stringify(se_ListSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1028,10 +899,7 @@ export const se_ListTableMetadataCommand = async (
   input: ListTableMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListTableMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTableMetadata");
   let body: any;
   body = JSON.stringify(se_ListTableMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1044,10 +912,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1060,10 +925,7 @@ export const se_ListWorkGroupsCommand = async (
   input: ListWorkGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.ListWorkGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListWorkGroups");
   let body: any;
   body = JSON.stringify(se_ListWorkGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1076,10 +938,7 @@ export const se_StartCalculationExecutionCommand = async (
   input: StartCalculationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.StartCalculationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartCalculationExecution");
   let body: any;
   body = JSON.stringify(se_StartCalculationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1092,10 +951,7 @@ export const se_StartQueryExecutionCommand = async (
   input: StartQueryExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.StartQueryExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartQueryExecution");
   let body: any;
   body = JSON.stringify(se_StartQueryExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1108,10 +964,7 @@ export const se_StartSessionCommand = async (
   input: StartSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.StartSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSession");
   let body: any;
   body = JSON.stringify(se_StartSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1124,10 +977,7 @@ export const se_StopCalculationExecutionCommand = async (
   input: StopCalculationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.StopCalculationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopCalculationExecution");
   let body: any;
   body = JSON.stringify(se_StopCalculationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1140,10 +990,7 @@ export const se_StopQueryExecutionCommand = async (
   input: StopQueryExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.StopQueryExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopQueryExecution");
   let body: any;
   body = JSON.stringify(se_StopQueryExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1156,10 +1003,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1172,10 +1016,7 @@ export const se_TerminateSessionCommand = async (
   input: TerminateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.TerminateSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("TerminateSession");
   let body: any;
   body = JSON.stringify(se_TerminateSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1188,10 +1029,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1204,10 +1042,7 @@ export const se_UpdateDataCatalogCommand = async (
   input: UpdateDataCatalogCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdateDataCatalog",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDataCatalog");
   let body: any;
   body = JSON.stringify(se_UpdateDataCatalogInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1220,10 +1055,7 @@ export const se_UpdateNamedQueryCommand = async (
   input: UpdateNamedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdateNamedQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNamedQuery");
   let body: any;
   body = JSON.stringify(se_UpdateNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1236,10 +1068,7 @@ export const se_UpdateNotebookCommand = async (
   input: UpdateNotebookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdateNotebook",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotebook");
   let body: any;
   body = JSON.stringify(se_UpdateNotebookInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1252,10 +1081,7 @@ export const se_UpdateNotebookMetadataCommand = async (
   input: UpdateNotebookMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdateNotebookMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateNotebookMetadata");
   let body: any;
   body = JSON.stringify(se_UpdateNotebookMetadataInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1268,10 +1094,7 @@ export const se_UpdatePreparedStatementCommand = async (
   input: UpdatePreparedStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdatePreparedStatement",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdatePreparedStatement");
   let body: any;
   body = JSON.stringify(se_UpdatePreparedStatementInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1284,10 +1107,7 @@ export const se_UpdateWorkGroupCommand = async (
   input: UpdateWorkGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonAthena.UpdateWorkGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkGroup");
   let body: any;
   body = JSON.stringify(se_UpdateWorkGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7306,6 +7126,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonAthena.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

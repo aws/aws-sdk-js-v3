@@ -688,10 +688,7 @@ export const se_BatchGetAggregateResourceConfigCommand = async (
   input: BatchGetAggregateResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.BatchGetAggregateResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetAggregateResourceConfig");
   let body: any;
   body = JSON.stringify(se_BatchGetAggregateResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -704,10 +701,7 @@ export const se_BatchGetResourceConfigCommand = async (
   input: BatchGetResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.BatchGetResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetResourceConfig");
   let body: any;
   body = JSON.stringify(se_BatchGetResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -720,10 +714,7 @@ export const se_DeleteAggregationAuthorizationCommand = async (
   input: DeleteAggregationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteAggregationAuthorization",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteAggregationAuthorization");
   let body: any;
   body = JSON.stringify(se_DeleteAggregationAuthorizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -736,10 +727,7 @@ export const se_DeleteConfigRuleCommand = async (
   input: DeleteConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConfigRule");
   let body: any;
   body = JSON.stringify(se_DeleteConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -752,10 +740,7 @@ export const se_DeleteConfigurationAggregatorCommand = async (
   input: DeleteConfigurationAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteConfigurationAggregator",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConfigurationAggregator");
   let body: any;
   body = JSON.stringify(se_DeleteConfigurationAggregatorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -768,10 +753,7 @@ export const se_DeleteConfigurationRecorderCommand = async (
   input: DeleteConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteConfigurationRecorder",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConfigurationRecorder");
   let body: any;
   body = JSON.stringify(se_DeleteConfigurationRecorderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -784,10 +766,7 @@ export const se_DeleteConformancePackCommand = async (
   input: DeleteConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteConformancePack",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteConformancePack");
   let body: any;
   body = JSON.stringify(se_DeleteConformancePackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -800,10 +779,7 @@ export const se_DeleteDeliveryChannelCommand = async (
   input: DeleteDeliveryChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteDeliveryChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDeliveryChannel");
   let body: any;
   body = JSON.stringify(se_DeleteDeliveryChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -816,10 +792,7 @@ export const se_DeleteEvaluationResultsCommand = async (
   input: DeleteEvaluationResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteEvaluationResults",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEvaluationResults");
   let body: any;
   body = JSON.stringify(se_DeleteEvaluationResultsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -832,10 +805,7 @@ export const se_DeleteOrganizationConfigRuleCommand = async (
   input: DeleteOrganizationConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteOrganizationConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOrganizationConfigRule");
   let body: any;
   body = JSON.stringify(se_DeleteOrganizationConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -848,10 +818,7 @@ export const se_DeleteOrganizationConformancePackCommand = async (
   input: DeleteOrganizationConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteOrganizationConformancePack",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteOrganizationConformancePack");
   let body: any;
   body = JSON.stringify(se_DeleteOrganizationConformancePackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -864,10 +831,7 @@ export const se_DeletePendingAggregationRequestCommand = async (
   input: DeletePendingAggregationRequestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeletePendingAggregationRequest",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePendingAggregationRequest");
   let body: any;
   body = JSON.stringify(se_DeletePendingAggregationRequestRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -880,10 +844,7 @@ export const se_DeleteRemediationConfigurationCommand = async (
   input: DeleteRemediationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteRemediationConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRemediationConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteRemediationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -896,10 +857,7 @@ export const se_DeleteRemediationExceptionsCommand = async (
   input: DeleteRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteRemediationExceptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRemediationExceptions");
   let body: any;
   body = JSON.stringify(se_DeleteRemediationExceptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -912,10 +870,7 @@ export const se_DeleteResourceConfigCommand = async (
   input: DeleteResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourceConfig");
   let body: any;
   body = JSON.stringify(se_DeleteResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -928,10 +883,7 @@ export const se_DeleteRetentionConfigurationCommand = async (
   input: DeleteRetentionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteRetentionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRetentionConfiguration");
   let body: any;
   body = JSON.stringify(se_DeleteRetentionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -944,10 +896,7 @@ export const se_DeleteStoredQueryCommand = async (
   input: DeleteStoredQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeleteStoredQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteStoredQuery");
   let body: any;
   body = JSON.stringify(se_DeleteStoredQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -960,10 +909,7 @@ export const se_DeliverConfigSnapshotCommand = async (
   input: DeliverConfigSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DeliverConfigSnapshot",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeliverConfigSnapshot");
   let body: any;
   body = JSON.stringify(se_DeliverConfigSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -976,10 +922,7 @@ export const se_DescribeAggregateComplianceByConfigRulesCommand = async (
   input: DescribeAggregateComplianceByConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeAggregateComplianceByConfigRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAggregateComplianceByConfigRules");
   let body: any;
   body = JSON.stringify(se_DescribeAggregateComplianceByConfigRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -992,10 +935,7 @@ export const se_DescribeAggregateComplianceByConformancePacksCommand = async (
   input: DescribeAggregateComplianceByConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeAggregateComplianceByConformancePacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAggregateComplianceByConformancePacks");
   let body: any;
   body = JSON.stringify(se_DescribeAggregateComplianceByConformancePacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1008,10 +948,7 @@ export const se_DescribeAggregationAuthorizationsCommand = async (
   input: DescribeAggregationAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeAggregationAuthorizations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAggregationAuthorizations");
   let body: any;
   body = JSON.stringify(se_DescribeAggregationAuthorizationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1024,10 +961,7 @@ export const se_DescribeComplianceByConfigRuleCommand = async (
   input: DescribeComplianceByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeComplianceByConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComplianceByConfigRule");
   let body: any;
   body = JSON.stringify(se_DescribeComplianceByConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1040,10 +974,7 @@ export const se_DescribeComplianceByResourceCommand = async (
   input: DescribeComplianceByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeComplianceByResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeComplianceByResource");
   let body: any;
   body = JSON.stringify(se_DescribeComplianceByResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1056,10 +987,7 @@ export const se_DescribeConfigRuleEvaluationStatusCommand = async (
   input: DescribeConfigRuleEvaluationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigRuleEvaluationStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigRuleEvaluationStatus");
   let body: any;
   body = JSON.stringify(se_DescribeConfigRuleEvaluationStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1072,10 +1000,7 @@ export const se_DescribeConfigRulesCommand = async (
   input: DescribeConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigRules");
   let body: any;
   body = JSON.stringify(se_DescribeConfigRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1088,10 +1013,7 @@ export const se_DescribeConfigurationAggregatorsCommand = async (
   input: DescribeConfigurationAggregatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigurationAggregators",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationAggregators");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationAggregatorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1104,10 +1026,7 @@ export const se_DescribeConfigurationAggregatorSourcesStatusCommand = async (
   input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationAggregatorSourcesStatus");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationAggregatorSourcesStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1120,10 +1039,7 @@ export const se_DescribeConfigurationRecordersCommand = async (
   input: DescribeConfigurationRecordersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigurationRecorders",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationRecorders");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationRecordersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1136,10 +1052,7 @@ export const se_DescribeConfigurationRecorderStatusCommand = async (
   input: DescribeConfigurationRecorderStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConfigurationRecorderStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConfigurationRecorderStatus");
   let body: any;
   body = JSON.stringify(se_DescribeConfigurationRecorderStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1152,10 +1065,7 @@ export const se_DescribeConformancePackComplianceCommand = async (
   input: DescribeConformancePackComplianceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConformancePackCompliance",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConformancePackCompliance");
   let body: any;
   body = JSON.stringify(se_DescribeConformancePackComplianceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1168,10 +1078,7 @@ export const se_DescribeConformancePacksCommand = async (
   input: DescribeConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConformancePacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConformancePacks");
   let body: any;
   body = JSON.stringify(se_DescribeConformancePacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1184,10 +1091,7 @@ export const se_DescribeConformancePackStatusCommand = async (
   input: DescribeConformancePackStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeConformancePackStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeConformancePackStatus");
   let body: any;
   body = JSON.stringify(se_DescribeConformancePackStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1200,10 +1104,7 @@ export const se_DescribeDeliveryChannelsCommand = async (
   input: DescribeDeliveryChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeDeliveryChannels",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliveryChannels");
   let body: any;
   body = JSON.stringify(se_DescribeDeliveryChannelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1216,10 +1117,7 @@ export const se_DescribeDeliveryChannelStatusCommand = async (
   input: DescribeDeliveryChannelStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeDeliveryChannelStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDeliveryChannelStatus");
   let body: any;
   body = JSON.stringify(se_DescribeDeliveryChannelStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,10 +1130,7 @@ export const se_DescribeOrganizationConfigRulesCommand = async (
   input: DescribeOrganizationConfigRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeOrganizationConfigRules",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConfigRules");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationConfigRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1248,10 +1143,7 @@ export const se_DescribeOrganizationConfigRuleStatusesCommand = async (
   input: DescribeOrganizationConfigRuleStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeOrganizationConfigRuleStatuses",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConfigRuleStatuses");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationConfigRuleStatusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1264,10 +1156,7 @@ export const se_DescribeOrganizationConformancePacksCommand = async (
   input: DescribeOrganizationConformancePacksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeOrganizationConformancePacks",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConformancePacks");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationConformancePacksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1280,10 +1169,7 @@ export const se_DescribeOrganizationConformancePackStatusesCommand = async (
   input: DescribeOrganizationConformancePackStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeOrganizationConformancePackStatuses",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeOrganizationConformancePackStatuses");
   let body: any;
   body = JSON.stringify(se_DescribeOrganizationConformancePackStatusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1296,10 +1182,7 @@ export const se_DescribePendingAggregationRequestsCommand = async (
   input: DescribePendingAggregationRequestsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribePendingAggregationRequests",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePendingAggregationRequests");
   let body: any;
   body = JSON.stringify(se_DescribePendingAggregationRequestsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1312,10 +1195,7 @@ export const se_DescribeRemediationConfigurationsCommand = async (
   input: DescribeRemediationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeRemediationConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRemediationConfigurations");
   let body: any;
   body = JSON.stringify(se_DescribeRemediationConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1328,10 +1208,7 @@ export const se_DescribeRemediationExceptionsCommand = async (
   input: DescribeRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeRemediationExceptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRemediationExceptions");
   let body: any;
   body = JSON.stringify(se_DescribeRemediationExceptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1344,10 +1221,7 @@ export const se_DescribeRemediationExecutionStatusCommand = async (
   input: DescribeRemediationExecutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeRemediationExecutionStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRemediationExecutionStatus");
   let body: any;
   body = JSON.stringify(se_DescribeRemediationExecutionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1360,10 +1234,7 @@ export const se_DescribeRetentionConfigurationsCommand = async (
   input: DescribeRetentionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.DescribeRetentionConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRetentionConfigurations");
   let body: any;
   body = JSON.stringify(se_DescribeRetentionConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1376,10 +1247,7 @@ export const se_GetAggregateComplianceDetailsByConfigRuleCommand = async (
   input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAggregateComplianceDetailsByConfigRule");
   let body: any;
   body = JSON.stringify(se_GetAggregateComplianceDetailsByConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1392,10 +1260,7 @@ export const se_GetAggregateConfigRuleComplianceSummaryCommand = async (
   input: GetAggregateConfigRuleComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetAggregateConfigRuleComplianceSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAggregateConfigRuleComplianceSummary");
   let body: any;
   body = JSON.stringify(se_GetAggregateConfigRuleComplianceSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1408,10 +1273,7 @@ export const se_GetAggregateConformancePackComplianceSummaryCommand = async (
   input: GetAggregateConformancePackComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetAggregateConformancePackComplianceSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAggregateConformancePackComplianceSummary");
   let body: any;
   body = JSON.stringify(se_GetAggregateConformancePackComplianceSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1424,10 +1286,7 @@ export const se_GetAggregateDiscoveredResourceCountsCommand = async (
   input: GetAggregateDiscoveredResourceCountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetAggregateDiscoveredResourceCounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAggregateDiscoveredResourceCounts");
   let body: any;
   body = JSON.stringify(se_GetAggregateDiscoveredResourceCountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1440,10 +1299,7 @@ export const se_GetAggregateResourceConfigCommand = async (
   input: GetAggregateResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetAggregateResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAggregateResourceConfig");
   let body: any;
   body = JSON.stringify(se_GetAggregateResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1456,10 +1312,7 @@ export const se_GetComplianceDetailsByConfigRuleCommand = async (
   input: GetComplianceDetailsByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetComplianceDetailsByConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceDetailsByConfigRule");
   let body: any;
   body = JSON.stringify(se_GetComplianceDetailsByConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1472,10 +1325,7 @@ export const se_GetComplianceDetailsByResourceCommand = async (
   input: GetComplianceDetailsByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetComplianceDetailsByResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceDetailsByResource");
   let body: any;
   body = JSON.stringify(se_GetComplianceDetailsByResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1488,10 +1338,7 @@ export const se_GetComplianceSummaryByConfigRuleCommand = async (
   input: GetComplianceSummaryByConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetComplianceSummaryByConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceSummaryByConfigRule");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1503,10 +1350,7 @@ export const se_GetComplianceSummaryByResourceTypeCommand = async (
   input: GetComplianceSummaryByResourceTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetComplianceSummaryByResourceType",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetComplianceSummaryByResourceType");
   let body: any;
   body = JSON.stringify(se_GetComplianceSummaryByResourceTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1519,10 +1363,7 @@ export const se_GetConformancePackComplianceDetailsCommand = async (
   input: GetConformancePackComplianceDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetConformancePackComplianceDetails",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConformancePackComplianceDetails");
   let body: any;
   body = JSON.stringify(se_GetConformancePackComplianceDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1535,10 +1376,7 @@ export const se_GetConformancePackComplianceSummaryCommand = async (
   input: GetConformancePackComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetConformancePackComplianceSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetConformancePackComplianceSummary");
   let body: any;
   body = JSON.stringify(se_GetConformancePackComplianceSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1551,10 +1389,7 @@ export const se_GetCustomRulePolicyCommand = async (
   input: GetCustomRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetCustomRulePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetCustomRulePolicy");
   let body: any;
   body = JSON.stringify(se_GetCustomRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1567,10 +1402,7 @@ export const se_GetDiscoveredResourceCountsCommand = async (
   input: GetDiscoveredResourceCountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetDiscoveredResourceCounts",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetDiscoveredResourceCounts");
   let body: any;
   body = JSON.stringify(se_GetDiscoveredResourceCountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1583,10 +1415,7 @@ export const se_GetOrganizationConfigRuleDetailedStatusCommand = async (
   input: GetOrganizationConfigRuleDetailedStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOrganizationConfigRuleDetailedStatus");
   let body: any;
   body = JSON.stringify(se_GetOrganizationConfigRuleDetailedStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1599,10 +1428,7 @@ export const se_GetOrganizationConformancePackDetailedStatusCommand = async (
   input: GetOrganizationConformancePackDetailedStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetOrganizationConformancePackDetailedStatus",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOrganizationConformancePackDetailedStatus");
   let body: any;
   body = JSON.stringify(se_GetOrganizationConformancePackDetailedStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1615,10 +1441,7 @@ export const se_GetOrganizationCustomRulePolicyCommand = async (
   input: GetOrganizationCustomRulePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetOrganizationCustomRulePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetOrganizationCustomRulePolicy");
   let body: any;
   body = JSON.stringify(se_GetOrganizationCustomRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1631,10 +1454,7 @@ export const se_GetResourceConfigHistoryCommand = async (
   input: GetResourceConfigHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetResourceConfigHistory",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceConfigHistory");
   let body: any;
   body = JSON.stringify(se_GetResourceConfigHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1647,10 +1467,7 @@ export const se_GetResourceEvaluationSummaryCommand = async (
   input: GetResourceEvaluationSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetResourceEvaluationSummary",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourceEvaluationSummary");
   let body: any;
   body = JSON.stringify(se_GetResourceEvaluationSummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1663,10 +1480,7 @@ export const se_GetStoredQueryCommand = async (
   input: GetStoredQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.GetStoredQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetStoredQuery");
   let body: any;
   body = JSON.stringify(se_GetStoredQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1679,10 +1493,7 @@ export const se_ListAggregateDiscoveredResourcesCommand = async (
   input: ListAggregateDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListAggregateDiscoveredResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListAggregateDiscoveredResources");
   let body: any;
   body = JSON.stringify(se_ListAggregateDiscoveredResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1695,10 +1506,7 @@ export const se_ListConformancePackComplianceScoresCommand = async (
   input: ListConformancePackComplianceScoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListConformancePackComplianceScores",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListConformancePackComplianceScores");
   let body: any;
   body = JSON.stringify(se_ListConformancePackComplianceScoresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1711,10 +1519,7 @@ export const se_ListDiscoveredResourcesCommand = async (
   input: ListDiscoveredResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListDiscoveredResources",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDiscoveredResources");
   let body: any;
   body = JSON.stringify(se_ListDiscoveredResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1727,10 +1532,7 @@ export const se_ListResourceEvaluationsCommand = async (
   input: ListResourceEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListResourceEvaluations",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListResourceEvaluations");
   let body: any;
   body = JSON.stringify(se_ListResourceEvaluationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1743,10 +1545,7 @@ export const se_ListStoredQueriesCommand = async (
   input: ListStoredQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListStoredQueries",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStoredQueries");
   let body: any;
   body = JSON.stringify(se_ListStoredQueriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1759,10 +1558,7 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1775,10 +1571,7 @@ export const se_PutAggregationAuthorizationCommand = async (
   input: PutAggregationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutAggregationAuthorization",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutAggregationAuthorization");
   let body: any;
   body = JSON.stringify(se_PutAggregationAuthorizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1791,10 +1584,7 @@ export const se_PutConfigRuleCommand = async (
   input: PutConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutConfigRule");
   let body: any;
   body = JSON.stringify(se_PutConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1807,10 +1597,7 @@ export const se_PutConfigurationAggregatorCommand = async (
   input: PutConfigurationAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutConfigurationAggregator",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutConfigurationAggregator");
   let body: any;
   body = JSON.stringify(se_PutConfigurationAggregatorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1823,10 +1610,7 @@ export const se_PutConfigurationRecorderCommand = async (
   input: PutConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutConfigurationRecorder",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutConfigurationRecorder");
   let body: any;
   body = JSON.stringify(se_PutConfigurationRecorderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1839,10 +1623,7 @@ export const se_PutConformancePackCommand = async (
   input: PutConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutConformancePack",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutConformancePack");
   let body: any;
   body = JSON.stringify(se_PutConformancePackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1855,10 +1636,7 @@ export const se_PutDeliveryChannelCommand = async (
   input: PutDeliveryChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutDeliveryChannel",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutDeliveryChannel");
   let body: any;
   body = JSON.stringify(se_PutDeliveryChannelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1871,10 +1649,7 @@ export const se_PutEvaluationsCommand = async (
   input: PutEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutEvaluations",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutEvaluations");
   let body: any;
   body = JSON.stringify(se_PutEvaluationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1887,10 +1662,7 @@ export const se_PutExternalEvaluationCommand = async (
   input: PutExternalEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutExternalEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutExternalEvaluation");
   let body: any;
   body = JSON.stringify(se_PutExternalEvaluationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1903,10 +1675,7 @@ export const se_PutOrganizationConfigRuleCommand = async (
   input: PutOrganizationConfigRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutOrganizationConfigRule",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutOrganizationConfigRule");
   let body: any;
   body = JSON.stringify(se_PutOrganizationConfigRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1919,10 +1688,7 @@ export const se_PutOrganizationConformancePackCommand = async (
   input: PutOrganizationConformancePackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutOrganizationConformancePack",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutOrganizationConformancePack");
   let body: any;
   body = JSON.stringify(se_PutOrganizationConformancePackRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1935,10 +1701,7 @@ export const se_PutRemediationConfigurationsCommand = async (
   input: PutRemediationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutRemediationConfigurations",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRemediationConfigurations");
   let body: any;
   body = JSON.stringify(se_PutRemediationConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1951,10 +1714,7 @@ export const se_PutRemediationExceptionsCommand = async (
   input: PutRemediationExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutRemediationExceptions",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRemediationExceptions");
   let body: any;
   body = JSON.stringify(se_PutRemediationExceptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1967,10 +1727,7 @@ export const se_PutResourceConfigCommand = async (
   input: PutResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourceConfig");
   let body: any;
   body = JSON.stringify(se_PutResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1983,10 +1740,7 @@ export const se_PutRetentionConfigurationCommand = async (
   input: PutRetentionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutRetentionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutRetentionConfiguration");
   let body: any;
   body = JSON.stringify(se_PutRetentionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1999,10 +1753,7 @@ export const se_PutStoredQueryCommand = async (
   input: PutStoredQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.PutStoredQuery",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutStoredQuery");
   let body: any;
   body = JSON.stringify(se_PutStoredQueryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2015,10 +1766,7 @@ export const se_SelectAggregateResourceConfigCommand = async (
   input: SelectAggregateResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.SelectAggregateResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("SelectAggregateResourceConfig");
   let body: any;
   body = JSON.stringify(se_SelectAggregateResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2031,10 +1779,7 @@ export const se_SelectResourceConfigCommand = async (
   input: SelectResourceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.SelectResourceConfig",
-  };
+  const headers: __HeaderBag = sharedHeaders("SelectResourceConfig");
   let body: any;
   body = JSON.stringify(se_SelectResourceConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2047,10 +1792,7 @@ export const se_StartConfigRulesEvaluationCommand = async (
   input: StartConfigRulesEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.StartConfigRulesEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartConfigRulesEvaluation");
   let body: any;
   body = JSON.stringify(se_StartConfigRulesEvaluationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2063,10 +1805,7 @@ export const se_StartConfigurationRecorderCommand = async (
   input: StartConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.StartConfigurationRecorder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartConfigurationRecorder");
   let body: any;
   body = JSON.stringify(se_StartConfigurationRecorderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2079,10 +1818,7 @@ export const se_StartRemediationExecutionCommand = async (
   input: StartRemediationExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.StartRemediationExecution",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartRemediationExecution");
   let body: any;
   body = JSON.stringify(se_StartRemediationExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2095,10 +1831,7 @@ export const se_StartResourceEvaluationCommand = async (
   input: StartResourceEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.StartResourceEvaluation",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartResourceEvaluation");
   let body: any;
   body = JSON.stringify(se_StartResourceEvaluationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2111,10 +1844,7 @@ export const se_StopConfigurationRecorderCommand = async (
   input: StopConfigurationRecorderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.StopConfigurationRecorder",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopConfigurationRecorder");
   let body: any;
   body = JSON.stringify(se_StopConfigurationRecorderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2127,10 +1857,7 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
   body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2143,10 +1870,7 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "StarlingDoveService.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -14238,6 +13962,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `StarlingDoveService.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
