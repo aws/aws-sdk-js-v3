@@ -66,7 +66,7 @@ export interface Accessor {
   /**
    * <p>The type of the accessor.</p>
    *          <note>
-   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
   Type?: AccessorType | string;
@@ -190,7 +190,7 @@ export interface CreateAccessorInput {
   /**
    * <p>The type of accessor.</p>
    *          <note>
-   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
+   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
   AccessorType: AccessorType | string | undefined;
@@ -361,7 +361,7 @@ export class TooManyTagsException extends __BaseException {
 
 /**
  * @public
- * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+ * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network that is using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricConfiguration {
   /**
@@ -370,7 +370,7 @@ export interface MemberFabricConfiguration {
   AdminUsername: string | undefined;
 
   /**
-   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
+   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least 8 characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
    */
   AdminPassword: string | undefined;
 }
@@ -809,11 +809,6 @@ export interface CreateNodeInput {
    *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-ropsten</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   NetworkId: string | undefined;
@@ -1004,11 +999,6 @@ export interface DeleteNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-rinkeby</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-ropsten</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1250,10 +1240,6 @@ export interface NetworkEthereumAttributes {
    *                <p>rinkeby = <code>4</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>ropsten = <code>3</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   ChainId?: string;
@@ -1349,7 +1335,7 @@ export interface Network {
   VpcEndpointServiceName?: string;
 
   /**
-   * <p>The voting rules for the network to decide if a proposal is accepted.</p>
+   * <p>The voting rules that the network uses to decide if a proposal is accepted.</p>
    */
   VotingPolicy?: VotingPolicy;
 
