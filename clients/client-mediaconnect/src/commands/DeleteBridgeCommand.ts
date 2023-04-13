@@ -14,96 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
-import { de_AddFlowSourcesCommand, se_AddFlowSourcesCommand } from "../protocols/Aws_restJson1";
+import { DeleteBridgeRequest, DeleteBridgeResponse } from "../models/models_0";
+import { de_DeleteBridgeCommand, se_DeleteBridgeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link AddFlowSourcesCommand}.
+ * The input for {@link DeleteBridgeCommand}.
  */
-export interface AddFlowSourcesCommandInput extends AddFlowSourcesRequest {}
+export interface DeleteBridgeCommandInput extends DeleteBridgeRequest {}
 /**
  * @public
  *
- * The output of {@link AddFlowSourcesCommand}.
+ * The output of {@link DeleteBridgeCommand}.
  */
-export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __MetadataBearer {}
+export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __MetadataBearer {}
 
 /**
  * @public
- * Adds Sources to flow
+ * Deletes a bridge. Before you can delete a bridge, you must stop the bridge.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConnectClient, AddFlowSourcesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
- * // const { MediaConnectClient, AddFlowSourcesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * import { MediaConnectClient, DeleteBridgeCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, DeleteBridgeCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
- * const input = { // AddFlowSourcesRequest
- *   FlowArn: "STRING_VALUE", // required
- *   Sources: [ // __listOfSetSourceRequest // required
- *     { // SetSourceRequest
- *       Decryption: { // Encryption
- *         Algorithm: "aes128" || "aes192" || "aes256",
- *         ConstantInitializationVector: "STRING_VALUE",
- *         DeviceId: "STRING_VALUE",
- *         KeyType: "speke" || "static-key" || "srt-password",
- *         Region: "STRING_VALUE",
- *         ResourceId: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE", // required
- *         SecretArn: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *       EntitlementArn: "STRING_VALUE",
- *       IngestPort: Number("int"),
- *       MaxBitrate: Number("int"),
- *       MaxLatency: Number("int"),
- *       MaxSyncBuffer: Number("int"),
- *       MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfigurationRequest
- *         { // MediaStreamSourceConfigurationRequest
- *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           InputConfigurations: [ // __listOfInputConfigurationRequest
- *             { // InputConfigurationRequest
- *               InputPort: Number("int"), // required
- *               Interface: { // InterfaceRequest
- *                 Name: "STRING_VALUE", // required
- *               },
- *             },
- *           ],
- *           MediaStreamName: "STRING_VALUE", // required
- *         },
- *       ],
- *       MinLatency: Number("int"),
- *       Name: "STRING_VALUE",
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
- *       SenderControlPort: Number("int"),
- *       SenderIpAddress: "STRING_VALUE",
- *       SourceListenerAddress: "STRING_VALUE",
- *       SourceListenerPort: Number("int"),
- *       StreamId: "STRING_VALUE",
- *       VpcInterfaceName: "STRING_VALUE",
- *       WhitelistCidr: "STRING_VALUE",
- *       GatewayBridgeSource: { // SetGatewayBridgeSourceRequest
- *         BridgeArn: "STRING_VALUE", // required
- *         VpcInterfaceAttachment: { // VpcInterfaceAttachment
- *           VpcInterfaceName: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
+ * const input = { // DeleteBridgeRequest
+ *   BridgeArn: "STRING_VALUE", // required
  * };
- * const command = new AddFlowSourcesCommand(input);
+ * const command = new DeleteBridgeCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param AddFlowSourcesCommandInput - {@link AddFlowSourcesCommandInput}
- * @returns {@link AddFlowSourcesCommandOutput}
- * @see {@link AddFlowSourcesCommandInput} for command's `input` shape.
- * @see {@link AddFlowSourcesCommandOutput} for command's `response` shape.
+ * @param DeleteBridgeCommandInput - {@link DeleteBridgeCommandInput}
+ * @returns {@link DeleteBridgeCommandOutput}
+ * @see {@link DeleteBridgeCommandInput} for command's `input` shape.
+ * @see {@link DeleteBridgeCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
+ *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *
+ * @throws {@link ConflictException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
  * @throws {@link ForbiddenException} (client fault)
@@ -123,9 +75,9 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *
  *
  */
-export class AddFlowSourcesCommand extends $Command<
-  AddFlowSourcesCommandInput,
-  AddFlowSourcesCommandOutput,
+export class DeleteBridgeCommand extends $Command<
+  DeleteBridgeCommandInput,
+  DeleteBridgeCommandOutput,
   MediaConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -143,7 +95,7 @@ export class AddFlowSourcesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: AddFlowSourcesCommandInput) {
+  constructor(readonly input: DeleteBridgeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -156,17 +108,15 @@ export class AddFlowSourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput> {
+  ): Handler<DeleteBridgeCommandInput, DeleteBridgeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AddFlowSourcesCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteBridgeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MediaConnectClient";
-    const commandName = "AddFlowSourcesCommand";
+    const commandName = "DeleteBridgeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -185,15 +135,15 @@ export class AddFlowSourcesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: AddFlowSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AddFlowSourcesCommand(input, context);
+  private serialize(input: DeleteBridgeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteBridgeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddFlowSourcesCommandOutput> {
-    return de_AddFlowSourcesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBridgeCommandOutput> {
+    return de_DeleteBridgeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -73,7 +73,7 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *     },
  *   ],
  *   MinLatency: Number("int"),
- *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
  *   SenderControlPort: Number("int"),
  *   SenderIpAddress: "STRING_VALUE",
  *   SourceArn: "STRING_VALUE", // required
@@ -82,6 +82,12 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *   StreamId: "STRING_VALUE",
  *   VpcInterfaceName: "STRING_VALUE",
  *   WhitelistCidr: "STRING_VALUE",
+ *   GatewayBridgeSource: { // UpdateGatewayBridgeSourceRequest
+ *     BridgeArn: "STRING_VALUE",
+ *     VpcInterfaceAttachment: { // VpcInterfaceAttachment
+ *       VpcInterfaceName: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateFlowSourceCommand(input);
  * const response = await client.send(command);

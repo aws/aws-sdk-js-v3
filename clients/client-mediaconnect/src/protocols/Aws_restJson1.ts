@@ -19,6 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { AddBridgeOutputsCommandInput, AddBridgeOutputsCommandOutput } from "../commands/AddBridgeOutputsCommand";
+import { AddBridgeSourcesCommandInput, AddBridgeSourcesCommandOutput } from "../commands/AddBridgeSourcesCommand";
 import {
   AddFlowMediaStreamsCommandInput,
   AddFlowMediaStreamsCommandOutput,
@@ -29,9 +31,23 @@ import {
   AddFlowVpcInterfacesCommandInput,
   AddFlowVpcInterfacesCommandOutput,
 } from "../commands/AddFlowVpcInterfacesCommand";
+import { CreateBridgeCommandInput, CreateBridgeCommandOutput } from "../commands/CreateBridgeCommand";
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "../commands/CreateFlowCommand";
+import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
+import { DeleteBridgeCommandInput, DeleteBridgeCommandOutput } from "../commands/DeleteBridgeCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "../commands/DeleteFlowCommand";
+import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "../commands/DeleteGatewayCommand";
+import {
+  DeregisterGatewayInstanceCommandInput,
+  DeregisterGatewayInstanceCommandOutput,
+} from "../commands/DeregisterGatewayInstanceCommand";
+import { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "../commands/DescribeBridgeCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "../commands/DescribeFlowCommand";
+import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "../commands/DescribeGatewayCommand";
+import {
+  DescribeGatewayInstanceCommandInput,
+  DescribeGatewayInstanceCommandOutput,
+} from "../commands/DescribeGatewayInstanceCommand";
 import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "../commands/DescribeOfferingCommand";
 import {
   DescribeReservationCommandInput,
@@ -41,8 +57,14 @@ import {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "../commands/GrantFlowEntitlementsCommand";
+import { ListBridgesCommandInput, ListBridgesCommandOutput } from "../commands/ListBridgesCommand";
 import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "../commands/ListEntitlementsCommand";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
+import {
+  ListGatewayInstancesCommandInput,
+  ListGatewayInstancesCommandOutput,
+} from "../commands/ListGatewayInstancesCommand";
+import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
 import {
@@ -50,6 +72,8 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
+import { RemoveBridgeOutputCommandInput, RemoveBridgeOutputCommandOutput } from "../commands/RemoveBridgeOutputCommand";
+import { RemoveBridgeSourceCommandInput, RemoveBridgeSourceCommandOutput } from "../commands/RemoveBridgeSourceCommand";
 import {
   RemoveFlowMediaStreamCommandInput,
   RemoveFlowMediaStreamCommandOutput,
@@ -68,6 +92,10 @@ import { StartFlowCommandInput, StartFlowCommandOutput } from "../commands/Start
 import { StopFlowCommandInput, StopFlowCommandOutput } from "../commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateBridgeCommandInput, UpdateBridgeCommandOutput } from "../commands/UpdateBridgeCommand";
+import { UpdateBridgeOutputCommandInput, UpdateBridgeOutputCommandOutput } from "../commands/UpdateBridgeOutputCommand";
+import { UpdateBridgeSourceCommandInput, UpdateBridgeSourceCommandOutput } from "../commands/UpdateBridgeSourceCommand";
+import { UpdateBridgeStateCommandInput, UpdateBridgeStateCommandOutput } from "../commands/UpdateBridgeStateCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "../commands/UpdateFlowCommand";
 import {
   UpdateFlowEntitlementCommandInput,
@@ -79,16 +107,38 @@ import {
 } from "../commands/UpdateFlowMediaStreamCommand";
 import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "../commands/UpdateFlowOutputCommand";
 import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "../commands/UpdateFlowSourceCommand";
+import {
+  UpdateGatewayInstanceCommandInput,
+  UpdateGatewayInstanceCommandOutput,
+} from "../commands/UpdateGatewayInstanceCommand";
 import { MediaConnectServiceException as __BaseException } from "../models/MediaConnectServiceException";
 import {
+  AddBridgeFlowSourceRequest,
+  AddBridgeNetworkOutputRequest,
+  AddBridgeNetworkSourceRequest,
+  AddBridgeOutputRequest,
+  AddBridgeSourceRequest,
+  AddEgressGatewayBridgeRequest,
   AddFlowOutputs420Exception,
+  AddIngressGatewayBridgeRequest,
   AddMaintenance,
   AddMediaStreamRequest,
   AddOutputRequest,
   BadRequestException,
+  Bridge,
+  BridgeFlowOutput,
+  BridgeFlowSource,
+  BridgeNetworkOutput,
+  BridgeNetworkSource,
+  BridgeOutput,
+  BridgeSource,
+  ConflictException,
+  CreateBridge420Exception,
   CreateFlow420Exception,
+  CreateGateway420Exception,
   DestinationConfiguration,
   DestinationConfigurationRequest,
+  EgressGatewayBridge,
   EncodingParameters,
   EncodingParametersRequest,
   Encryption,
@@ -98,15 +148,23 @@ import {
   Fmtp,
   FmtpRequest,
   ForbiddenException,
+  Gateway,
+  GatewayBridgeSource,
+  GatewayInstance,
+  GatewayNetwork,
   GrantEntitlementRequest,
   GrantFlowEntitlements420Exception,
+  IngressGatewayBridge,
   InputConfiguration,
   InputConfigurationRequest,
   Interface,
   InterfaceRequest,
   InternalServerErrorException,
+  ListedBridge,
   ListedEntitlement,
   ListedFlow,
+  ListedGateway,
+  ListedGatewayInstance,
   Maintenance,
   MediaStream,
   MediaStreamAttributes,
@@ -115,6 +173,7 @@ import {
   MediaStreamOutputConfigurationRequest,
   MediaStreamSourceConfiguration,
   MediaStreamSourceConfigurationRequest,
+  MessageDetail,
   Messages,
   NotFoundException,
   Offering,
@@ -122,18 +181,83 @@ import {
   Reservation,
   ResourceSpecification,
   ServiceUnavailableException,
+  SetGatewayBridgeSourceRequest,
   SetSourceRequest,
   Source,
   SourcePriority,
   TooManyRequestsException,
   Transport,
+  UpdateBridgeFlowSourceRequest,
+  UpdateBridgeNetworkOutputRequest,
+  UpdateBridgeNetworkSourceRequest,
+  UpdateEgressGatewayBridgeRequest,
   UpdateEncryption,
   UpdateFailoverConfig,
+  UpdateGatewayBridgeSourceRequest,
+  UpdateIngressGatewayBridgeRequest,
   UpdateMaintenance,
   VpcInterface,
   VpcInterfaceAttachment,
   VpcInterfaceRequest,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AddBridgeOutputsCommand
+ */
+export const se_AddBridgeOutputsCommand = async (
+  input: AddBridgeOutputsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/outputs";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Outputs != null && { outputs: se___listOfAddBridgeOutputRequest(input.Outputs, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AddBridgeSourcesCommand
+ */
+export const se_AddBridgeSourcesCommand = async (
+  input: AddBridgeSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/sources";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Sources != null && { sources: se___listOfAddBridgeSourceRequest(input.Sources, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1AddFlowMediaStreamsCommand
@@ -252,6 +376,45 @@ export const se_AddFlowVpcInterfacesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateBridgeCommand
+ */
+export const se_CreateBridgeCommand = async (
+  input: CreateBridgeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EgressGatewayBridge != null && {
+      egressGatewayBridge: se_AddEgressGatewayBridgeRequest(input.EgressGatewayBridge, context),
+    }),
+    ...(input.IngressGatewayBridge != null && {
+      ingressGatewayBridge: se_AddIngressGatewayBridgeRequest(input.IngressGatewayBridge, context),
+    }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Outputs != null && { outputs: se___listOfAddBridgeOutputRequest(input.Outputs, context) }),
+    ...(input.PlacementArn != null && { placementArn: input.PlacementArn }),
+    ...(input.SourceFailoverConfig != null && {
+      sourceFailoverConfig: se_FailoverConfig(input.SourceFailoverConfig, context),
+    }),
+    ...(input.Sources != null && { sources: se___listOfAddBridgeSourceRequest(input.Sources, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateFlowCommand
  */
 export const se_CreateFlowCommand = async (
@@ -292,6 +455,58 @@ export const se_CreateFlowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateGatewayCommand
+ */
+export const se_CreateGatewayCommand = async (
+  input: CreateGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateways";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EgressCidrBlocks != null && { egressCidrBlocks: se___listOf__string(input.EgressCidrBlocks, context) }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Networks != null && { networks: se___listOfGatewayNetwork(input.Networks, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteBridgeCommand
+ */
+export const se_DeleteBridgeCommand = async (
+  input: DeleteBridgeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteFlowCommand
  */
 export const se_DeleteFlowCommand = async (
@@ -315,6 +530,89 @@ export const se_DeleteFlowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteGatewayCommand
+ */
+export const se_DeleteGatewayCommand = async (
+  input: DeleteGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateways/{GatewayArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "GatewayArn", () => input.GatewayArn!, "{GatewayArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeregisterGatewayInstanceCommand
+ */
+export const se_DeregisterGatewayInstanceCommand = async (
+  input: DeregisterGatewayInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/gateway-instances/{GatewayInstanceArn}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "GatewayInstanceArn",
+    () => input.GatewayInstanceArn!,
+    "{GatewayInstanceArn}",
+    false
+  );
+  const query: any = map({
+    force: [() => input.Force !== void 0, () => input.Force!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeBridgeCommand
+ */
+export const se_DescribeBridgeCommand = async (
+  input: DescribeBridgeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeFlowCommand
  */
 export const se_DescribeFlowCommand = async (
@@ -325,6 +623,62 @@ export const se_DescribeFlowCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows/{FlowArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeGatewayCommand
+ */
+export const se_DescribeGatewayCommand = async (
+  input: DescribeGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateways/{GatewayArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "GatewayArn", () => input.GatewayArn!, "{GatewayArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeGatewayInstanceCommand
+ */
+export const se_DescribeGatewayInstanceCommand = async (
+  input: DescribeGatewayInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/gateway-instances/{GatewayInstanceArn}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "GatewayInstanceArn",
+    () => input.GatewayInstanceArn!,
+    "{GatewayInstanceArn}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -424,6 +778,34 @@ export const se_GrantFlowEntitlementsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListBridgesCommand
+ */
+export const se_ListBridgesCommand = async (
+  input: ListBridgesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges";
+  const query: any = map({
+    filterArn: [, input.FilterArn!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListEntitlementsCommand
  */
 export const se_ListEntitlementsCommand = async (
@@ -460,6 +842,61 @@ export const se_ListFlowsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/flows";
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListGatewayInstancesCommand
+ */
+export const se_ListGatewayInstancesCommand = async (
+  input: ListGatewayInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateway-instances";
+  const query: any = map({
+    filterArn: [, input.FilterArn!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListGatewaysCommand
+ */
+export const se_ListGatewaysCommand = async (
+  input: ListGatewaysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/gateways";
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
@@ -578,6 +1015,58 @@ export const se_PurchaseOfferingCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1RemoveBridgeOutputCommand
+ */
+export const se_RemoveBridgeOutputCommand = async (
+  input: RemoveBridgeOutputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/bridges/{BridgeArn}/outputs/{OutputName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "OutputName", () => input.OutputName!, "{OutputName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1RemoveBridgeSourceCommand
+ */
+export const se_RemoveBridgeSourceCommand = async (
+  input: RemoveBridgeSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/bridges/{BridgeArn}/sources/{SourceName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "SourceName", () => input.SourceName!, "{SourceName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -839,6 +1328,138 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateBridgeCommand
+ */
+export const se_UpdateBridgeCommand = async (
+  input: UpdateBridgeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EgressGatewayBridge != null && {
+      egressGatewayBridge: se_UpdateEgressGatewayBridgeRequest(input.EgressGatewayBridge, context),
+    }),
+    ...(input.IngressGatewayBridge != null && {
+      ingressGatewayBridge: se_UpdateIngressGatewayBridgeRequest(input.IngressGatewayBridge, context),
+    }),
+    ...(input.SourceFailoverConfig != null && {
+      sourceFailoverConfig: se_UpdateFailoverConfig(input.SourceFailoverConfig, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateBridgeOutputCommand
+ */
+export const se_UpdateBridgeOutputCommand = async (
+  input: UpdateBridgeOutputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/bridges/{BridgeArn}/outputs/{OutputName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "OutputName", () => input.OutputName!, "{OutputName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NetworkOutput != null && {
+      networkOutput: se_UpdateBridgeNetworkOutputRequest(input.NetworkOutput, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateBridgeSourceCommand
+ */
+export const se_UpdateBridgeSourceCommand = async (
+  input: UpdateBridgeSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/bridges/{BridgeArn}/sources/{SourceName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "SourceName", () => input.SourceName!, "{SourceName}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FlowSource != null && { flowSource: se_UpdateBridgeFlowSourceRequest(input.FlowSource, context) }),
+    ...(input.NetworkSource != null && {
+      networkSource: se_UpdateBridgeNetworkSourceRequest(input.NetworkSource, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateBridgeStateCommand
+ */
+export const se_UpdateBridgeStateCommand = async (
+  input: UpdateBridgeStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/bridges/{BridgeArn}/state";
+  resolvedPath = __resolvedPath(resolvedPath, input, "BridgeArn", () => input.BridgeArn!, "{BridgeArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DesiredState != null && { desiredState: input.DesiredState }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateFlowCommand
  */
 export const se_UpdateFlowCommand = async (
@@ -1023,6 +1644,9 @@ export const se_UpdateFlowSourceCommand = async (
     ...(input.Decryption != null && { decryption: se_UpdateEncryption(input.Decryption, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
+    ...(input.GatewayBridgeSource != null && {
+      gatewayBridgeSource: se_UpdateGatewayBridgeSourceRequest(input.GatewayBridgeSource, context),
+    }),
     ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
@@ -1052,6 +1676,179 @@ export const se_UpdateFlowSourceCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * serializeAws_restJson1UpdateGatewayInstanceCommand
+ */
+export const se_UpdateGatewayInstanceCommand = async (
+  input: UpdateGatewayInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/gateway-instances/{GatewayInstanceArn}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "GatewayInstanceArn",
+    () => input.GatewayInstanceArn!,
+    "{GatewayInstanceArn}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BridgePlacement != null && { bridgePlacement: input.BridgePlacement }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * deserializeAws_restJson1AddBridgeOutputsCommand
+ */
+export const de_AddBridgeOutputsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddBridgeOutputsCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_AddBridgeOutputsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.outputs != null) {
+    contents.Outputs = de___listOfBridgeOutput(data.outputs, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AddBridgeOutputsCommandError
+ */
+const de_AddBridgeOutputsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddBridgeOutputsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AddBridgeSourcesCommand
+ */
+export const de_AddBridgeSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddBridgeSourcesCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_AddBridgeSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.sources != null) {
+    contents.Sources = de___listOfBridgeSource(data.sources, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AddBridgeSourcesCommandError
+ */
+const de_AddBridgeSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddBridgeSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1318,6 +2115,71 @@ const de_AddFlowVpcInterfacesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateBridgeCommand
+ */
+export const de_CreateBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBridgeCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateBridgeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridge != null) {
+    contents.Bridge = de_Bridge(data.bridge, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateBridgeCommandError
+ */
+const de_CreateBridgeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBridgeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "CreateBridge420Exception":
+    case "com.amazonaws.mediaconnect#CreateBridge420Exception":
+      throw await de_CreateBridge420ExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateFlowCommand
  */
 export const de_CreateFlowCommand = async (
@@ -1362,6 +2224,136 @@ const de_CreateFlowCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateGatewayCommand
+ */
+export const de_CreateGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGatewayCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateGatewayCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gateway != null) {
+    contents.Gateway = de_Gateway(data.gateway, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateGatewayCommandError
+ */
+const de_CreateGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "CreateGateway420Exception":
+    case "com.amazonaws.mediaconnect#CreateGateway420Exception":
+      throw await de_CreateGateway420ExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteBridgeCommand
+ */
+export const de_DeleteBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBridgeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteBridgeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteBridgeCommandError
+ */
+const de_DeleteBridgeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBridgeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -1445,6 +2437,204 @@ const de_DeleteFlowCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteGatewayCommand
+ */
+export const de_DeleteGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteGatewayCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gatewayArn != null) {
+    contents.GatewayArn = __expectString(data.gatewayArn);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteGatewayCommandError
+ */
+const de_DeleteGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeregisterGatewayInstanceCommand
+ */
+export const de_DeregisterGatewayInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterGatewayInstanceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_DeregisterGatewayInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gatewayInstanceArn != null) {
+    contents.GatewayInstanceArn = __expectString(data.gatewayInstanceArn);
+  }
+  if (data.instanceState != null) {
+    contents.InstanceState = __expectString(data.instanceState);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeregisterGatewayInstanceCommandError
+ */
+const de_DeregisterGatewayInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterGatewayInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeBridgeCommand
+ */
+export const de_DescribeBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBridgeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeBridgeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridge != null) {
+    contents.Bridge = de_Bridge(data.bridge, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBridgeCommandError
+ */
+const de_DescribeBridgeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBridgeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeFlowCommand
  */
 export const de_DescribeFlowCommand = async (
@@ -1483,6 +2673,136 @@ const de_DescribeFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeGatewayCommand
+ */
+export const de_DescribeGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeGatewayCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gateway != null) {
+    contents.Gateway = de_Gateway(data.gateway, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeGatewayCommandError
+ */
+const de_DescribeGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeGatewayInstanceCommand
+ */
+export const de_DescribeGatewayInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeGatewayInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gatewayInstance != null) {
+    contents.GatewayInstance = de_GatewayInstance(data.gatewayInstance, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeGatewayInstanceCommandError
+ */
+const de_DescribeGatewayInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -1696,6 +3016,68 @@ const de_GrantFlowEntitlementsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListBridgesCommand
+ */
+export const de_ListBridgesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBridgesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListBridgesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridges != null) {
+    contents.Bridges = de___listOfListedBridge(data.bridges, context);
+  }
+  if (data.nextToken != null) {
+    contents.NextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBridgesCommandError
+ */
+const de_ListBridgesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBridgesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListEntitlementsCommand
  */
 export const de_ListEntitlementsCommand = async (
@@ -1793,6 +3175,130 @@ const de_ListFlowsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListGatewayInstancesCommand
+ */
+export const de_ListGatewayInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGatewayInstancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListGatewayInstancesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.instances != null) {
+    contents.Instances = de___listOfListedGatewayInstance(data.instances, context);
+  }
+  if (data.nextToken != null) {
+    contents.NextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListGatewayInstancesCommandError
+ */
+const de_ListGatewayInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGatewayInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListGatewaysCommand
+ */
+export const de_ListGatewaysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGatewaysCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListGatewaysCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.gateways != null) {
+    contents.Gateways = de___listOfListedGateway(data.gateways, context);
+  }
+  if (data.nextToken != null) {
+    contents.NextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListGatewaysCommandError
+ */
+const de_ListGatewaysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGatewaysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
@@ -2020,6 +3526,142 @@ const de_PurchaseOfferingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1RemoveBridgeOutputCommand
+ */
+export const de_RemoveBridgeOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveBridgeOutputCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_RemoveBridgeOutputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.outputName != null) {
+    contents.OutputName = __expectString(data.outputName);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RemoveBridgeOutputCommandError
+ */
+const de_RemoveBridgeOutputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveBridgeOutputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1RemoveBridgeSourceCommand
+ */
+export const de_RemoveBridgeSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveBridgeSourceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_RemoveBridgeSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.sourceName != null) {
+    contents.SourceName = __expectString(data.sourceName);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RemoveBridgeSourceCommandError
+ */
+const de_RemoveBridgeSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveBridgeSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -2605,6 +4247,275 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateBridgeCommand
+ */
+export const de_UpdateBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_UpdateBridgeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridge != null) {
+    contents.Bridge = de_Bridge(data.bridge, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeCommandError
+ */
+const de_UpdateBridgeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeOutputCommand
+ */
+export const de_UpdateBridgeOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeOutputCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_UpdateBridgeOutputCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.output != null) {
+    contents.Output = de_BridgeOutput(data.output, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeOutputCommandError
+ */
+const de_UpdateBridgeOutputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeOutputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeSourceCommand
+ */
+export const de_UpdateBridgeSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeSourceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_UpdateBridgeSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.source != null) {
+    contents.Source = de_BridgeSource(data.source, context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeSourceCommandError
+ */
+const de_UpdateBridgeSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeStateCommand
+ */
+export const de_UpdateBridgeStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeStateCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_UpdateBridgeStateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgeArn != null) {
+    contents.BridgeArn = __expectString(data.bridgeArn);
+  }
+  if (data.desiredState != null) {
+    contents.DesiredState = __expectString(data.desiredState);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBridgeStateCommandError
+ */
+const de_UpdateBridgeStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBridgeStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateFlowCommand
  */
 export const de_UpdateFlowCommand = async (
@@ -2926,6 +4837,74 @@ const de_UpdateFlowSourceCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateGatewayInstanceCommand
+ */
+export const de_UpdateGatewayInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayInstanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateGatewayInstanceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bridgePlacement != null) {
+    contents.BridgePlacement = __expectString(data.bridgePlacement);
+  }
+  if (data.gatewayInstanceArn != null) {
+    contents.GatewayInstanceArn = __expectString(data.gatewayInstanceArn);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateGatewayInstanceCommandError
+ */
+const de_UpdateGatewayInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.mediaconnect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const map = __map;
 /**
  * deserializeAws_restJson1AddFlowOutputs420ExceptionRes
@@ -2963,6 +4942,41 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.Message = __expectString(data.message);
+  }
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1CreateBridge420ExceptionRes
+ */
+const de_CreateBridge420ExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CreateBridge420Exception> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.Message = __expectString(data.message);
+  }
+  const exception = new CreateBridge420Exception({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1CreateFlow420ExceptionRes
  */
 const de_CreateFlow420ExceptionRes = async (
@@ -2975,6 +4989,25 @@ const de_CreateFlow420ExceptionRes = async (
     contents.Message = __expectString(data.message);
   }
   const exception = new CreateFlow420Exception({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1CreateGateway420ExceptionRes
+ */
+const de_CreateGateway420ExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CreateGateway420Exception> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.Message = __expectString(data.message);
+  }
+  const exception = new CreateGateway420Exception({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3101,6 +5134,28 @@ const se___listOf__string = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1__listOfAddBridgeOutputRequest
+ */
+const se___listOfAddBridgeOutputRequest = (input: AddBridgeOutputRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AddBridgeOutputRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfAddBridgeSourceRequest
+ */
+const se___listOfAddBridgeSourceRequest = (input: AddBridgeSourceRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AddBridgeSourceRequest(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfAddMediaStreamRequest
  */
 const se___listOfAddMediaStreamRequest = (input: AddMediaStreamRequest[], context: __SerdeContext): any => {
@@ -3133,6 +5188,17 @@ const se___listOfDestinationConfigurationRequest = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_DestinationConfigurationRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfGatewayNetwork
+ */
+const se___listOfGatewayNetwork = (input: GatewayNetwork[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GatewayNetwork(entry, context);
     });
 };
 
@@ -3219,6 +5285,88 @@ const se___mapOf__string = (input: Record<string, string>, context: __SerdeConte
     acc[key] = value;
     return acc;
   }, {});
+};
+
+/**
+ * serializeAws_restJson1AddBridgeFlowSourceRequest
+ */
+const se_AddBridgeFlowSourceRequest = (input: AddBridgeFlowSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FlowArn != null && { flowArn: input.FlowArn }),
+    ...(input.FlowVpcInterfaceAttachment != null && {
+      flowVpcInterfaceAttachment: se_VpcInterfaceAttachment(input.FlowVpcInterfaceAttachment, context),
+    }),
+    ...(input.Name != null && { name: input.Name }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddBridgeNetworkOutputRequest
+ */
+const se_AddBridgeNetworkOutputRequest = (input: AddBridgeNetworkOutputRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.IpAddress != null && { ipAddress: input.IpAddress }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.NetworkName != null && { networkName: input.NetworkName }),
+    ...(input.Port != null && { port: input.Port }),
+    ...(input.Protocol != null && { protocol: input.Protocol }),
+    ...(input.Ttl != null && { ttl: input.Ttl }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddBridgeNetworkSourceRequest
+ */
+const se_AddBridgeNetworkSourceRequest = (input: AddBridgeNetworkSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MulticastIp != null && { multicastIp: input.MulticastIp }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.NetworkName != null && { networkName: input.NetworkName }),
+    ...(input.Port != null && { port: input.Port }),
+    ...(input.Protocol != null && { protocol: input.Protocol }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddBridgeOutputRequest
+ */
+const se_AddBridgeOutputRequest = (input: AddBridgeOutputRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.NetworkOutput != null && {
+      networkOutput: se_AddBridgeNetworkOutputRequest(input.NetworkOutput, context),
+    }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddBridgeSourceRequest
+ */
+const se_AddBridgeSourceRequest = (input: AddBridgeSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FlowSource != null && { flowSource: se_AddBridgeFlowSourceRequest(input.FlowSource, context) }),
+    ...(input.NetworkSource != null && {
+      networkSource: se_AddBridgeNetworkSourceRequest(input.NetworkSource, context),
+    }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddEgressGatewayBridgeRequest
+ */
+const se_AddEgressGatewayBridgeRequest = (input: AddEgressGatewayBridgeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
+  };
+};
+
+/**
+ * serializeAws_restJson1AddIngressGatewayBridgeRequest
+ */
+const se_AddIngressGatewayBridgeRequest = (input: AddIngressGatewayBridgeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
+    ...(input.MaxOutputs != null && { maxOutputs: input.MaxOutputs }),
+  };
 };
 
 /**
@@ -3344,6 +5492,16 @@ const se_FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1GatewayNetwork
+ */
+const se_GatewayNetwork = (input: GatewayNetwork, context: __SerdeContext): any => {
+  return {
+    ...(input.CidrBlock != null && { cidrBlock: input.CidrBlock }),
+    ...(input.Name != null && { name: input.Name }),
+  };
+};
+
+/**
  * serializeAws_restJson1GrantEntitlementRequest
  */
 const se_GrantEntitlementRequest = (input: GrantEntitlementRequest, context: __SerdeContext): any => {
@@ -3424,6 +5582,18 @@ const se_MediaStreamSourceConfigurationRequest = (
 };
 
 /**
+ * serializeAws_restJson1SetGatewayBridgeSourceRequest
+ */
+const se_SetGatewayBridgeSourceRequest = (input: SetGatewayBridgeSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BridgeArn != null && { bridgeArn: input.BridgeArn }),
+    ...(input.VpcInterfaceAttachment != null && {
+      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+    }),
+  };
+};
+
+/**
  * serializeAws_restJson1SetSourceRequest
  */
 const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
@@ -3431,6 +5601,9 @@ const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): 
     ...(input.Decryption != null && { decryption: se_Encryption(input.Decryption, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
+    ...(input.GatewayBridgeSource != null && {
+      gatewayBridgeSource: se_SetGatewayBridgeSourceRequest(input.GatewayBridgeSource, context),
+    }),
     ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
@@ -3464,6 +5637,52 @@ const se_SourcePriority = (input: SourcePriority, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restJson1UpdateBridgeFlowSourceRequest
+ */
+const se_UpdateBridgeFlowSourceRequest = (input: UpdateBridgeFlowSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.FlowArn != null && { flowArn: input.FlowArn }),
+    ...(input.FlowVpcInterfaceAttachment != null && {
+      flowVpcInterfaceAttachment: se_VpcInterfaceAttachment(input.FlowVpcInterfaceAttachment, context),
+    }),
+  };
+};
+
+/**
+ * serializeAws_restJson1UpdateBridgeNetworkOutputRequest
+ */
+const se_UpdateBridgeNetworkOutputRequest = (input: UpdateBridgeNetworkOutputRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.IpAddress != null && { ipAddress: input.IpAddress }),
+    ...(input.NetworkName != null && { networkName: input.NetworkName }),
+    ...(input.Port != null && { port: input.Port }),
+    ...(input.Protocol != null && { protocol: input.Protocol }),
+    ...(input.Ttl != null && { ttl: input.Ttl }),
+  };
+};
+
+/**
+ * serializeAws_restJson1UpdateBridgeNetworkSourceRequest
+ */
+const se_UpdateBridgeNetworkSourceRequest = (input: UpdateBridgeNetworkSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MulticastIp != null && { multicastIp: input.MulticastIp }),
+    ...(input.NetworkName != null && { networkName: input.NetworkName }),
+    ...(input.Port != null && { port: input.Port }),
+    ...(input.Protocol != null && { protocol: input.Protocol }),
+  };
+};
+
+/**
+ * serializeAws_restJson1UpdateEgressGatewayBridgeRequest
+ */
+const se_UpdateEgressGatewayBridgeRequest = (input: UpdateEgressGatewayBridgeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
+  };
+};
+
+/**
  * serializeAws_restJson1UpdateEncryption
  */
 const se_UpdateEncryption = (input: UpdateEncryption, context: __SerdeContext): any => {
@@ -3491,6 +5710,31 @@ const se_UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeCo
     ...(input.RecoveryWindow != null && { recoveryWindow: input.RecoveryWindow }),
     ...(input.SourcePriority != null && { sourcePriority: se_SourcePriority(input.SourcePriority, context) }),
     ...(input.State != null && { state: input.State }),
+  };
+};
+
+/**
+ * serializeAws_restJson1UpdateGatewayBridgeSourceRequest
+ */
+const se_UpdateGatewayBridgeSourceRequest = (input: UpdateGatewayBridgeSourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BridgeArn != null && { bridgeArn: input.BridgeArn }),
+    ...(input.VpcInterfaceAttachment != null && {
+      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+    }),
+  };
+};
+
+/**
+ * serializeAws_restJson1UpdateIngressGatewayBridgeRequest
+ */
+const se_UpdateIngressGatewayBridgeRequest = (
+  input: UpdateIngressGatewayBridgeRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
+    ...(input.MaxOutputs != null && { maxOutputs: input.MaxOutputs }),
   };
 };
 
@@ -3528,6 +5772,21 @@ const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1__listOf__integer
+ */
+const de___listOf__integer = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectInt32(entry) as any;
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOf__string
  */
 const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
@@ -3538,6 +5797,36 @@ const de___listOf__string = (output: any, context: __SerdeContext): string[] => 
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfBridgeOutput
+ */
+const de___listOfBridgeOutput = (output: any, context: __SerdeContext): BridgeOutput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_BridgeOutput(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfBridgeSource
+ */
+const de___listOfBridgeSource = (output: any, context: __SerdeContext): BridgeSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_BridgeSource(entry, context);
     });
   return retVal;
 };
@@ -3573,6 +5862,21 @@ const de___listOfEntitlement = (output: any, context: __SerdeContext): Entitleme
 };
 
 /**
+ * deserializeAws_restJson1__listOfGatewayNetwork
+ */
+const de___listOfGatewayNetwork = (output: any, context: __SerdeContext): GatewayNetwork[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_GatewayNetwork(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfInputConfiguration
  */
 const de___listOfInputConfiguration = (output: any, context: __SerdeContext): InputConfiguration[] => {
@@ -3583,6 +5887,21 @@ const de___listOfInputConfiguration = (output: any, context: __SerdeContext): In
         return null as any;
       }
       return de_InputConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfListedBridge
+ */
+const de___listOfListedBridge = (output: any, context: __SerdeContext): ListedBridge[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_ListedBridge(entry, context);
     });
   return retVal;
 };
@@ -3613,6 +5932,36 @@ const de___listOfListedFlow = (output: any, context: __SerdeContext): ListedFlow
         return null as any;
       }
       return de_ListedFlow(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfListedGateway
+ */
+const de___listOfListedGateway = (output: any, context: __SerdeContext): ListedGateway[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_ListedGateway(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfListedGatewayInstance
+ */
+const de___listOfListedGatewayInstance = (output: any, context: __SerdeContext): ListedGatewayInstance[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_ListedGatewayInstance(entry, context);
     });
   return retVal;
 };
@@ -3664,6 +6013,21 @@ const de___listOfMediaStreamSourceConfiguration = (
         return null as any;
       }
       return de_MediaStreamSourceConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfMessageDetail
+ */
+const de___listOfMessageDetail = (output: any, context: __SerdeContext): MessageDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return de_MessageDetail(entry, context);
     });
   return retVal;
 };
@@ -3757,6 +6121,101 @@ const de___mapOf__string = (output: any, context: __SerdeContext): Record<string
 };
 
 /**
+ * deserializeAws_restJson1Bridge
+ */
+const de_Bridge = (output: any, context: __SerdeContext): Bridge => {
+  return {
+    BridgeArn: __expectString(output.bridgeArn),
+    BridgeMessages:
+      output.bridgeMessages != null ? de___listOfMessageDetail(output.bridgeMessages, context) : undefined,
+    BridgeState: __expectString(output.bridgeState),
+    EgressGatewayBridge:
+      output.egressGatewayBridge != null ? de_EgressGatewayBridge(output.egressGatewayBridge, context) : undefined,
+    IngressGatewayBridge:
+      output.ingressGatewayBridge != null ? de_IngressGatewayBridge(output.ingressGatewayBridge, context) : undefined,
+    Name: __expectString(output.name),
+    Outputs: output.outputs != null ? de___listOfBridgeOutput(output.outputs, context) : undefined,
+    PlacementArn: __expectString(output.placementArn),
+    SourceFailoverConfig:
+      output.sourceFailoverConfig != null ? de_FailoverConfig(output.sourceFailoverConfig, context) : undefined,
+    Sources: output.sources != null ? de___listOfBridgeSource(output.sources, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeFlowOutput
+ */
+const de_BridgeFlowOutput = (output: any, context: __SerdeContext): BridgeFlowOutput => {
+  return {
+    FlowArn: __expectString(output.flowArn),
+    FlowSourceArn: __expectString(output.flowSourceArn),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeFlowSource
+ */
+const de_BridgeFlowSource = (output: any, context: __SerdeContext): BridgeFlowSource => {
+  return {
+    FlowArn: __expectString(output.flowArn),
+    FlowVpcInterfaceAttachment:
+      output.flowVpcInterfaceAttachment != null
+        ? de_VpcInterfaceAttachment(output.flowVpcInterfaceAttachment, context)
+        : undefined,
+    Name: __expectString(output.name),
+    OutputArn: __expectString(output.outputArn),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeNetworkOutput
+ */
+const de_BridgeNetworkOutput = (output: any, context: __SerdeContext): BridgeNetworkOutput => {
+  return {
+    IpAddress: __expectString(output.ipAddress),
+    Name: __expectString(output.name),
+    NetworkName: __expectString(output.networkName),
+    Port: __expectInt32(output.port),
+    Protocol: __expectString(output.protocol),
+    Ttl: __expectInt32(output.ttl),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeNetworkSource
+ */
+const de_BridgeNetworkSource = (output: any, context: __SerdeContext): BridgeNetworkSource => {
+  return {
+    MulticastIp: __expectString(output.multicastIp),
+    Name: __expectString(output.name),
+    NetworkName: __expectString(output.networkName),
+    Port: __expectInt32(output.port),
+    Protocol: __expectString(output.protocol),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeOutput
+ */
+const de_BridgeOutput = (output: any, context: __SerdeContext): BridgeOutput => {
+  return {
+    FlowOutput: output.flowOutput != null ? de_BridgeFlowOutput(output.flowOutput, context) : undefined,
+    NetworkOutput: output.networkOutput != null ? de_BridgeNetworkOutput(output.networkOutput, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1BridgeSource
+ */
+const de_BridgeSource = (output: any, context: __SerdeContext): BridgeSource => {
+  return {
+    FlowSource: output.flowSource != null ? de_BridgeFlowSource(output.flowSource, context) : undefined,
+    NetworkSource: output.networkSource != null ? de_BridgeNetworkSource(output.networkSource, context) : undefined,
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1DestinationConfiguration
  */
 const de_DestinationConfiguration = (output: any, context: __SerdeContext): DestinationConfiguration => {
@@ -3765,6 +6224,16 @@ const de_DestinationConfiguration = (output: any, context: __SerdeContext): Dest
     DestinationPort: __expectInt32(output.destinationPort),
     Interface: output.interface != null ? de_Interface(output.interface, context) : undefined,
     OutboundIp: __expectString(output.outboundIp),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1EgressGatewayBridge
+ */
+const de_EgressGatewayBridge = (output: any, context: __SerdeContext): EgressGatewayBridge => {
+  return {
+    InstanceId: __expectString(output.instanceId),
+    MaxBitrate: __expectInt32(output.maxBitrate),
   } as any;
 };
 
@@ -3861,6 +6330,73 @@ const de_Fmtp = (output: any, context: __SerdeContext): Fmtp => {
 };
 
 /**
+ * deserializeAws_restJson1Gateway
+ */
+const de_Gateway = (output: any, context: __SerdeContext): Gateway => {
+  return {
+    EgressCidrBlocks:
+      output.egressCidrBlocks != null ? de___listOf__string(output.egressCidrBlocks, context) : undefined,
+    GatewayArn: __expectString(output.gatewayArn),
+    GatewayMessages:
+      output.gatewayMessages != null ? de___listOfMessageDetail(output.gatewayMessages, context) : undefined,
+    GatewayState: __expectString(output.gatewayState),
+    Name: __expectString(output.name),
+    Networks: output.networks != null ? de___listOfGatewayNetwork(output.networks, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1GatewayBridgeSource
+ */
+const de_GatewayBridgeSource = (output: any, context: __SerdeContext): GatewayBridgeSource => {
+  return {
+    BridgeArn: __expectString(output.bridgeArn),
+    VpcInterfaceAttachment:
+      output.vpcInterfaceAttachment != null
+        ? de_VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
+        : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1GatewayInstance
+ */
+const de_GatewayInstance = (output: any, context: __SerdeContext): GatewayInstance => {
+  return {
+    BridgePlacement: __expectString(output.bridgePlacement),
+    ConnectionStatus: __expectString(output.connectionStatus),
+    GatewayArn: __expectString(output.gatewayArn),
+    GatewayInstanceArn: __expectString(output.gatewayInstanceArn),
+    InstanceId: __expectString(output.instanceId),
+    InstanceMessages:
+      output.instanceMessages != null ? de___listOfMessageDetail(output.instanceMessages, context) : undefined,
+    InstanceState: __expectString(output.instanceState),
+    RunningBridgeCount: __expectInt32(output.runningBridgeCount),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1GatewayNetwork
+ */
+const de_GatewayNetwork = (output: any, context: __SerdeContext): GatewayNetwork => {
+  return {
+    CidrBlock: __expectString(output.cidrBlock),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1IngressGatewayBridge
+ */
+const de_IngressGatewayBridge = (output: any, context: __SerdeContext): IngressGatewayBridge => {
+  return {
+    InstanceId: __expectString(output.instanceId),
+    MaxBitrate: __expectInt32(output.maxBitrate),
+    MaxOutputs: __expectInt32(output.maxOutputs),
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1InputConfiguration
  */
 const de_InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
@@ -3877,6 +6413,19 @@ const de_InputConfiguration = (output: any, context: __SerdeContext): InputConfi
 const de_Interface = (output: any, context: __SerdeContext): Interface => {
   return {
     Name: __expectString(output.name),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1ListedBridge
+ */
+const de_ListedBridge = (output: any, context: __SerdeContext): ListedBridge => {
+  return {
+    BridgeArn: __expectString(output.bridgeArn),
+    BridgeState: __expectString(output.bridgeState),
+    BridgeType: __expectString(output.bridgeType),
+    Name: __expectString(output.name),
+    PlacementArn: __expectString(output.placementArn),
   } as any;
 };
 
@@ -3903,6 +6452,29 @@ const de_ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
     Name: __expectString(output.name),
     SourceType: __expectString(output.sourceType),
     Status: __expectString(output.status),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1ListedGateway
+ */
+const de_ListedGateway = (output: any, context: __SerdeContext): ListedGateway => {
+  return {
+    GatewayArn: __expectString(output.gatewayArn),
+    GatewayState: __expectString(output.gatewayState),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+/**
+ * deserializeAws_restJson1ListedGatewayInstance
+ */
+const de_ListedGatewayInstance = (output: any, context: __SerdeContext): ListedGatewayInstance => {
+  return {
+    GatewayArn: __expectString(output.gatewayArn),
+    GatewayInstanceArn: __expectString(output.gatewayInstanceArn),
+    InstanceId: __expectString(output.instanceId),
+    InstanceState: __expectString(output.instanceState),
   } as any;
 };
 
@@ -3975,6 +6547,17 @@ const de_MediaStreamSourceConfiguration = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_restJson1MessageDetail
+ */
+const de_MessageDetail = (output: any, context: __SerdeContext): MessageDetail => {
+  return {
+    Code: __expectString(output.code),
+    Message: __expectString(output.message),
+    ResourceName: __expectString(output.resourceName),
+  } as any;
+};
+
+/**
  * deserializeAws_restJson1Messages
  */
 const de_Messages = (output: any, context: __SerdeContext): Messages => {
@@ -4007,6 +6590,8 @@ const de_Offering = (output: any, context: __SerdeContext): Offering => {
  */
 const de_Output = (output: any, context: __SerdeContext): Output => {
   return {
+    BridgeArn: __expectString(output.bridgeArn),
+    BridgePorts: output.bridgePorts != null ? de___listOf__integer(output.bridgePorts, context) : undefined,
     DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
     Description: __expectString(output.description),
     Destination: __expectString(output.destination),
@@ -4072,6 +6657,8 @@ const de_Source = (output: any, context: __SerdeContext): Source => {
     Decryption: output.decryption != null ? de_Encryption(output.decryption, context) : undefined,
     Description: __expectString(output.description),
     EntitlementArn: __expectString(output.entitlementArn),
+    GatewayBridgeSource:
+      output.gatewayBridgeSource != null ? de_GatewayBridgeSource(output.gatewayBridgeSource, context) : undefined,
     IngestIp: __expectString(output.ingestIp),
     IngestPort: __expectInt32(output.ingestPort),
     MediaStreamSourceConfigurations:

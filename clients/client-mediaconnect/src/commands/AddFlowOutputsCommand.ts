@@ -82,7 +82,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
  *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos", // required
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
  *       RemoteId: "STRING_VALUE",
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),

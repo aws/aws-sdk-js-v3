@@ -127,7 +127,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
  *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos", // required
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
  *       RemoteId: "STRING_VALUE",
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
@@ -171,7 +171,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     ],
  *     MinLatency: Number("int"),
  *     Name: "STRING_VALUE",
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
  *     SenderControlPort: Number("int"),
  *     SenderIpAddress: "STRING_VALUE",
  *     SourceListenerAddress: "STRING_VALUE",
@@ -179,6 +179,12 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     StreamId: "STRING_VALUE",
  *     VpcInterfaceName: "STRING_VALUE",
  *     WhitelistCidr: "STRING_VALUE",
+ *     GatewayBridgeSource: { // SetGatewayBridgeSourceRequest
+ *       BridgeArn: "STRING_VALUE", // required
+ *       VpcInterfaceAttachment: {
+ *         VpcInterfaceName: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   SourceFailoverConfig: { // FailoverConfig
  *     FailoverMode: "MERGE" || "FAILOVER",
@@ -223,7 +229,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       ],
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
  *       SenderControlPort: Number("int"),
  *       SenderIpAddress: "STRING_VALUE",
  *       SourceListenerAddress: "STRING_VALUE",
@@ -231,6 +237,12 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       StreamId: "STRING_VALUE",
  *       VpcInterfaceName: "STRING_VALUE",
  *       WhitelistCidr: "STRING_VALUE",
+ *       GatewayBridgeSource: {
+ *         BridgeArn: "STRING_VALUE", // required
+ *         VpcInterfaceAttachment: {
+ *           VpcInterfaceName: "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *   ],
  *   VpcInterfaces: [ // __listOfVpcInterfaceRequest

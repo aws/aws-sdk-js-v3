@@ -7,6 +7,155 @@ import { MediaConnectServiceException as __BaseException } from "./MediaConnectS
  * @public
  * @enum
  */
+export const Protocol = {
+  cdi: "cdi",
+  fujitsu_qos: "fujitsu-qos",
+  rist: "rist",
+  rtp: "rtp",
+  rtp_fec: "rtp-fec",
+  srt_caller: "srt-caller",
+  srt_listener: "srt-listener",
+  st2110_jpegxs: "st2110-jpegxs",
+  udp: "udp",
+  zixi_pull: "zixi-pull",
+  zixi_push: "zixi-push",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * Add a network output to an existing bridge.
+ */
+export interface AddBridgeNetworkOutputRequest {
+  /**
+   * The network output IP Address.
+   */
+  IpAddress: string | undefined;
+
+  /**
+   * The network output name. This name is used to reference the output and must be unique among outputs in this bridge.
+   */
+  Name: string | undefined;
+
+  /**
+   * The network output's gateway network name.
+   */
+  NetworkName: string | undefined;
+
+  /**
+   * The network output port.
+   */
+  Port: number | undefined;
+
+  /**
+   * The network output protocol.
+   */
+  Protocol: Protocol | string | undefined;
+
+  /**
+   * The network output TTL.
+   */
+  Ttl: number | undefined;
+}
+
+/**
+ * @public
+ * Add an output to a bridge.
+ */
+export interface AddBridgeOutputRequest {
+  /**
+   * Add a network output to an existing bridge.
+   */
+  NetworkOutput?: AddBridgeNetworkOutputRequest;
+}
+
+/**
+ * @public
+ * The settings for attaching a VPC interface to an resource.
+ */
+export interface VpcInterfaceAttachment {
+  /**
+   * The name of the VPC interface to use for this resource.
+   */
+  VpcInterfaceName?: string;
+}
+
+/**
+ * @public
+ * Add a flow source to an existing bridge.
+ */
+export interface AddBridgeFlowSourceRequest {
+  /**
+   * The Amazon Resource Number (ARN) of the cloud flow to use as a source of this bridge.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The name of the VPC interface attachment to use for this source.
+   */
+  FlowVpcInterfaceAttachment?: VpcInterfaceAttachment;
+
+  /**
+   * The name of the flow source. This name is used to reference the source and must be unique among sources in this bridge.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * Add a network source to an existing bridge.
+ */
+export interface AddBridgeNetworkSourceRequest {
+  /**
+   * The network source multicast IP.
+   */
+  MulticastIp: string | undefined;
+
+  /**
+   * The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.
+   */
+  Name: string | undefined;
+
+  /**
+   * The network source's gateway network name.
+   */
+  NetworkName: string | undefined;
+
+  /**
+   * The network source port.
+   */
+  Port: number | undefined;
+
+  /**
+   * The network source protocol.
+   */
+  Protocol: Protocol | string | undefined;
+}
+
+/**
+ * @public
+ * Add a source to an existing bridge.
+ */
+export interface AddBridgeSourceRequest {
+  /**
+   * Add a flow source to an existing bridge.
+   */
+  FlowSource?: AddBridgeFlowSourceRequest;
+
+  /**
+   * Add a network source to an existing bridge.
+   */
+  NetworkSource?: AddBridgeNetworkSourceRequest;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Colorimetry = {
   BT2020: "BT2020",
   BT2100: "BT2100",
@@ -373,39 +522,6 @@ export interface MediaStreamOutputConfigurationRequest {
 
 /**
  * @public
- * @enum
- */
-export const Protocol = {
-  cdi: "cdi",
-  fujitsu_qos: "fujitsu-qos",
-  rist: "rist",
-  rtp: "rtp",
-  rtp_fec: "rtp-fec",
-  srt_caller: "srt-caller",
-  srt_listener: "srt-listener",
-  st2110_jpegxs: "st2110-jpegxs",
-  zixi_pull: "zixi-pull",
-  zixi_push: "zixi-push",
-} as const;
-
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
-/**
- * @public
- * The settings for attaching a VPC interface to an output.
- */
-export interface VpcInterfaceAttachment {
-  /**
-   * The name of the VPC interface to use for this output.
-   */
-  VpcInterfaceName?: string;
-}
-
-/**
- * @public
  * The output that you want to add to this flow.
  */
 export interface AddOutputRequest {
@@ -425,7 +541,7 @@ export interface AddOutputRequest {
   Destination?: string;
 
   /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
    */
   Encryption?: Encryption;
 
@@ -475,7 +591,7 @@ export interface AddOutputRequest {
   SmoothingLatency?: number;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
    */
   StreamId?: string;
 
@@ -483,6 +599,152 @@ export interface AddOutputRequest {
    * The name of the VPC interface attachment to use for this output.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
+}
+
+/**
+ * @public
+ * The output of the bridge. A flow output is delivered to the AWS cloud.
+ */
+export interface BridgeFlowOutput {
+  /**
+   * The Amazon Resource Number (ARN) of the cloud flow.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The Amazon Resource Number (ARN) of the flow source.
+   */
+  FlowSourceArn: string | undefined;
+
+  /**
+   * The name of the bridge's output.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * The output of the bridge. A network output is delivered to your premises.
+ */
+export interface BridgeNetworkOutput {
+  /**
+   * The network output IP Address.
+   */
+  IpAddress: string | undefined;
+
+  /**
+   * The network output name.
+   */
+  Name: string | undefined;
+
+  /**
+   * The network output's gateway network name.
+   */
+  NetworkName: string | undefined;
+
+  /**
+   * The network output port.
+   */
+  Port: number | undefined;
+
+  /**
+   * The network output protocol.
+   */
+  Protocol: Protocol | string | undefined;
+
+  /**
+   * The network output TTL.
+   */
+  Ttl: number | undefined;
+}
+
+/**
+ * @public
+ * The output of the bridge.
+ */
+export interface BridgeOutput {
+  /**
+   * The output of the bridge. A flow output is delivered to the AWS cloud.
+   */
+  FlowOutput?: BridgeFlowOutput;
+
+  /**
+   * The output of the bridge. A network output is delivered to your premises.
+   */
+  NetworkOutput?: BridgeNetworkOutput;
+}
+
+/**
+ * @public
+ * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+ */
+export interface BridgeFlowSource {
+  /**
+   * The ARN of the cloud flow used as a source of this bridge.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The name of the VPC interface attachment to use for this source.
+   */
+  FlowVpcInterfaceAttachment?: VpcInterfaceAttachment;
+
+  /**
+   * The name of the flow source.
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Number (ARN) of the output.
+   */
+  OutputArn?: string;
+}
+
+/**
+ * @public
+ * The source of the bridge. A network source originates at your premises.
+ */
+export interface BridgeNetworkSource {
+  /**
+   * The network source multicast IP.
+   */
+  MulticastIp: string | undefined;
+
+  /**
+   * The name of the network source.
+   */
+  Name: string | undefined;
+
+  /**
+   * The network source's gateway network name.
+   */
+  NetworkName: string | undefined;
+
+  /**
+   * The network source port.
+   */
+  Port: number | undefined;
+
+  /**
+   * The network source protocol.
+   */
+  Protocol: Protocol | string | undefined;
+}
+
+/**
+ * @public
+ * The bridge's source.
+ */
+export interface BridgeSource {
+  /**
+   * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+   */
+  FlowSource?: BridgeFlowSource;
+
+  /**
+   * The source of the bridge. A network source originates at your premises.
+   */
+  NetworkSource?: BridgeNetworkSource;
 }
 
 /**
@@ -579,6 +841,22 @@ export interface Entitlement {
 
 /**
  * @public
+ * The network settings for a gateway.
+ */
+export interface GatewayNetwork {
+  /**
+   * A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   */
+  CidrBlock: string | undefined;
+
+  /**
+   * The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
  * The entitlements that you want to grant on a flow.
  */
 export interface GrantEntitlementRequest {
@@ -593,7 +871,7 @@ export interface GrantEntitlementRequest {
   Description?: string;
 
   /**
-   * The type of encryption that will be used on the output that is associated with this entitlement.
+   * The type of encryption that will be used on the output that is associated with this entitlement. Allowable encryption types: static-key, speke.
    */
   Encryption?: Encryption;
 
@@ -648,6 +926,57 @@ export interface InputConfigurationRequest {
    * The VPC interface that you want to use for the incoming media stream.
    */
   Interface: InterfaceRequest | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BridgeState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DEPLOYING: "DEPLOYING",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  START_FAILED: "START_FAILED",
+  START_PENDING: "START_PENDING",
+  STOPPING: "STOPPING",
+  STOP_FAILED: "STOP_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type BridgeState = (typeof BridgeState)[keyof typeof BridgeState];
+
+/**
+ * @public
+ * Displays details of the selected bridge.
+ */
+export interface ListedBridge {
+  /**
+   * The ARN of the bridge.
+   */
+  BridgeArn: string | undefined;
+
+  BridgeState: BridgeState | string | undefined;
+  /**
+   * The type of the bridge.
+   */
+  BridgeType: string | undefined;
+
+  /**
+   * The name of the bridge.
+   */
+  Name: string | undefined;
+
+  /**
+   * The ARN of the gateway associated with the bridge.
+   */
+  PlacementArn: string | undefined;
 }
 
 /**
@@ -788,6 +1117,85 @@ export interface ListedFlow {
    * The maintenance setting of a flow
    */
   Maintenance?: Maintenance;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];
+
+/**
+ * @public
+ * Provides a summary of a gateway, including its name, ARN, and status.
+ */
+export interface ListedGateway {
+  /**
+   * The Amazon Resource Name (ARN) of the gateway.
+   */
+  GatewayArn: string | undefined;
+
+  GatewayState: GatewayState | string | undefined;
+  /**
+   * The name of the gateway.
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceState = {
+  ACTIVE: "ACTIVE",
+  DEREGISTERED: "DEREGISTERED",
+  DEREGISTERING: "DEREGISTERING",
+  DEREGISTRATION_ERROR: "DEREGISTRATION_ERROR",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_ERROR: "REGISTRATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
+
+/**
+ * @public
+ * Provides a summary of an instance.
+ */
+export interface ListedGatewayInstance {
+  /**
+   * The Amazon Resource Name (ARN) of the gateway.
+   */
+  GatewayArn: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the instance.
+   */
+  GatewayInstanceArn: string | undefined;
+
+  /**
+   * The managed instance ID generated by the SSM install. This will begin with "mi-".
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * The status of the instance.
+   */
+  InstanceState?: InstanceState | string;
 }
 
 /**
@@ -979,6 +1387,26 @@ export interface MediaStreamSourceConfigurationRequest {
 
 /**
  * @public
+ */
+export interface MessageDetail {
+  /**
+   * The error code.
+   */
+  Code: string | undefined;
+
+  /**
+   * The specific error message that MediaConnect returns to help you understand the reason that the request did not succeed.
+   */
+  Message: string | undefined;
+
+  /**
+   * The name of the resource.
+   */
+  ResourceName?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const DurationUnits = {
@@ -1089,7 +1517,7 @@ export interface Transport {
   CidrAllowList?: string[];
 
   /**
-   * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
    */
   MaxBitrate?: number;
 
@@ -1144,7 +1572,7 @@ export interface Transport {
   SourceListenerPort?: number;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
    */
   StreamId?: string;
 }
@@ -1218,6 +1646,16 @@ export interface Output {
    * The name of the VPC interface attachment to use for this output.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
+
+  /**
+   * The ARN of the bridge that added this output.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The bridge output ports currently in use.
+   */
+  BridgePorts?: number[];
 }
 
 /**
@@ -1309,11 +1747,27 @@ export interface Reservation {
 
 /**
  * @public
+ * The source configuration for cloud flows receiving a stream from a bridge.
+ */
+export interface SetGatewayBridgeSourceRequest {
+  /**
+   * The ARN of the bridge feeding this flow.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * The name of the VPC interface attachment to use for this bridge source.
+   */
+  VpcInterfaceAttachment?: VpcInterfaceAttachment;
+}
+
+/**
+ * @public
  * The settings for the source of the flow.
  */
 export interface SetSourceRequest {
   /**
-   * The type of encryption that is used on the content ingested from this source.
+   * The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.
    */
   Decryption?: Encryption;
 
@@ -1333,7 +1787,7 @@ export interface SetSourceRequest {
   IngestPort?: number;
 
   /**
-   * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
    */
   MaxBitrate?: number;
 
@@ -1388,7 +1842,7 @@ export interface SetSourceRequest {
   SourceListenerPort?: number;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
    */
   StreamId?: string;
 
@@ -1401,6 +1855,27 @@ export interface SetSourceRequest {
    * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   WhitelistCidr?: string;
+
+  /**
+   * The source configuration for cloud flows receiving a stream from a bridge.
+   */
+  GatewayBridgeSource?: SetGatewayBridgeSourceRequest;
+}
+
+/**
+ * @public
+ * The source configuration for cloud flows receiving a stream from a bridge.
+ */
+export interface GatewayBridgeSource {
+  /**
+   * The ARN of the bridge feeding this flow.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * The name of the VPC interface attachment to use for this bridge source.
+   */
+  VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
 /**
@@ -1477,6 +1952,11 @@ export interface Source {
    * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   WhitelistCidr?: string;
+
+  /**
+   * The source configuration for cloud flows receiving a stream from a bridge.
+   */
+  GatewayBridgeSource?: GatewayBridgeSource;
 }
 
 /**
@@ -1562,33 +2042,33 @@ export interface VpcInterfaceRequest {
 
 /**
  * @public
- * A request to add media streams to the flow.
+ * A request to add outputs to the specified bridge.
  */
-export interface AddFlowMediaStreamsRequest {
+export interface AddBridgeOutputsRequest {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * The ARN of the bridge that you want to update.
    */
-  FlowArn: string | undefined;
+  BridgeArn: string | undefined;
 
   /**
-   * The media streams that you want to add to the flow.
+   * The outputs that you want to add to this bridge.
    */
-  MediaStreams: AddMediaStreamRequest[] | undefined;
+  Outputs: AddBridgeOutputRequest[] | undefined;
 }
 
 /**
  * @public
  */
-export interface AddFlowMediaStreamsResponse {
+export interface AddBridgeOutputsResponse {
   /**
-   * The ARN of the flow that you added media streams to.
+   * The Amazon Resource Number (ARN) of the bridge.
    */
-  FlowArn?: string;
+  BridgeArn?: string;
 
   /**
-   * The media streams that you added to the flow.
+   * The outputs that you added to this bridge.
    */
-  MediaStreams?: MediaStream[];
+  Outputs?: BridgeOutput[];
 }
 
 /**
@@ -1612,6 +2092,31 @@ export class BadRequestException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * The error message returned by AWS Elemental MediaConnect.
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1743,6 +2248,78 @@ export class TooManyRequestsException extends __BaseException {
 
 /**
  * @public
+ * A request to add sources to the specified bridge.
+ */
+export interface AddBridgeSourcesRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * The sources that you want to add to this bridge.
+   */
+  Sources: AddBridgeSourceRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddBridgeSourcesResponse {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The sources that you added to this bridge.
+   */
+  Sources?: BridgeSource[];
+}
+
+/**
+ * @public
+ */
+export interface AddEgressGatewayBridgeRequest {
+  /**
+   * The maximum expected bitrate (in bps).
+   */
+  MaxBitrate: number | undefined;
+}
+
+/**
+ * @public
+ * A request to add media streams to the flow.
+ */
+export interface AddFlowMediaStreamsRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the flow.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The media streams that you want to add to the flow.
+   */
+  MediaStreams: AddMediaStreamRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddFlowMediaStreamsResponse {
+  /**
+   * The ARN of the flow that you added media streams to.
+   */
+  FlowArn?: string;
+
+  /**
+   * The media streams that you added to the flow.
+   */
+  MediaStreams?: MediaStream[];
+}
+
+/**
+ * @public
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class AddFlowOutputs420Exception extends __BaseException {
@@ -1861,6 +2438,21 @@ export interface AddFlowVpcInterfacesResponse {
 
 /**
  * @public
+ */
+export interface AddIngressGatewayBridgeRequest {
+  /**
+   * The maximum expected bitrate (in bps).
+   */
+  MaxBitrate: number | undefined;
+
+  /**
+   * The maximum number of expected outputs.
+   */
+  MaxOutputs: number | undefined;
+}
+
+/**
+ * @public
  * Create maintenance setting for a flow
  */
 export interface AddMaintenance {
@@ -1877,27 +2469,37 @@ export interface AddMaintenance {
 
 /**
  * @public
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export class CreateFlow420Exception extends __BaseException {
-  readonly name: "CreateFlow420Exception" = "CreateFlow420Exception";
-  readonly $fault: "client" = "client";
+export interface EgressGatewayBridge {
   /**
-   * The error message returned by AWS Elemental MediaConnect.
+   * The ID of the instance running this bridge.
    */
-  Message: string | undefined;
+  InstanceId?: string;
+
   /**
-   * @internal
+   * The maximum expected bitrate (in bps) of the egress bridge.
    */
-  constructor(opts: __ExceptionOptionType<CreateFlow420Exception, __BaseException>) {
-    super({
-      name: "CreateFlow420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateFlow420Exception.prototype);
-    this.Message = opts.Message;
-  }
+  MaxBitrate: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngressGatewayBridge {
+  /**
+   * The ID of the instance running this bridge.
+   */
+  InstanceId?: string;
+
+  /**
+   * The maximum expected bitrate (in bps) of the ingress bridge.
+   */
+  MaxBitrate: number | undefined;
+
+  /**
+   * The maximum number of outputs on the ingress bridge.
+   */
+  MaxOutputs: number | undefined;
 }
 
 /**
@@ -1960,6 +2562,175 @@ export interface FailoverConfig {
   SourcePriority?: SourcePriority;
 
   State?: State | string;
+}
+
+/**
+ * @public
+ * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
+ */
+export interface Bridge {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge.
+   */
+  BridgeArn: string | undefined;
+
+  BridgeMessages?: MessageDetail[];
+  BridgeState: BridgeState | string | undefined;
+  EgressGatewayBridge?: EgressGatewayBridge;
+  IngressGatewayBridge?: IngressGatewayBridge;
+  /**
+   * The name of the bridge.
+   */
+  Name: string | undefined;
+
+  /**
+   * The outputs on this bridge.
+   */
+  Outputs?: BridgeOutput[];
+
+  /**
+   * The placement Amazon Resource Number (ARN) of the bridge.
+   */
+  PlacementArn: string | undefined;
+
+  /**
+   * The settings for source failover.
+   */
+  SourceFailoverConfig?: FailoverConfig;
+
+  /**
+   * The sources on this bridge.
+   */
+  Sources?: BridgeSource[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BridgePlacement = {
+  AVAILABLE: "AVAILABLE",
+  LOCKED: "LOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type BridgePlacement = (typeof BridgePlacement)[keyof typeof BridgePlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ */
+export class CreateBridge420Exception extends __BaseException {
+  readonly name: "CreateBridge420Exception" = "CreateBridge420Exception";
+  readonly $fault: "client" = "client";
+  /**
+   * The error message returned by AWS Elemental MediaConnect.
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateBridge420Exception, __BaseException>) {
+    super({
+      name: "CreateBridge420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateBridge420Exception.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * Creates a new bridge. The request must include one source.
+ */
+export interface CreateBridgeRequest {
+  /**
+   * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   */
+  EgressGatewayBridge?: AddEgressGatewayBridgeRequest;
+
+  /**
+   * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   */
+  IngressGatewayBridge?: AddIngressGatewayBridgeRequest;
+
+  /**
+   * The name of the bridge. This name can not be modified after the bridge is created.
+   */
+  Name: string | undefined;
+
+  /**
+   * The outputs that you want to add to this bridge.
+   */
+  Outputs?: AddBridgeOutputRequest[];
+
+  /**
+   * The bridge placement Amazon Resource Number (ARN).
+   */
+  PlacementArn: string | undefined;
+
+  /**
+   * The settings for source failover.
+   */
+  SourceFailoverConfig?: FailoverConfig;
+
+  /**
+   * The sources that you want to add to this bridge.
+   */
+  Sources: AddBridgeSourceRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBridgeResponse {
+  /**
+   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
+   */
+  Bridge?: Bridge;
+}
+
+/**
+ * @public
+ * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ */
+export class CreateFlow420Exception extends __BaseException {
+  readonly name: "CreateFlow420Exception" = "CreateFlow420Exception";
+  readonly $fault: "client" = "client";
+  /**
+   * The error message returned by AWS Elemental MediaConnect.
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateFlow420Exception, __BaseException>) {
+    super({
+      name: "CreateFlow420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateFlow420Exception.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2040,7 +2811,7 @@ export interface Flow {
   Entitlements: Entitlement[] | undefined;
 
   /**
-   * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+   * The Amazon Resource Name (ARN) of the flow.
    */
   FlowArn: string | undefined;
 
@@ -2098,6 +2869,114 @@ export interface CreateFlowResponse {
 
 /**
  * @public
+ * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ */
+export class CreateGateway420Exception extends __BaseException {
+  readonly name: "CreateGateway420Exception" = "CreateGateway420Exception";
+  readonly $fault: "client" = "client";
+  /**
+   * The error message returned by AWS Elemental MediaConnect.
+   */
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateGateway420Exception, __BaseException>) {
+    super({
+      name: "CreateGateway420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateGateway420Exception.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * Creates a new gateway. The request must include at least one network (up to 4).
+ */
+export interface CreateGatewayRequest {
+  /**
+   * The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   */
+  EgressCidrBlocks: string[] | undefined;
+
+  /**
+   * The name of the gateway. This name can not be modified after the gateway is created.
+   */
+  Name: string | undefined;
+
+  /**
+   * The list of networks that you want to add.
+   */
+  Networks: GatewayNetwork[] | undefined;
+}
+
+/**
+ * @public
+ * The settings for a gateway, including its networks.
+ */
+export interface Gateway {
+  /**
+   * The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   */
+  EgressCidrBlocks: string[] | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the gateway.
+   */
+  GatewayArn: string | undefined;
+
+  GatewayMessages?: MessageDetail[];
+  /**
+   * The current status of the gateway.
+   */
+  GatewayState?: GatewayState | string;
+
+  /**
+   * The name of the gateway. This name can not be modified after the gateway is created.
+   */
+  Name: string | undefined;
+
+  /**
+   * The list of networks in the gateway.
+   */
+  Networks: GatewayNetwork[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayResponse {
+  /**
+   * The settings for a gateway, including its networks.
+   */
+  Gateway?: Gateway;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBridgeRequest {
+  /**
+   * The ARN of the bridge that you want to delete.
+   */
+  BridgeArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBridgeResponse {
+  /**
+   * The Amazon Resource Number (ARN) of the deleted bridge.
+   */
+  BridgeArn?: string;
+}
+
+/**
+ * @public
  */
 export interface DeleteFlowRequest {
   /**
@@ -2119,6 +2998,76 @@ export interface DeleteFlowResponse {
    * The status of the flow when the DeleteFlow process begins.
    */
   Status?: Status | string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRequest {
+  /**
+   * The ARN of the gateway that you want to delete.
+   */
+  GatewayArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the gateway that was deleted.
+   */
+  GatewayArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterGatewayInstanceRequest {
+  /**
+   * Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.
+   */
+  Force?: boolean;
+
+  /**
+   * The Amazon Resource Name (ARN) of the gateway that contains the instance that you want to deregister.
+   */
+  GatewayInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterGatewayInstanceResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the instance.
+   */
+  GatewayInstanceArn?: string;
+
+  /**
+   * The status of the instance.
+   */
+  InstanceState?: InstanceState | string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBridgeRequest {
+  /**
+   * The ARN of the bridge that you want to describe.
+   */
+  BridgeArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBridgeResponse {
+  /**
+   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
+   */
+  Bridge?: Bridge;
 }
 
 /**
@@ -2160,6 +3109,88 @@ export interface DescribeFlowResponse {
 /**
  * @public
  */
+export interface DescribeGatewayRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the gateway that you want to describe.
+   */
+  GatewayArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayResponse {
+  /**
+   * The settings for a gateway, including its networks.
+   */
+  Gateway?: Gateway;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayInstanceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the gateway instance that you want to describe.
+   */
+  GatewayInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ * The settings for an instance in a gateway.
+ */
+export interface GatewayInstance {
+  /**
+   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   */
+  BridgePlacement: BridgePlacement | string | undefined;
+
+  /**
+   * The connection state of the instance.
+   */
+  ConnectionStatus: ConnectionStatus | string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the instance.
+   */
+  GatewayArn: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the gateway.
+   */
+  GatewayInstanceArn: string | undefined;
+
+  /**
+   * The managed instance ID generated by the SSM install. This will begin with "mi-".
+   */
+  InstanceId: string | undefined;
+
+  InstanceMessages?: MessageDetail[];
+  /**
+   * The status of the instance.
+   */
+  InstanceState: InstanceState | string | undefined;
+
+  /**
+   * The running bridge count.
+   */
+  RunningBridgeCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGatewayInstanceResponse {
+  /**
+   * The settings for an instance in a gateway.
+   */
+  GatewayInstance?: GatewayInstance;
+}
+
+/**
+ * @public
+ */
 export interface DescribeOfferingRequest {
   /**
    * The Amazon Resource Name (ARN) of the offering.
@@ -2196,6 +3227,21 @@ export interface DescribeReservationResponse {
    */
   Reservation?: Reservation;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DesiredState = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  STANDBY: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type DesiredState = (typeof DesiredState)[keyof typeof DesiredState];
 
 /**
  * @public
@@ -2256,6 +3302,41 @@ export interface GrantFlowEntitlementsResponse {
 /**
  * @public
  */
+export interface ListBridgesRequest {
+  /**
+   * Filter the list results to display only the bridges associated with the selected Amazon Resource Name (ARN).
+   */
+  FilterArn?: string;
+
+  /**
+   * The maximum number of results to return per API request. For example, you submit a ListBridges request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   */
+  MaxResults?: number;
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListBridges request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListBridges request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBridgesResponse {
+  /**
+   * A list of bridge summaries.
+   */
+  Bridges?: ListedBridge[];
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListBridges request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListBridges request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListEntitlementsRequest {
   /**
    * The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.
@@ -2309,6 +3390,71 @@ export interface ListFlowsResponse {
 
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayInstancesRequest {
+  /**
+   * Filter the list results to display only the instances associated with the selected Gateway Amazon Resource Name (ARN).
+   */
+  FilterArn?: string;
+
+  /**
+   * The maximum number of results to return per API request. For example, you submit a ListInstances request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   */
+  MaxResults?: number;
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListInstances request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListInstances request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayInstancesResponse {
+  /**
+   * A list of instance summaries.
+   */
+  Instances?: ListedGatewayInstance[];
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListInstances request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListInstances request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysRequest {
+  /**
+   * The maximum number of results to return per API request. For example, you submit a ListGateways request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   */
+  MaxResults?: number;
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListGateways request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListGateways request a second time and specify the NextToken value.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysResponse {
+  /**
+   * A list of gateway summaries.
+   */
+  Gateways?: ListedGateway[];
+
+  /**
+   * The token that identifies which batch of results that you want to see. For example, you submit a ListGateways request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListGateways request a second time and specify the NextToken value.
    */
   NextToken?: string;
 }
@@ -2422,6 +3568,52 @@ export interface PurchaseOfferingResponse {
    * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
    */
   Reservation?: Reservation;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeOutputRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * The name of the bridge output that you want to remove.
+   */
+  OutputName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeOutputResponse {
+  BridgeArn?: string;
+  OutputName?: string;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeSourceRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * The name of the bridge source that you want to remove.
+   */
+  SourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeSourceResponse {
+  BridgeArn?: string;
+  SourceName?: string;
 }
 
 /**
@@ -2662,23 +3854,27 @@ export interface UntagResourceRequest {
 
 /**
  * @public
- * Update maintenance setting for a flow
  */
-export interface UpdateMaintenance {
+export interface UpdateEgressGatewayBridgeRequest {
   /**
-   * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   * Update an existing egress-type bridge.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaxBitrate?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIngressGatewayBridgeRequest {
+  /**
+   * The maximum expected bitrate (in bps).
+   */
+  MaxBitrate?: number;
 
   /**
-   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   * The maximum number of expected outputs.
    */
-  MaintenanceScheduledDate?: string;
-
-  /**
-   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
-   */
-  MaintenanceStartHour?: string;
+  MaxOutputs?: number;
 }
 
 /**
@@ -2702,6 +3898,233 @@ export interface UpdateFailoverConfig {
   SourcePriority?: SourcePriority;
 
   State?: State | string;
+}
+
+/**
+ * @public
+ * A request to update the bridge.
+ */
+export interface UpdateBridgeRequest {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  EgressGatewayBridge?: UpdateEgressGatewayBridgeRequest;
+  IngressGatewayBridge?: UpdateIngressGatewayBridgeRequest;
+  /**
+   * The settings for source failover.
+   */
+  SourceFailoverConfig?: UpdateFailoverConfig;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeResponse {
+  /**
+   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
+   */
+  Bridge?: Bridge;
+}
+
+/**
+ * @public
+ * Update an existing network output.
+ */
+export interface UpdateBridgeNetworkOutputRequest {
+  /**
+   * The network output IP Address.
+   */
+  IpAddress?: string;
+
+  /**
+   * The network output's gateway network name.
+   */
+  NetworkName?: string;
+
+  /**
+   * The network output port.
+   */
+  Port?: number;
+
+  /**
+   * The network output protocol.
+   */
+  Protocol?: Protocol | string;
+
+  /**
+   * The network output TTL.
+   */
+  Ttl?: number;
+}
+
+/**
+ * @public
+ * The fields that you want to update in the bridge output.
+ */
+export interface UpdateBridgeOutputRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * Update an existing network output.
+   */
+  NetworkOutput?: UpdateBridgeNetworkOutputRequest;
+
+  /**
+   * The name of the bridge output that you want to update.
+   */
+  OutputName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeOutputResponse {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The output that you updated.
+   */
+  Output?: BridgeOutput;
+}
+
+/**
+ * @public
+ * Update the flow source of the bridge.
+ */
+export interface UpdateBridgeFlowSourceRequest {
+  /**
+   * The ARN of the cloud flow to use as a source of this bridge.
+   */
+  FlowArn?: string;
+
+  /**
+   * The name of the VPC interface attachment to use for this source.
+   */
+  FlowVpcInterfaceAttachment?: VpcInterfaceAttachment;
+}
+
+/**
+ * @public
+ * Update the network source of the bridge.
+ */
+export interface UpdateBridgeNetworkSourceRequest {
+  /**
+   * The network source multicast IP.
+   */
+  MulticastIp?: string;
+
+  /**
+   * The network source's gateway network name.
+   */
+  NetworkName?: string;
+
+  /**
+   * The network source port.
+   */
+  Port?: number;
+
+  /**
+   * The network source protocol.
+   */
+  Protocol?: Protocol | string;
+}
+
+/**
+ * @public
+ * The fields that you want to update in the bridge source.
+ */
+export interface UpdateBridgeSourceRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * Update the flow source of the bridge.
+   */
+  FlowSource?: UpdateBridgeFlowSourceRequest;
+
+  /**
+   * Update the network source of the bridge.
+   */
+  NetworkSource?: UpdateBridgeNetworkSourceRequest;
+
+  /**
+   * The name of the source that you want to update.
+   */
+  SourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeSourceResponse {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The bridge's source.
+   */
+  Source?: BridgeSource;
+}
+
+/**
+ * @public
+ * A request to update the bridge state.
+ */
+export interface UpdateBridgeStateRequest {
+  /**
+   * The ARN of the bridge that you want to update.
+   */
+  BridgeArn: string | undefined;
+
+  DesiredState: DesiredState | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeStateResponse {
+  /**
+   * The Amazon Resource Number (ARN) of the bridge.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The state of the bridge. ACTIVE or STANDBY.
+   */
+  DesiredState?: DesiredState | string;
+}
+
+/**
+ * @public
+ * Update maintenance setting for a flow
+ */
+export interface UpdateMaintenance {
+  /**
+   * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   */
+  MaintenanceDay?: MaintenanceDay | string;
+
+  /**
+   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   */
+  MaintenanceScheduledDate?: string;
+
+  /**
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   */
+  MaintenanceStartHour?: string;
 }
 
 /**
@@ -2797,7 +4220,7 @@ export interface UpdateFlowEntitlementRequest {
   Description?: string;
 
   /**
-   * The type of encryption that will be used on the output associated with this entitlement.
+   * The type of encryption that will be used on the output associated with this entitlement. Allowable encryption types: static-key, speke.
    */
   Encryption?: UpdateEncryption;
 
@@ -2914,7 +4337,7 @@ export interface UpdateFlowOutputRequest {
   Destination?: string;
 
   /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
    */
   Encryption?: UpdateEncryption;
 
@@ -2974,7 +4397,7 @@ export interface UpdateFlowOutputRequest {
   SmoothingLatency?: number;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
    */
   StreamId?: string;
 
@@ -3001,11 +4424,27 @@ export interface UpdateFlowOutputResponse {
 
 /**
  * @public
+ * The source configuration for cloud flows receiving a stream from a bridge.
+ */
+export interface UpdateGatewayBridgeSourceRequest {
+  /**
+   * The ARN of the bridge feeding this flow.
+   */
+  BridgeArn?: string;
+
+  /**
+   * The name of the VPC interface attachment to use for this bridge source.
+   */
+  VpcInterfaceAttachment?: VpcInterfaceAttachment;
+}
+
+/**
+ * @public
  * A request to update the source of a flow.
  */
 export interface UpdateFlowSourceRequest {
   /**
-   * The type of encryption used on the content ingested from this source.
+   * The type of encryption used on the content ingested from this source. Allowable encryption types: static-key.
    */
   Decryption?: UpdateEncryption;
 
@@ -3030,7 +4469,7 @@ export interface UpdateFlowSourceRequest {
   IngestPort?: number;
 
   /**
-   * The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
    */
   MaxBitrate?: number;
 
@@ -3085,7 +4524,7 @@ export interface UpdateFlowSourceRequest {
   SourceListenerPort?: number;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
    */
   StreamId?: string;
 
@@ -3098,6 +4537,11 @@ export interface UpdateFlowSourceRequest {
    * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   WhitelistCidr?: string;
+
+  /**
+   * The source configuration for cloud flows receiving a stream from a bridge.
+   */
+  GatewayBridgeSource?: UpdateGatewayBridgeSourceRequest;
 }
 
 /**
@@ -3113,4 +4557,35 @@ export interface UpdateFlowSourceResponse {
    * The settings for the source of the flow.
    */
   Source?: Source;
+}
+
+/**
+ * @public
+ * A request to update gateway instance state.
+ */
+export interface UpdateGatewayInstanceRequest {
+  /**
+   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   */
+  BridgePlacement?: BridgePlacement | string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the instance that you want to update.
+   */
+  GatewayInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGatewayInstanceResponse {
+  /**
+   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   */
+  BridgePlacement?: BridgePlacement | string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the instance.
+   */
+  GatewayInstanceArn?: string;
 }

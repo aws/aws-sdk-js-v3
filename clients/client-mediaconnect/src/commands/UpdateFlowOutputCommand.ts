@@ -80,7 +80,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   MinLatency: Number("int"),
  *   OutputArn: "STRING_VALUE", // required
  *   Port: Number("int"),
- *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
  *   RemoteId: "STRING_VALUE",
  *   SenderControlPort: Number("int"),
  *   SenderIpAddress: "STRING_VALUE",
