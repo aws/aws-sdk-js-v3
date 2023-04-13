@@ -726,7 +726,7 @@ export type GeoMatchLevel = (typeof GeoMatchLevel)[keyof typeof GeoMatchLevel];
  */
 export interface GeoMatchParams {
   /**
-   * <p>The country. </p>
+   * <p>The country.</p>
    */
   Country: string | undefined;
 
@@ -946,6 +946,22 @@ export interface SipMediaApplicationEndpoint {
 
 /**
  * @public
+ * <p>Describes a tag applied to a resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag's key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateSipMediaApplicationRequest {
   /**
@@ -962,6 +978,11 @@ export interface CreateSipMediaApplicationRequest {
    * <p>List of endpoints (Lambda ARNs) specified for the SIP media application.</p>
    */
   Endpoints: SipMediaApplicationEndpoint[] | undefined;
+
+  /**
+   * <p>The tags assigned to the SIP media application.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -986,7 +1007,7 @@ export interface SipMediaApplication {
   Name?: string;
 
   /**
-   * <p>List of endpoints for SIP media application. Currently, only one endpoint per
+   * <p>List of endpoints for a SIP media application. Currently, only one endpoint per
    *          SIP media application is permitted.</p>
    */
   Endpoints?: SipMediaApplicationEndpoint[];
@@ -1000,6 +1021,11 @@ export interface SipMediaApplication {
    * <p>The time at which the SIP media application was updated.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ARN of the SIP media application.</p>
+   */
+  SipMediaApplicationArn?: string;
 }
 
 /**
@@ -1241,6 +1267,11 @@ export interface CreateVoiceConnectorRequest {
    * <p>Enables or disables encryption for the Voice Connector.</p>
    */
   RequireEncryption: boolean | undefined;
+
+  /**
+   * <p>The tags assigned to the Voice Connector.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -1479,22 +1510,6 @@ export interface ServerSideEncryptionConfiguration {
    *          Asymmetric customer managed keys are not supported.</p>
    */
   KmsKeyArn: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes a tag applied to a resource.</p>
- */
-export interface Tag {
-  /**
-   * <p>The tag's key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The tag's value.</p>
-   */
-  Value: string | undefined;
 }
 
 /**
@@ -2396,7 +2411,7 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
  */
 export interface LoggingConfiguration {
   /**
-   * <p>Boolean that enables sending SIP message logs to Amazon CloudWatch logs.</p>
+   * <p>Boolean that enables sending SIP message logs to Amazon CloudWatch.</p>
    */
   EnableSIPLogs?: boolean;
 
@@ -4381,9 +4396,19 @@ export const SipMediaApplicationEndpointFilterSensitiveLog = (obj: SipMediaAppli
 /**
  * @internal
  */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateSipMediaApplicationRequestFilterSensitiveLog = (obj: CreateSipMediaApplicationRequest): any => ({
   ...obj,
   ...(obj.Endpoints && { Endpoints: obj.Endpoints.map((item) => SipMediaApplicationEndpointFilterSensitiveLog(item)) }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4420,6 +4445,14 @@ export const CreateSipMediaApplicationCallRequestFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateVoiceConnectorRequestFilterSensitiveLog = (obj: CreateVoiceConnectorRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const VoiceProfileFilterSensitiveLog = (obj: VoiceProfile): any => ({
   ...obj,
   ...(obj.VoiceProfileArn && { VoiceProfileArn: SENSITIVE_STRING }),
@@ -4439,15 +4472,6 @@ export const CreateVoiceProfileResponseFilterSensitiveLog = (obj: CreateVoicePro
 export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
   ...obj,
   ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
 });
 
 /**

@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { CreateVoiceConnectorRequest, CreateVoiceConnectorResponse } from "../models/models_0";
+import {
+  CreateVoiceConnectorRequest,
+  CreateVoiceConnectorRequestFilterSensitiveLog,
+  CreateVoiceConnectorResponse,
+} from "../models/models_0";
 import { de_CreateVoiceConnectorCommand, se_CreateVoiceConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -46,6 +50,12 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  *   Name: "STRING_VALUE", // required
  *   AwsRegion: "us-east-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "ap-northeast-2" || "ap-northeast-1" || "ap-southeast-1" || "ap-southeast-2",
  *   RequireEncryption: true || false, // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
@@ -131,7 +141,7 @@ export class CreateVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateVoiceConnectorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

@@ -53,6 +53,12 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  *       LambdaArn: "STRING_VALUE",
  *     },
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateSipMediaApplicationCommand(input);
  * const response = await client.send(command);

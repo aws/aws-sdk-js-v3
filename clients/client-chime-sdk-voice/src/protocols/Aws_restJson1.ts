@@ -630,6 +630,7 @@ export const se_CreateSipMediaApplicationCommand = async (
     ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
     ...(input.Endpoints != null && { Endpoints: se_SipMediaApplicationEndpointList(input.Endpoints, context) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -732,6 +733,7 @@ export const se_CreateVoiceConnectorCommand = async (
     ...(input.AwsRegion != null && { AwsRegion: input.AwsRegion }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.RequireEncryption != null && { RequireEncryption: input.RequireEncryption }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -11029,6 +11031,7 @@ const de_SipMediaApplication = (output: any, context: __SerdeContext): SipMediaA
         : undefined,
     Endpoints: output.Endpoints != null ? de_SipMediaApplicationEndpointList(output.Endpoints, context) : undefined,
     Name: __expectString(output.Name),
+    SipMediaApplicationArn: __expectString(output.SipMediaApplicationArn),
     SipMediaApplicationId: __expectString(output.SipMediaApplicationId),
     UpdatedTimestamp:
       output.UpdatedTimestamp != null
