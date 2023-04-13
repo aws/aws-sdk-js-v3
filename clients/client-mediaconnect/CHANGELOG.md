@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.313.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.312.0...v3.313.0) (2023-04-13)
+
+
+### Features
+
+* **client-mediaconnect:** Gateway is a new feature of AWS Elemental MediaConnect. Gateway allows the deployment of on-premises resources for the purpose of transporting live video to and from the AWS Cloud. ([0577cc1](https://github.com/aws/aws-sdk-js-v3/commit/0577cc110b73ce3c02d4c8fb52b1d70ed56ebad7))
+
+
+
+
+
 # [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconnect

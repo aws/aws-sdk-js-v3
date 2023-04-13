@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.313.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.312.0...v3.313.0) (2023-04-13)
+
+
+### Features
+
+* **client-chime-sdk-voice:** This release adds tagging support for Voice Connectors and SIP Media Applications ([4982fd3](https://github.com/aws/aws-sdk-js-v3/commit/4982fd3bd90a3341fce6a07b7ae4c0ae48a25e71))
+
+
+
+
+
 # [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-voice
